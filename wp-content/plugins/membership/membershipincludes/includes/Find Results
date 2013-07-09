@@ -1,0 +1,36 @@
+Searching 186 files for "Select a Subscription"
+
+/Applications/MAMP/htdocs/happyclick/wp-content/plugins/membership/membershipincludes/classes/membershipadmin.php:
+ 6460  						</div>
+ 6461  						<div class='signups'>
+ 6462: 						<h3><?php _e('Select a subscription','membership'); ?></h3>
+ 6463  						<p>
+ 6464: 							<?php _e('Please select a subscription from the options below.','membership'); ?>
+ 6465  						</p>
+ 6466  						<?php
+
+/Applications/MAMP/htdocs/happyclick/wp-content/plugins/membership/membershipincludes/includes/subscription.form.php:
+    5  
+    6  	<fieldset>
+    7: 		<legend><?php _e( 'Select a Subscription2', 'membership' ) ?></legend>
+    8  		<p class="help-block"><?php _e('We have the following subscriptions available for our site. To join, simply click on the <strong>Sign Up</strong> button and then complete the registration details.','membership'); ?></p>
+    9  
+
+/Applications/MAMP/htdocs/happyclick/wp-content/plugins/membership/membershipincludes/languages/membership.po:
+ 3266  
+ 3267  #: membership/membershipincludes/classes/membershipadmin.php:6461
+ 3268: msgid "Select a subscription"
+ 3269  msgstr ""
+ 3270  
+ 3271  #: membership/membershipincludes/classes/membershipadmin.php:6463
+ 3272: msgid "Please select a subscription from the options below."
+ 3273  msgstr ""
+ 3274  
+ ....
+ 5169  
+ 5170  #: membership/membershipincludes/includes/subscription.form.php:7
+ 5171: msgid "Select a Subscription"
+ 5172  msgstr ""
+ 5173  
+
+6 matches across 3 files
