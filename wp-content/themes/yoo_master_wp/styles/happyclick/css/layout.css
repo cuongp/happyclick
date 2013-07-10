@@ -453,3 +453,108 @@ position: absolute;
     padding-right: 20px;
 }
 #headerbar ul.menu li:last-child a{background: none;padding-right: 0px;}
+
+/* Tamnd added code on 09/07/2013 */
+/* global style */
+.text-green{
+    color: #88AB25;
+    font-weight: bold;
+}
+.text-orange{
+    color: #f78000;
+    font-weight: bold;
+}
+.text-red{
+    color: #ff0000;
+    font-weight: bold;
+}
+/* trang Thanh Vien */
+.tv_boxes{}
+.tv_boxes img{
+    margin-right: 28px;
+}
+div.intro-1{
+    font-family: Myriad Pro;
+    font-weight: bolder;
+    text-indent: 90px;
+    line-height: 2.5em;
+    font-style: italic;
+    margin: 1em 0;
+    font-size: 18px;
+}
+div.intro-1 p{}
+h3.h3-green{
+    color: #88ab35;
+    font-size: 28px;
+    font-weight: bold;
+    font-style: italic;
+    font-family: Myriad Pro;
+    text-align: center;
+}
+h3.h3-orange{
+    color: #f78000;
+    font-family: Myriad Pro;
+    font-weight: bold;
+    font-size: 24px;
+}
+div.quyenloi-imgs{}
+div.quyenloi-imgs img{
+    margin: 10px 0 0px 160px;
+}
+div.tv-memberfee{
+    margin-top: 30px;
+}
+div.tv-memberfee span{
+    font-family: Myriad Pro;
+    font-weight: bold;
+    font-size: 20px;
+    float: left;
+    margin: 25px 10px 0 100px;
+}
+a.tv-lienhe{
+    float: left;
+    margin-left: 540px;
+    margin-top: 40px;
+}
+/* trang lien he */
+.contact-box1,
+.contact-box2{
+    border: 1px solid #4c85b2;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px #4c85b2;
+    margin-bottom: 25px;
+    padding: 15px 25px;
+}
+.contact-box1 p,
+.contact-box2 p{
+    padding: 0.5em 0;
+    font-size: 18px;
+    line-height: 30px;
+    clear: both;
+    display: block;
+}
+
+.contact-box1{}
+.contact-box1 .text-green{ font-size:18px; }
+.contact-box1 .phonecall{
+    background: url(../images/247_phone_03.jpg) 0 0 no-repeat;
+    padding: 58px 0 58px 152px;
+    display: block;
+    font-weight: bold;
+    font-size: 22px;
+}
+.contact-box1 span.label{
+    float: left;
+    margin-right: 25px;
+}
+.contact-box1 span.addinfo{
+    float: left;
+}
+.contact-box1 a{}
+
+.contact-box2{}
+.contact-box2 h2{
+    font-size: 24px;
+    line-height: 30px;
+}
+/* END Tamnd's code */
