@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'MyriadProSemiboldItalic';
+    src: url('myriadpro-semiboldit.eot');
+    src: url('myriadpro-semiboldit.eot') format('embedded-opentype'),
+         url('myriadpro-semiboldit.woff') format('woff'),
+         url('myriadpro-semiboldit.ttf') format('truetype'),
+         url('myriadpro-semiboldit.svg#MyriadProSemiboldItalic') format('svg');
+}

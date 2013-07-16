@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'MyriadProBoldCondensedItalic';
+    src: url('myriadpro-boldcondit.eot');
+    src: url('myriadpro-boldcondit.eot') format('embedded-opentype'),
+         url('myriadpro-boldcondit.woff') format('woff'),
+         url('myriadpro-boldcondit.ttf') format('truetype'),
+         url('myriadpro-boldcondit.svg#MyriadProBoldCondensedItalic') format('svg');
+}
