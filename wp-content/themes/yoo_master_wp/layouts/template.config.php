@@ -91,6 +91,10 @@ $this['asset']->addFile('css', 'css:style.css');
 if ($this['config']->get('direction') == 'rtl') $this['asset']->addFile('css', 'css:rtl.css');
 $this['asset']->addFile('css', 'css:responsive.css');
 $this['asset']->addFile('css', 'css:print.css');
+$this['asset']->addFile('css', 'template:fonts/8/8.css');
+$this['asset']->addFile('css', 'template:fonts/11/11.css');
+//include tamnd js scripts
+$this['asset']->addFile('css', 'css:tnd/style.css');
 
 // load fonts
 $http  = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
@@ -139,6 +143,9 @@ $this['asset']->addFile('js', 'js:responsive.js');
 $this['asset']->addFile('js', 'js:accordionmenu.js');
 $this['asset']->addFile('js', 'js:dropdownmenu.js');
 $this['asset']->addFile('js', 'js:template.js');
+//include tamnd js scripts
+$this['asset']->addFile('js', 'js:tnd/scripts.js');
+$this['asset']->addFile('js', 'js:tnd/jquery.jcarousel.min.js');
 
 // internet explorer
 if ($this['useragent']->browser() == 'msie') {
