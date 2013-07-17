@@ -37,6 +37,9 @@ elseif (is_single()) {
     if ($this["path"]->path("layouts:{$queried_object->post_type}.php")) {
 		$content = $queried_object->post_type;
 	}*/
+    if(in_array('temp_layout', get_post_custom_keys())){
+        $content = 'single-onecolumn';
+    }
 
 } elseif (is_search()) {
 	$content = 'search';

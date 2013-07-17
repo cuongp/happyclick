@@ -552,4 +552,9 @@ div.wpcf7-validation-errors{ border:none; }
 .single .author_info h3.text-orange{ color: #ff8400; }
 .single .text-orange{}
 
+.item .content{}
+.item .content p{
+    line-height: 1.8em;
+}
+
 /* END Tamnd's code */
