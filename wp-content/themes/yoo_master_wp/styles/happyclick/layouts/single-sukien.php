@@ -1,5 +1,5 @@
-<div id="system">
 
+<div id="system" class="box2">
 	<?php if (have_posts()) : ?>
 		<?php while (have_posts()) : the_post(); ?>
 		
@@ -12,7 +12,7 @@
 				?>
 			<?php endif; ?>
 
-			<header>
+			<!--<header>
 		
 				<h1 class="title"><?php the_title(); ?></h1>
 	
@@ -23,9 +23,9 @@
 					?>
 				</p>
 
-			</header>
+			</header>-->
 
-			<div class="content clearfix"><?php the_content(''); ?></div>
+			<div class="content clearfix" ><?php the_content(''); ?></div>
 
 			<?php the_tags('<p class="taxonomy">'.__('Tags: ', 'warp'), ', ', '</p>'); ?>
 

@@ -17,6 +17,7 @@ include($this['path']->path('layouts:template.config.php'));
 <head>
 
 <?php echo $this['template']->render('head'); ?>
+
 </head>
 
 <body id="page" class="page <?php echo $this['config']->get('body_classes'); ?>" data-config='<?php echo $this['config']->get('body_config','{}'); ?>'>

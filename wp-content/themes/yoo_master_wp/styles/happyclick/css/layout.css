@@ -28,7 +28,7 @@ em{color: #000;}
     box-shadow: 1px 2px 3px 0px rgba(184, 215, 240, 1);
 }
 
-#sidebar-a .module{margin: 0px 0px 15px 0px}
+#sidebar-a .module{margin: 0px 0px 0px 0px}
 #sidebar-b .module{margin: 0px 0px -5px 0px;}
 #toolbar,
 #headerbar { margin-bottom: 15px; }
@@ -295,6 +295,7 @@ border-top: none;
 margin: 15px 0px;
 margin-left: 10px;
 padding:10px;
+padding-right: 0px;
 }
 .box{
     -webkit-border-radius:5px;
@@ -489,6 +490,10 @@ color: #0064a4;
     display: block;
     text-align: center;
 }
+#headerbar{
+    margin-top: 17px;
+    
+}
 #headerbar ul.menu li a{
     background: url(../images/sep2.png) right no-repeat;
     padding-right: 20px;
@@ -528,4 +533,27 @@ height: auto;
 .widget_loginwithajaxwidget a{
     color: #414141;
     text-transform: capitalize;
+}
+.box2{
+    margin-top:-12px;padding:0 10px
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    border: 1px solid #eaeaea;    
+    -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow:    0px 0px 5px rgba(0, 0, 0, 0.75);
+    box-shadow:         0px 0px 5px rgba(0, 0, 0, 0.75);
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+}
+.box2 .bodycontent{
+    padding:20px 40px;
+}
+.box2 .bodycontent h3{
+    color: #f78000;
+}
+.box2 .banner img{
+    width: 100%;
+    height: auto;
 }
