@@ -53,9 +53,23 @@ include($this['path']->path('layouts:template.config.php'));
 				
 			</div>
 			<?php endif; ?>
+			<?php if ($this['modules']->count('menu + search')) : ?>
+			<div id="menubar" class="clearfix">
+				<div class="left_topnav"></div>
+                <div class="right_topnav"></div>
+				<?php if ($this['modules']->count('menu')) : ?>
+				<nav id="menu"><?php echo $this['modules']->render('menu'); ?></nav>
+				<?php endif; ?>
 
+				<?php if ($this['modules']->count('search')) : ?>
+				<div id="search"><?php echo $this['modules']->render('search'); ?></div>
+				<?php endif; ?>
+				
+			</div>
+			<?php endif; ?>		
 			<?php 
             if(is_front_page()):
+
             if ($this['modules']->count('logo + headerbar-trial')) : ?>	
 			<div id="headerbar" class="clearfix">
 			
@@ -81,20 +95,7 @@ dành cho thành viên Happy Click</p>
             endif;
             endif; ?>
 
-			<?php if ($this['modules']->count('menu + search')) : ?>
-			<div id="menubar" class="clearfix">
-				<div class="left_topnav"></div>
-                <div class="right_topnav"></div>
-				<?php if ($this['modules']->count('menu')) : ?>
-				<nav id="menu"><?php echo $this['modules']->render('menu'); ?></nav>
-				<?php endif; ?>
-
-				<?php if ($this['modules']->count('search')) : ?>
-				<div id="search"><?php echo $this['modules']->render('search'); ?></div>
-				<?php endif; ?>
-				
-			</div>
-			<?php endif; ?>
+			
 		<?php 
             if(!is_front_page()):
             if ($this['modules']->count('logo + headerbar')) : ?>	
