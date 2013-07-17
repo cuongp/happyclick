@@ -480,6 +480,10 @@ div.wpcf7-validation-errors{ border:none; }
 .content-box2 .course-thumbnail{
     float: right;
     margin-left: 20px;
+    width: 267px;
+    overflow: hidden;
+    height: 124px;
+    border-radius: 5px;
 }
 .content-box2 .course-thumbnail img{ float: right; }
 .content-box2 .item-global-info{

@@ -242,7 +242,7 @@
 
 	$.fn.wpcf7FillResponseOutput = function(message) {
 		return this.each(function() {
-			$(this).find('div.wpcf7-response-output').append(message).slideDown('fast');
+			$(this).find('div.wpcf7-response-output').append(message).fancybox(50).click();
 		});
 	};
 

@@ -17,6 +17,7 @@
 
 //Cac khoa hoc truc tuyen tiep theo
 $args = array(
+    'category_name' => 'hoc-truc-tuyen',
     'post_status' => array( 'future' ),
     'posts_per_page' => 6,
     'orderby' => 'date',
@@ -39,6 +40,7 @@ while ( $the_query->have_posts() ) {
 echo '<h3 class="course-old-title">Xem lại các khóa đã tổ chức</h3>';
 echo '<p class="course-old-sub-title">(chỉ dành cho thành viên)</p>';
 $args = array(
+    'category_name' => 'hoc-truc-tuyen',
     'post_status' => array( 'publish' ),
     'posts_per_page' => 6,
     'orderby' => 'date',

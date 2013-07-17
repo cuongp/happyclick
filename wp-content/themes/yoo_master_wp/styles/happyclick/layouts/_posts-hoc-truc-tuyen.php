@@ -17,6 +17,7 @@
 
 //Khoa hoc sap dien ra
 $args = array(
+    'category_name' => 'hoc-truc-tuyen',
     'post_status' => array( 'future' ),
     'posts_per_page' => 1,
     'orderby' => 'date',
@@ -24,7 +25,6 @@ $args = array(
 );
 
 $the_query = new WP_Query( $args );
-
 while ( $the_query->have_posts() ) {
 	$the_query->the_post();
     echo $this->render('_post-hoc-truc-tuyen');

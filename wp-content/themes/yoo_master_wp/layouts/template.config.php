@@ -94,6 +94,7 @@ $this['asset']->addFile('css', 'css:print.css');
 $this['asset']->addFile('css', 'template:fonts/8/8.css');
 $this['asset']->addFile('css', 'template:fonts/11/11.css');
 //include tamnd js scripts
+$this['asset']->addFile('css', 'css:fancy/jquery.fancybox.css');
 $this['asset']->addFile('css', 'css:tnd/style.css');
 
 // load fonts
@@ -146,6 +147,7 @@ $this['asset']->addFile('js', 'js:template.js');
 //include tamnd js scripts
 $this['asset']->addFile('js', 'js:tnd/scripts.js');
 $this['asset']->addFile('js', 'js:tnd/jquery.jcarousel.min.js');
+$this['asset']->addFile('js', 'js:fancy/jquery.fancybox.pack.js');
 
 // internet explorer
 if ($this['useragent']->browser() == 'msie') {
