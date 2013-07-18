@@ -317,7 +317,10 @@ padding-right: 0px;
     list-style-type: none;
 }
 #form p{
-    line-height: 40px;
+    line-height: 18px;
+}
+#form span{
+    color: red;
 }
 #form label{
     margin-right: 50px;
@@ -336,7 +339,14 @@ padding-right: 0px;
     margin-top: 30px;
     margin-bottom: 50px;
 }
-
+#form table .box3,#form table .box4{
+    border: 1px solid #70a7c7;
+    padding: 10px;
+}
+#form table .box3{
+    background: #dfe7ed;
+    font-weight: bold;
+}
 #form .login-button input[type="submit"] {
     background: url(../images/submit-login.png) no-repeat;
 margin-bottom: 20px}
