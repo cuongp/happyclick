@@ -556,5 +556,37 @@ div.wpcf7-validation-errors{ border:none; }
 .item .content p{
     line-height: 1.8em;
 }
-
+.video-category{
+    border-bottom: 1px solid #ddd;
+}
+.video-category h3, 
+.video-category p{
+    padding: 0px 15px;
+}
+.video-category h3{}
+.video-category p{}
+.video-category .jcarousel-skin-tango .jcarousel-item-horizontal{
+    margin-right: 37px;
+}
+.video-category .jcarousel-skin-tango .jcarousel-prev-horizontal{
+    background: url(images/video_prev.jpg) 0 50% no-repeat;
+}
+.video-category .jcarousel-skin-tango .jcarousel-next-horizontal{
+    background: url(images/video_next.jpg) 0 50% no-repeat;
+}
+.video-pagination{
+    font-weight: bold;
+    padding-top: 1em;
+    text-align: right;
+}
+.video-pagination span{
+    padding-right: 10px;
+}
+.video-pagination a{
+    float:right;
+    margin: 0 10px;
+}
+.video-pagination a.active{
+    color: #f78000;
+}
 /* END Tamnd's code */
