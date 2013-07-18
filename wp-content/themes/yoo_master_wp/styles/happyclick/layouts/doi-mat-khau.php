@@ -2,7 +2,7 @@
 	<div class="box" style="width:730px">
 	<?php
 	$flag = '';
-if(isset($_POST))
+if(isset($_POST) && $_POST['action'] == 'submit')
 {
 	global $current_user;
 	
@@ -13,9 +13,8 @@ if(isset($_POST))
 	}
 	if ( $current_user && wp_check_password( $_POST['current_pass'], $current_user->data->user_pass, $current_user->ID) )
    	{
-   		if(wp_set_password($_POST['new_pass'],$current_user->ID)){
-   			$flag= '<h3 class="success">Thay đổi mật khẩu thành công</h3>';
-   		}
+   		wp_set_password($_POST['new_pass'],$current_user->ID);
+   		$flag= '<h3 class="success">Thay đổi mật khẩu thành công</h3>';
    	}
 	else
    	{
@@ -46,7 +45,7 @@ echo $flag;
 				<td  class="box4"><input type="text" name="confirm_pass" /><span>*</span></td>				
 			</tr>
 			<tr>
-				<td></td>
+				<td><input type="hidden" name="action" value="submit"></td>
 				<td align="center"><input type="submit" value="" class="submit_final" /></td>
 			</tr>
 			<tr>

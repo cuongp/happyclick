@@ -28,7 +28,7 @@
 							$is_member = current_user_is_member();
 							$is_subs = current_user_has_subscription();
 							if($is_member && $is_subs){?>
-							<a href="<?php echo trailingslashit(get_admin_url()); ?>profile.php"><?php esc_html_e('Trang cá nhân','login-with-ajax') ?></a> |
+							<a href="/hcaccount/trang-ca-nhan/"><?php esc_html_e('Trang cá nhân','login-with-ajax') ?></a> |
 							<?php
 			
 							}else if($is_member && !$is_subs){

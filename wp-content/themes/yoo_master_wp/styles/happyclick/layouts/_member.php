@@ -8,7 +8,7 @@
 
 // get template configuration
 include($this['path']->path('layouts:template.config.php'));
-	
+	global $current_user;
 
 ?>
 <!DOCTYPE HTML>
@@ -52,20 +52,30 @@ include($this['path']->path('layouts:template.config.php'));
 				<?php if ($this['modules']->count('toolbar-r')) : ?>
 				<div class="float-right"><?php echo $this['modules']->render('toolbar-r'); ?></div>
 				<?php endif; ?>
-				
+				<?php echo $this['modules']->render('headerbar-trial'); ?>
+				<div class='user_info'>
+				<h3 class="username">Chào <?php echo $current_user->user_nicename; ?> !</h3>
+				<p>Mời bạn xem thử một số tiện ích<br/>
+dành cho thành viên Happy Click</p>
+				</div>
 			</div>
 			<?php endif; ?>
 
 			<?php 
             if(is_front_page()):
-            if ($this['modules']->count('logo + headerbar')) : ?>	
+            if ($this['modules']->count('logo + headerbar-trial')) : ?>	
 			<div id="headerbar" class="clearfix">
 			
 				<?php if ($this['modules']->count('logo')) : ?>	
 				<a id="logo" href="<?php echo $this['config']->get('site_url'); ?>"><?php echo $this['modules']->render('logo'); ?></a>
 				<?php endif; ?>
 				
-				<?php echo $this['modules']->render('headerbar'); ?>
+				<?php echo $this['modules']->render('headerbar-trial'); ?>
+				<div class='user_info'>
+				<h3 class="username">Chào <?php echo $current_user->user_nicename; ?> !</h3>
+				<p>Mời bạn bắt đầu hành trình<br/>
+"thăng tiến mỗi ngày" với Happy Click</p>
+				</div>
 				
 			</div>
 			<?php 
@@ -88,14 +98,19 @@ include($this['path']->path('layouts:template.config.php'));
 			<?php endif; ?>
 		<?php 
             if(!is_front_page()):
-            if ($this['modules']->count('logo + headerbar')) : ?>	
+            if ($this['modules']->count('logo + headerbar-trial')) : ?>	
 			<div id="headerbar" class="clearfix">
 			
 				<?php if ($this['modules']->count('logo')) : ?>	
 				<a id="logo" href="<?php echo $this['config']->get('site_url'); ?>"><?php echo $this['modules']->render('logo'); ?></a>
 				<?php endif; ?>
-				
-				<?php echo $this['modules']->render('headerbar'); ?>
+				<?php echo $this['modules']->render('headerbar-trial'); ?>
+				<div class='user_info'>
+				<h3 class="username">Chào <?php echo $current_user->user_nicename; ?> !</h3>
+				<p>Mời bạn bắt đầu hành trình<br/>
+"thăng tiến mỗi ngày" với Happy Click</p>
+				</div>
+
 				
 			</div>
 			<?php 
