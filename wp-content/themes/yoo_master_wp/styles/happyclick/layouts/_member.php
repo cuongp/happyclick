@@ -122,14 +122,22 @@ dành cho thành viên Happy Click</p>
 		
 		</header>
 
-		<?php if ($this['modules']->count('membership')) : ?>
+		
 
 	<section id="membership">
-		<div class="grid-block">
-			<?php echo $this['modules']->render('membership', array('layout'=>$this['config']->get('membership'))); ?>
+	<div class="grid-block">
+		<div class="grid-box width33 grid-h">
+			<?php echo $this['modules']->render('membership-1', array('layout'=>$this['config']->get('membership-1'))); ?>	
 		</div>
+		<div class="grid-box width33 grid-h">
+			<?php echo $this['modules']->render('membership-2', array('layout'=>$this['config']->get('membership-2'))); ?>	
+		</div>
+		<div class="grid-box width33 grid-h">
+			<?php echo $this['modules']->render('membership-3', array('layout'=>$this['config']->get('membership-3'))); ?>	
+		</div>
+	</div>
 	</section>
-<?php endif; ?>
+
 		<div id="main" class="grid-block">
 		<?php if ($this['modules']->count('sidebar-a')) : ?>
 			<aside id="sidebar-a" class="grid-box"><?php echo $this['modules']->render('sidebar-a', array('layout'=>'stack')); ?></aside>
