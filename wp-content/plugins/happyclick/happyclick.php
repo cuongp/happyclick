@@ -99,28 +99,6 @@ function chude_taxonomy_type()
         flush_rewrite_rules();
 }
 add_action('init', 'diengia_taxonomy_type');
-add_action('init', 'hcaccount_taxonomy_type');
-function hcaccount_taxonomy_type()
-{
-    $labels = array(
-        'name' => __('HC Account'),
-        'singular_name' => __('HC Account'),
-        'search_items' => __('Search Account'),
-        'all_items' => __('All Account'),
-        'edit_item' => __('Edit Account'),
-        'update_item' => __('Update Account'),
-        'add_new_item' => __('Add New Account'),
-        'new_item_name' => __('New Account'),
-        'choose_from_most_used' => __('Choose from the most used Account'));
-    register_taxonomy('hcaccount', array('post'), array(
-        'hierarchical' => true,
-        'labels' => $labels,
-        'query_var' => 'hcaccount',
-        'rewrite' => true,
-        'show_in_nav_menus' => true));
-        flush_rewrite_rules();
-}
-
 
 function diengia_taxonomy_type()
 {

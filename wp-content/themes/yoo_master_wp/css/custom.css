@@ -3,3 +3,81 @@
 /*
  * Custom Style Sheet - Use this file to style your content
  */
+ 
+/*  Vu Css*/
+
+.category-lam-giau-cuoc-song #system {
+	margin-left: 20px;
+}
+
+.category-lam-giau-cuoc-song #system #tabs > ul {
+	height:73px;
+	width:100%;
+	list-style: none outside none;
+	display:block;
+	margin: 0;
+    padding: 0;
+}
+.category-lam-giau-cuoc-song #system #tabs > ul > li {
+	float: left;
+	height: 63px;
+	width: 260px;
+	margin-top:10px;
+}
+.category-lam-giau-cuoc-song #system #tabs > ul > li > a {
+    font-size: 16px;
+    font-weight: bold;
+	font:arial;
+	line-height: 67px;
+}
+
+.category-lam-giau-cuoc-song #system #tabs > ul > li#tab-radio {
+	background: url('../images/tab-radio.png') no-repeat center center transparent;
+}
+.category-lam-giau-cuoc-song #system #tabs > ul > li#tab-radio a {
+	color: #3074FF;
+    margin-left: 94px;
+}
+.category-lam-giau-cuoc-song #system #tabs > ul > li#tab-cs {
+	background: url('../images/tab-cs.png') no-repeat center center transparent;
+}
+.category-lam-giau-cuoc-song #system #tabs > ul > li#tab-cs a {
+	color: #5F7D05;
+    margin-left: 124px;
+}
+.category-lam-giau-cuoc-song #system #tabs > ul > li#tab-kt {
+	background: url('../images/tab-kt.png') no-repeat center center transparent;
+}
+.category-lam-giau-cuoc-song #system #tabs > ul > li#tab-kt a {
+	
+	color: #940244;
+    margin-left: 105px;
+}
+
+.category-lam-giau-cuoc-song #system #tabs > ul > li#tab-radio.ui-tabs-active {
+	background: url('../images/tab-radio-active.png') no-repeat left transparent;
+	height: 73px;
+	width: 270px;
+	margin-top:0px;
+}
+
+.category-lam-giau-cuoc-song #system #tabs > ul > li#tab-cs.ui-tabs-active {
+	background: url('../images/tab-cs-active.png') no-repeat left transparent;
+	height: 73px;
+	width: 270px;
+	margin-top:0px;
+}
+
+.category-lam-giau-cuoc-song #system #tabs > ul > li#tab-kt.ui-tabs-active {
+	background: url('../images/tab-kt-active.png') no-repeat left transparent;
+	height: 73px;
+	width: 270px;
+	margin-top:0px;
+}
+
+.category-lam-giau-cuoc-song #system .posts-wrapper {
+	width:100%
+}
+
+
+

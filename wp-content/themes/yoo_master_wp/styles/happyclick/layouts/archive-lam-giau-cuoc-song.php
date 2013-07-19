@@ -1,4 +1,4 @@
-<div id="system">
+﻿<div id="system">
 	<?php if (have_posts()) : ?>
 
 		<?php if (is_category()) : ?>
@@ -16,14 +16,29 @@
 		<?php elseif (isset($_GET['paged']) && !empty($_GET['paged'])) : ?>
 			<h1 class="page-title"><?php _e('Blog Archives', 'warp'); ?></h1>
 		<?php endif; ?>
-        
-		<?php 
-            
-    
-                echo $this->render('_posts'); ?>
-		
-		<?php echo $this->render("_pagination", array("type"=>"posts")); ?>
-		
+		<!-- code -->
+		<div id="tabs">
+			<ul>
+				<li id="tab-radio"><a href="<?php echo get_site_url().'/category/happy-click-radio'; ?>">Happy Click Radio</a></li>
+				<li id="tab-cs"><a href="<?php echo get_site_url().'/category/goc-chia-se'; ?>">Góc chia sẻ</a></li>
+				<li id="tab-kt"><a href="<?php echo get_site_url().'/category/goc-kien-thuc'; ?>">Góc kiến thức</a></li>
+			</ul>
+			</div>
+			<div class="posts-wrapper">
+				<?php if (is_category( )) {
+						$cat = get_query_var('cat');
+						$curr_cat = get_category ($cat);
+						
+						if($curr_cat->slug == "happy-click-radio") {
+							echo $this->render('_posts-happy-click-radio');
+						} else if($curr_cat->slug == "goc-chia-se") {
+							echo $this->render('_posts-goc-chia-se');
+						} else if($curr_cat->slug == "goc-kien-thuc") {
+							echo $this->render('_posts-goc-kien-thuc');
+						}
+					}
+				?>
+			</div>
 	<?php else : ?>
 
 		<?php if (is_category()) : ?>
