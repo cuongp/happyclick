@@ -406,6 +406,7 @@ div.wpcf7-validation-errors{ border:none; }
 }
 .content-box1 .content-box-inside{
     padding: 10px 20px 20px 10px;
+    overflow: hidden;
 }
 .content-box1 .how-to-join{
     background: url(images/how-to-join.gif) 0 0 no-repeat;
@@ -588,5 +589,40 @@ div.wpcf7-validation-errors{ border:none; }
 }
 .video-pagination a.active{
     color: #f78000;
+}
+.remove_link a{
+    color: #222;
+    cursor: default;
+}
+.gallery_item{ 
+    float:left; 
+    width: 235px;
+    padding: 10px 25px;
+    text-align: center;
+}
+.gallery_item .gallery_thumb{
+    background: url(images/hinhanh_item_bg.png) 0 0 no-repeat;
+    float: left;
+    padding: 20px 16px;
+}
+.gallery_item .gallery_thumb img{}
+.gallery_item .post-categories{
+    list-style: none;
+    text-align: center;
+    list-style-position: inside;
+    padding: 0;
+    margin: 10px 0 0;
+    font-style: italic;
+}
+.gallery_item .post-categories li{}
+.gallery_item a{
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+.gallery_item .event_date{
+    font-weight: bold;
+    font-style: italic;
 }
 /* END Tamnd's code */
