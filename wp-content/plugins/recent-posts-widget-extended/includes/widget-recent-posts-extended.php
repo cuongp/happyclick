@@ -47,7 +47,8 @@ class rpwe_widget extends WP_Widget
 		$post_type = $instance['post_type'];
 		$date = $instance['date'];
 		$css = wp_filter_nohtml_kses($instance['css']);
-
+		$layout = $instance['layout'];
+		var_dump($instance);
 		echo $before_widget;
 
 		if ($css)
@@ -80,7 +81,7 @@ class rpwe_widget extends WP_Widget
 			<ul class="rpwe-ul">
 
 				<?php foreach ($rpwewidget as $post) : setup_postdata($post); ?>
-
+					<li></li>
 					<li class="rpwe-clearfix">
 
 						<?php if (has_post_thumbnail() && $thumb == true) { ?>
@@ -143,7 +144,7 @@ class rpwe_widget extends WP_Widget
 		$instance['post_type'] = $new_instance['post_type'];
 		$instance['date'] = $new_instance['date'];
 		$instance['css'] = wp_filter_nohtml_kses($new_instance['css']);
-
+		$instance['layout'] = $new_instance['layout'];
 		delete_transient('rpwewidget_' . $this->id);
 
 		return $instance;
@@ -158,19 +159,20 @@ class rpwe_widget extends WP_Widget
 
 		/* Set up some default widget settings. */
 		$defaults = array(
-			'title' => '',
-			'cssID' => '',
-			'cacheLife' => 43200,
-			'limit' => 5,
-			'excerpt' => '',
-			'length' => 10,
-			'thumb' => true,
-			'thumb_height' => 45,
-			'thumb_width' => 45,
-			'cat' => '',
-			'post_type' => '',
-			'date' => true,
-			'css' => ''
+			'title' 		=> '',
+			'cssID' 		=> '',
+			'cacheLife' 	=> 43200,
+			'limit' 		=> 5,
+			'excerpt' 		=> '',
+			'length' 		=> 10,
+			'thumb' 		=> true,
+			'thumb_height' 	=> 45,
+			'thumb_width' 	=> 45,
+			'cat' 			=> '',
+			'post_type' 	=> '',
+			'date' 			=> true,
+			'css' 			=> '',
+			'layout' 		=> '0'
 		);
 
 		$instance = wp_parse_args((array)$instance, $defaults);
@@ -187,7 +189,8 @@ class rpwe_widget extends WP_Widget
 		$post_type = $instance['post_type'];
 		$date = $instance['date'];
 		$css = wp_filter_nohtml_kses($instance['css']);
-
+		$layout = $instance['layout'];
+		
 		?>
 
 		<p>
@@ -222,7 +225,7 @@ class rpwe_widget extends WP_Widget
 			<label for="<?php echo esc_attr($this->get_field_id('length')); ?>"><?php _e('Excerpt Length:', 'rpwe'); ?></label>
 			<input class="widefat" id="<?php echo esc_attr($this->get_field_id('length')); ?>" name="<?php echo esc_attr($this->get_field_name('length')); ?>" type="text" value="<?php echo $length; ?>"/>
 		</p>
-
+	
 		<?php if (current_theme_supports('post-thumbnails')) { ?>
 
 			<p>
@@ -236,7 +239,19 @@ class rpwe_widget extends WP_Widget
 			</p>
 
 		<?php } ?>
+		<p>			<label for="<?php echo esc_attr($this->get_field_id('layout')); ?>"><?php _e('Choose the the layout: ', 'rpwe'); ?></label>
+		<select class="widefat" id="<?php echo esc_attr($this->get_field_id('layout')); ?>" name="<?php echo esc_attr($this->get_field_name('layout')); ?>" >
+			
+				<option value="0" <?php selected($instance['layout'], 0)?>>Default</option>
+				<option value="1"  <?php selected($instance['layout'], 1)?>>Học trực tuyến</option>
+				<option value="3"  <?php selected($instance['layout'], 3)?>>Học trực tuyến 2</option>
+				<option value="4"  <?php selected($instance['layout'], 4)?>>Học qua video</option>
+				<option value="5"  <?php selected($instance['layout'], 5)?>>Làm giàu cuộc sống</option>
+				<option value="6"  <?php selected($instance['layout'], 6)?>>Phát triễn nghề nghiệp</option>
 
+		
+		</select>
+		</p>
 		<p>
 			<label for="<?php echo esc_attr($this->get_field_id('cat')); ?>"><?php _e('Limit to Category: ', 'rpwe'); ?></label>
 			<?php wp_dropdown_categories(array('name' => $this->get_field_name('cat'), 'show_option_all' => __('All categories', 'rpwe'), 'hide_empty' => 1, 'hierarchical' => 1, 'selected' => $cat)); ?>
