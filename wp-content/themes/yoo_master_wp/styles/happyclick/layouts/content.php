@@ -29,6 +29,9 @@ if (is_home()) {
 	$content = 'attachment';
 }
 elseif (is_single()) {
+    $id = get_the_ID();
+    var_dump(get_the_category());
+   
     
    	$content = 'single';
 	if(get_post_type()=='sukien'){

@@ -326,41 +326,41 @@ if (!class_exists('nggLoader')) {
 		function load_scripts() {
 
 			// if you don't want that NGG load the scripts, add this constant
-			if ( defined('NGG_SKIP_LOAD_SCRIPTS') )
-				return;
+//			if ( defined('NGG_SKIP_LOAD_SCRIPTS') )
+//				return;
 
 			//	activate Thickbox
-			if ($this->options['thumbEffect'] == 'thickbox') {
-				wp_enqueue_script( 'thickbox' );
-				// Load the thickbox images after all other scripts
-				add_action( 'wp_footer', array(&$this, 'load_thickbox_images'), 11 );
-
-			}
+//			if ($this->options['thumbEffect'] == 'thickbox') {
+//				wp_enqueue_script( 'thickbox' );
+//				// Load the thickbox images after all other scripts
+//				add_action( 'wp_footer', array(&$this, 'load_thickbox_images'), 11 );
+//
+//			}
 
 			// activate jquery.lightbox
-			if ($this->options['thumbEffect'] == 'lightbox') {
-				wp_enqueue_script('jquery');
-			}
+//			if ($this->options['thumbEffect'] == 'lightbox') {
+//				wp_enqueue_script('jquery');
+//			}
 
-			// activate modified Shutter reloaded if not use the Shutter plugin
-			if ( ($this->options['thumbEffect'] == "shutter") && !function_exists('srel_makeshutter') ) {
-				wp_register_script('shutter', NGGALLERY_URLPATH .'shutter/shutter-reloaded.js', false ,'1.3.3');
-				wp_localize_script('shutter', 'shutterSettings', array(
-							'msgLoading' => __('L O A D I N G', 'nggallery'),
-							'msgClose' => __('Click to Close', 'nggallery'),
-							'imageCount' => '1'
-				) );
-				wp_enqueue_script( 'shutter' );
-			}
+//			// activate modified Shutter reloaded if not use the Shutter plugin
+//			if ( ($this->options['thumbEffect'] == "shutter") && !function_exists('srel_makeshutter') ) {
+//				wp_register_script('shutter', NGGALLERY_URLPATH .'shutter/shutter-reloaded.js', false ,'1.3.3');
+//				wp_localize_script('shutter', 'shutterSettings', array(
+//							'msgLoading' => __('L O A D I N G', 'nggallery'),
+//							'msgClose' => __('Click to Close', 'nggallery'),
+//							'imageCount' => '1'
+//				) );
+//				wp_enqueue_script( 'shutter' );
+//			}
 
 			// required for the slideshow
-			if ( NGGALLERY_IREXIST == true && $this->options['enableIR'] == '1' && nggGallery::detect_mobile_phone() === false )
-				wp_enqueue_script('swfobject');
-			else {
-				wp_register_script('jquery-cycle', NGGALLERY_URLPATH .'js/jquery.cycle.all.min.js', array('jquery'), '2.9995');
-				wp_enqueue_script('ngg-slideshow', NGGALLERY_URLPATH .'js/ngg.slideshow.min.js', array('jquery-cycle'), '1.06');
-
-			}
+//			if ( NGGALLERY_IREXIST == true && $this->options['enableIR'] == '1' && nggGallery::detect_mobile_phone() === false )
+//				wp_enqueue_script('swfobject');
+//			else {
+//				wp_register_script('jquery-cycle', NGGALLERY_URLPATH .'js/jquery.cycle.all.min.js', array('jquery'), '2.9995');
+//				wp_enqueue_script('ngg-slideshow', NGGALLERY_URLPATH .'js/ngg.slideshow.min.js', array('jquery-cycle'), '1.06');
+//
+//			}
 
 			// Load AJAX navigation script, works only with shutter script as we need to add the listener
 			if ( $this->options['galAjaxNav'] ) {

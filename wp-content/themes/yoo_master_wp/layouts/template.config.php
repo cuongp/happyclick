@@ -146,12 +146,13 @@ $this['asset']->addFile('js', 'js:accordionmenu.js');
 $this['asset']->addFile('js', 'js:dropdownmenu.js');
 $this['asset']->addFile('js', 'js:template.js');
 //include tamnd js scripts
+$this['asset']->addFile('js', 'js:fancy/jquery.fancybox.pack.js');
+$this['asset']->addFile('js', 'js:wowslider/jquery.js');
+$this['asset']->addFile('js', 'js:wowslider/wowslider.js');
+$this['asset']->addFile('js', 'js:wowslider/script.js');
 $this['asset']->addFile('js', 'js:tnd/scripts.js');
 $this['asset']->addFile('js', 'js:tnd/scripts_vu.js');
 $this['asset']->addFile('js', 'js:tnd/jquery.jcarousel.min.js');
-$this['asset']->addFile('js', 'js:fancy/jquery.fancybox.pack.js');
-$this['asset']->addFile('js', 'js:wowslider/wowslider.js');
-$this['asset']->addFile('js', 'js:wowslider/script.js');
 
 // internet explorer
 if ($this['useragent']->browser() == 'msie') {
