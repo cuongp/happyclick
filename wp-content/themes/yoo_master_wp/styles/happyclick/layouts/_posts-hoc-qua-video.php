@@ -44,6 +44,8 @@ foreach ($categories as $key=>$category){
         'order' => 'ASC',
         'show_count' => 1
     );
+    //Category chua co du lieu => bo qua
+    if($category->count == 0 ) continue;
     ?>
     <div class="video-category">
         <h3><?php echo $category->name.' ('.$category->count.')'; ?></h3>

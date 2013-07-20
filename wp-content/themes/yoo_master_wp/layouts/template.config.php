@@ -95,7 +95,7 @@ $this['asset']->addFile('css', 'template:fonts/8/8.css');
 $this['asset']->addFile('css', 'template:fonts/11/11.css');
 //include tamnd js scripts
 $this['asset']->addFile('css', 'css:fancy/jquery.fancybox.css');
-$this['asset']->addFile('css', 'css:wowslider/style.css');
+//$this['asset']->addFile('css', 'css:wowslider/style.css');
 $this['asset']->addFile('css', 'css:tnd/style.css');
 
 // load fonts
@@ -147,9 +147,9 @@ $this['asset']->addFile('js', 'js:dropdownmenu.js');
 $this['asset']->addFile('js', 'js:template.js');
 //include tamnd js scripts
 $this['asset']->addFile('js', 'js:fancy/jquery.fancybox.pack.js');
-$this['asset']->addFile('js', 'js:wowslider/jquery.js');
-$this['asset']->addFile('js', 'js:wowslider/wowslider.js');
-$this['asset']->addFile('js', 'js:wowslider/script.js');
+//$this['asset']->addFile('js', 'js:wowslider/jquery.js');
+//$this['asset']->addFile('js', 'js:wowslider/wowslider.js');
+//$this['asset']->addFile('js', 'js:wowslider/script.js');
 $this['asset']->addFile('js', 'js:tnd/scripts.js');
 $this['asset']->addFile('js', 'js:tnd/scripts_vu.js');
 $this['asset']->addFile('js', 'js:tnd/jquery.jcarousel.min.js');

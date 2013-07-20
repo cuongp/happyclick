@@ -1,5 +1,9 @@
-<li class="jcarousel-item jcarousel-item-horizontal">
-    <a href="<?php the_permalink(); ?>">
+<li class="jcarousel-item jcarousel-item-horizontal video-item">
+    <?php 
+    $youtubeVideo = get_post_custom_values('youtube-video'); 
+    $youtubeVideo_link = $youtubeVideo[0];
+    ?>
+    <a href="<?php the_permalink() ?>" target="_blank" class="iframe">
         <div class="course-video-thumb">
             <?php if (has_post_thumbnail()) : ?>
                 <?php
