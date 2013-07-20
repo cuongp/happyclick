@@ -4,3 +4,5 @@
 /wp-content/uploads/wpcf7_captcha/
 /wowslider/
 wp-config.php
+.DS_Store
+thumb.db
