@@ -19,13 +19,13 @@
 define('DB_NAME', 'dev');
 
 /** MySQL database username */
-define('DB_USER', 'dev');
+define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'build@2013');
+define('DB_PASSWORD', '123654');
 
 /** MySQL hostname */
-define('DB_HOST', 'admin.happyclick.vn:3300');
+define('DB_HOST', 'localhost');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
