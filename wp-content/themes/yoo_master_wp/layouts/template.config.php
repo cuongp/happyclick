@@ -93,6 +93,7 @@ $this['asset']->addFile('css', 'css:responsive.css');
 $this['asset']->addFile('css', 'css:print.css');
 $this['asset']->addFile('css', 'template:fonts/8/8.css');
 $this['asset']->addFile('css', 'template:fonts/11/11.css');
+$this['asset']->addFile('css', 'template:fonts/12/12.css');
 //include tamnd js scripts
 $this['asset']->addFile('css', 'css:fancy/jquery.fancybox.css');
 //$this['asset']->addFile('css', 'css:wowslider/style.css');

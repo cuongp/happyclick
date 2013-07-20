@@ -638,4 +638,38 @@ div.wpcf7-validation-errors{ border:none; }
     font-weight: bold;
     padding: 0 10px 15px;
 }
+.archive-new-week{}
+.archive-new-week .course-title{
+    color: #87af23;
+    font-family: 'UNokieBrush';
+    font-size: 36px;
+    line-height: 1em;
+    text-align: center;
+}
+.archive-new-week .content{
+    overflow: hidden;
+    padding-bottom: 50px;
+}
+table.quiz{
+    width: 630px;
+    margin: 0 auto;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+table.quiz thead{
+    background: #ff4700;
+    color: #fff;
+    font-weight: bold;
+}
+table.quiz tbody{
+    text-align: center;
+}
+table.quiz tr{}
+table.quiz td{
+    padding: 5px 10px;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+.archive-new-week #total_point{}
+.archive-new-week .answers{ display: none; }
 /* END Tamnd's code */
