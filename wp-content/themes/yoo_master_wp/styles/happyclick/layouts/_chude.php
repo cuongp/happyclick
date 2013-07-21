@@ -64,9 +64,8 @@ return $first_img;
 		foreach($posts_array as $p){
 			setup_postdata($p);
 			// $post_id = get_the_ID();
-			$data = get_post_meta( $post_id, '_sukien', true );
+			$data = get_post_meta( $p->ID, '_sukien', true );
 			
-
 			if($i>1){
 				$terms = wp_get_post_terms( $p->ID, 'chude');
 				if($i%2==0)
@@ -76,17 +75,17 @@ return $first_img;
 				
 				?>
 				<div class="<?php echo $class; ?>">
-					<table width="100%">
-						<tr>
-							<td width="70%">
-								<p class="subject" style="font-size:14px;"><em><?php echo $terms[0]->name ?></em></p>
+					<div class="left" style="float:left;padding:10px;width:525px;">
+								<p class="subject" style="font-size:14px;"><em><?php echo $terms[0]->name ?></em><span><?php echo $data['thoigian'] ?></span></p>
 								<h2 class="sukien-title"><?php echo $p->post_title; ?></h2>
 								<p style="text-align:right"><a style="font-size:12px" href="<?php echo get_permalink() ?>" class="returnhome">Xem chi tiết</a></p>
-							</td>
-							<td  width="30%"></td>
-						</tr>
+							</div>
 
-					</table>
+							<div class="right" style="float:right;width:300px">
+								<a href=""><img src="<?php echo catch_that_image($p->post_content); ?>" width="300" height="135" /></a>
+							</div>
+							<div style="clear:both"></div>
+						
 					
 				</div>
 		<?php

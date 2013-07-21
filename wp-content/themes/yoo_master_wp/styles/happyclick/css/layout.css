@@ -259,7 +259,8 @@ color: #414141;
     padding-left: 20px;
     display: block;
 }
-.sub1{ -webkit-border-radius:5px;
+.sub1{ 
+    -webkit-border-radius:5px;
     -moz-border-radius:5px;
     border-radius:5px;
     border: 1px solid #eaeaea;    
@@ -267,7 +268,6 @@ color: #414141;
     -moz-box-shadow:    0px 1px 3px rgba(28, 101, 159, 1);
     box-shadow:         0px 1px 3px rgba(28, 101, 159, 1);
     margin: 0 auto;
-    padding:15px 35px;
     margin-bottom: 25px;}
 .sub2{ -webkit-border-radius:5px;
     -moz-border-radius:5px;
@@ -277,16 +277,23 @@ color: #414141;
     -moz-box-shadow:    0px 1px 3px rgba(247, 101, 14, 1);
     box-shadow:         0px 1px 3px rgba(247, 101, 14, 1);
     margin: 0 auto;
-    padding:15px 35px;
     margin-bottom: 25px;}
-.sub1 .sukien-title,{
+.sub1 .sukien-title{
     color: rgba(28, 101, 159, 1);
 }
-.sub2 .sukien-title,.sub2 .subject{
+.sub2 .sukien-title{
     color: rgba(247, 101, 14, 1);
 }
-.sub1 .subject{
- color: rgba(28, 101, 159, 1);   
+.sub1 .subject em,.sub1 .subject span{color: #0066a1}
+.sub2 .subject em,.sub2 .subject span{color: #f7650e}
+.sub1 .subject{position: relative;}
+
+.subject span{
+    position: absolute;
+    right: 0px;
+    font-family: 'caslonno540swaditalic';
+    font-size: 38px;
+    top:5px;
 }
 /* Layout
 ----------------------------------------------------------------------------------------------------*/
