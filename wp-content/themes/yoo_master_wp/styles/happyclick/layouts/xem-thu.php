@@ -40,7 +40,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
         Mật khẩu: '.$_POST['password'].'</p>
     </blockquote>
     <p>Để hoàn tất quy trình đăng ký xem thử, vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản xem thử:<br />
-    <a href="/hcaccount/xac-thuc-email/?user_id='.$user_id.'"></a></p>
+    <a href="/hcaccount/xac-thuc-email/?user_id='.$user_id.'">'.get_option("site_url").'/hcaccount/xac-thuc-email?user_id='.$user_id.'</a></p>
     <p>Đường dẫn này sẽ chỉ có giá trị đến &lt;giờ, ngày, tháng, năm&gt;</p>
     <p>Ngay sau khi kích hoạt tài khoản, bạn đã có thể bắt đầu xem thử một số tiện ích. Happy Click hy vọng bạn sẽ được trải nghiệm những kiến thức bổ ích, nội dung thiết thực.</p>
     <p>Đây là email tự động gửi, vui lòng không trả lời vào email này.<br />
