@@ -18,7 +18,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 ?>
 <div class="box" style="width:730px">
 <p>Bạn đã xem thử và có tài khoản với Happy Click, vui lòng đăng nhập để kích hoạt.</p>
-<?php echo $this['modules']->render('login-modal'); ?>
+<div style="float:right"><?php echo $this['modules']->render('login-modal'); ?></div>
 <div style="clear:both"></div>
 </div>
 <div class="box" style="width:730px">
@@ -120,9 +120,9 @@ echo $flag;
 				<td  class="box4"><input type="text" name="city" id="city" value="<?php echo get_usermeta( $current_user->ID, 'city'); ?>"  /><span>*</span></td>				
 			</tr>
 			<tr>
-				<td width="45%"  class="box3" align="right">Điều khoản sử dụng</td>
-				<td  class="box4"><input type="text" name="confirm_pass" /><span>*</span><br/>
-				<input type="checkbox" name="dk" value="1" id="agree"/> Tôi đã đọc và đồng ý với điều khoản sử dụng trên đây
+				<td width="45%"  class="box3" align="right"></td>
+				<td  class="box4">
+				<input type="checkbox" name="dk" value="1" id="agree"/> Tôi đã đọc và đồng ý với <a href="">điều khoản sử dụng</a> trên đây
 				</td>				
 			</tr>
 			<tr>

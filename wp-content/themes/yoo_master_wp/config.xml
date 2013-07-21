@@ -163,6 +163,7 @@
 			<option value="left">Left</option>
 		</field>
 		<field name="top-a" type="layout" default="equal" label="Top A Layout" description="Select a grid layout for this module position." />
+		<field name="login-modal" type="layout" default="equal" label="Top A Layout" description="Select a grid layout for this module position." />
 		<field name="top-a3" type="layout" default="equal" label="Top A3 Layout" description="Select a grid layout for this module position." />
 		<field name="membership-1" type="layout" default="equal" label="Membership 1 Layout" description="Select a grid layout for this module position." />
 		<field name="membership-2" type="layout" default="equal" label="Membership 2 Layout" description="Select a grid layout for this module position." />

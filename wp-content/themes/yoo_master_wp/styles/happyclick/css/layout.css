@@ -247,7 +247,7 @@ color: #414141;
     color: #414141;
 }
 
-.lwa-form input[type="submit"]{
+.lwa-form input[type="submit"],.lwa-links-modal{
     color:#fff ;
     font-weight: bold;
     background: url(../images/submit-login.png) no-repeat;
@@ -257,8 +257,37 @@ color: #414141;
     width: 115px;
     text-align: left;
     padding-left: 20px;
+    display: block;
 }
-
+.sub1{ -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    border: 1px solid #eaeaea;    
+    -webkit-box-shadow: 0px 1px 3px rgba(28, 101, 159, 1);
+    -moz-box-shadow:    0px 1px 3px rgba(28, 101, 159, 1);
+    box-shadow:         0px 1px 3px rgba(28, 101, 159, 1);
+    margin: 0 auto;
+    padding:15px 35px;
+    margin-bottom: 25px;}
+.sub2{ -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    border: 1px solid #f7650e;    
+    -webkit-box-shadow: 0px 1px 3px rgba(247, 101, 14, 1);
+    -moz-box-shadow:    0px 1px 3px rgba(247, 101, 14, 1);
+    box-shadow:         0px 1px 3px rgba(247, 101, 14, 1);
+    margin: 0 auto;
+    padding:15px 35px;
+    margin-bottom: 25px;}
+.sub1 .sukien-title,{
+    color: rgba(28, 101, 159, 1);
+}
+.sub2 .sukien-title,.sub2 .subject{
+    color: rgba(247, 101, 14, 1);
+}
+.sub1 .subject{
+ color: rgba(28, 101, 159, 1);   
+}
 /* Layout
 ----------------------------------------------------------------------------------------------------*/
 
@@ -663,6 +692,42 @@ height: auto;
 .user_info p{
     font-style: italic;
 }
+.viewmore{
+    background: url(../images/viewdetail.jpg) no-repeat;
+    height: 25px;
+    width: 127px;
+    display: block;
+    margin-top: 20px;
+}
+.rg li{
+    list-style-type: none;
+    float: left;
+    width: 33%;
+}
+.sukien-title{
+    font-family: 'MyriadProLight';
+}
+.dk1{
+    background: url(../images/dk1.jpg) no-repeat;
+    display: block;
+    width: 249px;
+    height: 114px;
+}
+.dk2{
+    background: url(../images/dk2.jpg) no-repeat;
+    display: block;
+    width: 249px;
+    height: 114px;
+}
+.dk3{
+    margin-top:40px;
+    background: url(../images/dk3.jpg) no-repeat;
+    display: block;
+    width: 249px;
+    height: 25px;
+}
+.dk1 span,.dk2 span,.dk3 span{display: none}
+.viewmore span{display: none}
 .widget_loginwithajaxwidget{
     background: none;
 }
