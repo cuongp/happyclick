@@ -1,16 +1,26 @@
 <?php
 global $current_user;
-$flag='';
+$flag=false;
+
 if(isset($_POST) && $_POST['action'] == 'submit'){
 	
-
-	foreach ($_POST as $key=>$val) {
-		
-		if($key !='action')
-			update_usermeta( $current_user->ID, $key, $val);
-	}
+		$user_id = wp_create_user( $_POST['email'], $_POST['password'], $_POST['email'] ); 
+		if($user_id>0){
+			foreach ($_POST as $key=>$val) {
+				if($key !='action')
+					update_usermeta( $user_id, $key, $val);
+				}	
+			wp_redirect('/hcaccount/xac-nhan-email/');
+			exit;
+			}
+			
+			$message = 'Testing Send Mail Active';
+			$to = $_POST['email'];
+			$subject = 'Active Account';
+			//var_dump(wp_mail($to,$subject,$message));
+			
 	wp_reset_query();
-	$flag = '<h3 class="success">Cập nhập thông tin cá nhân thành công</h3>';
+	
 }
 
 $gender = get_usermeta( $current_user->ID, 'gender');
@@ -55,7 +65,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Email <br/> <em style="font-weight:normal">Email này bạn đã dùng để đăng nhập, nếu cần thay đổi vui lòng liên hệ với Happy Click.<br/><strong>Hỗ trợ 24/7: (08) 7302 0168 - (08) 7303 0168</strong></em></td>
-				<td  class="box4"><input type="text" name="email" disabled="disabled" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
+				<td  class="box4"><input type="text" name="email" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Email<br/><em>Email cá nhân hoặc email thường sử dụng</em></td>
