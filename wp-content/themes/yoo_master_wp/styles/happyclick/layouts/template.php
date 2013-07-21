@@ -9,6 +9,7 @@
 // get template configuration
 include($this['path']->path('layouts:template.config.php'));
 	
+global $current_user;
 
 ?>
 <!DOCTYPE HTML>
@@ -56,16 +57,16 @@ include($this['path']->path('layouts:template.config.php'));
 			<?php endif; ?>
 
 			<?php 
-            if(is_front_page()):
-            if ($this['modules']->count('top-a')) : ?>
-		<section id="top-a" class="grid-block"><?php echo $this['modules']->render('top-a', array('layout'=>$this['config']->get('top-a'))); ?></section>
-		 <?php endif;
+            if(is_front_page() || $current_user->ID<1):
+            	if ($this['modules']->count('top-a')) : ?>
+					<section id="top-a" class="grid-block"><?php echo $this['modules']->render('top-a', array('layout'=>$this['config']->get('top-a'))); ?></section>
+		 	<?php endif;
             if ($this['modules']->count('logo + headerbar')) : ?>	
-			<div id="headerbar" class="clearfix">
+				<div id="headerbar" class="clearfix">
 			
-				<?php if ($this['modules']->count('logo')) : ?>	
-				<a id="logo" href="<?php echo $this['config']->get('site_url'); ?>"><?php echo $this['modules']->render('logo'); ?></a>
-				<?php endif; ?>
+					<?php if ($this['modules']->count('logo')) : ?>	
+						<a id="logo" href="<?php echo $this['config']->get('site_url'); ?>"><?php echo $this['modules']->render('logo'); ?></a>
+					<?php endif; ?>
 				
 				<?php echo $this['modules']->render('headerbar'); ?>
 				
@@ -89,7 +90,7 @@ include($this['path']->path('layouts:template.config.php'));
 			</div>
 			<?php endif; ?>
 		<?php 
-            if(!is_front_page()):
+            if(!is_front_page() && $current_user->ID>0):
             if ($this['modules']->count('logo + headerbar')) : ?>	
 			<div id="headerbar" class="clearfix">
 			
