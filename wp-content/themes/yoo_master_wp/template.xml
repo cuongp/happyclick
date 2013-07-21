@@ -20,8 +20,8 @@
 		<position settings="display">headerbar</position>
 		<position settings="display">headerbar-trial</position>
 		<position settings="display">breadcrumbs</position>
-		<position>header-banner-6box-home</position>
-		<position>header-banner-6box-inner</position>
+		<position>top-a</position>
+		<position>top-a2</position>
 		<position>top-a3</position>
 		<position>login-modal</position>
 		<position>top-b</position>
