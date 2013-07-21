@@ -78,11 +78,11 @@ return $first_img;
 					<div class="left" style="float:left;padding:10px;width:525px;">
 								<p class="subject" style="font-size:14px;"><em><?php echo $terms[0]->name ?></em><span><?php echo $data['thoigian'] ?></span></p>
 								<h2 class="sukien-title"><?php echo $p->post_title; ?></h2>
-								<p style="text-align:right"><a style="font-size:12px" href="<?php echo get_permalink() ?>" class="returnhome">Xem chi tiết</a></p>
+								<p style="text-align:right"><a style="font-size:12px" href="<?php echo the_permalink() ?>" class="returnhome">Xem chi tiết</a></p>
 							</div>
 
 							<div class="right" style="float:right;width:300px">
-								<a href=""><img src="<?php echo catch_that_image($p->post_content); ?>" width="300" height="135" /></a>
+								<a href="<?php echo the_permalink(); ?>"><img src="<?php echo catch_that_image($p->post_content); ?>" width="300" height="135" /></a>
 							</div>
 							<div style="clear:both"></div>
 						
