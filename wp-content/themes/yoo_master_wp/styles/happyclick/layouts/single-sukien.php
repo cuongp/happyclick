@@ -1,7 +1,10 @@
 
 <div id="system" class="box2">
 	<?php if (have_posts()) : ?>
-		<?php while (have_posts()) : the_post(); ?>
+		<?php while (have_posts()) : the_post();
+		$post_id = get_the_ID(); 
+		$data = get_post_meta( $post_id, '_sukien', true );
+		?>
 		
 		<article class="item" data-permalink="<?php the_permalink(); ?>">
 		
@@ -25,7 +28,16 @@
 
 			</header>-->
 
-			<div class="content clearfix" ><?php the_content(''); ?></div>
+			<div class="content clearfix" >
+			<?php the_content(''); ?>
+<ul class="rg">
+				<li><a href="<?php echo get_permalink() ?>" class="dk1"><span>Thành viên đăng ký</span></a><?php echo $data['giatien']*0.5 ?></li>
+
+				<li><a href="<?php echo get_permalink() ?>"  class="dk2"><span>Khách đăng ký</span></a></li>
+
+				<li><a href="<?php echo get_permalink() ?>"  class="dk3"><span>Trở thành thành viên</span></a></li>
+			</ul>
+			</div>
 
 			<?php the_tags('<p class="taxonomy">'.__('Tags: ', 'warp'), ', ', '</p>'); ?>
 
