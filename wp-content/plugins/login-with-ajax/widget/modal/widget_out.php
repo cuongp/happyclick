@@ -16,7 +16,7 @@
 	            <table>
 	                <tr class="lwa-username">
 	                    <td class="username_label">
-	                        <label><?php esc_html_e( 'Username','login-with-ajax' ) ?></label>
+	                        <label><?php esc_html_e( 'Tài khoản','login-with-ajax' ) ?></label>
 	                    </td>
 	                    <td class="username_input">
 	                        <input type="text" name="log" id="lwa_user_login" class="input" />
@@ -24,7 +24,7 @@
 	                </tr>
 	                <tr class="lwa-password">
 	                    <td class="password_label">
-	                        <label><?php esc_html_e( 'Password','login-with-ajax' ) ?></label>
+	                        <label><?php esc_html_e( 'Mật khẩu','login-with-ajax' ) ?></label>
 	                    </td>
 	                    <td class="password_input">
 	                        <input type="password" name="pwd" id="lwa_user_pass" class="input" value="" />
@@ -38,14 +38,14 @@
                         	<input type="hidden" name="login-with-ajax" value="login" />
 	                    </td>
 	                    <td class="lwa-links">
-	                        <input name="rememberme" type="checkbox" id="lwa_rememberme" value="forever" /> <label><?php esc_html_e( 'Remember Me','login-with-ajax' ) ?></label>
+	                        <input name="rememberme" type="checkbox" id="lwa_rememberme" value="forever" /> <label><?php esc_html_e( 'Lưu thông tin đăng nhập','login-with-ajax' ) ?></label>
 	                        <br />
 				        	<?php if( !empty($lwa_data['remember']) ): ?>
-							<a class="lwa-links-remember" href="<?php echo esc_attr(LoginWithAjax::$url_remember); ?>" title="<?php esc_attr_e('Password Lost and Found','login-with-ajax') ?>"><?php esc_attr_e('Lost your password?','login-with-ajax') ?></a>
+							<a class="lwa-links-remember" href="<?php echo esc_attr(LoginWithAjax::$url_remember); ?>" title="<?php esc_attr_e('Quên mật khẩu','login-with-ajax') ?>"><?php esc_attr_e('Lost your password?','login-with-ajax') ?></a>
 							<?php endif; ?>
 							<?php if ( get_option('users_can_register') && !empty($lwa_data['registration']) ) : ?>
 							<br />  
-							<a href="<?php echo esc_attr(LoginWithAjax::$url_register); ?>" class="lwa-links-register-inline"><?php esc_html_e('Register','login-with-ajax'); ?></a>
+							<a href="<?php echo esc_attr(LoginWithAjax::$url_register); ?>" class="lwa-links-register-inline"><?php esc_html_e('Đăng ký','login-with-ajax'); ?></a>
 							<?php endif; ?>
 	                    </td>
 	                </tr>
