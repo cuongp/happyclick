@@ -1,13 +1,21 @@
 <?php
 global $current_user;
 $flag='';
+function check_card($code,$serial){
+	 $db = $GLOBALS['wpdb'];
+        $post = $db->get_row('select id from '.$db->prefix.'cards where serial="'.$serial.'" and code= "'.$code.'" and valid=0 and status=0');
+        return !empty($post)? $post :null;
+}
 if(isset($_POST) && $_POST['action'] == 'submit'){
-	
-
-	foreach ($_POST as $key=>$val) {
+	if(check_card($_POST['code'],$_POST['serial'])){
+		$user_id = wp_create_user( $_POST['email'], $_POST['password'], $_POST['email'] ); 
+		if($user_id>0){
+			foreach ($_POST as $key=>$val) {
 		
-		if($key !='action')
-			update_usermeta( $current_user->ID, $key, $val);
+			if($key !='action')
+				update_usermeta( $user_id, $key, $val);
+			}	
+			}
 	}
 	wp_reset_query();
 	$flag = '<h3 class="success">Cập nhập thông tin cá nhân thành công</h3>';
@@ -49,10 +57,10 @@ echo $flag;
 				<td width="45%"  class="box3"  align="right">Số sê-ri</td>
 				<td  class="box4"><input type="text" id="serial" name="serial" /><span>*</span></td>				
 			</tr>
-			<tr>
+			<!--<tr>
 				<td width="45%"  class="box3" align="right">Mã kiểm tra</td>
 				<td  class="box4"><input type="text" id="birthday" name="birthday" value="<?php echo get_usermeta( $current_user->ID, 'birthday'); ?>" placeholder="Ngày/tháng/năm" /><span>*</span></td>				
-			</tr>
+			</tr>-->
 			<tr>
 				<td colspan="2"><br/>
 				<p><strong>THÔNG TIN CÁ NHÂN</strong></p><br/>	
@@ -73,7 +81,7 @@ echo $flag;
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Email <br/> <em style="font-weight:normal">Email này bạn đã dùng để đăng nhập, nếu cần thay đổi vui lòng liên hệ với Happy Click.<br/><strong>Hỗ trợ 24/7: (08) 7302 0168 - (08) 7303 0168</strong></em></td>
-				<td  class="box4"><input type="text" name="email" disabled="disabled" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
+				<td  class="box4"><input type="text" name="email" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Email<br/><em>Email cá nhân hoặc email thường sử dụng</em></td>
