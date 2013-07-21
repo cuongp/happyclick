@@ -132,11 +132,11 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Mật khẩu</td>
-				<td  class="box4"><input type="text" name="password" /><span>*</span></td>				
+				<td  class="box4"><input type="password" name="password" /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Xác nhận mật khẩu</td>
-				<td  class="box4"><input type="text" name="confirm_pass" /><span>*</span></td>				
+				<td  class="box4"><input type="password" name="confirm_pass" /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Điện thoại di động</td>
