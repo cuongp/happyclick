@@ -14,7 +14,10 @@ License: GPLv2
 include (dirname(__file__) . '/widgets/widget-sukien.php');
 global $current_user;
 
+
 add_action('admin_menu','add_membership_custom_options');
+
+
 
 function add_membership_custom_options(){
     add_options_page('HappyClick Membership Options', 'HappyClick Membership Options', 'manage_options', 'functions','membershiphp_custom_options');
@@ -35,6 +38,7 @@ function add_membership_custom_options(){
             <p><input type="submit" name="Submit" value="Submit" /></p>  
             <input type="hidden" name="action" value="update" />  
             <input type="hidden" name="page_options" value="hpbasicmembership,page_chude" />
+        </form></div>
                
     <?php
     }  
