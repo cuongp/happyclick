@@ -25,6 +25,7 @@ define('DB_USER', 'dev');
 define('DB_PASSWORD', 'build@2013');
 
 /** MySQL hostname */
+//define('DB_HOST', 'admin.happyclick.vn:3300');
 define('DB_HOST', '192.168.0.50');
 
 /** Database Charset to use in creating database tables. */
