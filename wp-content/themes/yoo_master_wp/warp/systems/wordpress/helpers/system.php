@@ -682,19 +682,8 @@ class WarpMenuWalker extends Walker_Nav_Menu {
 	Function: mb_strpos
 		mb_strpos function for servers not using the multibyte string extension
 */
-
-
 if (!function_exists('mb_strpos')) {
 	function mb_strpos($haystack, $needle, $offset = 0) {
 		return strpos($haystack, $needle, $offset);
 	}
 }
-/* Vu Code */
-function string_limit_words($string, $word_limit)
-{
-  $words = explode(' ', $string, ($word_limit + 1));
-  if(count($words) > $word_limit)
-  array_pop($words);
-  return implode(' ', $words);
-}
-

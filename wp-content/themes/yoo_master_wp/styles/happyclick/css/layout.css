@@ -10,7 +10,74 @@ em{color: #000;}
 #breadcrumbs,
 #content,#bottom-b,
 { margin: 15px; }
+#top-a2 .mod-box,#homeslider .mod-box{
+-webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    border: 1px solid #eaeaea;    
+    -webkit-box-shadow: 0px 1px 3px rgba(28, 101, 159, 1);
+    -moz-box-shadow:    0px 1px 3px rgba(28, 101, 159, 1);
+    box-shadow:         0px 1px 3px rgba(28, 101, 159, 1);
+}
+#top-a2 .module-title,#homeslider .module-title{
+    color: #f76200;
+    text-align: center;
+    font-size: 18pt;
+    font-style: italic;
+}
+#slider{min-height: 80px;margin-left: -20px;}
+#slider li{
+    float: left;
+    list-style-type: none;
+  -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    border: 1px solid #eaeaea;    
+    -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow:    0px 0px 3px rgba(0, 0, 0, 0.75);
+    box-shadow:         0px 0px 3px rgba(0, 0, 0, 0.75);
+    margin-right: 15px;
+    width: 260px;
+}
+a.prev, a.next {
 
+    background: url(../images/arrow3.png) no-repeat transparent;
+
+    width: 12px;
+
+    height: 14px;
+
+    display: block;
+
+    position: absolute;
+
+    top: 10px;
+
+}
+a.next{right:0px;background-position: right;}
+a.prev span, a.next span{display: none}
+#slider li img{
+    width: 85px;
+    height: 50px;
+
+}
+#top-a3 .module{
+    margin-left: 30px;
+    margin-top: 5   px;
+    padding: 10px; -moz-border-radius:5px;
+    border-radius:5px;
+    border: 1px solid #eaeaea;    
+    -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow:    0px 0px 5px rgba(0, 0, 0, 0.75);
+    box-shadow:         0px 0px 5px rgba(0, 0, 0, 0.75);
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+}
+#top-a2 .mõ
+#top-a3 h3{
+    margin-top: 0px;
+}
 #menu .module,#membership .module { margin: 10px 5px; }
 
 #footer .module { margin: 0; }
@@ -115,6 +182,7 @@ margin: 3px; -webkit-border-radius:5px;
 #innertop .width66 .module{
     margin-right: 0;
 }
+
 #headerbar .menu-sidebar li{
     margin-top: 20px;
 
@@ -187,15 +255,18 @@ font-size: 24px;
     top:0px;
 z-index: 9;
 }
-#sidebar-b .module,#sidebar-a .module{
+#sidebar-b .module,#sidebar-a .module,#sidebar-trial .module{
 
 -webkit-border-radius: 5px;
 -moz-border-radius: 5px;
 border-radius: 5px;
 vertical-align: middle;
 }
+#sidebar-trial .module{
+    margin-bottom: 5px;
+}
 #sidebar-b .module img,#sidebar-a .module img {width: 100%}
-#sidebar-b .mod-box,#sidebar-a .mod-box{
+#sidebar-b .mod-box,#sidebar-a .mod-box,#sidebar-trial .mod-box{
     border-color: #0c5893;
     -webkit-box-shadow: 1px 2px 3px 0px rgba(184, 215, 240, 1);
     -moz-box-shadow:    1px 2px 3px 0px rgba(184, 215, 240, 1);
@@ -438,7 +509,10 @@ padding-right: 0px;
     list-style-type: none;
 }
 #form p{
-    line-height: 40px;
+    line-height: 18px;
+}
+#form span{
+    color: red;
 }
 #form label{
     margin-right: 50px;
@@ -448,6 +522,34 @@ padding-right: 0px;
     width: 250px;
     padding: 5px;
 }
+.info{
+    background: url(../images/key.jpg) no-repeat;
+    display: block;
+    height: 241px;
+    width: 300px;
+    position: relative;
+    margin-top: 0px;
+
+}
+.info span{
+    position: absolute;
+    font-size: 20pt;
+    left: 80px;
+    top:150px;
+}
+.profile{
+    display: block;
+    background: url(../images/thongtincanhan.jpg) no-repeat;
+    height: 79px;
+    width: 350px;
+}
+.changepassword{
+    display: block;
+    background: url(../images/doimatkhau.jpg) no-repeat;
+    height: 79px;
+    width: 350px;
+}
+.profile span,.changepassword span{display: none;}
 #form input[type="submit"]{
     background: url(../images/submit-final.jpg) no-repeat;
     width: 114px;
@@ -457,7 +559,27 @@ padding-right: 0px;
     margin-top: 30px;
     margin-bottom: 50px;
 }
+#form .error{
+    border: 1px solid red;
+    padding: 5px;
+    color: red;
 
+}
+#form .success{
+    border: 1px solid blue;
+    padding: 5px;
+    color: blue;
+
+}
+#form table .box3,#form table .box4{
+    border: 1px solid #70a7c7;
+    padding: 10px;
+}
+
+#form table .box3{
+    background: #dfe7ed;
+    font-weight: bold;
+}
 #form .login-button input[type="submit"] {
     background: url(../images/submit-login.png) no-repeat;
 margin-bottom: 20px}

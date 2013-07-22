@@ -1,6 +1,6 @@
 (function($) {
-    /* Jquery carousel script */
     $(document).ready(function() {
+        /* Jquery carousel script */
         jQuery('#mycarousel').jcarousel();
         /* ---
             jQuery(".video-item a").fancybox({

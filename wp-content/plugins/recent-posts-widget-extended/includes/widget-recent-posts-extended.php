@@ -213,6 +213,7 @@ class rpwe_widget extends WP_Widget
 				<option value="4"  <?php selected($instance['layout'], 4)?>>Học qua video</option>
 				<option value="5"  <?php selected($instance['layout'], 5)?>>Làm giàu cuộc sống</option>
 				<option value="6"  <?php selected($instance['layout'], 6)?>>Phát triễn nghề nghiệp</option>
+				<option value="7"  <?php selected($instance['layout'], 7)?>>Slide</option>
 
 		
 		</select>
