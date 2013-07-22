@@ -1,6 +1,8 @@
 <?php
 global $current_user;
 $flag='';
+
+
 function check_card($code,$serial){
 	 $db = $GLOBALS['wpdb'];
         $post = $db->get_row('select id from '.$db->prefix.'cards where serial="'.$serial.'" and code= "'.$code.'" and valid=1 and status=0');
@@ -10,17 +12,30 @@ function update_card($card_id){
 	$db = $GLOBALS['wpdb'];
 	return $db->update($db->prefix.'cards',array('status'=>1),array('id'=>$card_id));
 }
+
+
 if(isset($_POST) && $_POST['action'] == 'submit'){
+	$db = $GLOBALS['wpdb'];
 	$card_id = check_card($_POST['code'],$_POST['serial']); 
 	if($card_id){
-		$user_id = wp_create_user( $_POST['email'], $_POST['password'], $_POST['email'] ); 
-		var_dump($user_id);exit;
+		$user_id = wp_create_user( $_POST['email'], $_POST['password'], $_POST['email']); 	
+		
 		if($user_id>0){
+			
+			
 			foreach ($_POST as $key=>$val) {
 				if($key !='action')
 					update_usermeta( $user_id, $key, $val);
 				}
-
+			$db->insert($db->prefix.'m_membership_relationships',
+				array('user_id'=>$user_id
+					,'sub_id'=>2
+					,'level_id'=>2
+					,'startdate'=>date('Y-m-d h:i:s',time())
+					,'order_instance'=>1
+					,'usinggateway'=>'card'
+					));
+			update_usermeta($user_id,'wp_membership_active','no');
 			
 			$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 <tbody>
@@ -48,7 +63,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
     <p>Thời hạn sử dụng: đến hết ngày…<br />
       <br />
       Vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản cho thành viên:<br />
-      <a href=http://dev.happyclick.vn/hcaccount/xac-thuc-email/?action=active&user_id='.$user_id.'>Kích hoạt thành viên</a><br />
+      <a href=http://dev.happyclick.vn/hcaccount/xac-thuc-email/?act=active&user_id='.$user_id.'&code="'.time().'">Kích hoạt thành viên</a><br />
       <br />
       Đường dẫn này sẽ chỉ có giá trị đến &lt;giờ, ngày, tháng, năm&gt;<br />
       <br />
@@ -77,8 +92,8 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 </tr>
 </tbody>
 </table>';
-			wpMandrill::mail($_POST['email'],'Xác nhận email',$html);	
-			wp_redirect('/hcaccount/xac-nhan-email/');
+			wpMandrill::mail($_POST['email'],'Kích hoạt thành viên',$html);	
+			//wp_redirect('/hcaccount/xac-nhan-email/');
 			exit;			
 			}
 		}
