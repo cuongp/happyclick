@@ -34,9 +34,6 @@
 		<position>sidebar-membership</position>
 		<position>sidebar-trial</position>
 		<position>membership</position>
-		<position>membership 1</position>
-		<position>membership 2</position>
-		<position>membership 3</position>
 		<position settings="display">footer</position>
 	</positions>
 	<modulesettings>

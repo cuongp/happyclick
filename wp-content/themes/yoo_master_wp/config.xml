@@ -163,11 +163,14 @@
 			<option value="left">Left</option>
 		</field>
 		<field name="top-a" type="layout" default="equal" label="Top A Layout" description="Select a grid layout for this module position." />
+<<<<<<< HEAD
+=======
 		<field name="login-modal" type="layout" default="equal" label="Top A Layout" description="Select a grid layout for this module position." />
 		<field name="top-a3" type="layout" default="equal" label="Top A3 Layout" description="Select a grid layout for this module position." />
 		<field name="membership-1" type="layout" default="equal" label="Membership 1 Layout" description="Select a grid layout for this module position." />
 		<field name="membership-2" type="layout" default="equal" label="Membership 2 Layout" description="Select a grid layout for this module position." />
 		<field name="membership-3" type="layout" default="equal" label="Membership 3 Layout" description="Select a grid layout for this module position." />
+>>>>>>> 5ffabdff88e709ea9e3b4ae624a1b365c3c5395d
 		<field name="top-a2" type="layout" default="equal" label="Top A2 Layout" description="Select a grid layout for this module position." />
 		<field name="top-b" type="layout" default="equal" label="Top B Layout" description="Select a grid layout for this module position." />
 		<field name="membership" type="layout" default="equal" label="Membership Layout" description="Select a grid layout for this module position." />

@@ -156,6 +156,8 @@ $this['asset']->addFile('js', 'js:fancy/jquery.fancybox.pack.js');
 $this['asset']->addFile('js', 'js:tnd/scripts.js');
 $this['asset']->addFile('js', 'js:tnd/scripts_vu.js');
 $this['asset']->addFile('js', 'js:tnd/jquery.jcarousel.min.js');
+$this['asset']->addFile('js', 'js:fancy/jquery.fancybox.pack.js');
+$this['asset']->addFile('js', 'js:tnd/jquery-ui.js');
 
 // internet explorer
 if ($this['useragent']->browser() == 'msie') {

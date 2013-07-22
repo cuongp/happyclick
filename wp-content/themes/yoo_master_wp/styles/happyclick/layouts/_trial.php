@@ -68,7 +68,8 @@ include($this['path']->path('layouts:template.config.php'));
 			</div>
 			<?php endif; ?>		
 			<?php 
-           
+            if(is_front_page()):
+
             if ($this['modules']->count('logo + headerbar-trial')) : ?>	
 			<div id="headerbar" class="clearfix">
 			
@@ -92,7 +93,28 @@ dành cho thành viên Happy Click</p>
 				?>
 			<?php 
             endif;
-           ?>
+            endif; ?>
+
+			
+		<?php 
+            if(!is_front_page()):
+            if ($this['modules']->count('logo + headerbar')) : ?>	
+			<div id="headerbar" class="clearfix">
+			
+				<?php if ($this['modules']->count('logo')) : ?>	
+				<a id="logo" href="<?php echo $this['config']->get('site_url'); ?>"><?php echo $this['modules']->render('logo'); ?></a>
+				<?php endif; ?>
+				
+				<?php echo $this['modules']->render('headerbar'); ?>
+				
+			</div>
+			<?php 
+
+            endif;
+            endif; ?>
+			<?php if ($this['modules']->count('banner')) : ?>
+			<div id="banner"><?php echo $this['modules']->render('banner'); ?></div>
+			<?php endif; ?>
 		
 		</header>
 

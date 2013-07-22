@@ -57,13 +57,9 @@ elseif(is_archive() && is_post_type_archive('sukien')){
 elseif (is_archive()) {
 	//$content = 'archive';
     //var_dump(get_taxonomy('chude'));
-    $content = '';
+    $content = 'archive';
     if(get_query_var('chude'))
         $content = '_chude';
-    elseif(get_query_var('hcaccount')){
-    	$content = '_hcaccount';
-    }else
-    	$content = 'archive';
 	if ($this["path"]->path("layouts:{$queried_object->taxonomy}.php")) {
 		$content = $queried_object->taxonomy;
 	}

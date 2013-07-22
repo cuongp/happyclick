@@ -47,7 +47,7 @@ class TemplateWarpHelper extends WarpHelper {
 			extract($args);
 			ob_start();
 			include($__layout);
-			return ob_get_clean();
+			return trim(ob_get_clean());
 		}
 		
 		trigger_error('<b>'.$__resource.'</b> not found in paths: ['.implode(', ', $this['path']->_paths['layouts']).']');
