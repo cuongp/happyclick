@@ -1,7 +1,12 @@
-
-	<div class="box" style="width:730px">
-	<?php
-	$flag = '';
+<?php if ($this['modules']->count('top-a2')) : ?>
+	<section id="top-a2" class="grid-block"><?php echo $this['modules']->render('top-a2', array('layout'=>$this['config']->get('top-a2'))); ?></section>
+<?php endif ;?>
+<?php if ($this['modules']->count('breadcrumbs')) : ?>
+	<section id="breadcrumbs"><?php echo $this['modules']->render('breadcrumbs'); ?></section>
+<?php endif; ?>
+<div class="box" style="width:730px">
+<?php
+$flag = '';
 if(isset($_POST) && $_POST['action'] == 'submit')
 {
 	global $current_user;

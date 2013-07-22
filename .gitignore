@@ -6,3 +6,7 @@
 wp-config.php
 .DS_Store
 thumb.db
+wp-content/themes/yoo_master_wp/styles/happyclick/layouts/helper.php
+wp-content/themes/yoo_master_wp/styles/happyclick/phpmailer/class.phpmailer.php
+wp-content/themes/yoo_master_wp/styles/happyclick/phpmailer/class.pop3.php
+wp-content/themes/yoo_master_wp/styles/happyclick/phpmailer/class.smtp.php

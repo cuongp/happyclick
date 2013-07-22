@@ -3,22 +3,33 @@ global $current_user;
 $flag='';
 function check_card($code,$serial){
 	 $db = $GLOBALS['wpdb'];
-        $post = $db->get_row('select id from '.$db->prefix.'cards where serial="'.$serial.'" and code= "'.$code.'" and valid=0 and status=0');
+        $post = $db->get_row('select id from '.$db->prefix.'cards where serial="'.$serial.'" and code= "'.$code.'" and valid=1 and status=0');
         return !empty($post)? $post :null;
+}
+function update_card($card_id){
+	$db = $GLOBALS['wpdb'];
+	return $db->update($db->prefix.'cards',array('valid'=>1),array('card_id'=>$card_id));
 }
 if(isset($_POST) && $_POST['action'] == 'submit'){
 	if(check_card($_POST['code'],$_POST['serial'])){
 		$user_id = wp_create_user( $_POST['email'], $_POST['password'], $_POST['email'] ); 
 		if($user_id>0){
 			foreach ($_POST as $key=>$val) {
-		
-			if($key !='action')
-				update_usermeta( $user_id, $key, $val);
-			}	
+				if($key !='action')
+					update_usermeta( $user_id, $key, $val);
+				}	
 			}
+			$flag = '<h3 class="success">Cập nhập thông tin cá nhân thành công</h3>';
+			$message = 'Testing Send Mail Active';
+			$to = $_POST['email'];
+			$subject = 'Active Account';
+			var_dump(wp_mail($to,$subject,$message));
+	}else
+	{
+		$flag ='<h3 class="error">Thẻ cào không đúng</h3>';
 	}
 	wp_reset_query();
-	$flag = '<h3 class="success">Cập nhập thông tin cá nhân thành công</h3>';
+	
 }
 
 $gender = get_usermeta( $current_user->ID, 'gender');

@@ -224,7 +224,7 @@ class LoginWithAjax {
 			//Password correctly remembered
 			$return['result'] = true;
 			$return['message'] = __("Happy Click đã gửi email cho bạn vào email mà bạn đã đăng ký. Vui lòng làm theo hướng dẫn trong email để lấy lại mật khẩu.<h3 style='color:#f79300'>Chú ý</h3><ul><li> Nếu không tìm thấy email của Happy Click trong hộp thư đến, bạn có thể kiểm tra lại trong hộp thư rác.</li><li>
-Nếu vẫn không tìm thấy email, vui lòng thực hiện lại sau.</li></ul", 'login-with-ajax');
+Nếu vẫn không tìm thấy email, vui lòng thực hiện lại sau.</li></ul>", 'login-with-ajax');
 		} elseif ( strtolower(get_class($result)) == 'wp_error' ) {
 			//Something went wrong
 			/* @var $result WP_Error */
