@@ -1,9 +1,7 @@
 (function($) {
-    /* Jquery carousel script */
     $(document).ready(function() {
+        /* Jquery carousel script */
         jQuery('#mycarousel').jcarousel();
-<<<<<<< HEAD
-=======
         /* ---
             jQuery(".video-item a").fancybox({
                 width: 560,
@@ -18,6 +16,5 @@
         $('.remove_link a').attr('href', 'javascript:void(0)');
         $('.remove_link a').attr('title', '');
         
->>>>>>> 5ffabdff88e709ea9e3b4ae624a1b365c3c5395d
     });
 })(jQuery);

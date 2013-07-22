@@ -8,23 +8,81 @@ function check_card($code,$serial){
 }
 function update_card($card_id){
 	$db = $GLOBALS['wpdb'];
-	return $db->update($db->prefix.'cards',array('valid'=>1),array('card_id'=>$card_id));
+	return $db->update($db->prefix.'cards',array('status'=>1),array('id'=>$card_id));
 }
 if(isset($_POST) && $_POST['action'] == 'submit'){
-	if(check_card($_POST['code'],$_POST['serial'])){
+	$card_id = check_card($_POST['code'],$_POST['serial']); 
+	if($card_id){
 		$user_id = wp_create_user( $_POST['email'], $_POST['password'], $_POST['email'] ); 
+		var_dump($user_id);exit;
 		if($user_id>0){
 			foreach ($_POST as $key=>$val) {
 				if($key !='action')
 					update_usermeta( $user_id, $key, $val);
-				}	
+				}
+
+			
+			$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
+<tbody>
+<tr>
+<td align="center" valign="top"> </td>
+</tr>
+<tr>
+<td align="center" valign="top">
+<table width="600" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="width: 600px; font-family: Arial, Helvetica, sans-serif;">
+<tbody>
+<tr>
+  <td><a href="http://www.happyclick.com.vn"><img src="http://www.unity.com.vn/images/HC_Banner.png" align="center" width="598" height="130" /></a></td>
+</tr>
+<tr>
+  <td height="323" valign="top" style="padding: 10px 10px 0px 10px; height=; color: #003399; font-size: 14px;"1354><p>Chào &lt;A&gt;<br />
+      <br />
+      Chúc mừng bạn đã trở thành thành viên của Happy Click!<br />
+      <br />
+      Thông tin tài khoản đăng nhập bạn đã đăng ký:</p>
+    <blockquote>
+      <p>Tên đăng nhập: &lt;mặc định là email đăng ký&gt;<br />
+        Mật khẩu:'.$_POST['password'].'</p>
+      </blockquote>
+    <p>Số sê-ri của thẻ cào: '.$_POST['serial'].'</p>
+    <p>Thời hạn sử dụng: đến hết ngày…<br />
+      <br />
+      Vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản cho thành viên:<br />
+      <a href=http://dev.happyclick.vn/hcaccount/xac-thuc-email/?action=active&user_id='.$user_id.'>Kích hoạt thành viên</a><br />
+      <br />
+      Đường dẫn này sẽ chỉ có giá trị đến &lt;giờ, ngày, tháng, năm&gt;<br />
+      <br />
+      Ngay sau khi kích hoạt tài khoản, bạn đã có thể bắt đầu hành trình <span style="font-weight: bold; font-style: italic;">&ldquo;thăng tiến mỗi ngày&rdquo;</span> với Happy Click.<br />
+      <br />
+      Đây là email tự động gửi, vui lòng không trả lời vào email này.<br />
+      <br />
+      Thân mến,<br />
+      <br />
+      <strong style="color: #68A400">Công ty Cổ phần Tư vấn và Đào tạo Happy Click</strong><br />
+      <em>Hỗ trợ 24/7: (08) 7302 0168 – (08) 7303 0168</em><br />
+      <em>Email: <span style="color: #3399FF; font-style: italic; font-weight: bold;"><a href="mailto:lienhe@happyclick.com.vn">lienhe@happyclick.com.vn</a></span></em>    </p>
+    <p><br />
+  </p></td>
+</tr>
+</tbody>
+</table>
+<table style="width: 600px;" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+  <tbody>
+    <tr> </tr>
+    </tbody>
+</table></td>
+</tr>
+<tr>
+<td align="center" valign="top"> </td>
+</tr>
+</tbody>
+</table>';
+			wpMandrill::mail($_POST['email'],'Xác nhận email',$html);	
+			wp_redirect('/hcaccount/xac-nhan-email/');
+			exit;			
 			}
-			$flag = '<h3 class="success">Cập nhập thông tin cá nhân thành công</h3>';
-			$message = 'Testing Send Mail Active';
-			$to = $_POST['email'];
-			$subject = 'Active Account';
-			var_dump(wp_mail($to,$subject,$message));
-	}else
+		}
+	else
 	{
 		$flag ='<h3 class="error">Thẻ cào không đúng</h3>';
 	}

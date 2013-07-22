@@ -68,8 +68,7 @@ include($this['path']->path('layouts:template.config.php'));
 			</div>
 			<?php endif; ?>		
 			<?php 
-            if(is_front_page()):
-
+           
             if ($this['modules']->count('logo + headerbar-trial')) : ?>	
 			<div id="headerbar" class="clearfix">
 			
@@ -88,46 +87,35 @@ dành cho thành viên Happy Click</p>
 			<?php 
 				if ($this['modules']->count('top-a2')) : ?>
 			<section id="top-a2" class="grid-block"><?php echo $this['modules']->render('top-a2', array('layout'=>$this['config']->get('top-a2'))); ?></section>
+           <br/>
             <?php
             endif;
 				?>
 			<?php 
             endif;
-            endif; ?>
-
-			
-		<?php 
-            if(!is_front_page()):
-            if ($this['modules']->count('logo + headerbar')) : ?>	
-			<div id="headerbar" class="clearfix">
-			
-				<?php if ($this['modules']->count('logo')) : ?>	
-				<a id="logo" href="<?php echo $this['config']->get('site_url'); ?>"><?php echo $this['modules']->render('logo'); ?></a>
-				<?php endif; ?>
-				
-				<?php echo $this['modules']->render('headerbar'); ?>
-				
-			</div>
-			<?php 
-
-            endif;
-            endif; ?>
-			<?php if ($this['modules']->count('banner')) : ?>
-			<div id="banner"><?php echo $this['modules']->render('banner'); ?></div>
-			<?php endif; ?>
+           ?>
+		<?php if ($this['modules']->count('slider')) : ?>
 		
+		<section id="homeslider">
+				<?php echo $this['modules']->render('slider', array('layout'=>'stack')); ?>
+		</section>
+		<div style="clear:both"></div><br/>
+	<?php endif;?>
 		</header>
 
-		
-		<div id="main" class="grid-block">
 		<?php if ($this['modules']->count('sidebar-trial')) : ?>
 			<aside id="sidebar-trial" class="grid-box"><?php echo $this['modules']->render('sidebar-trial', array('layout'=>'stack')); ?></aside>
 			<?php endif; ?>
+		<div id="main" class="grid-block">
+		
 			
 			<div id="maininner" class="grid-box">
 			<section id="top-a3">
 				<?php echo $this['modules']->render('top-a3', array('layout'=>'stack')); ?>
 			</section>
+			
+
+			<div style="clear:both"></div>
 			<?php if ($this['config']->get('system_output')) : ?>
 				<section id="content" class="grid-block"><?php echo $this['template']->render('content'); ?></section>
 				<?php endif; ?>

@@ -15,6 +15,8 @@ $sidebar_b       = '';
 $maininner_width = 100;
 $sidebar_a_width = intval($this['config']->get('sidebar-a_width'));
 $sidebar_b_width = intval($this['config']->get('sidebar-b_width'));
+$sidebar_trial_width = intval($this['config']->get('sidebar-trial_width'));
+
 $sidebar_classes = "";
 $rtl             = $this['config']->get('direction') == 'rtl';
 $body_config	 = array();
@@ -23,15 +25,21 @@ $body_config	 = array();
 if ($this['modules']->count('sidebar-a')) {
 	$sidebar_a = $this['config']->get('sidebar-a'); 
 	$maininner_width -= $sidebar_a_width;
+	
 	$css[] = sprintf('#sidebar-a { width: %d%%; }', $sidebar_a_width);
 }
-
 if ($this['modules']->count('sidebar-b')) {
 	$sidebar_b = $this['config']->get('sidebar-b'); 
 	$maininner_width -= $sidebar_b_width;
 	$css[] = sprintf('#sidebar-b { width: %d%%; }', $sidebar_b_width);
 }
 
+if ($this['modules']->count('sidebar-trial')) {
+	$sidebar_trial = $this['config']->get('sidebar-trial'); 
+	$maininner_width =100 - $sidebar_trial_width;
+
+	$css[] = sprintf('#sidebar-trial { width: %d%%; }', $sidebar_trial_width);
+}
 $css[] = sprintf('#maininner { width: %d%%; }', $maininner_width);
 
 // all sidebars right
@@ -156,8 +164,6 @@ $this['asset']->addFile('js', 'js:fancy/jquery.fancybox.pack.js');
 $this['asset']->addFile('js', 'js:tnd/scripts.js');
 $this['asset']->addFile('js', 'js:tnd/scripts_vu.js');
 $this['asset']->addFile('js', 'js:tnd/jquery.jcarousel.min.js');
-$this['asset']->addFile('js', 'js:fancy/jquery.fancybox.pack.js');
-$this['asset']->addFile('js', 'js:tnd/jquery-ui.js');
 
 // internet explorer
 if ($this['useragent']->browser() == 'msie') {

@@ -406,6 +406,7 @@ div.wpcf7-validation-errors{ border:none; }
 }
 .content-box1 .content-box-inside{
     padding: 10px 20px 20px 10px;
+    overflow: hidden;
 }
 .content-box1 .how-to-join{
     background: url(images/how-to-join.gif) 0 0 no-repeat;
@@ -556,9 +557,6 @@ div.wpcf7-validation-errors{ border:none; }
 .item .content p{
     line-height: 1.8em;
 }
-<<<<<<< HEAD
-
-=======
 .video-category{
     border-bottom: 1px solid #ddd;
 }
@@ -674,5 +672,4 @@ table.quiz td{
 }
 .archive-new-week #total_point{}
 .archive-new-week .answers{ display: none; }
->>>>>>> 5ffabdff88e709ea9e3b4ae624a1b365c3c5395d
 /* END Tamnd's code */
