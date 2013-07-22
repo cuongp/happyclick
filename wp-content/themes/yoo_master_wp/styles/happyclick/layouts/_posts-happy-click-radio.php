@@ -1,11 +1,11 @@
-<?php
 
+<?php
 $args = array(
     'category_name' 	=> 'happy-click-radio',
     'post_status' 			=> array( 'publish' ),
 	'type'						=> 'post',
 	'taxonomy'             => 'category',
-    'posts_per_page' 	=> 9,
+    'posts_per_page' 	=> 8,
     'orderby' 				=> 'date',
     'order' 					=> 'DESC'
 );
@@ -15,6 +15,7 @@ global $post_count_radio;
 if($post_count_radio != 0) {
 	$post_count_radio = 0;
 }
+
 
 $the_query = new WP_Query( $args );
 while ( $the_query->have_posts() ) {

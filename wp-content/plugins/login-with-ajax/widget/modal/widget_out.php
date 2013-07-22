@@ -6,7 +6,7 @@
 */
 ?>
 	<div class="lwa lwa-template-modal"><?php //class must be here, and if this is a template, class name should be that of template directory ?>
-		<a href="<?php echo esc_attr(LoginWithAjax::$url_login); ?>" class="lwa-links-modal"><?php esc_html_e('Log In','login-with-ajax') ?></a>
+		<a href="<?php echo esc_attr(LoginWithAjax::$url_login); ?>" class="lwa-links-modal"><?php esc_html_e('','login-with-ajax') ?></a>
 		<?php 
 		//FOOTER - once the page loads, this will be moved automatically to the bottom of the document.
 		?>
@@ -33,7 +33,7 @@
                 	<tr><td colspan="2"><?php do_action('login_form'); ?></td></tr>
 	                <tr class="lwa-submit">
 	                    <td class="lwa-submit-button">
-	                        <input type="submit" name="wp-submit" class="lwa-wp-submit" value="<?php esc_attr_e('Log In','login-with-ajax'); ?>" tabindex="100" />
+	                        <input type="submit" name="wp-submit" class="lwa-wp-submit" value="<?php esc_attr_e('','login-with-ajax'); ?>" tabindex="100" />
 	                        <input type="hidden" name="lwa_profile_link" value="<?php echo !empty($lwa_data['profile_link']) ? 1:0 ?>" />
                         	<input type="hidden" name="login-with-ajax" value="login" />
 	                    </td>

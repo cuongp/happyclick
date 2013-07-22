@@ -1,6 +1,5 @@
-﻿<div id="system">
-	<?php if (have_posts()) : ?>
-
+<div id="system">
+<?php if (have_posts()): ?>
 		<?php if (is_category()) : ?>
 			<?php /* <h1 class="page-title">Archive for the &#8216;<?php single_cat_title(); ?>&#8217; Category</h1> */ ?>
 		<?php elseif (is_tag()) : ?>
@@ -17,28 +16,39 @@
 			<h1 class="page-title"><?php _e('Blog Archives', 'warp'); ?></h1>
 		<?php endif; ?>
 		<!-- code -->
+		<?php if (is_category( )) { 
+			$cat = get_query_var('cat');
+			$curr_cat = get_category ($cat);
+		?>
 		<div id="tabs">
 			<ul>
-				<li id="tab-radio"><a href="<?php echo get_site_url().'/category/happy-click-radio'; ?>">Happy Click Radio</a></li>
-				<li id="tab-cs"><a href="<?php echo get_site_url().'/category/goc-chia-se'; ?>">Góc chia sẻ</a></li>
-				<li id="tab-kt"><a href="<?php echo get_site_url().'/category/goc-kien-thuc'; ?>">Góc kiến thức</a></li>
+			<?php if ($curr_cat->slug == "happy-click-radio"): ?>
+				<li id="tab-radio" class="ui-tabs-active"><a href="<?php echo get_site_url().'/category/happy-click-radio'; ?>"><?php _e('Happy Click Radio','warp'); ?></a></li>
+				<li id="tab-cs"><a href="<?php echo get_site_url().'/category/goc-chia-se'; ?>"><?php _e('Góc chia sẻ','warp'); ?></a></li>
+				<li id="tab-kt"><a href="<?php echo get_site_url().'/category/goc-kien-thuc'; ?>"><?php _e('Góc kiến thức','warp'); ?></a></li>
+			<?php elseif ($curr_cat->slug == "goc-chia-se"): ?>	
+				<li id="tab-radio"><a href="<?php echo get_site_url().'/category/happy-click-radio'; ?>"><?php _e('Happy Click Radio','warp'); ?></a></li>
+				<li id="tab-cs"  class="ui-tabs-active"><a href="<?php echo get_site_url().'/category/goc-chia-se'; ?>"><?php _e('Góc chia sẻ','warp'); ?></a></li>
+				<li id="tab-kt"><a href="<?php echo get_site_url().'/category/goc-kien-thuc'; ?>"><?php _e('Góc kiến thức','warp'); ?></a></li>
+			<?php elseif($curr_cat->slug == "goc-kien-thuc"): ?>
+				<li id="tab-radio"><a href="<?php echo get_site_url().'/category/happy-click-radio'; ?>"><?php _e('Happy Click Radio','warp'); ?></a></li>
+				<li id="tab-cs"><a href="<?php echo get_site_url().'/category/goc-chia-se'; ?>"><?php _e('Góc chia sẻ','warp'); ?></a></li>
+				<li id="tab-kt"  class="ui-tabs-active"><a href="<?php echo get_site_url().'/category/goc-kien-thuc'; ?>"><?php _e('Góc kiến thức','warp'); ?></a></li>
+			<?php endif; ?>
 			</ul>
 			</div>
 			<div class="posts-wrapper">
-				<?php if (is_category( )) {
-						$cat = get_query_var('cat');
-						$curr_cat = get_category ($cat);
-						
-						if($curr_cat->slug == "happy-click-radio") {
-							echo $this->render('_posts-happy-click-radio');
-						} else if($curr_cat->slug == "goc-chia-se") {
-							echo $this->render('_posts-goc-chia-se');
-						} else if($curr_cat->slug == "goc-kien-thuc") {
-							echo $this->render('_posts-goc-kien-thuc');
-						}
-					}
-				?>
+				<?php
+				if($curr_cat->slug == "happy-click-radio") {
+					echo $this->render('_posts-happy-click-radio-first');
+					echo $this->render('_posts-happy-click-radio');
+				} else if($curr_cat->slug == "goc-chia-se") {
+					echo $this->render('_posts-goc-chia-se');
+				} else if($curr_cat->slug == "goc-kien-thuc") {
+					echo $this->render('_posts-goc-kien-thuc');
+				} ?>
 			</div>
+			<?php }	?>
 	<?php else : ?>
 
 		<?php if (is_category()) : ?>
@@ -55,5 +65,4 @@
 		<?php get_search_form(); ?>
 
 	<?php endif; ?>
-
 </div>

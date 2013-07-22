@@ -12,6 +12,8 @@ License: GPLv2
 
 
 include (dirname(__file__) . '/widgets/widget-sukien.php');
+global $current_user;
+
 add_action('admin_menu','add_membership_custom_options');
 
 function add_membership_custom_options(){
@@ -342,11 +344,20 @@ function get_chude($post_type = 'sukien', $posts_per_page = -1, $orderby =
             </td>
 
         </tr>-->
-        <tr>
-        <td width="120"><p class="cat-post-title2"><a href="<?php echo get_permalink(); ?>"><span style="display:none">Xem chi tiết</span></a></p>
+        <tr> <?php
+              global $current_user;
+              if($current_user->ID == 0)
+                    $url = '/hcaccount/xem-thu/';
+                else
+                    $url = get_permalink();
+              
+              ?>
+        <td width="120"><p class="cat-post-title2"><a href="<?php echo $url; ?>"><span style="display:none">Xem chi tiết</span></a></p>
         </td>
         <td>
-              <p class="cat-post-title1"><a href="<?php echo get_permalink(); ?>"><span  style="display:none">Trở thành thành viên</span></a></p>
+              <p class="cat-post-title1">
+
+              <a href="<?php echo $url; ?>"><span  style="display:none">Trở thành thành viên</span></a></p>
             </td>
         </tr>
     </table>

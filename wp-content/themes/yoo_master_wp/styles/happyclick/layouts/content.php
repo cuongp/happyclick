@@ -28,7 +28,7 @@ if (is_home()) {
 } elseif (is_attachment()) {
 	$content = 'attachment';
 }
-elseif (is_single()) {
+elseif (is_single()) { 
     
    	$content = 'single';
 	if(get_post_type()=='sukien'){
@@ -39,6 +39,10 @@ elseif (is_single()) {
 	}*/
     if(in_array('temp_layout', get_post_custom_keys())){
         $content = 'single-onecolumn';
+    }
+    // Content view cho hoc qua video
+    if(in_array('youtube-video', get_post_custom_keys())){
+        $content = 'single-video';
     }
 
 } elseif (is_search()) {

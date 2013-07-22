@@ -2,7 +2,6 @@
 
 	<?php if (have_posts()) : ?>
 		<?php while (have_posts()) : the_post(); ?>
-		
 		<article class="item" data-permalink="<?php the_permalink(); ?>">
 		
 			<?php if (has_post_thumbnail()) : ?>

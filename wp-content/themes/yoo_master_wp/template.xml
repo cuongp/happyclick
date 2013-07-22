@@ -22,6 +22,8 @@
 		<position settings="display">breadcrumbs</position>
 		<position>top-a</position>
 		<position>top-a2</position>
+		<position>top-a3</position>
+		<position>login-modal</position>
 		<position>top-b</position>
 		<position>bottom-a</position>
 		<position>bottom-b</position>

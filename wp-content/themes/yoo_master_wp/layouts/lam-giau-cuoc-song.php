@@ -95,11 +95,9 @@ include($this['path']->path('layouts:template.config.php'));
 			<?php if ($this['modules']->count('sidebar-a')) : ?>
 				<aside id="sidebar-a" class="grid-box"><?php echo $this['modules']->render('sidebar-a', array('layout'=>'stack')); ?></aside>
 			<?php endif; ?>
-			<div id="maininner" class="grid-box">
-			<?php if ($this['config']->get('system_output')) : ?>
-                    <?php echo $this['template']->render('content-lam-giau-cuoc-song'); ?>
-				<?php endif; ?>
-			</div>
+				<?php if ($this['config']->get('system_output')) : ?>
+				<div id="maininner" class="grid-box"><?php echo $this['template']->render('content-lam-giau-cuoc-song'); ?></div><?php endif; ?>
+			
 		</div>
 		<?php endif; ?>
 		<!-- end main -->
