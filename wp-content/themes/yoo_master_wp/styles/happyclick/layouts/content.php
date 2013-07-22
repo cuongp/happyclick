@@ -40,6 +40,11 @@ elseif (is_single()) {
     if(in_array('temp_layout', get_post_custom_keys())){
         $content = 'single-onecolumn';
     }
+	
+	if(in_array('temp_layout_old', get_post_custom_keys())) {
+		$content = 'single-hoc-truc-tuyen-old';
+	}
+	
     // Content view cho hoc qua video
     if(in_array('youtube-video', get_post_custom_keys())){
         $content = 'single-video';

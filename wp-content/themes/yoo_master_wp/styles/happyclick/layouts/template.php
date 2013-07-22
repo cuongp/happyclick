@@ -138,8 +138,7 @@ global $current_user;
 
 				
 
-				<?php if ($this['config']->get('system_output')) : ?>
-				<section id="content" class="grid-block"><?php echo $this['template']->render('content'); ?></section>
+				<?php if ($this['config']->get('system_output')) : ?><section id="content" class="grid-block"><?php echo $this['template']->render('content'); ?></section>
 				<?php endif; ?>
 
 				<?php if ($this['modules']->count('innerbottom')) : ?>

@@ -267,5 +267,63 @@ font-style:italic;
 	font-style:normal;
 	margin-left:20px;
 }
-
-
+.single-post #content{
+	margin: 10px 0px 10px 10px;
+	padding:0;
+	margin-left:10px;
+}
+.single-hoc-truc-tuyen-old .content-box1 {
+	width:100%;
+	overflow: overlay;
+	min-height:891px;
+}
+.single-hoc-truc-tuyen-old .content-box1 .content-box-inside {
+	padding: 10px 20px;
+}
+.single-hoc-truc-tuyen-old .content-img {
+float: right;
+margin-right: 0;
+margin-left: 20px;
+}
+.single-hoc-truc-tuyen-old .content-img a{
+width:235px;
+}
+.single-hoc-truc-tuyen-old .content-img img{
+	margin-top: 40px;
+margin-right: 25px;
+float: right;
+}
+.single-hoc-truc-tuyen-old .content-box-video {
+float: right;
+width: 520px;
+display: block;
+clear: both;
+margin-top: 40px;
+padding-bottom: 10px;
+}
+.single-hoc-truc-tuyen-old h1 {
+font-size: 24px;
+font-weight: bold;
+color: #68a400;
+margin: 30px 0 0;
+}
+.single-hoc-truc-tuyen-old .content-box-video p {
+	float: right;
+clear: both;
+font-weight: bold;
+margin: 10px;
+}
+.single-hoc-truc-tuyen-old .content-box-video img {
+float:right;
+}
+.single-hoc-truc-tuyen-old .content-box-video p a {
+	text-decoration: underline;
+	color:#000;
+}
+.single-hoc-truc-tuyen-old .content-box-video p a:hover {
+	text-decoration: none;
+}
+.single-hoc-truc-tuyen-old .content-box-inside p {
+text-align: justify;
+word-break: break-word;	
+}
