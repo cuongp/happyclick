@@ -17,6 +17,15 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 				if($key !='action')
 					update_usermeta( $user_id, $key, $val);
 				}
+				$db->insert($db->prefix.'m_membership_relationships',
+				array('user_id'=>$user_id
+					,'sub_id'=>0
+					,'level_id'=>1
+					,'startdate'=>date('Y-m-d h:i:s',time())
+					,'order_instance'=>0
+					,'usinggateway'=>'admin'
+					));
+			update_usermeta($user_id,'wp_membership_active','no');
 				$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 <tbody>
 <tr>
