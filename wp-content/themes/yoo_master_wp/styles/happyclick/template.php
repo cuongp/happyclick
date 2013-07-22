@@ -58,15 +58,15 @@ global $current_user;
 
 			<?php 
             if(is_front_page() || $current_user->ID<1):
-            if ($this['modules']->count('top-a')) : ?>
-		<section id="top-a" class="grid-block"><?php echo $this['modules']->render('top-a', array('layout'=>$this['config']->get('top-a'))); ?></section>
-		 <?php endif;
+            	if ($this['modules']->count('top-a')) : ?>
+					<section id="top-a" class="grid-block"><?php echo $this['modules']->render('top-a', array('layout'=>$this['config']->get('top-a'))); ?></section>
+		 	<?php endif;
             if ($this['modules']->count('logo + headerbar')) : ?>	
-			<div id="headerbar" class="clearfix">
+				<div id="headerbar" class="clearfix">
 			
-				<?php if ($this['modules']->count('logo')) : ?>	
-				<a id="logo" href="<?php echo $this['config']->get('site_url'); ?>"><?php echo $this['modules']->render('logo'); ?></a>
-				<?php endif; ?>
+					<?php if ($this['modules']->count('logo')) : ?>	
+						<a id="logo" href="<?php echo $this['config']->get('site_url'); ?>"><?php echo $this['modules']->render('logo'); ?></a>
+					<?php endif; ?>
 				
 				<?php echo $this['modules']->render('headerbar'); ?>
 				
@@ -129,13 +129,17 @@ global $current_user;
 
 			<div id="maininner" class="grid-box">
 
+				
+                
+                
                 <?php if ($this['modules']->count('innertop')) : ?>
 				<section id="innertop" class="grid-block"><?php echo $this['modules']->render('innertop', array('layout'=>$this['config']->get('innertop'))); ?></section>
 				<?php endif; ?>
 
 				
 
-				<?php if ($this['config']->get('system_output')) : ?><section id="content" class="grid-block"><?php echo $this['template']->render('content'); ?></section>
+				<?php if ($this['config']->get('system_output')) : ?>
+				<section id="content" class="grid-block"><?php echo $this['template']->render('content'); ?></section>
 				<?php endif; ?>
 
 				<?php if ($this['modules']->count('innerbottom')) : ?>
@@ -145,17 +149,16 @@ global $current_user;
 			</div>
 			<!-- maininner end -->
 			
-			<?php if ($this['modules']->count('sidebar-a')) : ?>
-			<aside id="sidebar-a" class="grid-box"><?php echo $this['modules']->render('sidebar-a', array('layout'=>'stack')); ?></aside>
-			<?php endif; ?>
 			
-			<?php if ($this['modules']->count('sidebar-b')) : ?>
-			<aside id="sidebar-b" class="grid-box"><?php echo $this['modules']->render('sidebar-b', array('layout'=>'stack')); ?></aside>
-			<?php endif; ?>
+			
+			
 
 		</div>
 		<?php endif; ?>
 		<!-- main end -->
+		<?php if ($this['modules']->count('sidebar-b')) : ?>
+			<aside id="sidebar-b" class="grid-box"><?php echo $this['modules']->render('sidebar-b', array('layout'=>'stack')); ?></aside>
+			<?php endif; ?>
         
 		<?php if ($this['config']->get('totop_scroller')) : ?>
 			<a id="totop-scroller" href="#page">Quay về trang chủ</a>

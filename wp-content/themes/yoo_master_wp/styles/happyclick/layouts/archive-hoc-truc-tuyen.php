@@ -1,5 +1,6 @@
 <div id="system">
 	<?php if (have_posts()) : ?>
+
 		<?php if (is_category()) : ?>
 			<?php /* <h1 class="page-title">Archive for the &#8216;<?php single_cat_title(); ?>&#8217; Category</h1> */ ?>
 		<?php elseif (is_tag()) : ?>
@@ -22,7 +23,9 @@
                     <a href="#" class="how-to-join">&nbsp;</a>
                     <h4 class="content-box-title-h4">Khóa học trực tuyến sắp diễn ra</h4>
                     <?php
+
                          echo $this->render('_posts-hoc-truc-tuyen'); 
+
                     ?>
                 </div>
             </div>
@@ -30,7 +33,9 @@
                 <h3 class="content-box-title">Các khóa học trực tuyến tiếp theo</h3>
                 <div class="content-box-inside">
                     <?php
+
                          echo $this->render('_posts-hoc-truc-tuyen-sub'); 
+
                     ?>
                 </div>
             </div>
