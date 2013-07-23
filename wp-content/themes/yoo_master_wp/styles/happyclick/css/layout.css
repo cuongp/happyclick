@@ -50,10 +50,27 @@ a.prev, a.next {
     display: block;
 
     position: absolute;
-
     top: 10px;
 
 }
+.popup_kichhoat{
+    background: url(../images/popup.png) no-repeat;
+    height: 381px;
+    width: 519px;
+    display: block;
+    margin: 0 auto;
+    position: fixed;
+    left: 30%;
+    top:10%; 
+}
+.popup_kichhoat .close{
+    background: url(../images/popup-button.png) no-repeat;
+    height: 20px;
+    width: 21px;
+    display: block;
+    margin-left: 500px;
+    cursor: pointer;
+} 
 a.next{right:0px;background-position: right;}
 a.prev span, a.next span{display: none}
 #slider li img{
