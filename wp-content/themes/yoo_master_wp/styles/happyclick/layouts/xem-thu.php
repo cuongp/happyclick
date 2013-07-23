@@ -25,7 +25,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					,'order_instance'=>0
 					,'usinggateway'=>'admin'
 					));
-			update_usermeta($user_id,'wp_membership_active','no');
+				update_usermeta($user_id,'wp_membership_active','no');
 				$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 <tbody>
 <tr>
@@ -94,11 +94,13 @@ $gender = get_usermeta( $current_user->ID, 'gender');
             <?php
             endif;
 				?>
+<?php if($current_user->ID < 1): ?>
 <div class="box" style="width:730px">
 <p>Đăng nhập nếu bạn đã có tài khoản dùng thử</p>
 <div style="float:right"><?php echo $this['modules']->render('login-modal'); ?></div>
 <div style="clear:both"></div>
 </div>
+<?php endif; ?>
 <div class="box" style="width:730px">
 
 <form id="form" class="form_profile" method="post">

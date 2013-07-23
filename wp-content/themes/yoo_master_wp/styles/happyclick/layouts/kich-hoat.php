@@ -2,7 +2,6 @@
 global $current_user;
 $flag='';
 
-
 function check_card($code,$serial){
 	 $db = $GLOBALS['wpdb'];
         $post = $db->get_row('select id from '.$db->prefix.'cards where serial="'.$serial.'" and code= "'.$code.'" and valid=1 and status=0');
@@ -18,7 +17,10 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 	$db = $GLOBALS['wpdb'];
 	$card_id = check_card($_POST['code'],$_POST['serial']); 
 	if($card_id){
-		$user_id = wp_create_user( $_POST['email'], $_POST['password'], $_POST['email']); 	
+		if($current_user->ID >0)
+			$user_id = $current_user->ID;
+		else
+			$user_id = wp_create_user( $_POST['email'], $_POST['password'], $_POST['email']); 	
 		
 		if($user_id>0){
 			
@@ -50,7 +52,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
   <td><a href="http://www.happyclick.com.vn"><img src="http://www.unity.com.vn/images/HC_Banner.png" align="center" width="598" height="130" /></a></td>
 </tr>
 <tr>
-  <td height="323" valign="top" style="padding: 10px 10px 0px 10px; height=; color: #003399; font-size: 14px;"1354><p>Chào &lt;A&gt;<br />
+  <td height="323" valign="top" style="padding: 10px 10px 0px 10px; height=; color: #003399; font-size: 14px;"1354><p>Chào '.$_POST['fullname'].'<br />
       <br />
       Chúc mừng bạn đã trở thành thành viên của Happy Click!<br />
       <br />
@@ -63,7 +65,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
     <p>Thời hạn sử dụng: đến hết ngày…<br />
       <br />
       Vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản cho thành viên:<br />
-      <a href=http://dev.happyclick.vn/hcaccount/xac-thuc-email/?act=active&user_id='.$user_id.'&code="'.time().'">Kích hoạt thành viên</a><br />
+      <a href=http://dev.happyclick.vn/hcaccount/xac-thuc-email/?act=active&user_id='.$user_id.'&code='.time().'>Kích hoạt thành viên</a><br />
       <br />
       Đường dẫn này sẽ chỉ có giá trị đến &lt;giờ, ngày, tháng, năm&gt;<br />
       <br />
@@ -108,17 +110,17 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 $gender = get_usermeta( $current_user->ID, 'gender');
 
 ?>
+<?php if($current_user->ID < 1): ?>
 <div class="box" style="width:730px">
 <p>Bạn đã xem thử và có tài khoản với Happy Click, vui lòng đăng nhập để kích hoạt.</p>
 <div style="float:right"><?php echo $this['modules']->render('login-modal'); ?></div>
 <div style="clear:both"></div>
 </div>
+<?php endif; ?>
 <div class="box" style="width:730px">
 
 <form id="form" class="form_profile" method="post">
-		<?php 
-echo $flag;
-?>
+
 <p>Kích hoạt cho thành viên mới, chưa có tài khoản. Vui lòng nhập thông tin để tạo tài khoản.</p>
 		<table width="100%" class="form_doipass">
 			<tr>

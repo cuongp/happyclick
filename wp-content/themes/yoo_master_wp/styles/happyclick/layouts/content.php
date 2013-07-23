@@ -69,8 +69,13 @@ elseif(is_archive() && is_post_type_archive('sukien')){
 elseif (is_archive()) {
 	//$content = 'archive';
     //var_dump(get_taxonomy('chude'));
+    $cat_id = get_query_var('cat');
+
     $content = '';
-    if(get_query_var('chude'))
+    if($cat_id == 80){
+    	$content = 'archive-thanh-vien';	
+    }
+    elseif(get_query_var('chude'))
         $content = '_chude';
     elseif(get_query_var('hcaccount')){
     	$content = '_hcaccount';
