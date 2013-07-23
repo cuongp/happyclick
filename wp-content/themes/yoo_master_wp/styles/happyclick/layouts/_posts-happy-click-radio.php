@@ -5,7 +5,7 @@ $args = array(
     'post_status' 			=> array( 'publish' ),
 	'type'						=> 'post',
 	'taxonomy'             => 'category',
-    'posts_per_page' 	=> 8,
+    'posts_per_page' 	=> 12,
     'orderby' 				=> 'date',
     'order' 					=> 'DESC'
 );

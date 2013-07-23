@@ -33,7 +33,13 @@ elseif (is_single()) {
    	$content = 'single';
 	if(get_post_type()=='sukien'){
         $content = 'single-sukien';   
-    }/*
+    }
+	
+	$kat = get_the_category()[0]->category_nicename;
+	if($kat == 'happy-click-radio') {
+		$content = 'single-lam-giau-cuoc-song';
+	}
+	/*
     if ($this["path"]->path("layouts:{$queried_object->post_type}.php")) {
 		$content = $queried_object->post_type;
 	}*/
@@ -44,6 +50,7 @@ elseif (is_single()) {
 	if(in_array('temp_layout_old', get_post_custom_keys())) {
 		$content = 'single-hoc-truc-tuyen-old';
 	}
+	
 	
     // Content view cho hoc qua video
     if(in_array('youtube-video', get_post_custom_keys())){

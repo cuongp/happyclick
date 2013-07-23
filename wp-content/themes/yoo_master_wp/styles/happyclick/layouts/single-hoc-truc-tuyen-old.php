@@ -1,6 +1,7 @@
 <div id="system" class="single-hoc-truc-tuyen-old single">
 	<?php if(have_posts()): ?>
 		<?php while(have_posts()): the_post(); ?>
+		
 			<div class="content-box1">
 				 <h3 class="content-box-title"><?php _e('KHÓA HỌC TRỰC TUYẾN ĐÃ TỔ CHỨC','warp'); ?></h3>
 				 <div class="content-box-inside">

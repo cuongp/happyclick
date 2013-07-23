@@ -24,20 +24,18 @@ if (is_home()) {
 	
 } elseif (is_page()) {
 	$content = 'page';
-	
+} elseif (is_single()) {
+	$categ = get_the_category();
+	var_dump(get_the_category());
 } elseif (is_attachment()) {
 	$content = 'attachment';
-}
-elseif (is_search()) {
+} elseif (is_search()) {
 	$content = 'search';
 } elseif (is_archive() && is_author()) {
 	$content = 'author';
-} 
-elseif(is_archive() && is_post_type_archive('sukien')){
+} elseif(is_archive() && is_post_type_archive('sukien')){
     $content = 'archive-sukien';
-}
-
-elseif (is_archive()) {
+} elseif (is_archive()) {
 	//$content = 'archive';
     //var_dump(get_taxonomy('chude'));
     $content = 'archive-lam-giau-cuoc-song';
