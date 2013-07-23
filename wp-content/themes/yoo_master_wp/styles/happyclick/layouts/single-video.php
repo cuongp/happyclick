@@ -11,7 +11,7 @@
                             $youtubeVideo = get_post_custom_values('youtube-video'); 
                             $youtubeVideo_link = $youtubeVideo[0];
                             ?>
-                            <iframe width="560" height="414" src="<?php echo $youtubeVideo_link; ?>?showinfo=0" frameborder="0" allowfullscreen></iframe>
+                            <iframe width="560" height="414" src="<?php echo $youtubeVideo_link; ?>?showinfo=0&rel=0" frameborder="0" allowfullscreen></iframe>
                         </div>
                         <div class="related-video">
                             <?php
