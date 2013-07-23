@@ -2,7 +2,6 @@
 global $current_user;
 $flag='';
 
-
 function check_card($code,$serial){
 	 $db = $GLOBALS['wpdb'];
         $post = $db->get_row('select id from '.$db->prefix.'cards where serial="'.$serial.'" and code= "'.$code.'" and valid=1 and status=0');
@@ -108,7 +107,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 $gender = get_usermeta( $current_user->ID, 'gender');
 
 ?>
-<?php if($current_user->ID>0): ?>
+<?php if($current_user->ID < 1): ?>
 <div class="box" style="width:730px">
 <p>Bạn đã xem thử và có tài khoản với Happy Click, vui lòng đăng nhập để kích hoạt.</p>
 <div style="float:right"><?php echo $this['modules']->render('login-modal'); ?></div>

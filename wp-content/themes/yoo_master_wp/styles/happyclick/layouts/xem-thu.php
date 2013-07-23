@@ -94,7 +94,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
             <?php
             endif;
 				?>
-<?php if($current_user->ID>0): ?>
+<?php if($current_user->ID < 1): ?>
 <div class="box" style="width:730px">
 <p>Đăng nhập nếu bạn đã có tài khoản dùng thử</p>
 <div style="float:right"><?php echo $this['modules']->render('login-modal'); ?></div>
