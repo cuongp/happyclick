@@ -93,7 +93,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 </tbody>
 </table>';
 			wpMandrill::mail($_POST['email'],'Kích hoạt thành viên',$html);	
-			//wp_redirect('/hcaccount/xac-nhan-email/');
+			wp_redirect('/index.php?mod=kich-hoat');
 			exit;			
 			}
 		}

@@ -14,7 +14,7 @@
 	'post_parent'     => '',
 	'post_status'     => 'publish',
 	'suppress_filters' => true ); 
-function catch_that_image($content) {
+function catch_that_image($content){
 
 $first_img = '';
 ob_start();
