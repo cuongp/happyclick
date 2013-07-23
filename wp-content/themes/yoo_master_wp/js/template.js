@@ -29,6 +29,10 @@ $("#slider").carouFredSel({
 	prev	: "#foo1_prev",
 	next	: "#foo1_next"
 }).parent().css("margin", "auto");
+$('.popup_kichhoat .close').click(function(){
+	$(this).parent().parent().fadeOut(1000);
+	
+})
 
 		var config = $('body').data('config') || {};
 		

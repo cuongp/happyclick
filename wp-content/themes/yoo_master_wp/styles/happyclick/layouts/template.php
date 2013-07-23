@@ -10,7 +10,6 @@
 include($this['path']->path('layouts:template.config.php'));
 	
 global $current_user;
-
 ?>
 <!DOCTYPE HTML>
 <html lang="<?php echo $this['config']->get('language'); ?>" dir="<?php echo $this['config']->get('direction'); ?>">
@@ -26,13 +25,23 @@ global $current_user;
 	<?php if ($this['modules']->count('absolute')) : ?>
 	<div id="absolute">
 		<?php echo $this['modules']->render('absolute'); ?>
+		
 	</div>
 	<?php endif; ?>
-	
+	<?php
+		if(isset($_GET) && $_GET['mod'] =='kich-hoat'){
+			echo '<div style="background:rgba(0, 0, 0, 0.75);position:absolute;left:0;z-index:99999;display:block;width:100%;min-height:100%;height:100%;">
+				<p class="popup_kichhoat">
+				<span class="close"></span>
+				</p>
+			</div>';
+		}
+
+		?>
 	<div class="wrapper clearfix">
 
 		<header id="header">
-            
+
 		
 			<?php if ($this['modules']->count('toolbar-l + toolbar-r') || $this['config']->get('date')) : ?>
 			<div id="toolbar" class="clearfix">
