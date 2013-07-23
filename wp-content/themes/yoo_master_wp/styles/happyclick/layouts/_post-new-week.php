@@ -7,6 +7,7 @@
 	</div>
     <script type="text/javascript">
         (function($){
+            $('.nw_answers').hide();
             var $total_point    = 0;
             var $array          = new Array();
             $(".quiz input").click(function(){
@@ -15,10 +16,23 @@
                 $total_point    -= $array[key];
                 $total_point    += parseInt($(this).val());
                 $array[key]      = parseInt($(this).val());
-                console.log($array);
-                console.log('Total = ' + $total_point);
+                $('#total_point').text(' '+$total_point);
             });
             $(".tong_diem a").click(function(){
+                $('.nw_answers').hide();
+                if($total_point >= 24){
+                    $("#answer1").show('slow');
+                    return false;
+                }
+                if($total_point >= 17){
+                    $("#answer2").show('slow');
+                    return false;
+                }
+                if($total_point >= 10){
+                    $("#answer3").show('slow');
+                    return false;
+                }
+                alert('Vui lòng lựa chọn đầy đủ các đáp án để biết được kết quả!')
                 return false;
             });
         })(jQuery);
