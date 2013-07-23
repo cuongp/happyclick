@@ -9,7 +9,7 @@
 // get template configuration
 include($this['path']->path('layouts:template.config.php'));
 	global $current_user;
-
+	
 ?>
 <!DOCTYPE HTML>
 <html lang="<?php echo $this['config']->get('language'); ?>" dir="<?php echo $this['config']->get('direction'); ?>">
@@ -139,9 +139,7 @@ dành cho thành viên Happy Click</p>
 	</section>
 		
 		<div id="main" class="grid-block">
-		<?php if ($this['modules']->count('sidebar-a')) : ?>
-			<aside id="sidebar-a" class="grid-box"><?php echo $this['modules']->render('sidebar-a', array('layout'=>'stack')); ?></aside>
-			<?php endif; ?>
+		
 			<div id="maininner" class="grid-box">
 		<?php if ($this['config']->get('system_output')) : ?>
 				<section id="content" class="grid-block"><?php echo $this['template']->render('content'); ?></section>

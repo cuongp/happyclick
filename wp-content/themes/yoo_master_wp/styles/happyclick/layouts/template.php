@@ -121,9 +121,7 @@ global $current_user;
         <?php if ($this['modules']->count('breadcrumbs')) : ?>
 				<section id="breadcrumbs"><?php echo $this['modules']->render('breadcrumbs'); ?></section>
 				<?php endif; ?>
-		<?php if ($this['modules']->count('sidebar-a')) : ?>
-			<aside id="sidebar-a" class="grid-box"><?php echo $this['modules']->render('sidebar-a', array('layout'=>'stack')); ?></aside>
-			<?php endif; ?>
+		
 		<?php if ($this['modules']->count('innertop + innerbottom + sidebar-b') || $this['config']->get('system_output')) : ?>
 		<div id="main" class="grid-block">
 
