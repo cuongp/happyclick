@@ -34,7 +34,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					,'sub_id'=>2
 					,'level_id'=>2
 					,'startdate'=>date('Y-m-d h:i:s',time())
-					,'order_instance'=>1
+					,'order_instance'=>0
 					,'usinggateway'=>'card'
 					));
 			update_usermeta($user_id,'wp_membership_active','no');
@@ -65,7 +65,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
     <p>Thời hạn sử dụng: đến hết ngày…<br />
       <br />
       Vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản cho thành viên:<br />
-      <a href=http://dev.happyclick.vn/hcaccount/xac-thuc-email/?act=active&user_id='.$user_id.'&code='.time().'>Kích hoạt thành viên</a><br />
+      <a href=http://dev.happyclick.vn/hcaccount/xac-thuc-email/?act=active&sub_id=2&level_id=2&user_id='.$user_id.'&code='.time().'>Kích hoạt thành viên</a><br />
       <br />
       Đường dẫn này sẽ chỉ có giá trị đến &lt;giờ, ngày, tháng, năm&gt;<br />
       <br />
@@ -175,11 +175,11 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Mật khẩu</td>
-				<td  class="box4"><input type="text" name="password" /><span>*</span></td>				
+				<td  class="box4"><input type="password" name="password" /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Xác nhận mật khẩu</td>
-				<td  class="box4"><input type="text" name="confirm_pass" /><span>*</span></td>				
+				<td  class="box4"><input type="password" name="confirm_pass" /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Điện thoại di động</td>

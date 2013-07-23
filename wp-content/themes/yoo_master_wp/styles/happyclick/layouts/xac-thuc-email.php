@@ -2,6 +2,11 @@
 $old_time = $_GET['code'];
 $current_time = time()-$old_time;
 $user_id = $_GET['user_id'];
+if(isset($_GET['level_id']))
+	$level_id = $_GET['level_id'];
+else
+	$level_id = 0;
+
 if($current_time>12*3600*1000){
 ?>
 
