@@ -1,7 +1,5 @@
 
-<article id="item-<?php the_ID(); ?>" class="item width50" style="float:left" data-permalink="<?php the_permalink(); ?>">
-
-	
+<div style="float:left;margin-bottom:10px" class="width50">
 	<header>
 
 		<?php if (has_post_thumbnail()) : ?>
@@ -19,5 +17,4 @@
 	</p>
 
 	<?php edit_post_link(__('Edit this post.', 'warp'), '<p class="edit">','</p>'); ?>
-
-</article>
+</div>
