@@ -203,17 +203,18 @@ float: left;
 margin-top: 50px;
 }
 .category-goc-kien-thuc .item img {
-	float: left;
-margin: 0px 30px 0 60px;
+float: left;
+margin: 0px 20px 0 30px;
 }
 .category-goc-kien-thuc .item .posts-content {
 float: left;
-margin-right: 60px;
-width: 460px;
+margin-right: 30px;
+margin-left: 0px;
+width: 480px;
 }
 .category-goc-kien-thuc .item .posts-content h3, .category-goc-kien-thuc .item .posts-content p {
 float: left;
-word-break: break-all;
+word-break: break-word;
 text-align: justify;
 margin-top: 0px;
 margin-bottom: 10px;
