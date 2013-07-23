@@ -88,7 +88,7 @@ margin-top: 0px;
 border-radius: 0 5px 5px 5px;
 -webkit-border-radius: 0 5px 5px 5px;
 -moz-border-radius: 0 5px 5px 5px;
-height: 1695px;
+height: 1900px;
 margin-bottom: 80px;
 }
 .margin_right {
@@ -341,11 +341,11 @@ word-break: break-word;
 box-shadow: 0 0 9px #999999;
 -webkit-box-shadow: 0 0 9px #999999;
 -moz-box-shadow: 0 0 9px #999999;
-height: 1695px;
+height: 2900px;
 margin-bottom: 80px;
 margin-left: 0px;
 margin-top: 0;
-padding: 25px 30px 0 0;
+padding: 25px 30px 30px 0;
 width: 97%;
 }
 

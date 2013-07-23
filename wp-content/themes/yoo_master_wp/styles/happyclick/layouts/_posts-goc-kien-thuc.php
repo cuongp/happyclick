@@ -1,4 +1,4 @@
-﻿<div id="download_here"><a href="#"><?php _e('Mời các bạn tải tài liệu học tại đây','warp'); ?></div>
+﻿<div id="download_here"><a href="#" target="_blank"><?php _e('Mời các bạn tải tài liệu học tại đây','warp'); ?></div>
 <?php
 
 $arg = array(
@@ -6,7 +6,7 @@ $arg = array(
     'post_status' 			=> array( 'publish' ),
 	'type'						=> 'post',
 	'taxonomy'             => 'category',
-    'posts_per_page' 	=> 5,
+    'posts_per_page' 	=> 10,
     'orderby' 				=> 'date',
     'order' 					=> 'DESC'
 );
