@@ -17,27 +17,35 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 	$db = $GLOBALS['wpdb'];
 	$card_id = check_card($_POST['code'],$_POST['serial']); 
 	if($card_id){
-		if($current_user->ID >0)
+		if($current_user->ID >0){
 			$user_id = $current_user->ID;
+
+		}
 		else
 			$user_id = wp_create_user( $_POST['email'], $_POST['password'], $_POST['email']); 	
 		
 		if($user_id>0){
 			
-			
+			$member = new M_Membership($user_id);
+		
 			foreach ($_POST as $key=>$val) {
 				if($key !='action')
 					update_usermeta( $user_id, $key, $val);
 				}
-			$db->insert($db->prefix.'m_membership_relationships',
+
+			$member->assign_level(2, true);
+/*			$db->insert($db->prefix.'m_membership_relationships',
 				array('user_id'=>$user_id
 					,'sub_id'=>2
 					,'level_id'=>2
 					,'startdate'=>date('Y-m-d h:i:s',time())
-					,'order_instance'=>1
+					,'order_instance'=>0
 					,'usinggateway'=>'card'
 					));
+
 			update_usermeta($user_id,'wp_membership_active','no');
+			update_usermeta($user_id,'_membership_key','no');
+			update_usermeta($user_id,'wp_membership_active','no');*/
 			
 			$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 <tbody>
@@ -65,7 +73,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
     <p>Thời hạn sử dụng: đến hết ngày…<br />
       <br />
       Vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản cho thành viên:<br />
-      <a href=http://dev.happyclick.vn/hcaccount/xac-thuc-email/?act=active&user_id='.$user_id.'&code='.time().'>Kích hoạt thành viên</a><br />
+      <a href=http://dev.happyclick.vn/hcaccount/xac-thuc-email/?act=active&sub_id=2&level_id=2&user_id='.$user_id.'&code='.time().'>Kích hoạt thành viên</a><br />
       <br />
       Đường dẫn này sẽ chỉ có giá trị đến &lt;giờ, ngày, tháng, năm&gt;<br />
       <br />
@@ -175,11 +183,11 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Mật khẩu</td>
-				<td  class="box4"><input type="text" name="password" /><span>*</span></td>				
+				<td  class="box4"><input type="password" name="password" /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Xác nhận mật khẩu</td>
-				<td  class="box4"><input type="text" name="confirm_pass" /><span>*</span></td>				
+				<td  class="box4"><input type="password" name="confirm_pass" /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Điện thoại di động</td>

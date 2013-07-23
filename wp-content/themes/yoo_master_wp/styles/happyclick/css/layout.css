@@ -18,8 +18,13 @@ em{color: #000;}
 #breadcrumbs,
 #content,#bottom-b,
 { margin: 15px; }
+.title_muathe{
+    font-size: 24px;
+    color: #88ab35;
+}
 #top-a2 .mod-box,#homeslider .mod-box{
 -webkit-border-radius:5px;
+
     -moz-border-radius:5px;
     border-radius:5px;
     border: 1px solid #eaeaea;    
