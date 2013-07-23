@@ -1,7 +1,7 @@
 <div id="system">
 	<?php if (have_posts()) : ?>
 
-	<h1>Quyền lợi thành viên</h1>
+	<h1 style="font-size:24px">Quyền lợi thành viên</h1>
         
 		<?php 
             

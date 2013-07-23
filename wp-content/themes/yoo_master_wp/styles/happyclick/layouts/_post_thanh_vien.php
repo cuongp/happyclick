@@ -1,6 +1,6 @@
 
-<div style="float:left;margin-bottom:10px" class="width50">
-	<header>
+<div style="float:left;margin-bottom:10px;min-height:150px" class="width50">
+	<header style="min-height:100px">
 
 		<?php if (has_post_thumbnail()) : ?>
 		<?php
@@ -12,7 +12,7 @@
 	</header>
 
 	
-	<p>
+	<p style="text-algin:right">
 		<a href="<?php the_permalink() ?>" class="xemthu" title="<?php the_title_attribute(); ?>"><?php _e('<span>Xem thử</span>', 'warp'); ?></a>
 	</p>
 

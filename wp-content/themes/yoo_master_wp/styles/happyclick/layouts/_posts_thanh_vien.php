@@ -46,5 +46,5 @@ if ($count = count($columns)) {
 	for ($i = 0; $i < $count; $i++) {
 		echo '<div class="grid-box width'.intval(100 / $count).'">'.$columns[$i].'</div>';
 	}
-	echo '</div>';
+	echo '<div style="clear:both"></div></div>';
 }
