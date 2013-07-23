@@ -25,7 +25,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					,'order_instance'=>0
 					,'usinggateway'=>'admin'
 					));
-			update_usermeta($user_id,'wp_membership_active','no');
+				update_usermeta($user_id,'wp_membership_active','no');
 				$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 <tbody>
 <tr>

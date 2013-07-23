@@ -12,9 +12,7 @@
 	</header>
 
 	
-	<p style="text-algin:right">
+	<p style="text-align: center;display:block">
 		<a href="<?php the_permalink() ?>" class="xemthu" title="<?php the_title_attribute(); ?>"><?php _e('<span>Xem thử</span>', 'warp'); ?></a>
 	</p>
-
-	<?php edit_post_link(__('Edit this post.', 'warp'), '<p class="edit">','</p>'); ?>
 </div>
