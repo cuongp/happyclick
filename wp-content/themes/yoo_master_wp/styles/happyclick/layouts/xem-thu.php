@@ -94,11 +94,13 @@ $gender = get_usermeta( $current_user->ID, 'gender');
             <?php
             endif;
 				?>
+<?php if($current_user->ID>0): ?>
 <div class="box" style="width:730px">
 <p>Đăng nhập nếu bạn đã có tài khoản dùng thử</p>
 <div style="float:right"><?php echo $this['modules']->render('login-modal'); ?></div>
 <div style="clear:both"></div>
 </div>
+<?php endif; ?>
 <div class="box" style="width:730px">
 
 <form id="form" class="form_profile" method="post">
