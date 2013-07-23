@@ -12,11 +12,12 @@
 		?>
 		<div class="lwa-modal" style="display:none;">
 	        <form name="lwa-form" class="lwa-form" action="<?php echo esc_attr(LoginWithAjax::$url_login); ?>" method="post">
+	        	<h3 style="margin-top:0px">ĐĂNG NHẬP</h3>
 	        	<span class="lwa-status"></span>
 	            <table>
 	                <tr class="lwa-username">
 	                    <td class="username_label">
-	                        <label><?php esc_html_e( 'Tài khoản','login-with-ajax' ) ?></label>
+	                        <label><?php esc_html_e( 'Tên đang nhập','login-with-ajax' ) ?></label>
 	                    </td>
 	                    <td class="username_input">
 	                        <input type="text" name="log" id="lwa_user_login" class="input" />
@@ -33,17 +34,20 @@
                 	<tr><td colspan="2"><?php do_action('login_form'); ?></td></tr>
 	                <tr class="lwa-submit">
 	                    <td class="lwa-submit-button">
-	                        <input type="submit" name="wp-submit" class="lwa-wp-submit" value="<?php esc_attr_e('','login-with-ajax'); ?>" tabindex="100" />
+	                        
+	                    </td>
+	                    <td class="lwa-links" align="center">
+	                    	<?php if( !empty($lwa_data['remember']) ): ?>
+							<a class="lwa-links-remember" style="color:#000;
+text-decoration: underline;" href="<?php echo esc_attr(LoginWithAjax::$url_remember); ?>" title="<?php esc_attr_e('Quên mật khẩu','login-with-ajax') ?>"><?php esc_attr_e('Quên mật khẩu','login-with-ajax') ?></a>
+							<?php endif; ?>
+							
+	                    	<input type="submit" name="wp-submit" class="lwa-wp-submit" value="<?php esc_attr_e('','login-with-ajax'); ?>" tabindex="100" />
 	                        <input type="hidden" name="lwa_profile_link" value="<?php echo !empty($lwa_data['profile_link']) ? 1:0 ?>" />
                         	<input type="hidden" name="login-with-ajax" value="login" />
-	                    </td>
-	                    <td class="lwa-links">
-	                        <input name="rememberme" type="checkbox" id="lwa_rememberme" value="forever" /> <label><?php esc_html_e( 'Lưu thông tin đăng nhập','login-with-ajax' ) ?></label>
-	                        <br />
-				        	<?php if( !empty($lwa_data['remember']) ): ?>
-							<a class="lwa-links-remember" href="<?php echo esc_attr(LoginWithAjax::$url_remember); ?>" title="<?php esc_attr_e('Quên mật khẩu','login-with-ajax') ?>"><?php esc_attr_e('Lost your password?','login-with-ajax') ?></a>
-							<?php endif; ?>
-							<?php if ( get_option('users_can_register') && !empty($lwa_data['registration']) ) : ?>
+	                        <!--<input name="rememberme" type="checkbox" id="lwa_rememberme" value="forever" /> <label><?php esc_html_e( 'Lưu thông tin đăng nhập','login-with-ajax' ) ?></label>
+	                        <br />-->
+				        	<?php if ( get_option('users_can_register') && !empty($lwa_data['registration']) ) : ?>
 							<br />  
 							<a href="<?php echo esc_attr(LoginWithAjax::$url_register); ?>" class="lwa-links-register-inline"><?php esc_html_e('Đăng ký','login-with-ajax'); ?></a>
 							<?php endif; ?>
