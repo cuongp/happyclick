@@ -108,17 +108,17 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 $gender = get_usermeta( $current_user->ID, 'gender');
 
 ?>
+<?php if($current_user->ID>0): ?>
 <div class="box" style="width:730px">
 <p>Bạn đã xem thử và có tài khoản với Happy Click, vui lòng đăng nhập để kích hoạt.</p>
 <div style="float:right"><?php echo $this['modules']->render('login-modal'); ?></div>
 <div style="clear:both"></div>
 </div>
+<?php endif; ?>
 <div class="box" style="width:730px">
 
 <form id="form" class="form_profile" method="post">
-		<?php 
-echo $flag;
-?>
+
 <p>Kích hoạt cho thành viên mới, chưa có tài khoản. Vui lòng nhập thông tin để tạo tài khoản.</p>
 		<table width="100%" class="form_doipass">
 			<tr>
