@@ -17,19 +17,24 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 	$db = $GLOBALS['wpdb'];
 	$card_id = check_card($_POST['code'],$_POST['serial']); 
 	if($card_id){
-		if($current_user->ID >0)
+		if($current_user->ID >0){
 			$user_id = $current_user->ID;
+
+		}
 		else
 			$user_id = wp_create_user( $_POST['email'], $_POST['password'], $_POST['email']); 	
 		
 		if($user_id>0){
 			
-			
+			$member = new M_Membership($user_id);
+		
 			foreach ($_POST as $key=>$val) {
 				if($key !='action')
 					update_usermeta( $user_id, $key, $val);
 				}
-			$db->insert($db->prefix.'m_membership_relationships',
+
+			$member->assign_level(2, true);
+/*			$db->insert($db->prefix.'m_membership_relationships',
 				array('user_id'=>$user_id
 					,'sub_id'=>2
 					,'level_id'=>2
@@ -37,7 +42,10 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					,'order_instance'=>0
 					,'usinggateway'=>'card'
 					));
+
 			update_usermeta($user_id,'wp_membership_active','no');
+			update_usermeta($user_id,'_membership_key','no');
+			update_usermeta($user_id,'wp_membership_active','no');*/
 			
 			$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 <tbody>

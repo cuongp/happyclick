@@ -75,7 +75,7 @@ return $first_img;
 
 								?>
 				<div class="<?php echo $class; ?>">
-					<div class="left" style="float:left;padding:10px;width:525px;">
+					<div class="left" style="float:left;padding:10px;width:500px;">
 								<p class="subject" style="font-size:14px;"><em><?php echo $terms[0]->name ?></em><span><?php echo $data['thoigian'] ?></span></p>
 								<h2 class="sukien-title"><?php echo $p->post_title; ?></h2>
 								<p style="text-align:right"><a style="font-size:12px" href="<?php echo $p->guid; ?>" class="returnhome">Xem chi tiết</a></p>
