@@ -1,6 +1,26 @@
 <?php
 global $current_user;
 $flag='';
+$args = array(
+    'orderby'       => 'name', 
+    'order'         => 'ASC',
+    'hide_empty'    => false, 
+    'exclude'       => array(), 
+    'exclude_tree'  => array(), 
+    'include'       => array(),
+    'number'        => '', 
+    'fields'        => 'all', 
+    'slug'          => '', 
+    'parent'         => '',
+    'hierarchical'  => false, 
+    'child_of'      => 0, 
+    'get'           => '', 
+    'name__like'    => '',
+    'pad_counts'    => false, 
+    'offset'        => '', 
+    'search'        => '', 
+    'cache_domain'  => 'core'
+); 
 $doituongs = get_terms('doituong',$args);
 
 $nganhnghes = get_terms('nganhnghe',$args);
@@ -32,36 +52,31 @@ function get_sub_info($sub_id){
 }
 
 if(isset($_POST) && $_POST['action'] == 'submit'){
+
 	$db = $GLOBALS['wpdb'];
 	$card_id = check_card($_POST['code'],$_POST['serial']); 
-	var_dump($card_id);
+
 	if($card_id){
+
 		if($current_user->ID >0){
 			$user_id = $current_user->ID;
-
 		}
 		else
 			$user_id = wp_create_user( $_POST['email'], $_POST['password'], $_POST['email']); 	
-		
-		if($user_id>0){
-			
-			//$member = new M_Membership($user_id);
-		
-			foreach ($_POST as $key=>$val) {
-				if($key !='action')
-					update_usermeta( $user_id, $key, $val);
-				}
-			
-//			update_card($card_id);		//exit();
-			$card_info = get_card_info($card_id->id);
-			
-			$sub_info = get_sub_info($card_info->sub_id);
 
-			$startdate = date("Y-m-d H:i:s");
-			//$enddate = date("Y-m-d H:i:s",strtotime('+'.$sub_info->level_period.' month'));
-			
-			$level_period_unit = $sub_info->level_period_unit;
-			switch ($level_period_unit) {
+		if(!is_array($user_id->errors)){
+
+			if($user_id > 0){
+				foreach ($_POST as $key=>$val) {
+					if($key !='action')
+						update_usermeta( $user_id, $key, $val);
+				}
+				$card_info = get_card_info($card_id->id);
+				$sub_info = get_sub_info($card_info->sub_id);
+				$startdate = date("Y-m-d H:i:s");
+				$level_period_unit = $sub_info->level_period_unit;
+
+				switch ($level_period_unit) {
 				case 'y':
 					$enddate = date("Y-m-d H:i:s",strtotime('+'.$sub_info->level_period.' year'));
 					break;
@@ -74,9 +89,8 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 				default:
 					$enddate = $startdate;
 					break;
-			}
-			
-			$resuld_id = $db->insert($db->prefix.'m_membership_relationships',
+				}
+				$resuld_id = $db->insert($db->prefix.'m_membership_relationships',
 				array('user_id'		=>$user_id
 					,'sub_id'=>$card_info->sub_id
 					,'level_id'=>$sub_info->level_id
@@ -86,14 +100,10 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					,'order_instance'=>1
 					,'usinggateway'=>'card'
 					));
-			
-			update_usermeta($user_id,'wp_membership_active','no');
-				
-			update_usermeta($user_id,'_membership_key',)
-			//update_usermeta($user_id,'_membership_key','no');
-			//update_usermeta($user_id,'wp_membership_active','no');
-			
-			$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
+					update_usermeta($user_id,'wp_membership_active','no');
+					$key = md5($user_id . $_POST['password'] . time());
+					update_usermeta($user_id,'_membership_key',$key);
+$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 <tbody>
 <tr>
 <td align="center" valign="top"> </td>
@@ -148,21 +158,29 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 </tr>
 </tbody>
 </table>';
-			wpMandrill::mail($_POST['email'],'Kích hoạt thành viên',$html);
-			if($current_user->ID > 0)
-				wp_redirect('/index.php?mod=kich-hoat');
-			else
-				wp_redirect('/hcaccount/xac-nhan-email/');
-			exit;			
+					
+				wpMandrill::mail($_POST['email'],'Kích hoạt thành viên',$html);
+				if($current_user->ID > 0)
+					wp_redirect('/index.php?mod=kich-hoat');
+				else
+					wp_redirect('/hcaccount/xac-nhan-email/');
+				exit;		
 			}
+			
 		}
-	else
-	{
-		$flag ='<h3 class="error">Thẻ cào không đúng</h3>';
-	}
-	wp_reset_query();
-	
-}
+		
+		}
+		else
+			{
+				$flag ='<h3 class="error">Thẻ cào không đúng</h3>';
+			}
+			wp_reset_query();
+		}
+		else
+		{
+			$flag = 'Đăng ký thất bại';
+		}
+
 
 $gender = get_usermeta( $current_user->ID, 'gender');
 
@@ -333,5 +351,4 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>
 		</table>
 		</form>
-
 </div>
