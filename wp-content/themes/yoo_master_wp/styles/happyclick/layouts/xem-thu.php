@@ -6,6 +6,31 @@
 
 global $current_user;
 $flag=false;
+$args = array(
+    'orderby'       => 'name', 
+    'order'         => 'ASC',
+    'hide_empty'    => false, 
+    'exclude'       => array(), 
+    'exclude_tree'  => array(), 
+    'include'       => array(),
+    'number'        => '', 
+    'fields'        => 'all', 
+    'slug'          => '', 
+    'parent'         => '',
+    'hierarchical'  => false, 
+    'child_of'      => 0, 
+    'get'           => '', 
+    'name__like'    => '',
+    'pad_counts'    => false, 
+    'offset'        => '', 
+    'search'        => '', 
+    'cache_domain'  => 'core'
+); 
+$doituongs = get_terms('doituong',$args);
+
+$nganhnghes = get_terms('nganhnghe',$args);
+
+$cities = get_terms('city',$args);
 
 if(isset($_POST) && $_POST['action'] == 'submit'){
 $db = $GLOBALS['wpdb'];
@@ -170,19 +195,66 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Đối tượng</td>
-				<td  class="box4"><input type="text" name="objectuser" id="objectuser" value="<?php echo get_usermeta( $current_user->ID, 'objectuser'); ?>" /><span>*</span></td>				
-			</tr>
+				<td  class="box4">
+				<select name="objectuser" id="objectuser">
+					<?php
+						if(!empty($doituongs)){
+							foreach ($doituongs as $doituong) {
+								if($doituong->term_id == get_usermeta( $current_user->ID, 'objectuser'))
+									$select = 'selected ="selected"';
+								else
+									$select = '';
+							?>
+							<option <?php echo $select; ?> value="<?php echo $doituong->term_id ?>"><?php echo $doituong->name ?></option>
+							<?php
+							}
+						}
+					?>
+				</select>
+
+				</td></tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Ngành nghề</td>
-				<td  class="box4"><input type="text" name="mayjor" value="<?php echo get_usermeta( $current_user->ID, 'mayjor'); ?>"  /></td>				
-			</tr>
+				<td  class="box4">
+				<select name="mayjor">
+					<?php
+						if(!empty($nganhnghes)){
+							foreach ($nganhnghes as $nganhnghe) {
+								if($nganhnghe->term_id == get_usermeta( $current_user->ID, 'mayjor'))
+									$select = 'selected ="selected"';
+								else
+									$select = '';
+							?>
+							<option <?php echo $select; ?> value="<?php echo $nganhnghe->term_id ?>"><?php echo $nganhnghe->name ?></option>
+							<?php
+							}
+						}
+					?>
+				</select></td>
+				</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Địa chỉ<br/><em style="font-weight:normal">Nhận thẻ và hóa đơn</em></td>
 				<td  class="box4"><input type="text" name="address" id="address" value="<?php echo get_usermeta( $current_user->ID, 'address'); ?>"  /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Tỉnh/Thành phố</td>
-				<td  class="box4"><input type="text" name="city" id="city" value="<?php echo get_usermeta( $current_user->ID, 'city'); ?>"  /><span>*</span></td>				
+				<td  class="box4">
+				<select name="city" id="city">
+					<?php
+						if(!empty($cities)){
+							foreach ($cities as $city) {
+								if($city->term_id == get_usermeta( $current_user->ID, 'city'))
+									$select = 'selected ="selected"';
+								else
+									$select = '';
+							?>
+							<option <?php echo $select; ?> value="<?php echo $city->term_id ?>"><?php echo $city->name ?></option>
+							<?php
+							}
+						}
+					?>
+				</select><span>*</span>
+				</td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right"></td>

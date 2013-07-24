@@ -43,7 +43,6 @@ function add_membership_custom_options(){
     <?php
     }  
 add_action('init', 'sukien_post_type');
-
 function sukien_post_type()
 {
     $labels = array(
@@ -105,6 +104,9 @@ function chude_taxonomy_type()
         flush_rewrite_rules();
 }
 add_action('init', 'diengia_taxonomy_type');
+add_action('init', 'doituong_taxonomy_type');
+add_action('init', 'nganhnghe_taxonomy_type');
+add_action('init', 'city_taxonomy_type');
 add_action('init', 'hcaccount_taxonomy_type');
 function hcaccount_taxonomy_type()
 {
@@ -148,7 +150,66 @@ function diengia_taxonomy_type()
         'show_in_nav_menus' => true));
         flush_rewrite_rules();
 }
-
+function doituong_taxonomy_type()
+{
+    $labels = array(
+        'name' => __('Đối tượng'),
+        'singular_name' => __('Đối tượng'),
+        'search_items' => __('Search Đối tượng'),
+        'all_items' => __('All Đối tượng'),
+        'edit_item' => __('Edit Đối tượng'),
+        'update_item' => __('Update  Đối tượng'),
+        'add_new_item' => __('Add New  Đối tượng'),
+        'new_item_name' => __('New  Đối tượng'),
+        'choose_from_most_used' => __('Choose from the most used  Đối tượng'));
+    register_taxonomy('doituong', array('post'), array(
+        'hierarchical' => false,
+        'labels' => $labels,
+        'query_var' => 'doituong',
+        'rewrite' => true,
+        'show_in_nav_menus' => true));
+        flush_rewrite_rules();
+}
+function nganhnghe_taxonomy_type()
+{
+    $labels = array(
+        'name' => __('Ngành nghề'),
+        'singular_name' => __('Ngành nghề'),
+        'search_items' => __('Search Ngành nghề'),
+        'all_items' => __('All Ngành nghề'),
+        'edit_item' => __('Edit Ngành nghề'),
+        'update_item' => __('Update  Ngành nghề'),
+        'add_new_item' => __('Add New  Ngành nghề'),
+        'new_item_name' => __('New  Ngành nghề'),
+        'choose_from_most_used' => __('Choose from the most used  Ngành nghề'));
+    register_taxonomy('nganhnghe', array('post'), array(
+        'hierarchical' => false,
+        'labels' => $labels,
+        'query_var' => 'nganhnghe',
+        'rewrite' => true,
+        'show_in_nav_menus' => true));
+        flush_rewrite_rules();
+}
+function city_taxonomy_type()
+{
+    $labels = array(
+        'name' => __('Thành phố'),
+        'singular_name' => __('Thành phố'),
+        'search_items' => __('Search Thành phố'),
+        'all_items' => __('All Thành phố'),
+        'edit_item' => __('Edit Thành phố'),
+        'update_item' => __('Update Thành phố'),
+        'add_new_item' => __('Add New Thành phố'),
+        'new_item_name' => __('New Thành phố'),
+        'choose_from_most_used' => __('Choose from the most used Thành phố'));
+    register_taxonomy('city', array('post'), array(
+        'hierarchical' => false,
+        'labels' => $labels,
+        'query_var' => 'city',
+        'rewrite' => true,
+        'show_in_nav_menus' => true));
+        flush_rewrite_rules();
+}
 function sukien_meta_boxes()
 {
     add_meta_box('sukien_form', 'Details', 'sukien_form', 'sukien', 'normal', 'high');

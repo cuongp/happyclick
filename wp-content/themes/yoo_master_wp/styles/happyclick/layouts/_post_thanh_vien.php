@@ -26,7 +26,7 @@ global $current_user;
 		<a href="/hcaccount/xem-thu/" class="xemthu" title="<?php the_title_attribute(); ?>"><?php _e('<span>Xem thử</span>', 'warp'); ?></a>
 		
 		<?php
-
+		endif;
 		?>
 	</p>
 </div>
