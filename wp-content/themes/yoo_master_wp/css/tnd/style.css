@@ -695,4 +695,10 @@ table.quiz td{
     margin: 26px 130px 0;
     box-shadow: 1px 1px 3px #39f;
 }
+.video-upcomming{}
+.video-upcomming h3{}
+.video-upcomming strong{ color:#0066a1; }
+.video-upcomming td{
+    padding-left: 15px;
+}
 /* END Tamnd's code */
