@@ -1,10 +1,12 @@
-<div id="item-<?php the_ID(); ?>-first" class="item courses first-post" data-permalink="<?php the_permalink(); ?>" >
-		<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+﻿<div id="item-<?php the_ID(); ?>-first" class="item courses first-post" data-permalink="<?php the_permalink(); ?>" >
+		<h1><?php _e('Happy Click Radio - '); ?><?php the_title(); ?></h1>
 		<?php if(has_post_thumbnail()): ?>
 			<?php $width = '295'; $height = '195'; ?>
 			<?php the_post_thumbnail(array($width,$height),array('class'=>'size-auto')); ?>
 		<?php endif; ?>
-		<div class="media"></div>
+		<?php if(in_array('URL Audio',get_post_custom_keys())) { ?>
+		<div class="media"><a href="<?php echo get_post_meta(get_the_ID(), 'URL Audio', true); ?>"></a></div>
+		<?php } ?>
 		<div class="post-content-first">
 		<?php the_content(); ?>
 		</div>

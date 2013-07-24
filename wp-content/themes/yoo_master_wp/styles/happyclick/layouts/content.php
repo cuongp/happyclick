@@ -36,7 +36,7 @@ elseif (is_single()) {
     }
 	
 	$kat = get_the_category()[0]->category_nicename;
-	if($kat == 'happy-click-radio') {
+	if($kat == 'happy-click-radio' || $kat == 'goc-chia-se' || $kat == 'goc-kien-thuc') {
 		$content = 'single-lam-giau-cuoc-song';
 	}
 	/*
