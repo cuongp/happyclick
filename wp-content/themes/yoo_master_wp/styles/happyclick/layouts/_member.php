@@ -133,8 +133,8 @@ dành cho thành viên Happy Click</p>
 		</header>
 
 		
-		<?php if ($this['modules']->count('sidebar-trial')) : ?>
-			<aside id="sidebar-membership" class="grid-box"><?php echo $this['modules']->render('sidebar-membership', array('layout'=>'stack')); ?></aside>
+		<?php if ($this['modules']->count('sidebar-membership')) : ?>
+			<aside id="sidebar-trial" class="grid-box"><?php echo $this['modules']->render('sidebar-membership', array('layout'=>'stack')); ?></aside>
 			<?php endif; ?>
 	<section id="membership">
 	<div class="grid-block">

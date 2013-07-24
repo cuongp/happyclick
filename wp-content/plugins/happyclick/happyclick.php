@@ -551,4 +551,15 @@ endwhile;
    echo '</div>';
 }
     
+function giangvien_banner($atts) {
+   extract(shortcode_atts(array(
+      'image' => ''
+      ,'giangvienid'=>0
+   ), $atts));
+   $gv = get_post($giangvienid);
+   
+return '<div class="banner"><a title="'.$gv->post_title.'" href="'.$gv->guid.'"><img alt="'.$gv->post_title.'" src="'.$image.'" /></a></div>';
+}
+add_shortcode('bannergiangvien', 'giangvien_banner');
+
 ?>

@@ -6,6 +6,7 @@
 
 global $current_user;
 $flag=false;
+
 if(isset($_POST) && $_POST['action'] == 'submit'){
 $db = $GLOBALS['wpdb'];
 

@@ -562,6 +562,15 @@ padding-right: 0px;
     margin-top: 0px;
 
 }
+.photogv,.infogv{
+    float: left;
+}
+.infogv{
+    padding-left: 20px;
+}
+.clear{
+    clear: both;
+}
 .info span{
     position: absolute;
     font-size: 20pt;

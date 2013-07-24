@@ -1,31 +1,6 @@
 <?php
 global $current_user;
 $flag='';
-$args = array(
-    'orderby'       => 'name', 
-    'order'         => 'ASC',
-    'hide_empty'    => false, 
-    'exclude'       => array(), 
-    'exclude_tree'  => array(), 
-    'include'       => array(),
-    'number'        => '', 
-    'fields'        => 'all', 
-    'slug'          => '', 
-    'parent'         => '',
-    'hierarchical'  => false, 
-    'child_of'      => 0, 
-    'get'           => '', 
-    'name__like'    => '',
-    'pad_counts'    => false, 
-    'offset'        => '', 
-    'search'        => '', 
-    'cache_domain'  => 'core'
-); 
-$doituongs = get_terms('doituong',$args);
-
-$nganhnghes = get_terms('nganhnghe',$args);
-
-$cities = get_terms('city',$args);
 function check_card($code,$serial){
 	 $db = $GLOBALS['wpdb'];
         $post = $db->get_row('select id from '.$db->prefix.'cards where serial="'.$serial.'" and code= "'.$code.'" and valid=1 and status=0');
@@ -52,31 +27,37 @@ function get_sub_info($sub_id){
 }
 
 if(isset($_POST) && $_POST['action'] == 'submit'){
-
 	$db = $GLOBALS['wpdb'];
 	$card_id = check_card($_POST['code'],$_POST['serial']); 
 
 	if($card_id){
-
-		if($current_user->ID >0){
+		if($current_user->ID > 0){
 			$user_id = $current_user->ID;
 		}
-		else
+		else{
+			
 			$user_id = wp_create_user( $_POST['email'], $_POST['password'], $_POST['email']); 	
-
-		if(!is_array($user_id->errors)){
-
-			if($user_id > 0){
-				foreach ($_POST as $key=>$val) {
-					if($key !='action')
-						update_usermeta( $user_id, $key, $val);
+		}
+		
+		if($user_id>0){
+			
+			//$member = new M_Membership($user_id);
+		
+			foreach ($_POST as $key=>$val) {
+				if($key !='action')
+					update_usermeta( $user_id, $key, $val);
 				}
-				$card_info = get_card_info($card_id->id);
-				$sub_info = get_sub_info($card_info->sub_id);
-				$startdate = date("Y-m-d H:i:s");
-				$level_period_unit = $sub_info->level_period_unit;
+			
+//			update_card($card_id);		//exit();
+			$card_info = get_card_info($card_id->id);
+			
+			$sub_info = get_sub_info($card_info->sub_id);
 
-				switch ($level_period_unit) {
+			$startdate = date("Y-m-d H:i:s");
+			//$enddate = date("Y-m-d H:i:s",strtotime('+'.$sub_info->level_period.' month'));
+			
+			$level_period_unit = $sub_info->level_period_unit;
+			switch ($level_period_unit) {
 				case 'y':
 					$enddate = date("Y-m-d H:i:s",strtotime('+'.$sub_info->level_period.' year'));
 					break;
@@ -89,8 +70,9 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 				default:
 					$enddate = $startdate;
 					break;
-				}
-				$resuld_id = $db->insert($db->prefix.'m_membership_relationships',
+			}
+			
+			$resuld_id = $db->insert($db->prefix.'m_membership_relationships',
 				array('user_id'		=>$user_id
 					,'sub_id'=>$card_info->sub_id
 					,'level_id'=>$sub_info->level_id
@@ -100,10 +82,16 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					,'order_instance'=>1
 					,'usinggateway'=>'card'
 					));
-					update_usermeta($user_id,'wp_membership_active','no');
-					$key = md5($user_id . $_POST['password'] . time());
-					update_usermeta($user_id,'_membership_key',$key);
-$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
+			
+			update_usermeta($user_id,'wp_membership_active','no');
+			
+			$key = md5($user_id. $_POST['password'] . time());
+			update_user_meta($user->ID, '_membership_key', $key);
+
+			//update_usermeta($user_id,'_membership_key','no');
+			//update_usermeta($user_id,'wp_membership_active','no');
+			
+			$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 <tbody>
 <tr>
 <td align="center" valign="top"> </td>
@@ -129,7 +117,7 @@ $html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" st
     <p>Thời hạn sử dụng: đến hết ngày '.$enddate.'<br />
       <br />
       Vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản cho thành viên:<br />
-      <a href=http://dev.happyclick.vn/hcaccount/xac-thuc-email/?act=active&sub_id='.$sub_info->sub_id.'&level_id='.$sub_info->level_id.'&user_id='.$user_id.'&code='.time().'>Kích hoạt thành viên</a><br />
+      <a href='.get_site_url().'/hcaccount/xac-thuc-email/?act=active&token='.$key.'&sub_id='.$sub_info->sub_id.'&level_id='.$sub_info->level_id.'&user_id='.$user_id.'&code='.time().'>Kích hoạt thành viên</a><br />
       <br />
       Đường dẫn này sẽ chỉ có giá trị đến &lt;giờ, ngày, tháng, năm&gt;<br />
       <br />
@@ -158,29 +146,26 @@ $html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" st
 </tr>
 </tbody>
 </table>';
-					
-				wpMandrill::mail($_POST['email'],'Kích hoạt thành viên',$html);
-				if($current_user->ID > 0)
-					wp_redirect('/index.php?mod=kich-hoat');
-				else
-					wp_redirect('/hcaccount/xac-nhan-email/');
-				exit;		
+//if (!isset($_COOKIE['hc_welcome'])) {
+  //      			setcookie('hc_welcome', '1', strtotime('+1 day'));
+    //			}
+			wpMandrill::mail($_POST['email'],'Kích hoạt thành viên',$html);
+			if($current_user->ID > 0)
+				wp_redirect('/index.php?mod=kich-hoat');
+			else{
+				 
+				wp_redirect('/hcaccount/xac-nhan-email/');
 			}
-			
-		}
-		
-		}
-		else
-			{
-				$flag ='<h3 class="error">Thẻ cào không đúng</h3>';
+			exit;			
 			}
-			wp_reset_query();
 		}
-		else
-		{
-			$flag = 'Đăng ký thất bại';
-		}
-
+	else
+	{
+		$flag ='<h3 class="error">Thẻ cào không đúng</h3>';
+	}
+	wp_reset_query();
+	
+}
 
 $gender = get_usermeta( $current_user->ID, 'gender');
 
@@ -274,66 +259,19 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Đối tượng</td>
-				<td  class="box4">
-				<select name="objectuser" id="objectuser">
-					<?php
-						if(!empty($doituongs)){
-							foreach ($doituongs as $doituong) {
-								if($doituong->term_id == get_usermeta( $current_user->ID, 'objectuser'))
-									$select = 'selected ="selected"';
-								else
-									$select = '';
-							?>
-							<option <?php echo $select; ?> value="<?php echo $doituong->term_id ?>"><?php echo $doituong->name ?></option>
-							<?php
-							}
-						}
-					?>
-				</select>
-
-				</td></tr>
+				<td  class="box4"><input type="text" name="objectuser" id="objectuser" value="<?php echo get_usermeta( $current_user->ID, 'objectuser'); ?>" /><span>*</span></td>				
+			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Ngành nghề</td>
-				<td  class="box4">
-				<select name="mayjor">
-					<?php
-						if(!empty($nganhnghes)){
-							foreach ($nganhnghes as $nganhnghe) {
-								if($nganhnghe->term_id == get_usermeta( $current_user->ID, 'mayjor'))
-									$select = 'selected ="selected"';
-								else
-									$select = '';
-							?>
-							<option <?php echo $select; ?> value="<?php echo $nganhnghe->term_id ?>"><?php echo $nganhnghe->name ?></option>
-							<?php
-							}
-						}
-					?>
-				</select></td>
-				</tr>
+				<td  class="box4"><input type="text" name="mayjor" value="<?php echo get_usermeta( $current_user->ID, 'mayjor'); ?>"  /></td>				
+			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Địa chỉ<br/><em style="font-weight:normal">Nhận thẻ và hóa đơn</em></td>
 				<td  class="box4"><input type="text" name="address" id="address" value="<?php echo get_usermeta( $current_user->ID, 'address'); ?>"  /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Tỉnh/Thành phố</td>
-				<td  class="box4">
-				<select name="city" id="city">
-					<?php
-						if(!empty($cities)){
-							foreach ($cities as $city) {
-								if($city->term_id == get_usermeta( $current_user->ID, 'city'))
-									$select = 'selected ="selected"';
-								else
-									$select = '';
-							?>
-							<option <?php echo $select; ?> value="<?php echo $city->term_id ?>"><?php echo $city->name ?></option>
-							<?php
-							}
-						}
-					?>
-				</select><span>*</span>
-				</td>				
+				<td  class="box4"><input type="text" name="city" id="city" value="<?php echo get_usermeta( $current_user->ID, 'city'); ?>"  /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right"></td>
@@ -351,4 +289,5 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>
 		</table>
 		</form>
+
 </div>
