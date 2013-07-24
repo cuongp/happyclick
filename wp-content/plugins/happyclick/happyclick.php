@@ -421,7 +421,7 @@ function get_chude($post_type = 'sukien', $posts_per_page = -1, $orderby =
         <tr><td><b>Thành viên:</b></td><td><b><?php echo $giatienthanhvien; ?></b></td></tr>
     </table>
                <p class="cat-post-title2"><a href="<?php echo get_permalink(); ?>"><span style="display:none">Xem chi tiết</span></a></p> 
-                <p class="cat-post-title1"><a href="<?php echo get_permalink(); ?>"><span  style="display:none">Trở thành thành viên</span></a></p>
+                <p class="cat-post-title1"><a href="/category/thanh-vien/quyen-loi-thanh-vien/"><span  style="display:none">Trở thành thành viên</span></a></p>
             </td>
         </tr>
           

@@ -1,10 +1,11 @@
 <div id="system">
-<?php $args = array(
+<?php 
+$args = array(
 	'posts_per_page'  => -1,
 	'offset'          => 0,
 	'category'        => '',
 	'orderby'         => 'post_date',
-	'order'           => 'ACS',
+	'order'           => 'ASC',
 	'include'         => '',
 	'exclude'         => '',
 	'meta_key'        => '',
@@ -42,7 +43,7 @@ return $first_img;
 	<div class="banner"><img src="<?php echo catch_that_image($posts_array[0]->post_content); ?>"/></div>
 	<div class="bodycontent">
 		<?php echo the_excerpt();?>
-		<p style="text-align:right;float:right;"><a href="<?php echo get_permalink() ?>" class='viewmore'><span>Xem chi tiết</span></a></p>
+		<p style="text-align:right;float:right;"><a href="<?php echo $posts_array[0]->guid; ?>" class='viewmore'><span>Xem chi tiết</span></a></p>
 		
 		<div style="clear:both"></div>
 	</div>
@@ -52,7 +53,7 @@ return $first_img;
 
 				<li><a href="<?php echo get_permalink() ?>"  class="dk2"><span>Khách đăng ký</span></a></li>
 
-				<li><a href="<?php echo get_permalink() ?>"  class="dk3"><span>Trở thành thành viên</span></a></li>
+				<li><a href="/category/thanh-vien/quyen-loi-thanh-vien/"  class="dk3"><span>Trở thành thành viên</span></a></li>
 			</ul>
 		</div>
 		<div style="clear:both"></div>
