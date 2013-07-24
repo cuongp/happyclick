@@ -34,6 +34,9 @@ elseif (is_single()) {
 	if(get_post_type()=='sukien'){
         $content = 'single-sukien';   
     }
+	if(get_post_type()=='giangvien'){
+        $content = 'single-giangvien';   
+    }
 	
 	$kat = get_the_category()[0]->category_nicename;
 	if($kat == 'happy-click-radio' || $kat == 'goc-chia-se' || $kat == 'goc-kien-thuc') {
@@ -68,13 +71,16 @@ elseif(is_archive() && is_post_type_archive('sukien')){
 
 elseif (is_archive()) {
 	//$content = 'archive';
-    //var_dump(get_taxonomy('chude'));
+    
     $cat_id = get_query_var('cat');
 
     $content = '';
     if($cat_id == 80){
     	$content = 'archive-thanh-vien';	
     }
+   // elseif(get_post_type() == 'giangvien'){
+   // 	$content = 'archive-giangvien';
+   // }
     elseif(get_query_var('chude'))
         $content = '_chude';
     elseif(get_query_var('hcaccount')){

@@ -210,6 +210,47 @@ function city_taxonomy_type()
         'show_in_nav_menus' => true));
         flush_rewrite_rules();
 }
+
+add_action('init', 'giangvien_post_type');
+function giangvien_post_type()
+{
+    $labels = array(
+        'name' => 'Giảng viên',
+        'singular_name' => 'Giảng viên',
+        'add_new' => 'Add New',
+        'add_new_item' => 'Add New item',
+        'edit_item' => 'Edit item',
+        'new_item' => 'New item',
+        'view_item' => 'View item',
+        'search_items' => 'Search item',
+        'not_found' => 'No item found',
+        'not_found_in_trash' => 'No item in the trash',
+        'parent_item_colon' => '',
+        );
+    register_post_type('giangvien', array(
+        'labels' => $labels,
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'exclude_from_search' => false,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'giangvien'),
+        'capability_type' => 'post',
+        'has_archive' => true,
+        'menu_position' => 10,
+        'supports' => array(
+            'title',
+            'editor',
+            'thumbnail',
+            'excerpt',
+            )
+        ));
+
+flush_rewrite_rules();
+}
+
+
+
 function sukien_meta_boxes()
 {
     add_meta_box('sukien_form', 'Details', 'sukien_form', 'sukien', 'normal', 'high');
