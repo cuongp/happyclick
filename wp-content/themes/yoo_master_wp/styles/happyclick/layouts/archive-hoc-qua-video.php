@@ -26,8 +26,9 @@
                 </h3>
                 <div class="content-box-inside">
                     <?php
-
-                         echo $this->render('_posts-hoc-qua-video'); 
+                    
+                        echo '<div style="text-align:center">'.apply_filters('the_content', get_category(get_query_var('cat'))->description).'</div>';
+                        echo $this->render('_posts-hoc-qua-video'); 
 
                     ?>
                 </div>

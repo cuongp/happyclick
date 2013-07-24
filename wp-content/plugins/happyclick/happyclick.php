@@ -372,9 +372,7 @@ function get_chude($post_type = 'sukien', $posts_per_page = -1, $orderby =
         </tr>-->
         <tr> <?php
               global $current_user;
-              if($current_user->ID == 0)
-                    $url = '/hcaccount/xem-thu/';
-                else
+              
                     $url = get_permalink();
               
               ?>
@@ -383,7 +381,7 @@ function get_chude($post_type = 'sukien', $posts_per_page = -1, $orderby =
         <td>
               <p class="cat-post-title1">
 
-              <a href="<?php echo $url; ?>"><span  style="display:none">Trở thành thành viên</span></a></p>
+              <a href="/category/thanh-vien/quyen-loi-thanh-vien/"><span  style="display:none">Trở thành thành viên</span></a></p>
             </td>
         </tr>
     </table>

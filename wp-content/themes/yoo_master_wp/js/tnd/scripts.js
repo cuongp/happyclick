@@ -1,7 +1,9 @@
 (function($) {
     $(document).ready(function() {
         /* Jquery carousel script */
-        jQuery('#mycarousel').jcarousel();
+        jQuery('#mycarousel').jcarousel({
+            scroll: 1
+        });
         /* ---
             jQuery(".video-item a").fancybox({
                 width: 560,

@@ -1,7 +1,6 @@
 <?php
 global $current_user;
 $flag='';
-
 function check_card($code,$serial){
 	 $db = $GLOBALS['wpdb'];
         $post = $db->get_row('select id from '.$db->prefix.'cards where serial="'.$serial.'" and code= "'.$code.'" and valid=1 and status=0');
@@ -12,40 +11,85 @@ function update_card($card_id){
 	return $db->update($db->prefix.'cards',array('status'=>1),array('id'=>$card_id));
 }
 
+function get_card_info($card_id){
+	$db = $GLOBALS['wpdb'];
+	$cardTable = $db->prefix.'cards';
+
+	$card = $db->get_row('select id,sub_id from '.$cardTable.' where id = '.$card_id);
+	
+	return !empty($card)?$card :null;
+}
+function get_sub_info($sub_id){
+	$db = $GLOBALS['wpdb'];
+	$subTable = $db->prefix.'m_subscriptions_levels';
+	$sub = $db->get_row('select * from '.$subTable.' where sub_id = "'.$sub_id.'"');	
+	return !empty($sub)?$sub :null;	
+}
 
 if(isset($_POST) && $_POST['action'] == 'submit'){
 	$db = $GLOBALS['wpdb'];
 	$card_id = check_card($_POST['code'],$_POST['serial']); 
-	if($card_id){
-		if($current_user->ID >0){
-			$user_id = $current_user->ID;
 
+	if($card_id){
+		if($current_user->ID > 0){
+			$user_id = $current_user->ID;
 		}
-		else
+		else{
+			
 			$user_id = wp_create_user( $_POST['email'], $_POST['password'], $_POST['email']); 	
+		}
 		
 		if($user_id>0){
 			
-			$member = new M_Membership($user_id);
+			//$member = new M_Membership($user_id);
 		
 			foreach ($_POST as $key=>$val) {
 				if($key !='action')
 					update_usermeta( $user_id, $key, $val);
 				}
+			
+//			update_card($card_id);		//exit();
+			$card_info = get_card_info($card_id->id);
+			
+			$sub_info = get_sub_info($card_info->sub_id);
 
-			$member->assign_level(2, true);
-/*			$db->insert($db->prefix.'m_membership_relationships',
-				array('user_id'=>$user_id
-					,'sub_id'=>2
-					,'level_id'=>2
-					,'startdate'=>date('Y-m-d h:i:s',time())
-					,'order_instance'=>0
+			$startdate = date("Y-m-d H:i:s");
+			//$enddate = date("Y-m-d H:i:s",strtotime('+'.$sub_info->level_period.' month'));
+			
+			$level_period_unit = $sub_info->level_period_unit;
+			switch ($level_period_unit) {
+				case 'y':
+					$enddate = date("Y-m-d H:i:s",strtotime('+'.$sub_info->level_period.' year'));
+					break;
+				case 'm':
+					$enddate = date("Y-m-d H:i:s",strtotime('+'.$sub_info->level_period.' month'));
+					break;
+				case 'd':
+					$enddate = date("Y-m-d H:i:s",strtotime('+'.$sub_info->level_period.' day'));
+					break;
+				default:
+					$enddate = $startdate;
+					break;
+			}
+			
+			$resuld_id = $db->insert($db->prefix.'m_membership_relationships',
+				array('user_id'		=>$user_id
+					,'sub_id'=>$card_info->sub_id
+					,'level_id'=>$sub_info->level_id
+					,'startdate'=>$startdate
+					,'expirydate' =>$enddate
+					,'updateddate'=>$startdate
+					,'order_instance'=>1
 					,'usinggateway'=>'card'
 					));
-
+			
 			update_usermeta($user_id,'wp_membership_active','no');
-			update_usermeta($user_id,'_membership_key','no');
-			update_usermeta($user_id,'wp_membership_active','no');*/
+			
+			$key = md5($user_id. $_POST['password'] . time());
+			update_user_meta($user->ID, '_membership_key', $key);
+
+			//update_usermeta($user_id,'_membership_key','no');
+			//update_usermeta($user_id,'wp_membership_active','no');
 			
 			$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 <tbody>
@@ -66,14 +110,14 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
       <br />
       Thông tin tài khoản đăng nhập bạn đã đăng ký:</p>
     <blockquote>
-      <p>Tên đăng nhập: &lt;mặc định là email đăng ký&gt;<br />
+      <p>Tên đăng nhập: '.$_POST['email'].'<br />
         Mật khẩu:'.$_POST['password'].'</p>
       </blockquote>
     <p>Số sê-ri của thẻ cào: '.$_POST['serial'].'</p>
-    <p>Thời hạn sử dụng: đến hết ngày…<br />
+    <p>Thời hạn sử dụng: đến hết ngày '.$enddate.'<br />
       <br />
       Vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản cho thành viên:<br />
-      <a href=http://dev.happyclick.vn/hcaccount/xac-thuc-email/?act=active&sub_id=2&level_id=2&user_id='.$user_id.'&code='.time().'>Kích hoạt thành viên</a><br />
+      <a href=http://dev.happyclick.vn/hcaccount/xac-thuc-email/?act=active&token='.$key.'&sub_id='.$sub_info->sub_id.'&level_id='.$sub_info->level_id.'&user_id='.$user_id.'&code='.time().'>Kích hoạt thành viên</a><br />
       <br />
       Đường dẫn này sẽ chỉ có giá trị đến &lt;giờ, ngày, tháng, năm&gt;<br />
       <br />
@@ -102,8 +146,16 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 </tr>
 </tbody>
 </table>';
-			wpMandrill::mail($_POST['email'],'Kích hoạt thành viên',$html);	
-			wp_redirect('/index.php?mod=kich-hoat');
+//if (!isset($_COOKIE['hc_welcome'])) {
+  //      			setcookie('hc_welcome', '1', strtotime('+1 day'));
+    //			}
+			wpMandrill::mail($_POST['email'],'Kích hoạt thành viên',$html);
+			if($current_user->ID > 0)
+				wp_redirect('/index.php?mod=kich-hoat');
+			else{
+				 
+				wp_redirect('/hcaccount/xac-nhan-email/');
+			}
 			exit;			
 			}
 		}

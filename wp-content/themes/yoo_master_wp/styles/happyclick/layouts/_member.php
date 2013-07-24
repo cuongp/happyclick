@@ -26,7 +26,17 @@ include($this['path']->path('layouts:template.config.php'));
 		<?php echo $this['modules']->render('absolute'); ?>
 	</div>
 	<?php endif; ?>
-	
+	<?php
+		if(isset($_GET) && $_GET['mod'] =='kich-hoat' || $_COOKIE['hc_welcome']=='1'){
+			echo '<div style="background:rgba(0, 0, 0, 0.75);position:absolute;left:0;z-index:99999;display:block;width:100%;min-height:100%;height:100%;">
+				<p class="popup_kichhoat">
+				<span class="close"></span>
+				</p>
+			</div>';
+			setcookie('hc_welcome','');
+		}
+
+		?>
 	<div class="wrapper clearfix">
 
 		<header id="header">

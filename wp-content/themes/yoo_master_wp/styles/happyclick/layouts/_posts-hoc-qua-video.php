@@ -18,8 +18,8 @@ $args = array(
 	'child_of'                 => $category_id,
 	'orderby'                  => 'id',
 	'order'                    => 'ASC',
-	'hide_empty'               => 0,
-	'hierarchical'             => 1,
+	'hide_empty'               => 1,
+	'hierarchical'             => 0,
 	'exclude'                  => '',
 	'include'                  => '',
 	'number'                   => '',
@@ -71,7 +71,9 @@ foreach ($categories as $key=>$category){
             (function($) {
                 /* Jquery carousel script */
                 $(document).ready(function() {
-                    jQuery('#mycarousel_<?php echo $i ?>').jcarousel();
+                    jQuery('#mycarousel_<?php echo $i ?>').jcarousel({
+                        scroll: 1
+                    });
                 });
             })(jQuery);
         </script>
@@ -92,6 +94,17 @@ foreach ($categories as $key=>$category){
             }
         }
     ?>
+</div>
+
+<div class="video-upcomming">
+    <?php 
+        $post_id = 2075;
+        $video_upcomming = get_post($post_id);
+    ?>
+    <h3 class="text-orange"><?php echo $video_upcomming->post_title; ?></h3>
+    <div>
+        <?php echo $video_upcomming->post_content; ?>
+    </div>
 </div>
 <?php
 
