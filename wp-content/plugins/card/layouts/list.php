@@ -60,6 +60,7 @@ $cards = HCcard::getAll("","",$params);
 				<th class="shortcode">ID</th>
 				<th class="shortcode">Serial</th>
 				<th class="modified">Code</th>
+				<th class="modified">Sub ID</th>
 				<th class="modified">Ngày tạo</th>
 				<th class="modified">Ngày hết hạn</th>
 				<th class="modified">Trạng thái</th>
@@ -76,6 +77,7 @@ $cards = HCcard::getAll("","",$params);
 				<td class="shortcode"><?php echo $card->id; ?></td>
 				<td class="shortcode"><?php echo $card->serial; ?></td>
 				<td class="modified"><?php echo $card->code; ?></td>
+				<td class="modified"><?php echo $card->sub_id; ?></td>
 				<td class="modified"><?php echo date('d/m/Y',$card->created_at); ?></td>
 				<td class="modified"><?php echo date('d/m/Y',$card->expired); ?></td>
 				<td class="modified"><?php echo $card->status=='0'?'Chưa sử dụng':'Đã sử dụng'; ?></td>

@@ -10,6 +10,7 @@
 include($this['path']->path('layouts:template.config.php'));
 	
 global $current_user;
+
 ?>
 <!DOCTYPE HTML>
 <html lang="<?php echo $this['config']->get('language'); ?>" dir="<?php echo $this['config']->get('direction'); ?>">

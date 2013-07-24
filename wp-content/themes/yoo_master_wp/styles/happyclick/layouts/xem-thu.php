@@ -8,7 +8,7 @@ global $current_user;
 $flag=false;
 
 if(isset($_POST) && $_POST['action'] == 'submit'){
-
+$db = $GLOBALS['wpdb'];
 
 
 		$user_id = wp_create_user( $_POST['email'], $_POST['password'], $_POST['email'] ); 
@@ -17,11 +17,14 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 				if($key !='action')
 					update_usermeta( $user_id, $key, $val);
 				}
+				update_usermeta($user_id,'first_name',$_POST['fullname']);
 				$db->insert($db->prefix.'m_membership_relationships',
 				array('user_id'=>$user_id
 					,'sub_id'=>0
 					,'level_id'=>1
-					,'startdate'=>date('Y-m-d h:i:s',time())
+					,'startdate'=>date("Y-m-d H:i:s")
+					,'expirydate'=>NULL
+					,'updateddate'=>date("Y-m-d H:i:s")
 					,'order_instance'=>0
 					,'usinggateway'=>'admin'
 					));
@@ -45,12 +48,12 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
       <br />
       Thông tin tài khoản đăng nhập bạn đã đăng ký:</p>
     <blockquote>
-      <p>Tên đăng nhập: &lt;mặc định là email đăng ký&gt;<br />
+      <p>Tên đăng nhập: '.$_POST['email'].'<br />
         Mật khẩu: '.$_POST['password'].'</p>
     </blockquote>
     <p>Để hoàn tất quy trình đăng ký xem thử, vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản xem thử:<br />
-    <a href="http://dev.happyclick.vn/hcaccount/xac-thuc-email/?user_id='.$user_id.'&level=1&code='.time().'">http://dev.happyclick.vn/hcaccount/xac-thuc-email/?user_id='.$user_id.'</a></p>
-    <p>Đường dẫn này sẽ chỉ có giá trị đến &lt;giờ, ngày, tháng, năm&gt;</p>
+    <a href="http://dev.happyclick.vn/hcaccount/xac-thuc-email/?act=active&user_id='.$user_id.'&code='.time().'">Kích hoạt tài khoản xem thử</a></p>
+    <p>Đường dẫn này sẽ chỉ có giá trị trong 12 giờ</p>
     <p>Ngay sau khi kích hoạt tài khoản, bạn đã có thể bắt đầu xem thử một số tiện ích. Happy Click hy vọng bạn sẽ được trải nghiệm những kiến thức bổ ích, nội dung thiết thực.</p>
     <p>Đây là email tự động gửi, vui lòng không trả lời vào email này.<br />
       <br />

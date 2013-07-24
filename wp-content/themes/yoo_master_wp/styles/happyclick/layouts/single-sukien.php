@@ -35,7 +35,7 @@
 
 				<li><a href="<?php echo get_permalink() ?>"  class="dk2"><span>Khách đăng ký</span></a></li>
 
-				<li><a href="<?php echo get_permalink() ?>"  class="dk3"><span>Trở thành thành viên</span></a></li>
+				<li><a href="/category/thanh-vien/quyen-loi-thanh-vien/"  class="dk3"><span>Trở thành thành viên</span></a></li>
 			</ul>
 			</div>
 

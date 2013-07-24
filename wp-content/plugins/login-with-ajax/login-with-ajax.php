@@ -184,6 +184,7 @@ class LoginWithAjax {
 			$return['result'] = false;
 			$return['error'] = __('Please supply your username and password.', 'login-with-ajax');
 		}
+		//$return['current_cat'] = get_var_query('cat');
 		$return['action'] = 'login';
 		//Return the result array with errors etc.
 		return $return;
