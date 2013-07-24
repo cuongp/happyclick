@@ -33,7 +33,7 @@
 .jcarousel-skin-tango .jcarousel-item {
     width: 180px;
     height: 165px;
-    text-align: center;
+    text-align: left;
 }
 
 .jcarousel-skin-tango .jcarousel-item-horizontal {
@@ -568,7 +568,7 @@ div.wpcf7-validation-errors{ border:none; }
 .video-category h3{}
 .video-category p{}
 .video-category .jcarousel-skin-tango .jcarousel-item-horizontal{
-    margin-right: 37px;
+    margin-right: 31px;
 }
 .video-category .jcarousel-skin-tango .jcarousel-prev-horizontal{
     background: url(images/video_prev.jpg) 0 50% no-repeat;
@@ -590,6 +590,12 @@ div.wpcf7-validation-errors{ border:none; }
 }
 .video-pagination a.active{
     color: #f78000;
+}
+.video-item a{
+    color: #333;
+}
+.video-item a:hover{
+    color: #99cc00;
 }
 .remove_link a{
     color: #222;

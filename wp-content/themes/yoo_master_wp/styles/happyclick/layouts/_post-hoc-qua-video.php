@@ -14,5 +14,5 @@
             <?php endif; ?> 
         </div>
     </a>
-    <?php the_title() ?>
+    <a href="<?php the_permalink() ?>" target="_blank" ><?php the_title() ?></a>
 </li>
