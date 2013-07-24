@@ -6,8 +6,8 @@
 }
 
 .jcarousel-skin-tango .jcarousel-container-horizontal {
-    width: 97%;
-    padding: 5px 14px;
+    width: 813px;
+    padding: 5px 18px;
 }
 
 .jcarousel-skin-tango .jcarousel-container-vertical {
@@ -416,6 +416,7 @@ div.wpcf7-validation-errors{ border:none; }
     display: block;
 }
 .item.courses{}
+.item.courses .video-category{ margin-left: -4px; }
 .item.courses .course-wrapper{
     overflow: hidden;
 }
@@ -523,7 +524,7 @@ div.wpcf7-validation-errors{ border:none; }
 }
 
 #system.onecolumn{
-    width: 862px;
+    /*width: 862px;*/
 }
 .onecolumn .content-box1{
     border: none;
@@ -560,10 +561,11 @@ div.wpcf7-validation-errors{ border:none; }
 }
 .video-category{
     border-bottom: 1px solid #ddd;
+    color: #111;
 }
 .video-category h3, 
 .video-category p{
-    padding: 0px 15px;
+    padding: 0px 15px 5px;
 }
 .video-category h3{}
 .video-category p{}
@@ -575,6 +577,10 @@ div.wpcf7-validation-errors{ border:none; }
 }
 .video-category .jcarousel-skin-tango .jcarousel-next-horizontal{
     background: url(images/video_next.jpg) 0 50% no-repeat;
+}
+.video-category .jcarousel-prev-horizontal.jcarousel-prev-disabled,
+.video-category .jcarousel-next-horizontal.jcarousel-next-disabled{
+    background: none;
 }
 .video-pagination{
     font-weight: bold;
@@ -641,9 +647,15 @@ div.wpcf7-validation-errors{ border:none; }
 .content.hoc-qua-video {
     text-align: center;
 }
+.video_title{
+    color: #111;
+    font-weight: bold;
+    text-align: center;
+}
 .video-category-title{
     font-weight: bold;
     padding: 0 10px 15px;
+    font-size: 18px;
 }
 .archive-new-week{}
 .archive-new-week .course-title{

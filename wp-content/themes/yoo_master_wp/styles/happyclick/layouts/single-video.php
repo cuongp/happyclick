@@ -29,7 +29,7 @@
                             
                             ?>
                         </div>
-                        <h4 class="video_title" style="font-weight:bold; text-align:center;"><?php the_title(); ?></h4>
+                        <h4 class="video_title"><?php the_title(); ?></h4>
                         <br />
                         <br />
                         <div class="video-category" style="border:none;">

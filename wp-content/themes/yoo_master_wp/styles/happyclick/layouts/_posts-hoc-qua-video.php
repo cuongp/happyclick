@@ -71,7 +71,9 @@ foreach ($categories as $key=>$category){
             (function($) {
                 /* Jquery carousel script */
                 $(document).ready(function() {
-                    jQuery('#mycarousel_<?php echo $i ?>').jcarousel();
+                    jQuery('#mycarousel_<?php echo $i ?>').jcarousel({
+                        scroll: 1
+                    });
                 });
             })(jQuery);
         </script>

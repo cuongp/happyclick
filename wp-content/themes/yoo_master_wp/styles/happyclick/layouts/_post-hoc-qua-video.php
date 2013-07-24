@@ -3,7 +3,7 @@
     $youtubeVideo = get_post_custom_values('youtube-video'); 
     $youtubeVideo_link = $youtubeVideo[0];
     ?>
-    <a href="<?php the_permalink() ?>" target="_blank" class="iframe">
+    <a href="<?php the_permalink() ?>" class="iframe">
         <div class="course-video-thumb">
             <?php if (has_post_thumbnail()) : ?>
                 <?php
@@ -14,5 +14,5 @@
             <?php endif; ?> 
         </div>
     </a>
-    <a href="<?php the_permalink() ?>" target="_blank" ><?php the_title() ?></a>
+    <a href="<?php the_permalink() ?>"><?php the_title() ?></a>
 </li>
