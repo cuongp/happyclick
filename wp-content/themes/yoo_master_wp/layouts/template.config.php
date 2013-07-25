@@ -37,7 +37,7 @@ if ($this['modules']->count('sidebar-b')) {
 if ($this['modules']->count('sidebar-trial')) {
 	$sidebar_trial = $this['config']->get('sidebar-trial'); 
 	$maininner_width =100 - $sidebar_trial_width;
-
+	
 	$css[] = sprintf('#sidebar-trial { width: %d%%; }', $sidebar_trial_width);
 }
 $css[] = sprintf('#maininner { width: %d%%; }', $maininner_width);

@@ -136,6 +136,9 @@ dành cho thành viên Happy Click</p>
 		<?php if ($this['modules']->count('sidebar-membership')) : ?>
 			<aside id="sidebar-trial" class="grid-box"><?php echo $this['modules']->render('sidebar-membership', array('layout'=>'stack')); ?></aside>
 			<?php endif; ?>
+			<?php if ($this['modules']->count('sidebar-membership-b')) : ?>
+			<aside id="sidebar-membership-b" class="grid-box"><?php echo $this['modules']->render('sidebar-membership-b', array('layout'=>'stack')); ?></aside>
+			<?php endif; ?>
 	<section id="membership">
 	<div class="grid-block">
 		<div class="grid-box width33 grid-h">
@@ -153,10 +156,19 @@ dành cho thành viên Happy Click</p>
 		<div id="main" class="grid-block">
 		
 			<div id="maininner" class="grid-box">
+			<?php if ($this['modules']->count('innertop-membership')) : ?>
+				<section id="innertop" class="grid-block"><?php echo $this['modules']->render('innertop', array('layout'=>$this['config']->get('innertop'))); ?></section>
+				<?php endif; ?>
 		<?php if ($this['config']->get('system_output')) : ?>
 				<section id="content" class="grid-block"><?php echo $this['template']->render('content'); ?></section>
 				<?php endif; ?>
-			</div></div>
+				<?php if ($this['modules']->count('innerbottom-membership')) : ?>
+				<section id="innerbottom" class="grid-block"><?php echo $this['modules']->render('innerbottom-membership', array('layout'=>$this['config']->get('innerbottom-membership'))); ?></section>
+				<?php endif; ?>
+			</div>
+
+
+		</div>
 		<?php if ($this['modules']->count('footer + debug') || $this['config']->get('warp_branding') || $this['config']->get('totop_scroller')) : ?>
 		<?php if ($this['modules']->count('bottom-b')) : ?>
 		

@@ -388,7 +388,7 @@ color: #414141;
 }
 .sub1 .subject em,.sub1 .subject span{color: #0066a1}
 .sub2 .subject em,.sub2 .subject span{color: #f7650e}
-.sub1 .subject{position: relative;}
+.sub1 .subject,.sub2 .subject{position: relative;}
 
 .subject span{
     position: absolute;
@@ -821,6 +821,8 @@ height: auto;
     list-style-type: none;
     float: left;
     width: 33%;
+    position: relative;
+    text-align: right;
 }
 .sukien-title{
     font-family: 'MyriadProLight';
@@ -830,21 +832,34 @@ height: auto;
     display: block;
     width: 249px;
     height: 114px;
+    position: relative;
+    font-size: 20px;color: #fff;line-height: 114px;
 }
 .dk2{
     background: url(../images/dk2.jpg) no-repeat;
     display: block;
     width: 249px;
     height: 114px;
+    position: relative;
+    line-height: 114px;font-size: 20px;color: #fff;
 }
 .dk3{
     margin-top:40px;
     background: url(../images/dk3.jpg) no-repeat;
     display: block;
     width: 249px;
-    height: 25px;
+    height: 25px;    position: relative;
 }
-.dk1 span,.dk2 span,.dk3 span{display: none}
+.dk1 span,.dk2 span{
+    width: 100px;
+    height: 100px;
+    margin-left: 140px;
+    display: block;
+    text-align: center;
+
+}
+.dk3 span{display: none}
+
 .viewmore span{display: none}
 .widget_loginwithajaxwidget{
     background: none;

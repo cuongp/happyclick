@@ -153,8 +153,18 @@
 			<option value="right">Right</option>
 			<option value="left">Left</option>
 		</field>
+		<field name="sidebar-membership-b_width" type="text" size="10" default="25" label="Sidebar Membership Width" description="Set the Sidebar A width in percent." class="short" />
+		<field name="sidebar-membership-b" type="list" default="right" label="Sidebar Membership Position" description="Align the sidebar to the left or right.">
+			<option value="right">Right</option>
+			<option value="left">Left</option>
+		</field>
 		<field name="sidebar-trial_width" type="text" size="10" default="25" label="Sidebar Trial Width" description="Set the Sidebar A width in percent." class="short" />
 		<field name="sidebar-trial" type="list" default="right" label="Sidebar Trial Position" description="Align the sidebar to the left or right.">
+			<option value="right">Right</option>
+			<option value="left">Left</option>
+		</field>
+		<field name="sidebar-trial-b_width" type="text" size="10" default="25" label="Sidebar Trial Width" description="Set the Sidebar A width in percent." class="short" />
+		<field name="sidebar-trial-b" type="list" default="right" label="Sidebar Trial Position" description="Align the sidebar to the left or right.">
 			<option value="right">Right</option>
 			<option value="left">Left</option>
 		</field>
@@ -175,6 +185,11 @@
 		<field name="membership" type="layout" default="equal" label="Membership Layout" description="Select a grid layout for this module position." />
 		<field name="innertop" type="layout" default="equal" label="Inner Top Layout" description="Select a grid layout for this module position." />
 		<field name="innerbottom" type="layout" default="equal" label="Inner Bottom Layout" description="Select a grid layout for this module position." />
+		<field name="innertop-trial" type="layout" default="equal" label="Inner Top Layout" description="Select a grid layout for this module position." />
+		<field name="innerbottom-trial" type="layout" default="equal" label="Inner Bottom Layout" description="Select a grid layout for this module position." />
+		<field name="innertop-membership" type="layout" default="equal" label="Inner Top Layout" description="Select a grid layout for this module position." />
+		<field name="innerbottom-membership" type="layout" default="equal" label="Inner Bottom Layout" description="Select a grid layout for this module position." />
+
 		<field name="bottom-a" type="layout" default="equal" label="Bottom A Layout" description="Select a grid layout for this module position." />
 		<field name="bottom-b" type="layout" default="equal" label="Bottom B Layout" description="Select a grid layout for this module position." />
 		<field name="menu_width" type="text" size="10" default="250" label="Drop Down Column Width" description="Set the column width of the drop down menu in pixel." class="short" />

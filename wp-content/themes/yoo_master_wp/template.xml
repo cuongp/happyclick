@@ -29,10 +29,17 @@
 		<position>bottom-b</position>
 		<position>innertop</position>
 		<position>innerbottom</position>
+		<position>innertop-trial</position>
+		<position>innerbottom-trial</position>
+		<position>innertop-membership</position>
+		<position>innerbottom-membership</position>
 		<position>sidebar-a</position>
 		<position>sidebar-b</position>
 		<position>sidebar-membership</position>
 		<position>sidebar-trial</position>
+		<position>sidebar-membership-b</position>
+		<position>sidebar-trial-b</position>
+
 		<position>slider</position>
 		<position>membership</position>
 		<position>membership 1</position>
