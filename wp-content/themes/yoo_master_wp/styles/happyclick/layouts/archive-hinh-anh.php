@@ -17,7 +17,7 @@
 			<h1 class="page-title"><?php _e('Blog Archives', 'warp'); ?></h1>
 		<?php endif; ?>
         
-            <div class="content-box1">
+            <div class="content-box1 equaledge">
                 <h3 class="content-box-title">
                     <?php
                         $cat_name = get_category(get_query_var('cat'))->name;

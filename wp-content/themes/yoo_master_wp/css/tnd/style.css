@@ -385,6 +385,8 @@ div.wpcf7-validation-errors{ border:none; }
     border-radius: 6px;
     box-shadow: 1px 1px 3px #6A9DC3;
 }
+.equaledge{}
+
 .content-box1 h3.content-box-title{
     background: #f78000;
     color: #fff;
@@ -407,6 +409,9 @@ div.wpcf7-validation-errors{ border:none; }
 .content-box1 .content-box-inside{
     padding: 10px 20px 20px 10px;
     overflow: hidden;
+}
+.equaledge .content-box-inside{
+    padding: 10px 15px 20px 15px;
 }
 .content-box1 .how-to-join{
     background: url(images/how-to-join.gif) 0 0 no-repeat;
@@ -616,7 +621,7 @@ div.wpcf7-validation-errors{ border:none; }
 .gallery_item{ 
     float:left; 
     width: 235px;
-    padding: 10px 25px;
+    padding: 10px 22px;
     text-align: center;
 }
 .gallery_item .gallery_thumb{
@@ -648,7 +653,7 @@ div.wpcf7-validation-errors{ border:none; }
     text-align: center;
 }
 .video_title{
-    color: #111;
+    color: #111 !important;
     font-weight: bold;
     text-align: center;
 }

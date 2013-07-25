@@ -22,7 +22,8 @@
                                     <strong><?php echo get_the_date('d/m/Y') ?></strong>
                                 </p>
                                 <p>
-                                    Giảng viên: <strong>Trần Đình Dũng</strong>
+                                    <?php $giang_vien = get_post_custom_values('giang_vien'); ?>
+                                    Giảng viên: <strong><?php echo $giang_vien[0] ?></strong>
                                 </p>
                                 <p class="register-links">
                                     <span class="course-link-wrapper"><a class="link-orange" href="#"><span>Trở thành thành viên</span></a></span>
@@ -32,6 +33,8 @@
                         </header>
                         <div class="content clearfix">
                             <?php the_content(''); ?>
+                            <?php 
+                            /*
                             <br/>
                             <br/>
                             <h3>Thông tin về giảng viên</h3>
@@ -43,6 +46,8 @@
                                 Cử Nhân Kinh Tế – Đại học Kinh tế TP. HCM </p>
                                 <p style="text-align:right;"><a href="#" class="black-arrow">Xem thêm về tác giả</a></p>
                             </div>
+                             * 
+                             */ ?>
                         </div>
                     </article>
                 </div>

@@ -54,7 +54,9 @@
                                 (function($) {
                                     /* Jquery carousel script */
                                     $(document).ready(function() {
-                                        jQuery('#mycarousel_videos').jcarousel();
+                                        jQuery('#mycarousel_videos').jcarousel({
+                                            scroll: 1
+                                        });
                                     });
                                 })(jQuery);
                             </script>
