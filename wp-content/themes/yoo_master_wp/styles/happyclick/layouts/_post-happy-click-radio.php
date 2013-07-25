@@ -3,6 +3,7 @@
 		<div class="posts_sub">
 	<?php  endif; ?>
 	<?php $class_margin = ((($post_count_radio%4) == 0)?'margin_right':''); ?>
+	<?php $class_margin = ((($post_count_radio%4) == 1)?'clear_left':''); ?>
 	<div id="item-<?php the_ID(); ?>" class="item courses post_sub <?php echo $class_margin; ?>" data-permalink="<?php the_permalink(); ?>" >
 		<?php if(has_post_thumbnail()): ?>
 			<?php $width = '180'; $height = '120'; ?>

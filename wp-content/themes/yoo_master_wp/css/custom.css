@@ -94,6 +94,9 @@ margin-bottom: 80px;
 .margin_right {
 	margin-right:0px !important;
 }
+.clear_left {
+	clear:left;
+}
 
  .category-lam-giau-cuoc-song.category-happy-click-radio .posts-wrapper .first-post,
 .first-post-radio {
@@ -106,7 +109,7 @@ min-height: 350px;
 overflow: overlay;
 }
  .category-lam-giau-cuoc-song.category-happy-click-radio .posts-wrapper .first-post h1,
-.first-post-radio h1 {
+.first-post-radio h1.post-h1-radio {
 font-weight: bold;
 font-size: 20px;
 border-bottom: 1px dashed #999;
@@ -117,7 +120,7 @@ color: #7f0119;
 }
 
  .category-lam-giau-cuoc-song .first-post img.wp-post-image,
-.first-post-radio img {
+.first-post-radio img.wp-post-image {
 	width: 300px;
 height: 200px;
 border: 5px solid #fff;
