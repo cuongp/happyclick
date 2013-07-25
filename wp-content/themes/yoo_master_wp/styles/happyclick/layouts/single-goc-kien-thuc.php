@@ -13,7 +13,9 @@
 								<?php the_post_thumbnail(array($width,$height),array('class'=>'size-auto')); ?>
 							<?php endif; ?>
 						</div>
+						<div>
 						<?php the_content(); ?>
+						</div>
 					</div>
 				</div>
 				<div>
