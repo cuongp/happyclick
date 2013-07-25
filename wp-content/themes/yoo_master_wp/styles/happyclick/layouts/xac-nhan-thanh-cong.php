@@ -5,6 +5,6 @@
 <li style="padding-left: 10px;">Email.</li>
 <li style="padding-left: 10px">Password</li>
 </ul>
-<span style="text-aligh:right"> <a href="htt://dev.happyclick.vn/">Trở về trang chủ </a></span>
+<span style="text-aligh:right"> <a href="/index.php">Trở về trang chủ </a></span>
 
 </div>

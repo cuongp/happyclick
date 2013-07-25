@@ -1,0 +1,74 @@
+Searching 3779 files for "THÔNG TIN CÁ NHÂN"
+
+/Applications/MAMP/htdocs/happyclick/wp-content/themes/yoo_master_wp/styles/happyclick/layouts/dang-ky-hoi-thao-khoa-hoc.php:
+  114  			<tr>
+  115  				<td colspan="2"><br/>
+  116: 				<p><strong>THÔNG TIN CÁ NHÂN</strong></p><br/>	
+  117  				</td>
+  118  
+
+/Applications/MAMP/htdocs/happyclick/wp-content/themes/yoo_master_wp/styles/happyclick/layouts/khach-dang-ky.php:
+  114  			<tr>
+  115  				<td colspan="2"><br/>
+  116: 				<p><strong>THÔNG TIN CÁ NHÂN</strong></p><br/>	
+  117  				</td>
+  118  
+
+/Applications/MAMP/htdocs/happyclick/wp-content/themes/yoo_master_wp/styles/happyclick/layouts/kich-hoat.php:
+  211  			<tr>
+  212  				<td colspan="2"><br/>
+  213: 				<p><strong>THÔNG TIN CÁ NHÂN</strong></p><br/>	
+  214  				</td>
+  215  
+
+/Applications/MAMP/htdocs/happyclick/wp-content/themes/yoo_master_wp/styles/happyclick/layouts/profile.php:
+   34  			<tr>
+   35  				<td colspan="2"><br/>
+   36: 				<p><strong>THÔNG TIN CÁ NHÂN</strong></p><br/>	
+   37  				</td>
+   38  
+
+/Applications/MAMP/htdocs/happyclick/wp-content/themes/yoo_master_wp/styles/happyclick/layouts/xem-thu.php:
+  113  			<tr>
+  114  				<td colspan="2"><br/>
+  115: 				<p><strong>THÔNG TIN CÁ NHÂN</strong></p><br/>	
+  116  				</td>
+  117  
+
+5 matches across 5 files
+
+
+Searching 625 files for "echo 1"
+
+0 matches across 0 files
+
+
+Searching 4688 files for "echo 1"
+
+/Applications/MAMP/htdocs/happyclick/wp-admin/edit-form-advanced.php:
+  322  <div id="poststuff">
+  323  
+  324: <div id="post-body" class="metabox-holder columns-<?php echo 1 == get_current_screen()->get_columns() ? '1' : '2'; ?>">
+  325  <div id="post-body-content">
+  326  <?php if ( post_type_supports($post_type, 'title') ) { ?>
+
+/Applications/MAMP/htdocs/happyclick/wp-admin/edit-link-form.php:
+   78  <div id="poststuff">
+   79  
+   80: <div id="post-body" class="metabox-holder columns-<?php echo 1 == get_current_screen()->get_columns() ? '1' : '2'; ?>">
+   81  <div id="post-body-content">
+   82  <div id="namediv" class="stuffbox">
+
+/Applications/MAMP/htdocs/happyclick/xem-thu.php:
+    2  <?php
+    3  
+    4: echo 1;
+    5  //wp_mail('minhcuong@siliconstraits.vn','Testing','Testing');
+    6  
+
+3 matches across 3 files
+
+
+Searching 77 files for "htt://dev.happyclick.vn/"
+
+0 matches across 0 files
