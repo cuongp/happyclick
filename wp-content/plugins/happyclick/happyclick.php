@@ -12,12 +12,57 @@ License: GPLv2
 
 
 include (dirname(__file__) . '/widgets/widget-sukien.php');
-global $current_user;
 
 
 add_action('admin_menu','add_membership_custom_options');
 
+if(is_admin()){
+    add_action('admin_menu','_init_menu_sukien');
+    function _init_menu_sukien(){
+            add_menu_page('Đăng ký sự kiện', 'Đăng ký sự kiện', 10, 'hcsukien', '_adminViewSukien',plugins_url('card/images/icon.png'));
+    }
 
+    function _adminViewSukien(){
+    ?>
+    <h1 class="title">Danh sách thành viên đăng ký</h1>
+<table class="list">
+            <thead>
+                <th class="shortcode">ID</th>
+                <th class="shortcode">USER ID</th>
+                <th class="modified">Ngày đăng ký</th>
+                <th class="modified">Ngày thanh toán</th>
+                <th class="modified">Loại hình thanh toán</th>
+                <th class="modified">Tình trạng thanh toán</th>
+                <th class="actions"></th>
+            </thead>
+            <tbody>
+            <?php
+            $db = $GLOBALS['wpdb'];
+            $posts = $db->get_results('select * from '.$db->prefix.'user_sukien');
+            if(!empty($posts)){
+                foreach ($posts as $post) {
+                    $user = get_user_by('id',$post->user_id);
+                    get_user_meta($post->user_id,'firstname');
+                ?>
+                <tr>
+                <td class="shortcode"><?php echo $post->id ?>                    </td>
+                <td class="shortcode"><?php echo get_usermeta($post->user_id,'firstname'); ?></td>
+                <td class="modified"><?php  echo  $post->created_at ?></td>
+                <td class="modified"><?php  echo  $post->payment_at ?>       </td>
+                <td class="modified"><?php  echo  $post->payment_type ?></td>
+                <td class="modified"><?php  echo  $post->payment_status ?> </td>
+                <td class="actions">                        </td>
+                </tr>
+                <?php
+                }
+            }
+            ?>
+            </tbody>
+    </table>  
+    <?php
+                 
+    }
+}
 
 function add_membership_custom_options(){
     add_options_page('HappyClick Membership Options', 'HappyClick Membership Options', 'manage_options', 'functions','membershiphp_custom_options');

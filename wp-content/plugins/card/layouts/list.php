@@ -1,6 +1,4 @@
 <?php
-error_reporting(-1);
-
 if(isset($_POST['action']) && $_POST['action']=='editcard'){
 	$a = strptime($_POST['expired'], '%d/%m/%Y');
 	

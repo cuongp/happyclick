@@ -27,7 +27,7 @@ while ( $the_query->have_posts() ) {
 	<div id="item-<?php the_ID(); ?>" class="post_sub_radio <?php echo $class_margin; ?>" data-permalink="<?php the_permalink(); ?>" >
 		<?php if(has_post_thumbnail()): ?>
 			<?php $width = '180'; $height = '120'; ?>
-			<?php the_post_thumbnail(array($width,$height),array('class'=>'size-auto')); ?>
+			<a href="<?php the_permalink(); ?>" target="_blank"><?php the_post_thumbnail(array($width,$height),array('class'=>'size-auto')); ?></a>
 		<?php endif; ?>
 		<h3><a href="<?php the_permalink(); ?>" target="_blank"><?php echo string_limit_words(get_the_title(), 5).'...'; ?></a></h3>
 		<div class="post-content-sub-radio">

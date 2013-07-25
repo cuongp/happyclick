@@ -38,7 +38,7 @@
 
 .jcarousel-skin-tango .jcarousel-item-horizontal {
 	margin-left: 0;
-    margin-right: 40px;
+    margin-right: 32px;
 }
 
 .jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-item-horizontal {
@@ -518,14 +518,21 @@ div.wpcf7-validation-errors{ border:none; }
 .content-box2 .blue-style .item-global-info .course-title a{ color: #0066a1; }
 .content-box2 .courses-sub{}
 
-.course-old-title{}
+.course-old-title,
+.course-old-sub-title{
+    padding-left: 17px;
+}
+.course-old-title{
+    margin: 45px 0 0;
+}
 .course-old-sub-title{}
 .course-thumbnail-old{
     border: 1px solid #6a6a6a;
-    height: 110px;
-    width: 177px;
+    height: 107px;
+    width: 176px;
     box-shadow: 2px 2px 5px #bbb;
     overflow: hidden;
+    margin-bottom: 8px;
 }
 
 #system.onecolumn{
@@ -723,5 +730,29 @@ table.quiz td{
 .video-upcomming strong{ color:#0066a1; }
 .video-upcomming td{
     padding-left: 15px;
+}
+.back-videos{ 
+    padding-left: 14px;
+    margin-top: 30px; 
+}
+.back-videos a{
+    color: #111;
+    font-weight: bold;
+    font-size: 18px;
+}
+.back-videos a:hover{
+    color: #99cc00;
+}
+.border-blue{
+    width: 735px;
+    margin: 0 auto;
+    border: 1px solid #387bb1;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #4896d4;
+    padding: 20px 60px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 16px;
 }
 /* END Tamnd's code */

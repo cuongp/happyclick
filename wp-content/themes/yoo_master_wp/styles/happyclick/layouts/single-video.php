@@ -61,6 +61,7 @@
                                 })(jQuery);
                             </script>
                         </div>
+                        <div class="back-videos"><a href="<?php echo get_bloginfo('url') ?>/category/hoc-qua-video">Các chương trình Học qua Video khác</a></div>
                     </article>
                 </div>
             </div>
