@@ -159,7 +159,12 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 </tr>
 </tbody>
 </table>';
-			wpMandrill::mail($_POST['email'],'Kích hoạt thành viên',$html);
+			//wpMandrill::mail($_POST['email'],'Kích hoạt thành viên',$html);
+			$headers[] = 'From: Happyclick <support@happyclick.vn>';
+			$headers[] ='Content-type: text/html';
+			wp_mail($_POST['email'],'Xác nhận email',$html,$headers);
+
+
 			if($current_user->ID > 0)
 				wp_redirect('/index.php?mod=kich-hoat');
 			else

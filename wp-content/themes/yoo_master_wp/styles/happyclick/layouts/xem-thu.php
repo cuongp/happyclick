@@ -29,10 +29,9 @@ $doituong = get_terms('doituong',$args);
 
 if(isset($_POST) && $_POST['action'] == 'submit'){
 $db = $GLOBALS['wpdb'];
-
-
-		$user_id = wp_create_user( $_POST['email'], $_POST['password'], $_POST['email'] ); 
-		if(!is_array($user_id->errors)){
+		if(!email_exists($_POST['email'])){
+			$user_id = wp_create_user( $_POST['email'], $_POST['password'], $_POST['email'] ); 
+			if(!is_array($user_id->errors)){
 			if($user_id>0){
 			foreach ($_POST as $key=>$val) {
 				if($key !='action')
@@ -63,7 +62,7 @@ $db = $GLOBALS['wpdb'];
   <td><a href="http://www.happyclick.com.vn"><img src="http://www.unity.com.vn/images/HC_Banner.png" align="center" width="598" height="130" /></a></td>
 </tr>
 <tr>
-  <td height="323" valign="top" style="padding: 10px 10px 0px 10px; height=; color: #003399; font-size: 14px;"1354><p>Chào '.$_POST['fullname'].'<br />
+  <td height="323" valign="top" style="padding: 10px 10px 0px 10px; height=; color: #003399; font-size: 14px;"><p style="padding:10px">Chào '.$_POST['fullname'].'<br />
       <br />
       Cảm ơn bạn đã đăng ký xem thử một số tiện ích của Happy Click.<br />
       <br />
@@ -72,11 +71,11 @@ $db = $GLOBALS['wpdb'];
       <p>Tên đăng nhập: '.$_POST['email'].'<br />
         Mật khẩu: '.$_POST['password'].'</p>
     </blockquote>
-    <p>Để hoàn tất quy trình đăng ký xem thử, vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản xem thử:<br />
+    <p style="padding:10px">Để hoàn tất quy trình đăng ký xem thử, vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản xem thử:<br />
     <a href="http://dev.happyclick.vn/hcaccount/xac-thuc-email/?act=active&user_id='.$user_id.'&code='.time().'">Kích hoạt tài khoản xem thử</a></p>
-    <p>Đường dẫn này sẽ chỉ có giá trị trong 12 giờ</p>
-    <p>Ngay sau khi kích hoạt tài khoản, bạn đã có thể bắt đầu xem thử một số tiện ích. Happy Click hy vọng bạn sẽ được trải nghiệm những kiến thức bổ ích, nội dung thiết thực.</p>
-    <p>Đây là email tự động gửi, vui lòng không trả lời vào email này.<br />
+    <p  style="padding:10px">Đường dẫn này sẽ chỉ có giá trị trong 12 giờ</p>
+    <p  style="padding:10px">Ngay sau khi kích hoạt tài khoản, bạn đã có thể bắt đầu xem thử một số tiện ích. Happy Click hy vọng bạn sẽ được trải nghiệm những kiến thức bổ ích, nội dung thiết thực.</p>
+    <p  style="padding:10px">Đây là email tự động gửi, vui lòng không trả lời vào email này.<br />
       <br />
       Thân mến,<br />
       <br />
@@ -99,14 +98,27 @@ $db = $GLOBALS['wpdb'];
 </tr>
 </tbody>
 </table>';
-			wpMandrill::mail($_POST['email'],'Xác nhận email',$html);	
+			//wpMandrill::mail($_POST['email'],'Xác nhận email',$html);	
+			$headers[] = 'From: Happyclick <support@happyclick.vn>';
+			$headers[] ='Content-type: text/html';
+			wp_mail($_POST['email'],'Xác nhận email',$html,$headers);
+
 			wp_redirect('/hcaccount/xac-nhan-email/');
 			exit;
 			}
 			
 			
 	wp_reset_query();
+		}else
+		{
+			echo 'Đăng ký thất bại';
 		}
+		}else
+		{
+		echo 'Email này đã được đăng ký';	
+		}
+		
+		
 		
 	
 }

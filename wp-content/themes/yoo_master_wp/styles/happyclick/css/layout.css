@@ -550,7 +550,7 @@ padding-right: 0px;
 }
 #form input[type="text"],#form input[type="password"],#form select{
     border: 1px solid #000;
-    width: 350px;
+    width: 35   0px;
     padding: 5px;
 }
 .info{
