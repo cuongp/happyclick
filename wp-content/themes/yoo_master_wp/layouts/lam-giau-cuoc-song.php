@@ -91,21 +91,40 @@ include($this['path']->path('layouts:template.config.php'));
 		
 		<!-- begin main -->
 		<?php if ($this['modules']->count('innertop + innerbottom + sidebar-a + sidebar-b') || $this['config']->get('system_output')) : ?>
-		<div id="main" class="grib-box">
-			<?php if ($this['modules']->count('sidebar-a')) : ?>
-				<aside id="sidebar-a" class="grid-box"><?php echo $this['modules']->render('sidebar-a', array('layout'=>'stack')); ?></aside>
-			<?php endif; ?>
-				<?php if ($this['config']->get('system_output')) : ?>
-				<div id="maininner" class="grid-box">
+		<div id="main" class="grid-block">
+
+			<div id="maininner" class="grid-box">
+
+				<?php if ($this['modules']->count('innertop')) : ?>
+				<section id="innertop" class="grid-block"><?php echo $this['modules']->render('innertop', array('layout'=>$this['config']->get('innertop'))); ?></section>
+				<?php endif; ?>
+
 				<?php if ($this['modules']->count('breadcrumbs')) : ?>
 				<section id="breadcrumbs"><?php echo $this['modules']->render('breadcrumbs'); ?></section>
 				<?php endif; ?>
-				<?php echo $this['template']->render('content-lam-giau-cuoc-song'); ?>
-				
-				</div><?php endif; ?>
+
+				<?php if ($this['config']->get('system_output')) : ?>
+                    <?php echo $this['template']->render('content-lam-giau-cuoc-song'); ?>
+				<?php endif; ?>
+
+				<?php if ($this['modules']->count('innerbottom')) : ?>
+				<section id="innerbottom" class="grid-block"><?php echo $this['modules']->render('innerbottom', array('layout'=>$this['config']->get('innerbottom'))); ?></section>
+				<?php endif; ?>
+
+			</div>
+			<!-- maininner end -->
 			
+			<?php if ($this['modules']->count('sidebar-a')) : ?>
+			<aside id="sidebar-a" class="grid-box"><?php echo $this['modules']->render('sidebar-a', array('layout'=>'stack')); ?></aside>
+			<?php endif; ?>
+			
+			<?php if ($this['modules']->count('sidebar-b')) : ?>
+			<aside id="sidebar-b" class="grid-box"><?php echo $this['modules']->render('sidebar-b', array('layout'=>'stack')); ?></aside>
+			<?php endif; ?>
+
 		</div>
 		<?php endif; ?>
+		<!-- main end -->
 		<!-- end main -->
 		<?php if ($this['modules']->count('bottom-a')) : ?>
 		<section id="bottom-a" class="grid-block"><?php echo $this['modules']->render('bottom-a', array('layout'=>$this['config']->get('bottom-a'))); ?></section>

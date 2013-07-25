@@ -18,7 +18,7 @@
 				</div>
 				<div>
 					<?php echo $this->render('single-goc-kien-thuc-sub'); ?>
-				<div>
+				</div>
 			<?php endif; ?>
 		<?php endwhile; ?>
 <?php endif; ?>

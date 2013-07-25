@@ -19,14 +19,20 @@
 			<?php endif; ?>
 			</ul>
 	</div>
-	<div class="posts-wrapper" >
+	<div class="posts-wrapper single-lam-giau-cuoc-song" >
 		<?php
-		if($cat == "happy-click-radio") {
-			echo $this->render('single-happy-click-radio');
-		} else if($cat == "goc-chia-se") {
-			echo $this->render('single-happy-click-radio');
-		} else if($cat == "goc-kien-thuc") {
-			echo $this->render('single-goc-kien-thuc');
-		} ?>
+		if($cat == "happy-click-radio") { ?>
+			<div class='radio'>
+				<?php echo $this->render('single-happy-click-radio'); ?>
+			</div>
+		<?php } else if($cat == "goc-chia-se") { ?>
+			<div class='chia-se'>
+			<?php echo $this->render('single-goc-chia-se'); ?>
+			</div>
+		<?php } else if($cat == "goc-kien-thuc") { ?>
+			<div>
+			<?php echo $this->render('single-goc-kien-thuc'); ?>
+			</div>
+		<?php } ?>
 	</div>
 </div>

@@ -7,11 +7,14 @@
 				 <div class="content-box-inside">
 					<div class="content-img">
 						<a href="#" class="how-to-join">&nbsp;</a> 
-						<img src="http://dev.happyclick.vn/wp-content/uploads/2013/07/img-tree.png" />
+						<?php if(has_post_thumbnail()): ?>
+						<?php $width = '218'; $height = ''; ?>
+							<?php the_post_thumbnail(array($width,$height),array('class'=>'size-auto')); ?>
+						<?php endif; ?>
 					</div>
 					<div class="content-box-video">
 						<p><?php _e('Xem lại nội dung khóa học trực tuyến','warp'); ?></p>
-						<img src="http://dev.happyclick.vn/wp-content/uploads/2013/07/img-video.png">
+						<img src="<?php echo get_site_url().'/wp-content/uploads/2013/07/img-video.png' ?>">
 						<p><a href="#"><?php _e('Download tài liệu','warp'); ?></a></p>
 					</div>
 					<h1><?php the_title(); ?></h1>
