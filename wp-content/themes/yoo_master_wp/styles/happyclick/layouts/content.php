@@ -38,7 +38,8 @@ elseif (is_single()) {
         $content = 'single-giangvien';   
     }
 	
-	$kat = get_the_category()[0]->category_nicename;
+	$kats   = get_the_category();
+    $kat    = $kats[0]->category_nicename;
 	if($kat == 'happy-click-radio' || $kat == 'goc-chia-se' || $kat == 'goc-kien-thuc') {
 		$content = 'single-lam-giau-cuoc-song';
 	}
