@@ -31,7 +31,7 @@ if($current_time>12*3600*1000){
 <div class="box" style="width:500px;">
 	<p>Email của bạn đã được xác thực. Hãy đăng nhập để bắt đầu sử dụng dịch vụ của Happy Click.</p>
 	<?php echo $this['modules']->render('login-modal'); 
-		var_dump($_COOKIE['hc_welcome']);
+	//	var_dump($_COOKIE['hc_welcome']);
 	?>
 
 <table width="100%">

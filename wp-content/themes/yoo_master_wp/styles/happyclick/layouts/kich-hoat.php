@@ -1,6 +1,30 @@
 <?php
+
 global $current_user;
 $flag='';
+ $args = array(
+    'orderby'       => 'name', 
+    'order'         => 'ASC',
+    'hide_empty'    => false, 
+    'exclude'       => array(), 
+    'exclude_tree'  => array(), 
+    'include'       => array(),
+    'number'        => '', 
+    'fields'        => 'all', 
+    'slug'          => '', 
+    'parent'         => '',
+    'hierarchical'  => true, 
+    'child_of'      => 0, 
+    'get'           => '', 
+    'name__like'    => '',
+    'pad_counts'    => false, 
+    'offset'        => '', 
+    'search'        => '', 
+    'cache_domain'  => 'core'
+); 	
+$cities = get_terms('city',$args);
+$nganhnghe =get_terms('nganhnghe',$args);
+$doituong = get_terms('doituong',$args);
 function check_card($code,$serial){
 	 $db = $GLOBALS['wpdb'];
         $post = $db->get_row('select id from '.$db->prefix.'cards where serial="'.$serial.'" and code= "'.$code.'" and valid=1 and status=0');
@@ -39,23 +63,18 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 			$user_id = wp_create_user( $_POST['email'], $_POST['password'], $_POST['email']); 	
 		}
 		
-		if($user_id>0){
+		if(!is_array($user_id->errors) && $user_id>0){
 			
-			//$member = new M_Membership($user_id);
+			
 		
 			foreach ($_POST as $key=>$val) {
 				if($key !='action')
 					update_usermeta( $user_id, $key, $val);
 				}
 			
-//			update_card($card_id);		//exit();
-			$card_info = get_card_info($card_id->id);
-			
+			$card_info = get_card_info($card_id->id);		
 			$sub_info = get_sub_info($card_info->sub_id);
-
-			$startdate = date("Y-m-d H:i:s");
-			//$enddate = date("Y-m-d H:i:s",strtotime('+'.$sub_info->level_period.' month'));
-			
+			$startdate = date("Y-m-d H:i:s");		
 			$level_period_unit = $sub_info->level_period_unit;
 			switch ($level_period_unit) {
 				case 'y':
@@ -82,15 +101,9 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					,'order_instance'=>1
 					,'usinggateway'=>'card'
 					));
-			
 			update_usermeta($user_id,'wp_membership_active','no');
-			
 			$key = md5($user_id. $_POST['password'] . time());
 			update_user_meta($user->ID, '_membership_key', $key);
-
-			//update_usermeta($user_id,'_membership_key','no');
-			//update_usermeta($user_id,'wp_membership_active','no');
-			
 			$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 <tbody>
 <tr>
@@ -146,17 +159,15 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 </tr>
 </tbody>
 </table>';
-//if (!isset($_COOKIE['hc_welcome'])) {
-  //      			setcookie('hc_welcome', '1', strtotime('+1 day'));
-    //			}
 			wpMandrill::mail($_POST['email'],'Kích hoạt thành viên',$html);
 			if($current_user->ID > 0)
 				wp_redirect('/index.php?mod=kich-hoat');
-			else{
-				 
+			else
 				wp_redirect('/hcaccount/xac-nhan-email/');
-			}
 			exit;			
+			}else
+			{
+				$flag ='<h3 class="error">Đăng ký thất bại</h3>';
 			}
 		}
 	else
@@ -259,20 +270,71 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Đối tượng</td>
-				<td  class="box4"><input type="text" name="objectuser" id="objectuser" value="<?php echo get_usermeta( $current_user->ID, 'objectuser'); ?>" /><span>*</span></td>				
+				<td  class="box4">
+					<select id="objectuser" name="objectuser">
+						<?php
+							if(!empty($doituong)){
+								foreach ($doituong as $dt) {
+									if(get_usermeta( $current_user->ID, 'objectuser')==$dt->ID){
+										$selected = 'selected=selected';
+									}else
+										$selected = '';
+							?>
+								<option <?php echo $selected; ?> value="<?php echo $dt->ID ?>"><?php echo $dt->name; ?></option>
+							<?php
+								}
+							}
+						?>
+					</select>
+
+<span>*</span></td>				
 			</tr>
+
 			<tr>
 				<td width="45%"  class="box3" align="right">Ngành nghề</td>
-				<td  class="box4"><input type="text" name="mayjor" value="<?php echo get_usermeta( $current_user->ID, 'mayjor'); ?>"  /></td>				
-			</tr>
+				<td  class="box4">
+					<select id="mayjor" name="mayjor">
+						<?php
+							if(!empty($nganhnghe)){
+								foreach ($nganhnghe as $dt) {
+									if(get_usermeta( $current_user->ID, 'mayjor')==$dt->ID){
+										$selected = 'selected=selected';
+									}else
+										$selected = '';
+							?>
+								<option <?php echo $selected; ?> value="<?php echo $dt->ID ?>"><?php echo $dt->name; ?></option>
+							<?php
+								}
+							}
+						?>
+					</select>
+
+<span>*</span></td>	</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Địa chỉ<br/><em style="font-weight:normal">Nhận thẻ và hóa đơn</em></td>
 				<td  class="box4"><input type="text" name="address" id="address" value="<?php echo get_usermeta( $current_user->ID, 'address'); ?>"  /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Tỉnh/Thành phố</td>
-				<td  class="box4"><input type="text" name="city" id="city" value="<?php echo get_usermeta( $current_user->ID, 'city'); ?>"  /><span>*</span></td>				
-			</tr>
+				<td  class="box4">
+					<select id="city" name="city">
+						<?php
+							if(!empty($cities)){
+								foreach ($cities as $dt) {
+									if(get_usermeta( $current_user->ID, 'city')==$dt->ID){
+										$selected = 'selected=selected';
+									}else
+										$selected = '';
+							?>
+								<option <?php echo $selected; ?> value="<?php echo $dt->ID ?>"><?php echo $dt->name; ?></option>
+							<?php
+								}
+							}
+						?>
+					</select>
+
+<span>*</span></td>	
+				</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right"></td>
 				<td  class="box4">
