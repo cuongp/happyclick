@@ -1,10 +1,11 @@
 <div id="system">
-<?php $args = array(
+<?php 
+$args = array(
 	'posts_per_page'  => -1,
 	'offset'          => 0,
 	'category'        => '',
 	'orderby'         => 'post_date',
-	'order'           => 'ACS',
+	'order'           => 'ASC',
 	'include'         => '',
 	'exclude'         => '',
 	'meta_key'        => '',
@@ -34,7 +35,8 @@ return $first_img;
 		if($i==1){
 			setup_postdata($posts_array[0]);
 			 $post_id = get_the_ID();
-			$data = get_post_meta( $post_id, '_sukien', true );
+			$data = get_post_meta( $posts_array[0]->ID, '_sukien', true );
+			
 		}
             
 	?>
@@ -42,17 +44,17 @@ return $first_img;
 	<div class="banner"><img src="<?php echo catch_that_image($posts_array[0]->post_content); ?>"/></div>
 	<div class="bodycontent">
 		<?php echo the_excerpt();?>
-		<p style="text-align:right;float:right;"><a href="<?php echo get_permalink() ?>" class='viewmore'><span>Xem chi tiết</span></a></p>
+		<p style="text-align:right;float:right;"><a href="<?php echo $posts_array[0]->guid; ?>" class='viewmore'><span>Xem chi tiết</span></a></p>
 		
 		<div style="clear:both"></div>
 	</div>
 	<div style="clear:both">
 			<ul class="rg">
-				<li><a href="<?php echo get_permalink() ?>" class="dk1"><span>Thành viên đăng ký</span></a></li>
+				<li><a href="/hcaccount/thanh-vien-dang-ky/" class="dk1"><span><?php echo $data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100 ?>đ</span></a></li>
 
-				<li><a href="<?php echo get_permalink() ?>"  class="dk2"><span>Khách đăng ký</span></a></li>
+				<li><a href="/hcaccount/khach-dang-ky/"  class="dk2"><span><?php echo number_format($data['giatien'],0,'.','') ?>đ</span></a></li>
 
-				<li><a href="<?php echo get_permalink() ?>"  class="dk3"><span>Trở thành thành viên</span></a></li>
+				<li><a href="/category/thanh-vien/quyen-loi-thanh-vien/"  class="dk3"><span>Trở thành thành viên</span></a></li>
 			</ul>
 		</div>
 		<div style="clear:both"></div>

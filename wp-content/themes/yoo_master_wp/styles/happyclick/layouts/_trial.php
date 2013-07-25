@@ -103,13 +103,20 @@ dành cho thành viên Happy Click</p>
 	<?php endif;?>
 		</header>
 
-		<?php if ($this['modules']->count('sidebar-trial')) : ?>
+		
+			<?php if ($this['modules']->count('sidebar-trial')) : ?>
 			<aside id="sidebar-trial" class="grid-box"><?php echo $this['modules']->render('sidebar-trial', array('layout'=>'stack')); ?></aside>
+			<?php endif; ?>
+			<?php if ($this['modules']->count('sidebar-trial-b')) : ?>
+			<aside id="sidebar-b" style="float:right" class="grid-box"><?php echo $this['modules']->render('sidebar-trial-b', array('layout'=>'stack')); ?></aside>
 			<?php endif; ?>
 		<div id="main" class="grid-block">
 		
-			
+			 
 			<div id="maininner" class="grid-box">
+			 <?php if ($this['modules']->count('innertop-trial')) : ?>
+				<section id="innertop" class="grid-block"><?php echo $this['modules']->render('innertop-trial', array('layout'=>$this['config']->get('innertop-trial'))); ?></section>
+				<?php endif; ?>
 			<section id="top-a3">
 				<?php echo $this['modules']->render('top-a3', array('layout'=>'stack')); ?>
 			</section>
@@ -119,7 +126,14 @@ dành cho thành viên Happy Click</p>
 			<?php if ($this['config']->get('system_output')) : ?>
 				<section id="content" class="grid-block"><?php echo $this['template']->render('content'); ?></section>
 				<?php endif; ?>
-			</div></div>
+				<?php if ($this['modules']->count('innerbottom-trial')) : ?>
+				<section id="innerbottom" class="grid-block"><?php echo $this['modules']->render('innerbottom-trial', array('layout'=>$this['config']->get('innerbottom-trial'))); ?></section>
+				<?php endif; ?>
+			</div>
+
+
+			</div>
+
 		<?php if ($this['modules']->count('footer + debug') || $this['config']->get('warp_branding') || $this['config']->get('totop_scroller')) : ?>
 		<?php if ($this['modules']->count('bottom-b')) : ?>
 		

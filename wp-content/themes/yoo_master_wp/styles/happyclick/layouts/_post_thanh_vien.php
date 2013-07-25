@@ -1,4 +1,6 @@
-
+<?php
+global $current_user;
+?>
 <div style="float:left;margin-bottom:10px;min-height:150px" class="width50">
 	<header style="min-height:100px">
 
@@ -13,6 +15,18 @@
 
 	
 	<p style="text-align: center;display:block">
+		<?php
+		if($current_user->ID >0):
+		?>
 		<a href="<?php the_permalink() ?>" class="xemthu" title="<?php the_title_attribute(); ?>"><?php _e('<span>Xem thử</span>', 'warp'); ?></a>
+		<?php
+		else:
+		?>
+
+		<a href="/hcaccount/xem-thu/" class="xemthu" title="<?php the_title_attribute(); ?>"><?php _e('<span>Xem thử</span>', 'warp'); ?></a>
+		
+		<?php
+		endif;
+		?>
 	</p>
 </div>

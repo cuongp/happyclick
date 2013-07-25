@@ -6,6 +6,7 @@
 
 global $current_user;
 $flag=false;
+
 if(isset($_POST) && $_POST['action'] == 'submit'){
 $db = $GLOBALS['wpdb'];
 
@@ -51,7 +52,7 @@ $db = $GLOBALS['wpdb'];
         Mật khẩu: '.$_POST['password'].'</p>
     </blockquote>
     <p>Để hoàn tất quy trình đăng ký xem thử, vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản xem thử:<br />
-    <a href="http://dev.happyclick.vn/hcaccount/xac-thuc-email/?act=active&user_id='.$user_id.'&code='.time().'">Kích hoạt tài khoản xem thử</a></p>
+    <a href="'.get_site_url().'/hcaccount/xac-thuc-email/?act=active&user_id='.$user_id.'&code='.time().'">Kích hoạt tài khoản xem thử</a></p>
     <p>Đường dẫn này sẽ chỉ có giá trị trong 12 giờ</p>
     <p>Ngay sau khi kích hoạt tài khoản, bạn đã có thể bắt đầu xem thử một số tiện ích. Happy Click hy vọng bạn sẽ được trải nghiệm những kiến thức bổ ích, nội dung thiết thực.</p>
     <p>Đây là email tự động gửi, vui lòng không trả lời vào email này.<br />

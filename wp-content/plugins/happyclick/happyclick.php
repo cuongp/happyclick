@@ -43,7 +43,6 @@ function add_membership_custom_options(){
     <?php
     }  
 add_action('init', 'sukien_post_type');
-
 function sukien_post_type()
 {
     $labels = array(
@@ -105,6 +104,9 @@ function chude_taxonomy_type()
         flush_rewrite_rules();
 }
 add_action('init', 'diengia_taxonomy_type');
+add_action('init', 'doituong_taxonomy_type');
+add_action('init', 'nganhnghe_taxonomy_type');
+add_action('init', 'city_taxonomy_type');
 add_action('init', 'hcaccount_taxonomy_type');
 function hcaccount_taxonomy_type()
 {
@@ -148,6 +150,106 @@ function diengia_taxonomy_type()
         'show_in_nav_menus' => true));
         flush_rewrite_rules();
 }
+function doituong_taxonomy_type()
+{
+    $labels = array(
+        'name' => __('Đối tượng'),
+        'singular_name' => __('Đối tượng'),
+        'search_items' => __('Search Đối tượng'),
+        'all_items' => __('All Đối tượng'),
+        'edit_item' => __('Edit Đối tượng'),
+        'update_item' => __('Update  Đối tượng'),
+        'add_new_item' => __('Add New  Đối tượng'),
+        'new_item_name' => __('New  Đối tượng'),
+        'choose_from_most_used' => __('Choose from the most used  Đối tượng'));
+    register_taxonomy('doituong', array('post'), array(
+        'hierarchical' => false,
+        'labels' => $labels,
+        'query_var' => 'doituong',
+        'rewrite' => true,
+        'show_in_nav_menus' => true));
+        flush_rewrite_rules();
+}
+function nganhnghe_taxonomy_type()
+{
+    $labels = array(
+        'name' => __('Ngành nghề'),
+        'singular_name' => __('Ngành nghề'),
+        'search_items' => __('Search Ngành nghề'),
+        'all_items' => __('All Ngành nghề'),
+        'edit_item' => __('Edit Ngành nghề'),
+        'update_item' => __('Update  Ngành nghề'),
+        'add_new_item' => __('Add New  Ngành nghề'),
+        'new_item_name' => __('New  Ngành nghề'),
+        'choose_from_most_used' => __('Choose from the most used  Ngành nghề'));
+    register_taxonomy('nganhnghe', array('post'), array(
+        'hierarchical' => false,
+        'labels' => $labels,
+        'query_var' => 'nganhnghe',
+        'rewrite' => true,
+        'show_in_nav_menus' => true));
+        flush_rewrite_rules();
+}
+function city_taxonomy_type()
+{
+    $labels = array(
+        'name' => __('Thành phố'),
+        'singular_name' => __('Thành phố'),
+        'search_items' => __('Search Thành phố'),
+        'all_items' => __('All Thành phố'),
+        'edit_item' => __('Edit Thành phố'),
+        'update_item' => __('Update Thành phố'),
+        'add_new_item' => __('Add New Thành phố'),
+        'new_item_name' => __('New Thành phố'),
+        'choose_from_most_used' => __('Choose from the most used Thành phố'));
+    register_taxonomy('city', array('post'), array(
+        'hierarchical' => false,
+        'labels' => $labels,
+        'query_var' => 'city',
+        'rewrite' => true,
+        'show_in_nav_menus' => true));
+        flush_rewrite_rules();
+}
+
+add_action('init', 'giangvien_post_type');
+function giangvien_post_type()
+{
+    $labels = array(
+        'name' => 'Giảng viên',
+        'singular_name' => 'Giảng viên',
+        'add_new' => 'Add New',
+        'add_new_item' => 'Add New item',
+        'edit_item' => 'Edit item',
+        'new_item' => 'New item',
+        'view_item' => 'View item',
+        'search_items' => 'Search item',
+        'not_found' => 'No item found',
+        'not_found_in_trash' => 'No item in the trash',
+        'parent_item_colon' => '',
+        );
+    register_post_type('giangvien', array(
+        'labels' => $labels,
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'exclude_from_search' => false,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'giangvien'),
+        'capability_type' => 'post',
+        'has_archive' => true,
+        'menu_position' => 10,
+        'supports' => array(
+            'title',
+            'editor',
+            'thumbnail',
+            'excerpt',
+            )
+        ));
+
+flush_rewrite_rules();
+}
+
+
 
 function sukien_meta_boxes()
 {
@@ -421,7 +523,7 @@ function get_chude($post_type = 'sukien', $posts_per_page = -1, $orderby =
         <tr><td><b>Thành viên:</b></td><td><b><?php echo $giatienthanhvien; ?></b></td></tr>
     </table>
                <p class="cat-post-title2"><a href="<?php echo get_permalink(); ?>"><span style="display:none">Xem chi tiết</span></a></p> 
-                <p class="cat-post-title1"><a href="<?php echo get_permalink(); ?>"><span  style="display:none">Trở thành thành viên</span></a></p>
+                <p class="cat-post-title1"><a href="/category/thanh-vien/quyen-loi-thanh-vien/"><span  style="display:none">Trở thành thành viên</span></a></p>
             </td>
         </tr>
           
@@ -449,4 +551,15 @@ endwhile;
    echo '</div>';
 }
     
+function giangvien_banner($atts) {
+   extract(shortcode_atts(array(
+      'image' => ''
+      ,'giangvienid'=>0
+   ), $atts));
+   $gv = get_post($giangvienid);
+   
+return '<div class="banner"><a title="'.$gv->post_title.'" href="'.$gv->guid.'"><img alt="'.$gv->post_title.'" src="'.$image.'" /></a></div>';
+}
+add_shortcode('bannergiangvien', 'giangvien_banner');
+
 ?>
