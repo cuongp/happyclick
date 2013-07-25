@@ -6,6 +6,8 @@
 <li style="padding-left: 10px;">- Nếu không tìm thấy email của Happy Click trong hộp thư đến, bạn có thể kiểm tra lại trong hộp thư rác.</li>
 <li style="padding-left: 10px;">- Nếu vẫn không tìm thấy email, vui lòng thực hiện lại.</li>
 </ul>
-<span style="text-align:right"> <a href="htt://dev.happyclick.vn/">Trở về trang chủ </a></span>
+
+<span style="text-align:right"> <a href="<?php echo get_site_url(); ?>">Trở về trang chủ </a></span>
+
 
 </div>

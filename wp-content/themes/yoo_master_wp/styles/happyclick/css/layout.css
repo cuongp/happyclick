@@ -550,7 +550,7 @@ padding-right: 0px;
 }
 #form input[type="text"],#form input[type="password"],#form select{
     border: 1px solid #000;
-    width: 350px;
+    width: 35   0px;
     padding: 5px;
 }
 .info{
@@ -890,4 +890,10 @@ height: auto;
 .box2 .banner img{
     width: 100%;
     height: auto;
+}
+.dangxuat {
+    background: url(../images/dang-xuat.png) center; 
+    background-repeat: no-repeat;
+    margin: 10px;
+    min-height: 400px;
 }
