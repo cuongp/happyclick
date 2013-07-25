@@ -1,4 +1,6 @@
 <?php
+
+
 /*
 Plugin Name: Login With Ajax
 Plugin URI: http://wordpress.org/extend/plugins/login-with-ajax/
@@ -68,6 +70,7 @@ class LoginWithAjax {
 
 	// Actions to take upon initial action hook
 	public static function init(){
+
 		//Load LWA options
 		self::$data = get_option('lwa_data');
 		//Remember the current user, in case there is a logout
@@ -145,6 +148,7 @@ class LoginWithAjax {
 
 	// Reads ajax login creds via POSt, calls the login script and interprets the result
 	public static function login(){
+		
 		$return = array(); //What we send back
 		if( !empty($_REQUEST['log']) && !empty($_REQUEST['pwd']) && trim($_REQUEST['log']) != '' && trim($_REQUEST['pwd'] != '') ){
 			$loginResult = wp_signon();
@@ -185,7 +189,10 @@ class LoginWithAjax {
 			$return['error'] = __('Please supply your username and password.', 'login-with-ajax');
 		}
 		//$return['current_cat'] = get_var_query('cat');
+		$return['cat'] = get_query_var('hcaccount');
 		$return['action'] = 'login';
+
+
 		//Return the result array with errors etc.
 		return $return;
 	}

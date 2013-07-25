@@ -18,7 +18,9 @@ global $current_user;
 <head>
 
 <?php echo $this['template']->render('head'); ?>
-
+<script type="text/javascript">
+	var hcaccount = "<?php echo get_query_var('hcaccount'); ?>";
+</script>
 </head>
 
 <body id="page" class="page <?php echo $this['config']->get('body_classes'); ?>" data-config='<?php echo $this['config']->get('body_config','{}'); ?>'>
