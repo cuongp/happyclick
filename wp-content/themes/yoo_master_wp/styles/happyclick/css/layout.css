@@ -891,3 +891,9 @@ height: auto;
     width: 100%;
     height: auto;
 }
+.dangxuat {
+    background: url(../images/dang-xuat.png) center; 
+    background-repeat: no-repeat;
+    margin: 10px;
+    min-height: 400px;
+}
