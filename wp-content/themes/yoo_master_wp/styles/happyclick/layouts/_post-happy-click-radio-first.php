@@ -1,4 +1,4 @@
-﻿<div id="item-<?php the_ID(); ?>-first" class="item courses first-post" data-permalink="<?php the_permalink(); ?>" >
+<div id="item-<?php the_ID(); ?>-first" class="item courses first-post" data-permalink="<?php the_permalink(); ?>" >
 		<h1><?php _e('Happy Click Radio - '); ?><?php the_title(); ?></h1>
 		<?php if(has_post_thumbnail()): ?>
 			<?php $width = '295'; $height = '195'; ?>

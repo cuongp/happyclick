@@ -124,8 +124,7 @@ include($this['path']->path('layouts:template.config.php'));
 
 		</div>
 		<?php endif; ?>
-		<!-- main end -->
-		<!-- end main -->
+		<!-- main end --> 	
 		<?php if ($this['modules']->count('bottom-a')) : ?>
 		<section id="bottom-a" class="grid-block"><?php echo $this['modules']->render('bottom-a', array('layout'=>$this['config']->get('bottom-a'))); ?></section>
 		<?php endif; ?>

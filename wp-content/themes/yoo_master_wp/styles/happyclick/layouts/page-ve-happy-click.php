@@ -1,4 +1,4 @@
-﻿<div id="system">
+<div id="system">
 	<?php if (have_posts()) : ?>
 		<?php $curr_page = get_query_var('pagename'); ?>
 		

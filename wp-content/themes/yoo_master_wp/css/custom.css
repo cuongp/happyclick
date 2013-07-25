@@ -82,20 +82,24 @@ box-shadow: 0 0 9px #999;
 -webkit-box-shadow: 0 0 9px #999;
 -moz-box-shadow: 0 0 10px #999;
 width: 99%;
-margin-left: 5px;
-padding-top: 25px;
-margin-top: 0px;
+margin-top: 0;
 border-radius: 0 5px 5px 5px;
 -webkit-border-radius: 0 5px 5px 5px;
 -moz-border-radius: 0 5px 5px 5px;
-height: 1900px;
 margin-bottom: 80px;
+padding-top: 10px;
+overflow: hidden;
+height: auto;
+padding-bottom: 40px;
 }
 .margin_right {
 	margin-right:0px !important;
 }
 .clear_left {
 	clear:left;
+}
+.border_none {
+	border:none !important;
 }
 
  .category-lam-giau-cuoc-song.category-happy-click-radio .posts-wrapper .first-post,
@@ -297,9 +301,9 @@ text-align: justify;
 .category-goc-chia-se .posts-wrapper .posts_sub .post_sub,
  .single-post  .posts-wrapper .posts_sub .post_sub {
 border-bottom: 1px dotted #999999;
-    height: 55px;
-    line-height: 30px;
-    margin: 20px 80px 0;
+line-height: 25px;
+margin: 15px 80px 0;
+padding: 2px 0 5px 0;
 }
 .category-goc-chia-se .posts-wrapper .posts_sub .post_sub h3,
  .single-post  .posts-wrapper .posts_sub .post_sub h3 {
@@ -388,24 +392,23 @@ float:right;
 text-align: justify;
 word-break: break-word;	
 }
-.page #system .posts-wrapper {
+.single-post #system .posts-wrapper {
 	border-radius: 0 5px 5px 5px;
 	-webkit-border-radius: 0 5px 5px 5px;
 	-moz-border-radius: 0 5px 5px 5px;
 box-shadow: 0 0 9px #999999;
 -webkit-box-shadow: 0 0 9px #999999;
 -moz-box-shadow: 0 0 9px #999999;
-height: 2900px;
 margin-bottom: 80px;
 margin-left: 0px;
 margin-top: 0;
-padding: 25px 30px 30px 0;
+padding: 10px 30px 30px 0;
 width: 97%;
+overflow: hidden;
+height: auto;
+padding-bottom: 40px;
 }
 
-.vu_nguyen {
-width:180px;
-}
 
  .single-post  .posts-wrapper .post-content-first .img-thumb {
 	float:left;

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 global $id_filter;
 $count = 0;
 $arg = array(

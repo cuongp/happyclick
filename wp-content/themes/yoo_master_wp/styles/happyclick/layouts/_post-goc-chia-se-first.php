@@ -3,4 +3,4 @@
 		<div class="post-content-first">
 			<?php the_content(); ?>
 		</div>
-	</div>
+		</div>
