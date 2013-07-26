@@ -755,4 +755,16 @@ table.quiz td{
     font-weight: bold;
     font-size: 16px;
 }
+.back-home{
+    margin: 20px auto 0;
+    text-align: right;
+    width: 860px;
+}
+.back-home a{
+    background: url("images/orange_arrow.png") 0 50% no-repeat;
+    color: #111111;
+    font-size: 18px;
+    padding-left: 20px;
+}
+.back-home a:hover{ color: #99cc00; }
 /* END Tamnd's code */

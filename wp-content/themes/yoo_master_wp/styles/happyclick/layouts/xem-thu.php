@@ -2,7 +2,7 @@
 <?php
 
 global $current_user;
-$flag=false;
+$flag='';
  $args = array(
     'orderby'       => 'name', 
     'order'         => 'ASC',
@@ -48,6 +48,7 @@ $db = $GLOBALS['wpdb'];
 					,'order_instance'=>0
 					,'usinggateway'=>'admin'
 					));
+				$expdate = date("Y-m-d H:i:s",strtotime('+24 hour'));
 				update_usermeta($user_id,'wp_membership_active','no');
 				$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 <tbody>
@@ -72,8 +73,8 @@ $db = $GLOBALS['wpdb'];
         Mật khẩu: '.$_POST['password'].'</p>
     </blockquote>
     <p style="padding:10px">Để hoàn tất quy trình đăng ký xem thử, vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản xem thử:<br />
-    <a href="http://dev.happyclick.vn/hcaccount/xac-thuc-email/?act=active&user_id='.$user_id.'&code='.time().'">Kích hoạt tài khoản xem thử</a></p>
-    <p  style="padding:10px">Đường dẫn này sẽ chỉ có giá trị trong 12 giờ</p>
+    <a href="'.get_site_url().'/hcaccount/xac-thuc-email/?act=active&user_id='.$user_id.'&code='.time().'">Kích hoạt tài khoản xem thử</a></p>
+    <p  style="padding:10px"> Đường dẫn này sẽ chỉ có giá trị đến '.$expdate.'</p>
     <p  style="padding:10px">Ngay sau khi kích hoạt tài khoản, bạn đã có thể bắt đầu xem thử một số tiện ích. Happy Click hy vọng bạn sẽ được trải nghiệm những kiến thức bổ ích, nội dung thiết thực.</p>
     <p  style="padding:10px">Đây là email tự động gửi, vui lòng không trả lời vào email này.<br />
       <br />
@@ -99,7 +100,7 @@ $db = $GLOBALS['wpdb'];
 </tbody>
 </table>';
 			//wpMandrill::mail($_POST['email'],'Xác nhận email',$html);	
-			$headers[] = 'From: Happyclick <support@happyclick.vn>';
+			$headers[] = 'From: Happy Click <support@happyclick.vn>';
 			$headers[] ='Content-type: text/html';
 			wp_mail($_POST['email'],'Xác nhận email',$html,$headers);
 
@@ -111,11 +112,11 @@ $db = $GLOBALS['wpdb'];
 	wp_reset_query();
 		}else
 		{
-			echo 'Đăng ký thất bại';
+			$flag = '<h3 class="error">Đăng ký thất bại</h3>';
 		}
 		}else
 		{
-		echo 'Email này đã được đăng ký';	
+			$flag= '<h3 class="error">Email này đã được sử dụng, vui lòng sử dụng email khác để đăng ký</h3>';	
 		}
 		
 		
@@ -141,7 +142,8 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 <?php endif; ?>
 <div class="box" style="width:730px">
 
-<form id="form" class="form_profile" method="post">
+<form id="form" class="form_profile" method="post" >
+<?php echo $flag; ?>
 		<table width="100%" class="form_doipass">
 			
 			<tr>
@@ -158,7 +160,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 
 			<tr>
 				<td class="box3" width="45%"  align="right">Họ và tên</td>
-				<td  class="box4"><input type="text" id="fullname" name="fullname" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo get_usermeta( $current_user->ID, 'fullname'); ?>" /><span>*</span></td>				
+				<td  class="box4"><input type="text" id="fullname" name="fullname" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo get_usermeta( $current_user->ID, 'fullname'); ?>" required/><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3"  align="right">Giới tính</td>
@@ -170,7 +172,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>-->
 			<tr>
 				<td width="45%"  class="box3" align="right">Email <br/> <em style="font-weight:normal">Email cá nhân hoặc email thường sử dụng</td>
-				<td  class="box4"><input type="text" name="email" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
+				<td  class="box4"><input type="email" class="email" name="email" id="email" value="<?php echo $current_user->user_email ?>" required/><span>*</span></td>				
 			</tr>
 			<!--<tr>
 				<td width="45%"  class="box3" align="right">Email<br/><em>Email cá nhân hoặc email thường sử dụng</em></td>
@@ -178,15 +180,15 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>-->
 			<tr>
 				<td width="45%"  class="box3" align="right">Mật khẩu</td>
-				<td  class="box4"><input type="password" name="password" /><span>*</span></td>				
+				<td  class="box4"><input type="password" name="password" required id="password" /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Xác nhận mật khẩu</td>
-				<td  class="box4"><input type="password" name="confirm_pass" /><span>*</span></td>				
+				<td  class="box4"><input type="password" id="confirm_password" name="confirm_pass" required /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Điện thoại di động</td>
-				<td  class="box4"><input type="text" name="mobile" id="mobile" value="<?php echo get_usermeta( $current_user->ID, 'mobile'); ?>"  /><span>*</span></td>				
+				<td  class="box4"><input type="text" name="mobile" id="mobile" value="<?php echo get_usermeta( $current_user->ID, 'mobile'); ?>"  required /><span>*</span></td>				
 			</tr>
 			<!--<tr>
 				<td width="45%"  class="box3" align="right">Điện thoại công ty</td>
@@ -203,7 +205,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Đối tượng</td>
 				<td  class="box4">
-					<select id="objectuser" name="objectuser">
+					<select id="objectuser" name="objectuser" validate="required:true">
 						<?php
 							if(!empty($doituong)){
 								foreach ($doituong as $dt) {
@@ -219,7 +221,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 						?>
 					</select>
 
-<span>*</span></td>				
+</td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Ngành nghề</td>
@@ -240,7 +242,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 						?>
 					</select>
 
-<span>*</span></td>	</tr>
+</td>	</tr>
 			<!--<tr>
 				<td width="45%"  class="box3" align="right">Địa chỉ<br/><em style="font-weight:normal">Nhận thẻ và hóa đơn</em></td>
 				<td  class="box4"><input type="text" name="address" id="address" value="<?php echo get_usermeta( $current_user->ID, 'address'); ?>"  /><span>*</span></td>				
@@ -248,7 +250,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Tỉnh/Thành phố</td>
 				<td  class="box4">
-					<select id="city" name="city">
+					<select id="city" name="city" validate="required:true">
 						<?php
 							if(!empty($cities)){
 								foreach ($cities as $dt) {

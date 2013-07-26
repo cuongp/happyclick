@@ -53,12 +53,16 @@ jQuery(document).ready( function($) {
 					lwaOrg.replaceWith(lwaSub);
 				});
 			}else{
-
-				if(data.redirect == null){
-					window.location.reload();
-				}else{
-					window.location = data.redirect;
+				if(hcaccount=='dang-xuat'){
+					window.location = site_url;
+				}else{	
+					if(data.redirect == null){
+						window.location.reload();
+					}else{
+						window.location = data.redirect;
+					}					
 				}
+
 			}
 		}
  	});

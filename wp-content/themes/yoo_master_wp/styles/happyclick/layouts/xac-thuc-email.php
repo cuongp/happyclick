@@ -1,9 +1,16 @@
 <?php
+
+if(isset($_GET['act']))
+	$act = $_GET['act'];
+else
+	$act = '';
 $old_time = $_GET['code'];
 $current_time = time()-$old_time;
 $user_id = $_GET['user_id'];
-$token = $_GET['token'];
-
+if(isset($_GET['token']))
+	$token = $_GET['token'];
+else
+	$token = 0;
 if(isset($_GET['level_id']))
 	$level_id = $_GET['level_id'];
 else
@@ -25,7 +32,8 @@ if($current_time>12*3600*1000){
 <?php	
 }else{
 		update_usermeta($user_id,'wp_membership_active','yes');
-	
+		if($act=='khach-dang-ky')
+			wp_redirect('/hcaccount/thanh-toan/?act=khach-dang-ky&user_id='.$user_id);
 ?>
 
 <div class="box" style="width:500px;">

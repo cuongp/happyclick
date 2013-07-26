@@ -206,7 +206,7 @@ margin: 3px; -webkit-border-radius:5px;
     border-radius:5px;
     text-align: center;
 }
-#sidebar-a .module{margin: 0px 0px 0px 0px}
+#sidebar-a .module{margin: 0px 0px 5px 0px}
 #sidebar-b .module{margin: 0px 0px -5px 0px;}
 #toolbar,
 #headerbar { margin-bottom: 15px; }
@@ -548,9 +548,9 @@ padding-right: 0px;
 #form label{
     margin-right: 50px;
 }
-#form input[type="text"],#form input[type="password"],#form select{
+#form input[type="text"],#form input[type="password"],#form .email,#form select{
     border: 1px solid #000;
-    width: 35   0px;
+    width: 350px;
     padding: 5px;
 }
 .info{
