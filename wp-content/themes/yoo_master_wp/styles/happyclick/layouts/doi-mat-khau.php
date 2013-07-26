@@ -31,13 +31,16 @@ if(isset($_POST) && $_POST['action'] == 'submit')
 				$flag= '<h3  class="error">Mật khẩu không giống nhau</h3>';
 			}else{
 				$user = get_user_by('ID',$_GET['user_id']);
+				var_dump($user);
+				var_dump($_GET['key'],$user->user_activation_key);
+				exit;
 				if($_GET['key'] == $user->user_activation_key){
-					wp_set_password($_POST['new_pass'],$user->ID);
-					$flag= '<h3 class="success">Thay đổi mật khẩu thành công</h3>';
-					$headers[] = 'From: Happy Click <support@happyclick.vn>';
-					$headers[] ='Content-type: text/html';
-		
-					wp_mail($user->email,'Thay đổi mật khẩu thành công',$html);
+					var_dump(wp_set_password($_POST['new_pass'],$user->ID));
+					exit();
+					if(wp_set_password($_POST['new_pass'],$user->ID)){
+						wp_redirect('/hcaccount/xac-thuc-email/?act=doi-mat-khau');
+					}
+					
 				}	
 			}
 
@@ -90,7 +93,7 @@ echo $flag; ?>
 				<td align="center"><input type="submit" value="" class="submit_final" /></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="right"><a href="" class="returnhome">Trở về trang chủ</a></td>
+				<td colspan="2" align="right"><a href="<?php echo get_site_url(); ?>" class="returnhome">Trở về trang chủ</a></td>
 
 			</tr>
 		

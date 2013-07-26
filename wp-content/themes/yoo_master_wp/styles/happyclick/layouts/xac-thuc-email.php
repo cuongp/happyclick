@@ -39,7 +39,27 @@ if($current_time>12*3600*1000){
 <div class="box" style="width:500px;">
 	<p>Email của bạn đã được xác thực. Hãy đăng nhập để bắt đầu sử dụng dịch vụ của Happy Click.</p>
 	<?php echo $this['modules']->render('login-modal'); 
-	//	var_dump($_COOKIE['hc_welcome']);
+	
+	?>
+
+<table width="100%">
+	<tr>
+				<td colspan="2" align="right"><a href="/index.php" class="returnhome">Trở về trang chủ</a></td>
+
+			</tr>
+		</table>
+</div>
+<?php
+}
+?>
+<?php
+if(isset($_GET['act']) && $_GET['act'] =='doi-mat-khau'){
+?>
+<div class="box" style="width:500px;">
+	<p>Chúc mừng bạn đã tạo mật khẩu mới thành công. Bạn đã có thể đăng nhập để tiếp tục
+sử dụng dịch vụ của Happy Click</p>
+	<?php echo $this['modules']->render('login-modal'); 
+	
 	?>
 
 <table width="100%">
