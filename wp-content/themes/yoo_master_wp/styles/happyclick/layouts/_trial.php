@@ -78,7 +78,7 @@ include($this['path']->path('layouts:template.config.php'));
 				
 				<?php echo $this['modules']->render('headerbar-trial'); ?>
 				<div class='user_info'>
-				<h3 class="username">Chào <?php echo $current_user->user_nicename; ?> !</h3>
+				<h3 class="username">Chào <?php echo $current_user->last_name; ?> !</h3>
 				<p>Mời bạn xem thử một số tiện ích<br/>
 dành cho thành viên Happy Click</p>
 				</div>

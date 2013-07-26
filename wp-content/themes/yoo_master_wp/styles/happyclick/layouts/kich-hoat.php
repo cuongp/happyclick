@@ -117,7 +117,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
   <td><a href="http://www.happyclick.com.vn"><img src="http://www.unity.com.vn/images/HC_Banner.png" align="center" width="598" height="130" /></a></td>
 </tr>
 <tr>
-  <td height="323" valign="top" style="padding: 10px 10px 0px 10px; height=; color: #003399; font-size: 14px;"><p style="padding:10px">Chào '.$_POST['fullname'].'<br />
+  <td height="323" valign="top" style="padding: 10px 10px 0px 10px; height=; color: #003399; font-size: 14px;"><p style="padding:10px">Chào '.$_POST['last_name'].'<br />
       <br />
       Chúc mừng bạn đã trở thành thành viên của Happy Click!<br />
       <br />
@@ -231,8 +231,12 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 
 			</tr>
 			<tr>
-				<td class="box3" width="45%"  align="right">Họ và tên</td>
-				<td  class="box4"><input required type="text" id="fullname" name="fullname" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo get_usermeta( $current_user->ID, 'fullname'); ?>" /><span>*</span></td>				
+				<td class="box3" width="45%"  align="right">Họ</td>
+				<td  class="box4"><input required type="text" id="first_name" name="first_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo get_usermeta( $current_user->ID, 'first_name'); ?>" /><span>*</span></td>				
+			</tr>
+			<tr>
+				<td class="box3" width="45%"  align="right">Tên</td>
+				<td  class="box4"><input required type="text" id="last_name" name="last_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo get_usermeta( $current_user->ID, 'last_name'); ?>" /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3"  align="right">Giới tính</td>

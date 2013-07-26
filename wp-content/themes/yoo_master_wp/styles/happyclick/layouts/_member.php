@@ -40,9 +40,7 @@ include($this['path']->path('layouts:template.config.php'));
 	<div class="wrapper clearfix">
 
 		<header id="header">
-            <?php if ($this['modules']->count('top-a')) : ?>
-		<section id="top-a" class="grid-block"><?php echo $this['modules']->render('top-a', array('layout'=>$this['config']->get('top-a'))); ?></section>
-		<?php endif; ?>
+            
 		
 			<?php if ($this['modules']->count('toolbar-l + toolbar-r') || $this['config']->get('date')) : ?>
 			<div id="toolbar" class="clearfix">
@@ -62,14 +60,30 @@ include($this['path']->path('layouts:template.config.php'));
 				<?php if ($this['modules']->count('toolbar-r')) : ?>
 				<div class="float-right"><?php echo $this['modules']->render('toolbar-r'); ?></div>
 				<?php endif; ?>
-				<?php echo $this['modules']->render('headerbar-trial'); ?>
-				<div class='user_info'>
-				<h3 class="username">Chào <?php echo $current_user->user_nicename; ?> !</h3>
-				<p>Mời bạn xem thử một số tiện ích<br/>
-dành cho thành viên Happy Click</p>
-				</div>
+				
 			</div>
+			<?php 
+				if ($this['modules']->count('top-a2')) : ?>
+			<section id="top-a2" class="grid-block"><?php echo $this['modules']->render('top-a2', array('layout'=>$this['config']->get('top-a2'))); ?></section>
+           <br/>
+            <?php
+            endif;
+				?>
 			<?php endif; ?>
+			<?php if ($this['modules']->count('menu + search')) : ?>
+			<div id="menubar" class="clearfix">
+				<div class="left_topnav"></div>
+                <div class="right_topnav"></div>
+				<?php if ($this['modules']->count('menu')) : ?>
+				<nav id="menu"><?php echo $this['modules']->render('menu'); ?></nav>
+				<?php endif; ?>
+
+				<?php if ($this['modules']->count('search')) : ?>
+				<div id="search"><?php echo $this['modules']->render('search'); ?></div>
+				<?php endif; ?>
+				
+			</div>
+			<?php endif; ?>		
 
 			<?php 
             if(is_front_page() || $current_user->ID<0):
@@ -82,7 +96,7 @@ dành cho thành viên Happy Click</p>
 				
 				<?php echo $this['modules']->render('headerbar-trial'); ?>
 				<div class='user_info'>
-				<h3 class="username">Chào <?php echo $current_user->user_nicename; ?> !</h3>
+				<h3 class="username">Chào <?php echo $current_user->last_name; ?> !</h3>
 				<p>Mời bạn bắt đầu hành trình<br/>
 "thăng tiến mỗi ngày" với Happy Click</p>
 				</div>
@@ -129,6 +143,14 @@ dành cho thành viên Happy Click</p>
 			<?php if ($this['modules']->count('banner')) : ?>
 			<div id="banner"><?php echo $this['modules']->render('banner'); ?></div>
 			<?php endif; ?>
+
+			<?php if ($this['modules']->count('slider')) : ?>
+		
+			<section id="homeslider">
+				<?php echo $this['modules']->render('slider', array('layout'=>'stack')); ?>
+			</section>
+			<div style="clear:both"></div><br/>
+			<?php endif;?>
 		
 		</header>
 
