@@ -40,9 +40,9 @@ jQuery(document).ready( function($) {
  	
  	//Catch login actions
  	$(document).on('lwa_login', function(event, data, form){
- 		//alert(1);
+ 		
 		if(data.result === true){
-
+			
 			//Login Successful - Extra stuff to do
 			if( data.widget != null ){
 				$.get( data.widget, function(widget_result) {
