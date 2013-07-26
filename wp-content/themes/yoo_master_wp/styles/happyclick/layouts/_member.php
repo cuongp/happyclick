@@ -33,7 +33,7 @@ include($this['path']->path('layouts:template.config.php'));
 				<span class="close"></span>
 				</p>
 			</div>';
-			setcookie('hc_welcome','');
+			
 		}
 
 		?>
@@ -62,14 +62,11 @@ include($this['path']->path('layouts:template.config.php'));
 				<?php endif; ?>
 				
 			</div>
-			<?php 
-				if ($this['modules']->count('top-a2')) : ?>
-			<section id="top-a2" class="grid-block"><?php echo $this['modules']->render('top-a2', array('layout'=>$this['config']->get('top-a2'))); ?></section>
-           <br/>
-            <?php
-            endif;
-				?>
+			
 			<?php endif; ?>
+					
+
+			
 			<?php if ($this['modules']->count('menu + search')) : ?>
 			<div id="menubar" class="clearfix">
 				<div class="left_topnav"></div>
@@ -83,10 +80,12 @@ include($this['path']->path('layouts:template.config.php'));
 				<?php endif; ?>
 				
 			</div>
-			<?php endif; ?>		
-
+			<?php endif; ?>
+					<?php if ($this['modules']->count('banner')) : ?>
+			<div id="banner"><?php echo $this['modules']->render('banner'); ?></div>
+			<?php endif; ?>
 			<?php 
-            if(is_front_page() || $current_user->ID<0):
+          
             if ($this['modules']->count('logo + headerbar-trial')) : ?>	
 			<div id="headerbar" class="clearfix">
 			
@@ -103,47 +102,17 @@ include($this['path']->path('layouts:template.config.php'));
 				
 			</div>
 			<?php 
-            endif;
+        
             endif; ?>
 
-			<?php if ($this['modules']->count('menu + search')) : ?>
-			<div id="menubar" class="clearfix">
-				<div class="left_topnav"></div>
-                <div class="right_topnav"></div>
-				<?php if ($this['modules']->count('menu')) : ?>
-				<nav id="menu"><?php echo $this['modules']->render('menu'); ?></nav>
-				<?php endif; ?>
 
-				<?php if ($this['modules']->count('search')) : ?>
-				<div id="search"><?php echo $this['modules']->render('search'); ?></div>
-				<?php endif; ?>
-				
-			</div>
-			<?php endif; ?>
-		<?php 
-            if(!is_front_page()):
-            if ($this['modules']->count('logo + headerbar-trial')) : ?>	
-			<div id="headerbar" class="clearfix">
-			
-				<?php if ($this['modules']->count('logo')) : ?>	
-				<a id="logo" href="<?php echo $this['config']->get('site_url'); ?>"><?php echo $this['modules']->render('logo'); ?></a>
-				<?php endif; ?>
-				<?php echo $this['modules']->render('headerbar-trial'); ?>
-				<div class='user_info'>
-				<h3 class="username">Chào <?php echo $current_user->user_nicename; ?> !</h3>
-				<p>Mời bạn bắt đầu hành trình<br/>
-"thăng tiến mỗi ngày" với Happy Click</p>
-				</div>
-
-				
-			</div>
-			<?php 
+ 			<?php 
+				if ($this['modules']->count('top-a2')) : ?>
+			<section id="top-a2" class="grid-block"><?php echo $this['modules']->render('top-a2', array('layout'=>$this['config']->get('top-a2'))); ?></section>
+           <br/>
+            <?php
             endif;
-            endif; ?>
-			<?php if ($this['modules']->count('banner')) : ?>
-			<div id="banner"><?php echo $this['modules']->render('banner'); ?></div>
-			<?php endif; ?>
-
+				?>
 			<?php if ($this['modules']->count('slider')) : ?>
 		
 			<section id="homeslider">

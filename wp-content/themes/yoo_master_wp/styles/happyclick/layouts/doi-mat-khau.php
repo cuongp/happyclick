@@ -30,7 +30,7 @@ if(isset($_POST) && $_POST['action'] == 'submit')
 			}elseif($_POST['new_pass']!=$_POST['confirm_pass']){
 				$flag= '<h3  class="error">Mật khẩu không giống nhau</h3>';
 			}else{
-				$user = get_user_by('ID',$_GET['user_id']);
+				$user = 	('id',$_GET['user_id']);
 				var_dump($user);
 				var_dump($_GET['key'],$user->user_activation_key);
 				exit;
