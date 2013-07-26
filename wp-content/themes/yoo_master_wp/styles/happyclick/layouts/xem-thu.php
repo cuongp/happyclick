@@ -2,7 +2,7 @@
 <?php
 
 global $current_user;
-$flag=false;
+$flag='';
  $args = array(
     'orderby'       => 'name', 
     'order'         => 'ASC',
@@ -100,7 +100,7 @@ $db = $GLOBALS['wpdb'];
 </tbody>
 </table>';
 			//wpMandrill::mail($_POST['email'],'Xác nhận email',$html);	
-			$headers[] = 'From: Happyclick <support@happyclick.vn>';
+			$headers[] = 'From: Happy Click <support@happyclick.vn>';
 			$headers[] ='Content-type: text/html';
 			wp_mail($_POST['email'],'Xác nhận email',$html,$headers);
 
@@ -112,11 +112,11 @@ $db = $GLOBALS['wpdb'];
 	wp_reset_query();
 		}else
 		{
-			echo 'Đăng ký thất bại';
+			$flag = '<h3 class="error">Đăng ký thất bại</h3>';
 		}
 		}else
 		{
-		echo 'Email này đã được đăng ký';	
+			$flag= '<h3 class="error">Email này đã được sử dụng, vui lòng sử dụng email khác để đăng ký</h3>';	
 		}
 		
 		
@@ -143,6 +143,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 <div class="box" style="width:730px">
 
 <form id="form" class="form_profile" method="post" >
+<?php echo $flag; ?>
 		<table width="100%" class="form_doipass">
 			
 			<tr>
@@ -220,12 +221,12 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 						?>
 					</select>
 
-<span>*</span></td>				
+</td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Ngành nghề</td>
 				<td  class="box4">
-					<select id="mayjor" name="mayjor" validate="required:true">
+					<select id="mayjor" name="mayjor">
 						<?php
 							if(!empty($nganhnghe)){
 								foreach ($nganhnghe as $dt) {
@@ -241,7 +242,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 						?>
 					</select>
 
-<span>*</span></td>	</tr>
+</td>	</tr>
 			<!--<tr>
 				<td width="45%"  class="box3" align="right">Địa chỉ<br/><em style="font-weight:normal">Nhận thẻ và hóa đơn</em></td>
 				<td  class="box4"><input type="text" name="address" id="address" value="<?php echo get_usermeta( $current_user->ID, 'address'); ?>"  /><span>*</span></td>				

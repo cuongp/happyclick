@@ -160,7 +160,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 </tbody>
 </table>';
 			//wpMandrill::mail($_POST['email'],'Kích hoạt thành viên',$html);
-			$headers[] = 'From: Happyclick <support@happyclick.vn>';
+			$headers[] = 'From: Happy Click <support@happyclick.vn>';
 			$headers[] ='Content-type: text/html';
 			wp_mail($_POST['email'],'Xác nhận email',$html,$headers);
 
@@ -170,9 +170,10 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 			else
 				wp_redirect('/hcaccount/xac-nhan-email/');
 			exit;			
-			}else
+			}
+			else
 			{
-				$flag ='<h3 class="error">Đăng ký thất bại</h3>';
+				$flag ='<h3 class="error">Email đã được sử dụng, vui lòng sử dụng email khác để đăng ký</h3>';
 			}
 		}
 	else
@@ -196,7 +197,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 <div class="box" style="width:730px">
 
 <form id="form" class="form_profile" method="post">
-
+<?php echo $flag; ?>
 <p>Kích hoạt cho thành viên mới, chưa có tài khoản. Vui lòng nhập thông tin để tạo tài khoản.</p>
 		<table width="100%" class="form_profile">
 			<tr>
@@ -243,7 +244,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Email <br/> <em style="font-weight:normal">Email cá nhân hoặc email thường sử dụng.<br/><strong>Hỗ trợ 24/7: (08) 7302 0168 - (08) 7303 0168</strong></em></td>
-				<td  class="box4"><input required type="email" name="email" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
+				<td  class="box4"><input required class="email" type="email" name="email" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
 			</tr>
 		
 			<tr>
@@ -295,7 +296,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Ngành nghề</td>
 				<td  class="box4">
-					<select id="mayjor" name="mayjor"  validate="required:true">
+					<select id="mayjor" name="mayjor">
 						<?php
 							if(!empty($nganhnghe)){
 								foreach ($nganhnghe as $dt) {
@@ -310,8 +311,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 							}
 						?>
 					</select>
-
-<span>*</span></td>	</tr>
+</td>	</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Địa chỉ<br/><em style="font-weight:normal">Nhận thẻ và hóa đơn</em></td>
 				<td  class="box4"><input type="text" name="address" id="address" required value="<?php echo get_usermeta( $current_user->ID, 'address'); ?>"  /><span>*</span></td>				
@@ -340,7 +340,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right"></td>
 				<td  class="box4">
-				<input type="checkbox" name="dk" value="1" id="agree" required/> Tôi đã đọc và đồng ý với <a href="">điều khoản sử dụng</a> trên đây
+				<input type="checkbox" name="dk" value="1" id="agree" required/> Tôi đã đọc và đồng ý với <a href="/dieu-khoan-su-dung/">điều khoản sử dụng</a> trên đây
 				</td>				
 			</tr>
 			<tr>
