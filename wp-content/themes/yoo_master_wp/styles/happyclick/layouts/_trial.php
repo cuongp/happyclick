@@ -107,9 +107,8 @@ dành cho thành viên Happy Click</p>
 			<?php if ($this['modules']->count('sidebar-trial')) : ?>
 			<aside id="sidebar-trial" class="grid-box"><?php echo $this['modules']->render('sidebar-trial', array('layout'=>'stack')); ?></aside>
 			<?php endif; ?>
-			<?php if ($this['modules']->count('sidebar-trial-b')) : ?>
-			<aside id="sidebar-b" style="float:right" class="grid-box"><?php echo $this['modules']->render('sidebar-trial-b', array('layout'=>'stack')); ?></aside>
-			<?php endif; ?>
+
+		
 		<div id="main" class="grid-block">
 		
 			 

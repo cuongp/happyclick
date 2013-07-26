@@ -40,7 +40,7 @@
 					<!--<input name="rememberme" type="checkbox" class="lwa-rememberme" value="forever" /> <label><?php esc_html_e( 'Remember Me','login-with-ajax' ) ?></label>
 			<br />-->
         	<?php if( !empty($lwa_data['remember']) ): ?>
-			<a class="lwa-links-remember" style="color: #da7623;" href="<?php echo esc_attr(LoginWithAjax::$url_remember); ?>" title="<?php esc_attr_e('Quên mật khẩu?','login-with-ajax') ?>"><?php esc_attr_e('Quên mật khẩu?','login-with-ajax') ?></a>
+			<a class="" style="color: #da7623;" href="/hcaccount/quen-mat-khau/" title="<?php esc_attr_e('Quên mật khẩu?','login-with-ajax') ?>"><?php esc_attr_e('Quên mật khẩu?','login-with-ajax') ?></a>
 			<?php endif; ?>
 			<?php if ( get_option('users_can_register') && !empty($lwa_data['registration']) ) : ?>
 			<!--<br />  
