@@ -52,6 +52,7 @@ if($current_time>12*3600*1000){
 <?php
 }
 ?>
+
 <?php
 if(isset($_GET['act']) && $_GET['act'] =='doi-mat-khau'){
 ?>
@@ -70,5 +71,5 @@ sử dụng dịch vụ của Happy Click</p>
 		</table>
 </div>
 <?php
-}
+
 ?>

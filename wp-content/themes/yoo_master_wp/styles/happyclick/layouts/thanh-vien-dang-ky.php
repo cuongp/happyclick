@@ -1,5 +1,17 @@
 <?php
 global $current_user;
+$cid = $_GET['cid'];
+if($current_user->ID > 0){
+	$db = $GLOBALS['wpdb'];
+	$db->insert($db->prefix.'user_sukien',
+				array('user_id'=>$current_user->ID 
+					,'sukien_id'=>$_GET['cid']
+					,'created_at'=>time()
+					,'payment_status'=>0
+					));
+	wp_redirect('/hcaccount/thanh-toan/?act=thanh-vien-dang-ky&user_id='.$current_user->ID.'&cid='.$cid.'&code='.time());
+}
+
 ?>
 
 <?php if($current_user->ID < 1): ?>
