@@ -78,19 +78,19 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 			$level_period_unit = $sub_info->level_period_unit;
 			switch ($level_period_unit) {
 				case 'y':
-					$enddate = date("Y-m-d H:i:s",strtotime('+'.$sub_info->level_period.' year'));
+					$enddate = date("Y-m-d",strtotime('+'.$sub_info->level_period.' year'));
 					break;
 				case 'm':
-					$enddate = date("Y-m-d H:i:s",strtotime('+'.$sub_info->level_period.' month'));
+					$enddate = date("Y-m-d",strtotime('+'.$sub_info->level_period.' month'));
 					break;
 				case 'd':
-					$enddate = date("Y-m-d H:i:s",strtotime('+'.$sub_info->level_period.' day'));
+					$enddate = date("Y-m-d",strtotime('+'.$sub_info->level_period.' day'));
 					break;
 				default:
 					$enddate = $startdate;
 					break;
 			}
-			
+			$expdate = date("Y-m-d H:i:s",strtotime('+24 hour'));
 			$resuld_id = $db->insert($db->prefix.'m_membership_relationships',
 				array('user_id'		=>$user_id
 					,'sub_id'=>$card_info->sub_id
@@ -117,22 +117,22 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
   <td><a href="http://www.happyclick.com.vn"><img src="http://www.unity.com.vn/images/HC_Banner.png" align="center" width="598" height="130" /></a></td>
 </tr>
 <tr>
-  <td height="323" valign="top" style="padding: 10px 10px 0px 10px; height=; color: #003399; font-size: 14px;"1354><p>Chào '.$_POST['fullname'].'<br />
+  <td height="323" valign="top" style="padding: 10px 10px 0px 10px; height=; color: #003399; font-size: 14px;"><p style="padding:10px">Chào '.$_POST['fullname'].'<br />
       <br />
       Chúc mừng bạn đã trở thành thành viên của Happy Click!<br />
       <br />
       Thông tin tài khoản đăng nhập bạn đã đăng ký:</p>
     <blockquote>
-      <p>Tên đăng nhập: '.$_POST['email'].'<br />
+      <p style="padding:10px">Tên đăng nhập: '.$_POST['email'].'<br />
         Mật khẩu:'.$_POST['password'].'</p>
       </blockquote>
-    <p>Số sê-ri của thẻ cào: '.$_POST['serial'].'</p>
-    <p>Thời hạn sử dụng: đến hết ngày '.$enddate.'<br />
+    <p style="padding:10px">Số sê-ri của thẻ cào: '.$_POST['serial'].'</p>
+    <p style="padding:10px">Thời hạn sử dụng: đến hết ngày '.$enddate.'<br />
       <br />
       Vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản cho thành viên:<br />
-      <a href=http://dev.happyclick.vn/hcaccount/xac-thuc-email/?act=active&token='.$key.'&sub_id='.$sub_info->sub_id.'&level_id='.$sub_info->level_id.'&user_id='.$user_id.'&code='.time().'>Kích hoạt thành viên</a><br />
+      <a href='.get_site_url().'/hcaccount/xac-thuc-email/?act=active&token='.$key.'&sub_id='.$sub_info->sub_id.'&level_id='.$sub_info->level_id.'&user_id='.$user_id.'&code='.time().'>Kích hoạt thành viên</a><br />
       <br />
-      Đường dẫn này sẽ chỉ có giá trị đến &lt;giờ, ngày, tháng, năm&gt;<br />
+      Đường dẫn này sẽ chỉ có giá trị đến '.$expdate.'<br />
       <br />
       Ngay sau khi kích hoạt tài khoản, bạn đã có thể bắt đầu hành trình <span style="font-weight: bold; font-style: italic;">&ldquo;thăng tiến mỗi ngày&rdquo;</span> với Happy Click.<br />
       <br />
@@ -198,7 +198,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 <form id="form" class="form_profile" method="post">
 
 <p>Kích hoạt cho thành viên mới, chưa có tài khoản. Vui lòng nhập thông tin để tạo tài khoản.</p>
-		<table width="100%" class="form_doipass">
+		<table width="100%" class="form_profile">
 			<tr>
 				<td colspan="2">
 					
@@ -213,16 +213,16 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>
 <tr>
 				<td class="box3" width="45%"  align="right">Mã thẻ cào</td>
-				<td  class="box4"><input type="text" id="code" name="code" /><span>*</span></td>				
+				<td  class="box4"><input type="text" id="code" name="code" required /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3"  align="right">Số sê-ri</td>
-				<td  class="box4"><input type="text" id="serial" name="serial" /><span>*</span></td>				
+				<td  class="box4"><input type="text" id="serial" name="serial" required /><span>*</span></td>				
 			</tr>
-			<!--<tr>
+			<tr>
 				<td width="45%"  class="box3" align="right">Mã kiểm tra</td>
-				<td  class="box4"><input type="text" id="birthday" name="birthday" value="<?php echo get_usermeta( $current_user->ID, 'birthday'); ?>" placeholder="Ngày/tháng/năm" /><span>*</span></td>				
-			</tr>-->
+				<td  class="box4"><a href="<?php echo $_SERVER['PHP_SELF']; ?>" id="refreshimg" title="Click to refresh image"><img src="/wp-content/themes/<?php echo get_template() ?>/js/images/image.php?<?php echo time(); ?>" width="132" height="46" alt="Captcha image" /></a><input type="text" maxlength="6" name="captcha" id="captcha" /><span>*</span></td>				
+			</tr>
 			<tr>
 				<td colspan="2"><br/>
 				<p><strong>THÔNG TIN CÁ NHÂN</strong></p><br/>	
@@ -231,7 +231,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>
 			<tr>
 				<td class="box3" width="45%"  align="right">Họ và tên</td>
-				<td  class="box4"><input type="text" id="fullname" name="fullname" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo get_usermeta( $current_user->ID, 'fullname'); ?>" /><span>*</span></td>				
+				<td  class="box4"><input required type="text" id="fullname" name="fullname" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo get_usermeta( $current_user->ID, 'fullname'); ?>" /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3"  align="right">Giới tính</td>
@@ -239,27 +239,24 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Ngày sinh</td>
-				<td  class="box4"><input type="text" id="birthday" name="birthday" value="<?php echo get_usermeta( $current_user->ID, 'birthday'); ?>" placeholder="Ngày/tháng/năm" /><span>*</span></td>				
+				<td  class="box4"><input type="text" id="birthday" name="birthday" value="<?php echo get_usermeta( $current_user->ID, 'birthday'); ?>" placeholder="Ngày/tháng/năm" required/><span>*</span></td>				
 			</tr>
 			<tr>
-				<td width="45%"  class="box3" align="right">Email <br/> <em style="font-weight:normal">Email này bạn đã dùng để đăng nhập, nếu cần thay đổi vui lòng liên hệ với Happy Click.<br/><strong>Hỗ trợ 24/7: (08) 7302 0168 - (08) 7303 0168</strong></em></td>
-				<td  class="box4"><input type="text" name="email" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
+				<td width="45%"  class="box3" align="right">Email <br/> <em style="font-weight:normal">Email cá nhân hoặc email thường sử dụng.<br/><strong>Hỗ trợ 24/7: (08) 7302 0168 - (08) 7303 0168</strong></em></td>
+				<td  class="box4"><input required type="email" name="email" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
 			</tr>
-			<tr>
-				<td width="45%"  class="box3" align="right">Email<br/><em>Email cá nhân hoặc email thường sử dụng</em></td>
-				<td  class="box4"><input id="subemail" type="text" name="subemail"  value="<?php echo get_usermeta( $current_user->ID, 'subemail'); ?>" /><span>*</span></td>				
-			</tr>
+		
 			<tr>
 				<td width="45%"  class="box3" align="right">Mật khẩu</td>
-				<td  class="box4"><input type="password" name="password" /><span>*</span></td>				
+				<td  class="box4"><input type="password" name="password" required /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Xác nhận mật khẩu</td>
-				<td  class="box4"><input type="password" name="confirm_pass" /><span>*</span></td>				
+				<td  class="box4"><input type="password" name="confirm_pass" required /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Điện thoại di động</td>
-				<td  class="box4"><input type="text" name="mobile" id="mobile" value="<?php echo get_usermeta( $current_user->ID, 'mobile'); ?>"  /><span>*</span></td>				
+				<td  class="box4"><input type="text" name="mobile" id="mobile" required value="<?php echo get_usermeta( $current_user->ID, 'mobile'); ?>"  /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Điện thoại công ty</td>
@@ -276,7 +273,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Đối tượng</td>
 				<td  class="box4">
-					<select id="objectuser" name="objectuser">
+					<select id="objectuser" name="objectuser"  validate="required:true">
 						<?php
 							if(!empty($doituong)){
 								foreach ($doituong as $dt) {
@@ -298,7 +295,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Ngành nghề</td>
 				<td  class="box4">
-					<select id="mayjor" name="mayjor">
+					<select id="mayjor" name="mayjor"  validate="required:true">
 						<?php
 							if(!empty($nganhnghe)){
 								foreach ($nganhnghe as $dt) {
@@ -317,12 +314,12 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 <span>*</span></td>	</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Địa chỉ<br/><em style="font-weight:normal">Nhận thẻ và hóa đơn</em></td>
-				<td  class="box4"><input type="text" name="address" id="address" value="<?php echo get_usermeta( $current_user->ID, 'address'); ?>"  /><span>*</span></td>				
+				<td  class="box4"><input type="text" name="address" id="address" required value="<?php echo get_usermeta( $current_user->ID, 'address'); ?>"  /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Tỉnh/Thành phố</td>
 				<td  class="box4">
-					<select id="city" name="city">
+					<select id="city" name="city"  validate="required:true">
 						<?php
 							if(!empty($cities)){
 								foreach ($cities as $dt) {
@@ -343,7 +340,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right"></td>
 				<td  class="box4">
-				<input type="checkbox" name="dk" value="1" id="agree"/> Tôi đã đọc và đồng ý với <a href="">điều khoản sử dụng</a> trên đây
+				<input type="checkbox" name="dk" value="1" id="agree" required/> Tôi đã đọc và đồng ý với <a href="">điều khoản sử dụng</a> trên đây
 				</td>				
 			</tr>
 			<tr>

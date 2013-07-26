@@ -33,8 +33,11 @@
 		<div class="lwa-login_form">
 			<?php do_action('login_form'); ?>
 		</div>
-   <div style="text-align:center;padding-left:53px">
-			<!--<input name="rememberme" type="checkbox" class="lwa-rememberme" value="forever" /> <label><?php esc_html_e( 'Remember Me','login-with-ajax' ) ?></label>
+  
+		<table width="100%">
+			<tr>
+				<td align="center">
+					<!--<input name="rememberme" type="checkbox" class="lwa-rememberme" value="forever" /> <label><?php esc_html_e( 'Remember Me','login-with-ajax' ) ?></label>
 			<br />-->
         	<?php if( !empty($lwa_data['remember']) ): ?>
 			<a class="lwa-links-remember" style="color: #da7623;" href="<?php echo esc_attr(LoginWithAjax::$url_remember); ?>" title="<?php esc_attr_e('Quên mật khẩu?','login-with-ajax') ?>"><?php esc_attr_e('Quên mật khẩu?','login-with-ajax') ?></a>
@@ -43,12 +46,22 @@
 			<!--<br />  
 			<a href="<?php echo esc_attr(LoginWithAjax::$url_register); ?>" class="lwa-links-register-inline"><?php esc_html_e('Đăng ký','login-with-ajax'); ?></a>-->
 			<?php endif; ?>
-		</div>
-		<div style="text-align:center;padding-left:60px">
-			<input type="submit" name="wp-submit" id="lwa_wp-submit" value="<?php esc_attr_e('','login-with-ajax'); ?>" tabindex="100" />
+
+				</td>
+
+			</tr>
+			<tr>
+			<td align=center>
+				<input type="submit" name="wp-submit" id="lwa_wp-submit" value="<?php esc_attr_e('','login-with-ajax'); ?>" tabindex="100" />
 			<input type="hidden" name="lwa_profile_link" value="<?php echo esc_attr($lwa_data['profile_link']); ?>" />
 			<input type="hidden" name="login-with-ajax" value="login" />
-		</div>
+		
+
+			</td>
+			</tr>
+
+		</table>
+		
 		
 		
 	</form>
