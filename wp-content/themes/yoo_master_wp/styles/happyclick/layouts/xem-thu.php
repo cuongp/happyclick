@@ -48,6 +48,7 @@ $db = $GLOBALS['wpdb'];
 					,'order_instance'=>0
 					,'usinggateway'=>'admin'
 					));
+				$expdate = date("Y-m-d H:i:s",strtotime('+24 hour'));
 				update_usermeta($user_id,'wp_membership_active','no');
 				$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 <tbody>
@@ -73,7 +74,7 @@ $db = $GLOBALS['wpdb'];
     </blockquote>
     <p style="padding:10px">Để hoàn tất quy trình đăng ký xem thử, vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản xem thử:<br />
     <a href="'.get_site_url().'/hcaccount/xac-thuc-email/?act=active&user_id='.$user_id.'&code='.time().'">Kích hoạt tài khoản xem thử</a></p>
-    <p  style="padding:10px">Đường dẫn này sẽ chỉ có giá trị trong 12 giờ</p>
+    <p  style="padding:10px"> Đường dẫn này sẽ chỉ có giá trị đến '.$expdate.'</p>
     <p  style="padding:10px">Ngay sau khi kích hoạt tài khoản, bạn đã có thể bắt đầu xem thử một số tiện ích. Happy Click hy vọng bạn sẽ được trải nghiệm những kiến thức bổ ích, nội dung thiết thực.</p>
     <p  style="padding:10px">Đây là email tự động gửi, vui lòng không trả lời vào email này.<br />
       <br />
@@ -141,7 +142,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 <?php endif; ?>
 <div class="box" style="width:730px">
 
-<form id="form" class="form_profile" method="post">
+<form id="form" class="form_profile" method="post" >
 		<table width="100%" class="form_doipass">
 			
 			<tr>
@@ -170,7 +171,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>-->
 			<tr>
 				<td width="45%"  class="box3" align="right">Email <br/> <em style="font-weight:normal">Email cá nhân hoặc email thường sử dụng</td>
-				<td  class="box4"><input type="email" name="email" id="email" value="<?php echo $current_user->user_email ?>" required/><span>*</span></td>				
+				<td  class="box4"><input type="email" class="email" name="email" id="email" value="<?php echo $current_user->user_email ?>" required/><span>*</span></td>				
 			</tr>
 			<!--<tr>
 				<td width="45%"  class="box3" align="right">Email<br/><em>Email cá nhân hoặc email thường sử dụng</em></td>

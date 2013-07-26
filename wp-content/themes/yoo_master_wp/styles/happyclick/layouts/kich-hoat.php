@@ -78,19 +78,19 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 			$level_period_unit = $sub_info->level_period_unit;
 			switch ($level_period_unit) {
 				case 'y':
-					$enddate = date("Y-m-d H:i:s",strtotime('+'.$sub_info->level_period.' year'));
+					$enddate = date("Y-m-d",strtotime('+'.$sub_info->level_period.' year'));
 					break;
 				case 'm':
-					$enddate = date("Y-m-d H:i:s",strtotime('+'.$sub_info->level_period.' month'));
+					$enddate = date("Y-m-d",strtotime('+'.$sub_info->level_period.' month'));
 					break;
 				case 'd':
-					$enddate = date("Y-m-d H:i:s",strtotime('+'.$sub_info->level_period.' day'));
+					$enddate = date("Y-m-d",strtotime('+'.$sub_info->level_period.' day'));
 					break;
 				default:
 					$enddate = $startdate;
 					break;
 			}
-			
+			$expdate = date("Y-m-d H:i:s",strtotime('+24 hour'));
 			$resuld_id = $db->insert($db->prefix.'m_membership_relationships',
 				array('user_id'		=>$user_id
 					,'sub_id'=>$card_info->sub_id
@@ -132,7 +132,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
       Vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản cho thành viên:<br />
       <a href='.get_site_url().'/hcaccount/xac-thuc-email/?act=active&token='.$key.'&sub_id='.$sub_info->sub_id.'&level_id='.$sub_info->level_id.'&user_id='.$user_id.'&code='.time().'>Kích hoạt thành viên</a><br />
       <br />
-      Đường dẫn này sẽ chỉ có giá trị đến &lt;giờ, ngày, tháng, năm&gt;<br />
+      Đường dẫn này sẽ chỉ có giá trị đến '.$expdate.'<br />
       <br />
       Ngay sau khi kích hoạt tài khoản, bạn đã có thể bắt đầu hành trình <span style="font-weight: bold; font-style: italic;">&ldquo;thăng tiến mỗi ngày&rdquo;</span> với Happy Click.<br />
       <br />

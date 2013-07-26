@@ -548,9 +548,9 @@ padding-right: 0px;
 #form label{
     margin-right: 50px;
 }
-#form input[type="text"],#form input[type="password"],#form select{
+#form input[type="text"],#form input[type="password"],#form .email,#form select{
     border: 1px solid #000;
-    width: 35   0px;
+    width: 350px;
     padding: 5px;
 }
 .info{
