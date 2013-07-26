@@ -7,8 +7,8 @@
 */
 
 // get template configuration
+
 include($this['path']->path('layouts:template.config.php'));
-	
 global $current_user;
 
 ?>
@@ -20,6 +20,7 @@ global $current_user;
 <?php echo $this['template']->render('head'); ?>
 <script type="text/javascript">
 	var hcaccount = "<?php echo get_query_var('hcaccount'); ?>";
+	var site_url = "<?php echo get_site_url() ?>";
 </script>
 </head>
 

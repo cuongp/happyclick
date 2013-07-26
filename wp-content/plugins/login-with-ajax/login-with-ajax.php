@@ -189,7 +189,7 @@ class LoginWithAjax {
 			$return['error'] = __('Please supply your username and password.', 'login-with-ajax');
 		}
 		//$return['current_cat'] = get_var_query('cat');
-		$return['cat'] = get_query_var('hcaccount');
+		//$return['cat'] = get_query_var('hcaccount');
 		$return['action'] = 'login';
 
 
