@@ -53,7 +53,6 @@ jQuery(document).ready( function($) {
 					lwaOrg.replaceWith(lwaSub);
 				});
 			}else{
-				alert(hcaccount+' '+site_url);
 				if(hcaccount=='dang-xuat'){
 					window.location = site_url;
 				}else{	
