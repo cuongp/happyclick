@@ -14,6 +14,7 @@ if(isset($_POST) && $_POST['action'] == 'submit')
 		$user = get_user_by('email',$_POST['email']);
 		$key = md5($user->ID . time().rand());
 		$db->update($db->prefix.'users',array('user_activation_key'=>$key),array('ID'=>$user->ID));
+		update_usermeta($user_id,'wp_membership_active','yes');
 		$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 <tbody>
 <tr>
@@ -27,10 +28,10 @@ if(isset($_POST) && $_POST['action'] == 'submit')
   <td><a href="http://www.happyclick.com.vn"><img src="http://www.unity.com.vn/images/HC_Banner.png" align="center" width="598" height="130" /></a></td>
 </tr>
 <tr>
-  <td height="323" valign="top" style="padding: 10px 10px 0px 10px; height=; color: #003399; font-size: 14px;"><p style="padding:10px">Chào &lt;A&gt;<br />
+  <td height="323" valign="top" style="padding: 10px 10px 0px 10px; height=; color: #003399; font-size: 14px;"><p style="padding:10px">Chào '.$user->first_name.'<br />
       <br />
       Happy Click vừa nhận được yêu cầu thiết lập mật khẩu mới của bạn dùng để đăng nhập vào trang web <a href="http://www.happyclick.com.vn">www.happyclick.com.vn</a> cho tài khoản email '.$_POST['email'].' Vui lòng nhấn vào đường dẫn bên dưới để thực hiện thiết lập mật khẩu mới cho tài khoản của bạn:<br />
-      <a href="'.get_site_url().'/hcaccount/doi-mat-khau/?act=rp&user_id='.$user->ID.'&key='.$key.'"></a><br />
+      <a href="'.get_site_url().'/hcaccount/doi-mat-khau/?act=rp&user_id='.$user->ID.'&key='.$key.'">Lấy lại mật khẩu</a><br />
       <br />
       Đường dẫn này sẽ chỉ có giá trị đến &lt;giờ, ngày, tháng, năm&gt;<br />
       <br />
@@ -61,7 +62,7 @@ if(isset($_POST) && $_POST['action'] == 'submit')
 		$headers[] = 'From: Happy Click <support@happyclick.vn>';
 		$headers[] ='Content-type: text/html';
 		
-		wp_mail($_POST['email'],'Quên mật khẩu',$html);
+		wp_mail($_POST['email'],'Quên mật khẩu',$html,$headers);
 		wp_redirect('/hcaccount/xac-nhan-email/?act=quen-mat-khau');
 	}
 }

@@ -24,21 +24,23 @@ if(isset($_POST) && $_POST['action'] == 'submit')
    			$flag ='<h3  class="error">Mật khẩu hiện tại không đúng</h3>';
    		}
 	}elseif($_GET['act']=='rp'){
+
 		if(isset($_GET['user_id']) && isset($_GET['user_id']) && isset($_GET['key'])){
 			if($_POST['new_pass'] =='' || $_POST['confirm_pass'] ==''){
 				$flag = '<h3 class="error">Bạn chưa nhập thông tin đầy đủ</h3>';
 			}elseif($_POST['new_pass']!=$_POST['confirm_pass']){
 				$flag= '<h3  class="error">Mật khẩu không giống nhau</h3>';
 			}else{
-				$user = 	('id',$_GET['user_id']);
-				var_dump($user);
-				var_dump($_GET['key'],$user->user_activation_key);
-				exit;
-				if($_GET['key'] == $user->user_activation_key){
-					var_dump(wp_set_password($_POST['new_pass'],$user->ID));
-					exit();
-					if(wp_set_password($_POST['new_pass'],$user->ID)){
-						wp_redirect('/hcaccount/xac-thuc-email/?act=doi-mat-khau');
+				$user = 	get_user_by('id',$_GET['user_id']);
+				var_dump($user->user_activation_key);
+				if($user->user_activation_key == $_GET['key']){
+					$db = $GLOBALS['wpdb'];
+					
+					wp_set_password($_POST['new_pass'],$user->ID);
+					$db->update($db->prefix.'users',array('user_activation_key'=>''),array('ID'=>$user->ID));
+					wp_redirect('/hcaccount/xac-thuc-email/?act=doi-mat-khau');
+					
+						exit;
 					}
 					
 				}	
@@ -48,8 +50,6 @@ if(isset($_POST) && $_POST['action'] == 'submit')
 		}else
 			wp_redirect('');
 	}
-	
-}
 ?>
 		<form class="form_profile" id="form" method="post">
 		<?php 
