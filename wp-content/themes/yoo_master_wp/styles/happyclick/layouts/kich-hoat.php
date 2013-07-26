@@ -38,7 +38,7 @@ function update_card($card_id){
 function get_card_info($card_id){
 	$db = $GLOBALS['wpdb'];
 	$cardTable = $db->prefix.'cards';
-
+	
 	$card = $db->get_row('select id,sub_id from '.$cardTable.' where id = '.$card_id);
 	
 	return !empty($card)?$card :null;
