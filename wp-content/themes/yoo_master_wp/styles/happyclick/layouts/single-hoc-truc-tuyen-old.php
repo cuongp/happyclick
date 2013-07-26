@@ -14,8 +14,14 @@
 					</div>
 					<div class="content-box-video">
 						<p><?php _e('Xem lại nội dung khóa học trực tuyến','warp'); ?></p>
-						<img src="<?php echo get_site_url().'/wp-content/uploads/2013/07/img-video.png' ?>">
-						<p><a href="#"><?php _e('Download tài liệu','warp'); ?></a></p>
+						 <?php 
+                            $youtubeVideo = get_post_custom_values('hoc_truc_tuyen_old_youtube_video'); 
+                            $youtubeVideo_link = $youtubeVideo[0];
+							$links = get_post_custom_values('hoc_truc_tuyen_old_tai_lieu');
+							$link = $links[0];
+                            ?>
+                            <iframe width="510" height="311" src="<?php echo $youtubeVideo_link; ?>" type="application/x-shockwave-flash" frameborder="0" allowfullscreen style="float:right;" ></iframe>
+						<p><a href="<?php echo $link; ?>"><?php _e('Download tài liệu','warp'); ?></a></p>
 					</div>
 					<h1><?php the_title(); ?></h1>
 					<?php the_content(); ?>
