@@ -36,9 +36,13 @@
 	background: url('../images/tab-radio.png') no-repeat right transparent;
 }
 #system #tabs > ul > li#tab-radio a {
-	color: #3074FF;
+	color: ##0079BE;
     margin-left: 94px;
 }
+#system #tabs > ul > li#tab-radio a:hover {
+	color: #709efd;
+}
+
 #system #tabs > ul > li#tab-cs {
 	background: url('../images/tab-cs.png') no-repeat right transparent;
 }
@@ -46,13 +50,19 @@
 	color: #5F7D05;
     margin-left: 124px;
 }
+#system #tabs > ul > li#tab-cs a:hover {
+	color: #92c200;
+}
+
 #system #tabs > ul > li#tab-kt {
 	background: url('../images/tab-kt.png') no-repeat right transparent;
 }
 #system #tabs > ul > li#tab-kt a {
-	
 	color: #940244;
     margin-left: 105px;
+}
+#system #tabs > ul > li#tab-kt a:hover {
+	color: #d80062;
 }
 
 #system #tabs > ul > li#tab-radio.ui-tabs-active {
@@ -62,6 +72,7 @@
 	margin-top:0px;
 	margin-left:-5px;
 }
+
 
 #system #tabs > ul > li#tab-cs.ui-tabs-active {
 	background: url('../images/tab-cs-active.png') no-repeat right transparent;
@@ -186,6 +197,13 @@ margin-bottom: 10px;
 color:#000;
 word-break: break-word;
 text-align: justify;
+} .category-happy-click-radio .posts_sub .post_sub h3 a:hover,
+.posts_sub_radio .post_sub_radio h3 a:hover {
+color:#99cc00;
+}
+ .category-happy-click-radio .posts_sub .post_sub h3 a:hover,
+.posts_sub_radio .post_sub_radio h3 a:hover {
+color:#99cc00;
 }
  .category-happy-click-radio .posts_sub .post_sub .post-content-sub,
 .posts_sub_radio .post_sub_radio .post-content-sub-radio {
@@ -214,6 +232,8 @@ padding: 18px 0px 18px 0;
 font-size: 22px;
 color: #000;
 margin-left: 20px;
+}.category-goc-kien-thuc .posts-wrapper #download_here  a:hover {
+color: #99cc00;
 }
 .category-goc-kien-thuc .item {
 width: 100%;
@@ -239,6 +259,9 @@ margin-bottom: 10px;
 }
 .category-goc-kien-thuc .item .posts-content h3 a {
 	color:#000;
+}
+.category-goc-kien-thuc .item .posts-content h3 a:hover {
+	color:#99cc00;
 }
 .single-post .posts-wrapper #sticky-download {
 	float:left;
@@ -316,6 +339,10 @@ padding: 2px 0 5px 0;
  .single-post  .posts-wrapper .posts_sub .post_sub a {
 	color: #0079be;
 }
+.category-goc-chia-se .posts-wrapper .posts_sub .post_sub  a:hover,
+ .single-post  .posts-wrapper .posts_sub .post_sub a:hover {
+	color: #709efd;
+}
 .category-goc-chia-se .posts-wrapper .posts_sub .post_sub .post-content-sub,
  .single-post  .posts-wrapper .posts_sub .post_sub .post-content-sub {
 font-style:italic;
@@ -385,6 +412,8 @@ float:right;
 .single-hoc-truc-tuyen-old .content-box-video p a {
 	text-decoration: underline;
 	color:#000;
+}.single-hoc-truc-tuyen-old .content-box-video p a:hover {
+	color:#99cc00;
 }
 .single-hoc-truc-tuyen-old .content-box-video p a:hover {
 	text-decoration: none;
