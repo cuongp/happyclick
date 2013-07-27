@@ -7,9 +7,9 @@
 	<div id="item-<?php the_ID(); ?>" class="item courses post_sub <?php echo $class_margin; ?>" data-permalink="<?php the_permalink(); ?>" >
 		<?php if(has_post_thumbnail()): ?>
 			<?php $width = '180'; $height = '120'; ?>
-			<a href="<?php the_permalink(); ?>" target="_blank"><?php the_post_thumbnail(array($width,$height),array('class'=>'size-auto')); ?></a>
+			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail(array($width,$height),array('class'=>'size-auto')); ?></a>
 		<?php endif; ?>
-		<h3><a href="<?php the_permalink(); ?>" target="_blank">
+		<h3><a href="<?php the_permalink(); ?>">
 		<?php
 			if(strlen(get_the_title()) > 41 ) {
 				echo string_limit_words(get_the_title(), 6).'...';

@@ -22,7 +22,7 @@
 #system #tabs > ul > li {
 float: left;
 height: 63px;
-width: 257px;
+width: 259px;
 margin-top: 10px;
 }
 #system #tabs > ul > li > a {
@@ -36,7 +36,7 @@ margin-top: 10px;
 	background: url('../images/tab-radio.png') no-repeat right transparent;
 }
 #system #tabs > ul > li#tab-radio a {
-	color: ##0079BE;
+	color: #3074ff;
     margin-left: 94px;
 }
 #system #tabs > ul > li#tab-radio a:hover {
@@ -173,9 +173,9 @@ margin-left: 30px;
  
 .category-happy-click-radio .posts_sub .post_sub,
 .posts_sub_radio .post_sub_radio {
-width: 178px;
+width: 185px;
 float: left;
-margin: 30px 30px 0 0;
+margin: 30px 27px 0 0;
 overflow: hidden;
 word-spacing: -2px;
 }
@@ -212,6 +212,14 @@ font-size: 14px;
 line-height: 18px;
 font-style: italic;
 }
+
+.category-goc-chia-se .posts-wrapper .posts-content h3 a:hover {
+	color:#5F7D05;
+}
+
+.category-goc-kien-thuc .posts-wrapper .posts-content h3 a:hover {
+	color:#940244;
+}
 /* CSS Goc Kien Thuc*/
 
 .category-goc-kien-thuc #system .posts-wrapper, .category-goc-chia-se #system .posts-wrapper {
@@ -235,7 +243,7 @@ font-size: 22px;
 color: #000;
 margin-left: 20px;
 }.category-goc-kien-thuc .posts-wrapper #download_here  a:hover {
-color: #99cc00;
+color: #940244;
 }
 
 /*  css goc chia se  */
@@ -462,7 +470,7 @@ padding-bottom: 40px;
 .ban-lanh-dao .wapper-content h4 { margin: 10px 0 0; height: 40px; background: url('http://dev.happyclick.vn/wp-content/uploads/2013/07/bg-title.png') left center repeat; line-height: 50px; padding-left: 20px; font-size: 14px; width: 737px; }
 .ban-lanh-dao .wapper-content h4 a { font-weight: bold; color: #0066a1;}
 .ban-lanh-dao .wapper-content .content { float: left; margin: 0; width: 100%;  border: 1px solid #d2d2d2; padding: 20px 0 10px; }
-.ban-lanh-dao .wapper-content .content img { float: left; margin-left: 20px; box-shadow: 0 0 6px #000; width: 125px; }
+.ban-lanh-dao .wapper-content .content img { float: left; margin-left: 20px; box-shadow: 0 0 8px #2; width: 124px; border:1px solid #fff; }
 .ban-lanh-dao .wapper-content .content .text  { float: left; margin: 0px 20px; text-align: justify; word-break: break-word; width: 569px; }
 
 

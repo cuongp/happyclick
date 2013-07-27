@@ -19,7 +19,7 @@ if($post_count_radio != 0) {
 $the_query = new WP_Query( $args );
 while ( $the_query->have_posts() ) {
 	$the_query->the_post();
-	if ($displayed_post_id != get_the_ID()) {
+	/*if ($displayed_post_id != get_the_ID()) { */
 		$post_count_radio++;
 		if($post_count_radio == 1): ?>
 			<div class="posts_sub_radio">
@@ -52,4 +52,4 @@ while ( $the_query->have_posts() ) {
 		<?php if($post_count_radio == 12): ?>
 			</div>
 		<?php endif;?>
-<?php } } ?>
+<?php } /*}*/ ?>
