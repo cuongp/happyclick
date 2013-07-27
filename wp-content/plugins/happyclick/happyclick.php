@@ -313,13 +313,22 @@ function sukien_form()
     $giatien = (empty($sukien_data['giatien'])) ? '' : $sukien_data['giatien'];
     $thoigian = (empty($sukien_data['thoigian'])) ? '' : $sukien_data['thoigian'];
     $diadiem = (empty($sukien_data['diadiem'])) ? '' : $sukien_data['diadiem'];
+    $articleicon = (empty($sukien_data['diadiem'])) ? '' : $sukien_data['articleicon'];
+    $slidericon = (empty($sukien_data['diadiem'])) ? '' : $sukien_data['slidericon'];
     wp_nonce_field('sukien', 'sukien');
 ?>
 <p>
         <label>Video (optional)</label><br />
         <input type="text" value="<?php echo $video; ?>" name="sukien[video]" size="80" />
 </p>
-
+<p>
+        <label>Slider Icon</label><br />
+        <input type="text" value="<?php echo $video; ?>" name="sukien[slidericon]" size="80" />
+</p>
+<p>
+        <label>Article Icon</label><br />
+        <input type="text" value="<?php echo $video; ?>" name="sukien[articleicon]" size="80" />
+</p>
 <p>
 		<label>Giá tiền (optional)</label><br />
 		<input type="text" value="<?php echo $giatien; ?>" name="sukien[giatien]" size="40" />
@@ -350,6 +359,11 @@ function sukien_save_post($post_id)
         $sukien_data['diadiem'] = (empty($_POST['sukien']['diadiem'])) ? '' :
             sanitize_text_field($_POST['sukien']['diadiem']);
         update_post_meta($post_id, '_sukien', $sukien_data);
+        $sukien_data['articleicon'] = (empty($_POST['sukien']['articleicon'])) ? '' :
+            sanitize_text_field($_POST['sukien']['articleicon']);
+        $sukien_data['slidericon'] = (empty($_POST['sukien']['slidericon'])) ? '' :
+            sanitize_text_field($_POST['sukien']['slidericon']);
+        
     } else {
         delete_post_meta($post_id, '_sukien');
     }

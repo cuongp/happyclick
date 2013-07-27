@@ -28,6 +28,8 @@ class Warp_Breadcrumbs extends WP_Widget {
 				$home_title = 'Bạn đang ở đây :Trang chủ dành cho ngưởi xem thử';
 			elseif($is_member && $is_subs)
 				$home_title = 'Bạn đang ở đây :Trang chủ dành cho thành viên';
+			else
+				$home_title = 'Bạn đang ở đây :Trang chủ dành cho mọi người';
 		}
 		
 		echo $before_widget;
@@ -80,7 +82,9 @@ class Warp_Breadcrumbs extends WP_Widget {
 				$output .= '<strong>'.stripslashes(strip_tags(get_search_query())).'</strong>';
 			} else if (is_tax()) {
 				$taxonomy = get_taxonomy (get_query_var('taxonomy'));
+
 				$term = get_query_var('term');
+				
 				$output .= '<strong>'.$taxonomy->label .': '.$term.'</strong>';
 			} else {
 				$output .= '<strong>'.get_the_title().'</strong>';
