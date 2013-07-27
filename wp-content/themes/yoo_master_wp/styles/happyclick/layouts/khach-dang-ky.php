@@ -7,7 +7,7 @@ if(isset($_GET['cid']))
 else
 	$cid=0;
 if($current_user->ID>0)
-	wp_redirect('/hcaccount/thanh-toan/?act=khach-dang-ky&user_id='.$current_user->ID.'&cid='.$cid);
+	wp_redirect('/hcaccount/thanh-toan/?act=khach-dang-ky&user_id='.$current_user->ID.'&cid='.$cid.'&code='.time());
 $flag=false;
  $args = array(
     'orderby'       => 'name', 
@@ -118,7 +118,7 @@ $db = $GLOBALS['wpdb'];
 			$headers[] ='Content-type: text/html';
 			wp_mail($_POST['email'],'Xác nhận đăng ký hội thảo khóa học',$html,$headers);
 
-			wp_redirect('/hcaccount/xac-nhan-email/?act=khach-dang-ky');
+			wp_redirect('/hcaccount/thanh-toan/?act=khach-dang-ky&user_id='.$current_user->ID.'&cid='.$cid.'&code='.time());
 			exit;
 			}
 			

@@ -5,8 +5,13 @@ $cid = $_GET['cid'];
 $user_id = $_GET['user_id'];
 $code = $_GET['code'];
 if(isset($_POST['action']) && $_POST['action']=='submit'){
+
 	$db = $GLOBALS['wpdb'];
 	if(isset($cid) && isset($user_id) && isset($code)){
+
+		
+
+
 		if($db->update($db->prefix.'user_sukien',array('payment_type'=>$_POST['payment']),array('user_id'=>$user->ID,'sukien_id'=>$cid)))
 		{
 			if($_POST['payment']==1){
@@ -77,7 +82,8 @@ if(isset($_POST['action']) && $_POST['action']=='submit'){
 </tr>
 </tbody>
 </table>';
-			}else
+			}
+			else{
 			$html='<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 <tbody>
 <tr>
@@ -129,7 +135,8 @@ if(isset($_POST['action']) && $_POST['action']=='submit'){
 <td align="center" valign="top"> </td>
 </tr>
 </tbody>
-</table>';
+</table>';}
+
 		$headers[] = 'From: Happy Click <support@happyclick.vn>';
 		$headers[] ='Content-type: text/html';
 		if($current_user->ID>0)
@@ -139,7 +146,7 @@ if(isset($_POST['action']) && $_POST['action']=='submit'){
 			$u = get_user_by('id',$user_id);
 			$email=$u->email;
 		}
-			wp_mail($email,'Xác nhận đăng ký khóa học',$html,$headers);
+			//wp_mail($email,'Xác nhận đăng ký khóa học',$html,$headers);
 			wp_redirect('/hcaccount/xac-nhan-thanh-toan/?cid='.$cid.'&type='.$_POST['payment']);	
 			exit;
 		}

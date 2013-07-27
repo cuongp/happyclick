@@ -71,5 +71,5 @@ sử dụng dịch vụ của Happy Click</p>
 		</table>
 </div>
 <?php
-
+}
 ?>
