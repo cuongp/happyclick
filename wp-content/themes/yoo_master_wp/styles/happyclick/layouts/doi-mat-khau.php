@@ -9,7 +9,7 @@ if(isset($_POST) && $_POST['action'] == 'submit')
 {
 	global $current_user;
 
-	if(!isset($_GET['rp'])){
+	if(!isset($_GET['act'])){
 		
 		if($_POST['current_pass'] =='' || $_POST['new_pass'] =='' || $_POST['confirm_pass'] ==''){
 		$flag = '<h3 class="error">Bạn chưa nhập thông tin đầy đủ</h3>';
