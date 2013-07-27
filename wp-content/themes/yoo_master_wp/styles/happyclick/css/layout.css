@@ -885,7 +885,7 @@ height: auto;
 .box2 .bodycontent{
     padding:20px 40px;
 }
-.box2 .bodycontent h3{
+.box2 .bodycontent h3,.bodycontent h3{
     color: #f78000;
 }
 .box2 .banner img{

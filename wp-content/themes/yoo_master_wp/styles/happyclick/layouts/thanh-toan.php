@@ -158,15 +158,46 @@ if(isset($_POST['action']) && $_POST['action']=='submit'){
 <div class="box" style="width:730px">
 	
 	<div class="bodycontent">
+	<h3>Chọn hình thức thanh toán</h3>
 	<form method="post" id="form">
-		<h3>Chọn hình thức thanh toán</h3>
-		<p><strong>Vui lòng chọn 1 trong 2 hình thức thanh toán sau:</strong></p>
-		<p><input type="radio" name="payment" value="0"> Thanh toán trực tiếp tại văn phòng Happy Click<br/>
-		Văn phòng HappyClick
+		
+		<p><strong>Vui lòng chọn 1 trong 2 hình thức thanh toán sau:</strong></p><br/>
+		<p><input type="radio" name="payment" value="0"><b> Thanh toán trực tiếp tại văn phòng Happy Click<br/></b>
+		<ul>
+			<li>Văn phòng Happy Click, Tầng 6, Tòa nhà 116-118 Nguyễn Thị Minh Khai, Q.3, TpHCM</li>
+<li>Điện thoại: (08) 7302 0168 – (08) 7303 0168</li>
+<li>Thời gian làm việc: 8:00 – 12:00, 13:30 – 17:30 từ thứ Hai đến thứ Bảy</li>	
+		</ul>
 		</p>
-		<p><input type="radio" name="payment" value="1"> Chuyển khoản<br/>
-		Văn phòng HappyClick
+		<p><input type="radio" name="payment" value="1"><b>Chuyển khoản (vui lòng chọn 1 trong 2 tài khoản sau)</b><br/>
+			<ul>
+				<li>Tài khoản 1: CT CP Tư vấn & Đào tạo Happy Click
+					<ul>
+						<li>Số TK:   0071000779455</li>
+<li>Ngân hàng Ngoại Thương Việt Nam - CN Tp.HCM - PGD số 5</li>
+<li>8 Nguyễn Huệ, P. Bến Nghé, Quận 1, Tp.HCM</li>
+
+					</ul>
+				</li>
+				<li>Tài khoản 2: CT CP Tư vấn & Đào tạo Happy Click
+					<ul>
+					<ul>
+						<li>Số TK:  060068584585</li>
+<li>Ngân hàng TMCP Sài Gòn Thương Tín - PGD Huỳnh Thúc Kháng</li>
+<li>2-4-6 Huỳnh Thúc Kháng, P. Bến Nghé, Quận 1, Tp.HCM</li>
+
+					</ul>
+					</ul>
+				</li>
+			</ul>
 		</p>
+		<h3>Lưu ý:</h3>
+		<li style="padding:10px 0">Nếu chuyển khoản qua ngân hàng, bạn vui lòng ghi nội dung chuyển khoản theo cú pháp:<br/>
+<b>Thanh toán < mã đơn hàng > cho < họ và tên học viên ></b><br/></li>
+
+<li  style="padding:10px 0">Nếu chuyển khoản qua ATM, sau khi chuyển khoản, bạn vui lòng liên hệ với Happy Click qua số điện thoại (08) 7302 0168 – (08) 7303 0168 để xác nhận nội dung thanh toán<br/></li>
+
+<li  style="padding:10px 0">Sau khi nhận được chuyển khoản của bạn, Happy Click sẽ email xác nhận  bạn đã hoàn tất đăng ký<br/></li>
 		<table width="100%">
 			<tr>
 				<td><input type="hidden" name="action" value="submit"></td>
@@ -179,6 +210,7 @@ if(isset($_POST['action']) && $_POST['action']=='submit'){
 
 		</table>
 		</form>
+
 	</div>
 
 </div>

@@ -566,11 +566,11 @@ function get_chude($post_type = 'sukien', $posts_per_page = -1, $orderby =
                 <?php echo 'Giảng viên: '.$diengia; ?><br/>
                 
             </td>-->
-            <td style="border-left:1px solid #ccc;padding:0 40px;padding-left:50px;margin-top:10px">
+            <td style="border-left:1px solid #ccc;padding:0 30px;padding-left:50px;margin-top:10px">
                 <b>Phí tham dự:</b><br/>
                 <table width=100%>
         <tr><td><b>Khách:</b></td><td><b><?php echo $giatien; ?></b></td></tr>
-        <tr><td><b>Thành viên:</b></td><td><b><?php echo $giatienthanhvien; ?></b></td></tr>
+        <tr><td width="95"><b>Thành viên:</b></td><td><b><?php echo $giatienthanhvien; ?></b></td></tr>
     </table>
                <p class="cat-post-title2"><a href="<?php echo get_permalink(); ?>"><span style="display:none">Xem chi tiết</span></a></p> 
                 <p class="cat-post-title1"><a href="/category/thanh-vien/quyen-loi-thanh-vien/"><span  style="display:none">Trở thành thành viên</span></a></p>
