@@ -8,7 +8,9 @@ $flag = '';
 if(isset($_POST) && $_POST['action'] == 'submit')
 {
 	global $current_user;
-	if(!isset($_GET)){
+
+	if(!isset($_GET['act'])){
+		
 		if($_POST['current_pass'] =='' || $_POST['new_pass'] =='' || $_POST['confirm_pass'] ==''){
 		$flag = '<h3 class="error">Bạn chưa nhập thông tin đầy đủ</h3>';
 		}elseif($_POST['new_pass']!=$_POST['confirm_pass']){
@@ -23,7 +25,8 @@ if(isset($_POST) && $_POST['action'] == 'submit')
    		{
    			$flag ='<h3  class="error">Mật khẩu hiện tại không đúng</h3>';
    		}
-	}elseif($_GET['act']=='rp'){
+	}
+	elseif($_GET['act']=='rp'){
 
 		if(isset($_GET['user_id']) && isset($_GET['user_id']) && isset($_GET['key'])){
 			if($_POST['new_pass'] =='' || $_POST['confirm_pass'] ==''){
@@ -32,7 +35,6 @@ if(isset($_POST) && $_POST['action'] == 'submit')
 				$flag= '<h3  class="error">Mật khẩu không giống nhau</h3>';
 			}else{
 				$user = 	get_user_by('id',$_GET['user_id']);
-				var_dump($user->user_activation_key);
 				if($user->user_activation_key == $_GET['key']){
 					$db = $GLOBALS['wpdb'];
 					
@@ -64,7 +66,7 @@ echo $flag; ?>
 			</tr>
 			<tr>
 				<td class="box3" width="45%"  align="right">Mật khẩu hiện tại</td>
-				<td  class="box4"><input type="text" name="current_pass" /><span>*</span></td>				
+				<td  class="box4"><input type="password" name="current_pass" /><span>*</span></td>				
 			</tr>
 		<?php elseif($_GET['act']=='rp'): ?>
 			<tr>
@@ -77,16 +79,16 @@ echo $flag; ?>
 			<?php if(!isset($_GET)): ?>
 			<tr>
 				<td class="box3" width="45%"  align="right">Mật khẩu hiện tại</td>
-				<td  class="box4"><input type="text" name="current_pass" /><span>*</span></td>				
+				<td  class="box4"><input type="password" name="current_pass" /><span>*</span></td>				
 			</tr>
 			<?php endif; ?>
 			<tr>
 				<td width="45%"  class="box3"  align="right">Mật khẩu mới</td>
-				<td  class="box4"><input type="text" name="new_pass" /><span>*</span></td>				
+				<td  class="box4"><input type="password" name="new_pass" /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Xác nhận mật khẩu mới</td>
-				<td  class="box4"><input type="text" name="confirm_pass" /><span>*</span></td>				
+				<td  class="box4"><input type="password" name="confirm_pass" /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td><input type="hidden" name="action" value="submit"></td>

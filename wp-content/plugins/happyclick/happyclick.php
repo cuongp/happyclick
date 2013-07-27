@@ -313,13 +313,22 @@ function sukien_form()
     $giatien = (empty($sukien_data['giatien'])) ? '' : $sukien_data['giatien'];
     $thoigian = (empty($sukien_data['thoigian'])) ? '' : $sukien_data['thoigian'];
     $diadiem = (empty($sukien_data['diadiem'])) ? '' : $sukien_data['diadiem'];
+    $articleicon = (empty($sukien_data['diadiem'])) ? '' : $sukien_data['articleicon'];
+    $slidericon = (empty($sukien_data['diadiem'])) ? '' : $sukien_data['slidericon'];
     wp_nonce_field('sukien', 'sukien');
 ?>
 <p>
         <label>Video (optional)</label><br />
         <input type="text" value="<?php echo $video; ?>" name="sukien[video]" size="80" />
 </p>
-
+<p>
+        <label>Slider Icon</label><br />
+        <input type="text" value="<?php echo $video; ?>" name="sukien[slidericon]" size="80" />
+</p>
+<p>
+        <label>Article Icon</label><br />
+        <input type="text" value="<?php echo $video; ?>" name="sukien[articleicon]" size="80" />
+</p>
 <p>
 		<label>Giá tiền (optional)</label><br />
 		<input type="text" value="<?php echo $giatien; ?>" name="sukien[giatien]" size="40" />
@@ -350,6 +359,11 @@ function sukien_save_post($post_id)
         $sukien_data['diadiem'] = (empty($_POST['sukien']['diadiem'])) ? '' :
             sanitize_text_field($_POST['sukien']['diadiem']);
         update_post_meta($post_id, '_sukien', $sukien_data);
+        $sukien_data['articleicon'] = (empty($_POST['sukien']['articleicon'])) ? '' :
+            sanitize_text_field($_POST['sukien']['articleicon']);
+        $sukien_data['slidericon'] = (empty($_POST['sukien']['slidericon'])) ? '' :
+            sanitize_text_field($_POST['sukien']['slidericon']);
+        
     } else {
         delete_post_meta($post_id, '_sukien');
     }
@@ -566,11 +580,11 @@ function get_chude($post_type = 'sukien', $posts_per_page = -1, $orderby =
                 <?php echo 'Giảng viên: '.$diengia; ?><br/>
                 
             </td>-->
-            <td style="border-left:1px solid #ccc;padding:0 40px;padding-left:50px;margin-top:10px">
+            <td style="border-left:1px solid #ccc;padding:0 30px;padding-left:50px;margin-top:10px">
                 <b>Phí tham dự:</b><br/>
                 <table width=100%>
         <tr><td><b>Khách:</b></td><td><b><?php echo $giatien; ?></b></td></tr>
-        <tr><td><b>Thành viên:</b></td><td><b><?php echo $giatienthanhvien; ?></b></td></tr>
+        <tr><td width="95"><b>Thành viên:</b></td><td><b><?php echo $giatienthanhvien; ?></b></td></tr>
     </table>
                <p class="cat-post-title2"><a href="<?php echo get_permalink(); ?>"><span style="display:none">Xem chi tiết</span></a></p> 
                 <p class="cat-post-title1"><a href="/category/thanh-vien/quyen-loi-thanh-vien/"><span  style="display:none">Trở thành thành viên</span></a></p>

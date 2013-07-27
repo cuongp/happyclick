@@ -1,6 +1,29 @@
 <?php
 global $current_user;
 $flag='';
+ $args = array(
+    'orderby'       => 'name', 
+    'order'         => 'ASC',
+    'hide_empty'    => false, 
+    'exclude'       => array(), 
+    'exclude_tree'  => array(), 
+    'include'       => array(),
+    'number'        => '', 
+    'fields'        => 'all', 
+    'slug'          => '', 
+    'parent'        => '',
+    'hierarchical'  => true, 
+    'child_of'      => 0, 
+    'get'           => '', 
+    'name__like'    => '',
+    'pad_counts'    => false, 
+    'offset'        => '', 
+    'search'        => '', 
+    'cache_domain'  => 'core'
+); 	
+$cities = get_terms('city',$args);
+$nganhnghe =get_terms('nganhnghe',$args);
+$doituong = get_terms('doituong',$args);
 if(isset($_POST) && $_POST['action'] == 'submit'){
 	
 
@@ -16,36 +39,35 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 $gender = get_usermeta( $current_user->ID, 'gender');
 
 ?>
-<?php if ($this['modules']->count('top-a2')) : ?>
-	<section id="top-a2" class="grid-block"><?php echo $this['modules']->render('top-a2', array('layout'=>$this['config']->get('top-a2'))); ?></section>
-<?php endif ;?>
+
 <?php if ($this['modules']->count('breadcrumbs')) : ?>
 	<section id="breadcrumbs"><?php echo $this['modules']->render('breadcrumbs'); ?></section>
 <?php endif; ?>
 <div class="box" style="width:730px">
 
 <form id="form" class="form_profile" method="post">
-		<?php 
-echo $flag;
-?>
-		<table width="100%" class="form_doipass">
+<?php echo $flag; ?>
+		<table width="100%" class="form_profile">
 			
-
+			
 			<tr>
 				<td colspan="2"><br/>
 				<p><strong>THÔNG TIN CÁ NHÂN</strong></p><br/>	
 				</td>
 
-			</tr>
-			<tr>
+			</tr><tr>
 				<td colspan="2">
 					
 					<p>(<span>*</span>) Thông tin bắt buộc</p><br/>
 				</td>
 			</tr>
 			<tr>
-				<td class="box3" width="45%"  align="right">Họ và tên</td>
-				<td  class="box4"><input type="text" id="fullname" name="fullname" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo get_usermeta( $current_user->ID, 'fullname'); ?>" /><span>*</span></td>				
+				<td class="box3" width="45%"  align="right">Họ</td>
+				<td  class="box4"><input required type="text" id="first_name" name="first_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo get_usermeta( $current_user->ID, 'first_name'); ?>" /><span>*</span></td>				
+			</tr>
+			<tr>
+				<td class="box3" width="45%"  align="right">Tên</td>
+				<td  class="box4"><input required type="text" id="last_name" name="last_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo get_usermeta( $current_user->ID, 'last_name'); ?>" /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3"  align="right">Giới tính</td>
@@ -53,27 +75,23 @@ echo $flag;
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Ngày sinh</td>
-				<td  class="box4"><input type="text" id="birthday" name="birthday" value="<?php echo get_usermeta( $current_user->ID, 'birthday'); ?>" placeholder="Ngày/tháng/năm" /><span>*</span></td>				
+				<td  class="box4"><input type="text" id="birthday" name="birthday" value="<?php echo get_usermeta( $current_user->ID, 'birthday'); ?>" placeholder="Ngày/tháng/năm" required/><span>*</span></td>				
 			</tr>
 			<tr>
-				<td width="45%"  class="box3" align="right">Email <br/> <em style="font-weight:normal">Email này bạn đã dùng để đăng nhập, nếu cần thay đổi vui lòng liên hệ với Happy Click.<br/><strong>Hỗ trợ 24/7: (08) 7302 0168 - (08) 7303 0168</strong></em></td>
-				<td  class="box4"><input type="text" name="email" disabled="disabled" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
+			<?php
+				if($current_user->ID > 0)
+					$disable = 'disabled="disabled"';
+				else
+					$disable = '';
+			?>
+				<td width="45%"  class="box3" align="right">Email <br/> <em style="font-weight:normal">Email cá nhân hoặc email thường sử dụng.<br/><strong>Hỗ trợ 24/7: (08) 7302 0168 - (08) 7303 0168</strong></em></td>
+				<td  class="box4"><input required class="email" <?php echo $disable ?> type="email" name="email" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
 			</tr>
-			<tr>
-				<td width="45%"  class="box3" align="right">Email<br/><em>Email cá nhân hoặc email thường sử dụng</em></td>
-				<td  class="box4"><input id="subemail" type="text" name="subemail"  value="<?php echo get_usermeta( $current_user->ID, 'subemail'); ?>" /><span>*</span></td>				
-			</tr>
-			<tr>
-				<td width="45%"  class="box3" align="right">Mật khẩu</td>
-				<td  class="box4"><input type="text" name="password" /><span>*</span></td>				
-			</tr>
-			<tr>
-				<td width="45%"  class="box3" align="right">Xác nhận mật khẩu</td>
-				<td  class="box4"><input type="text" name="confirm_pass" /><span>*</span></td>				
-			</tr>
+		
+			
 			<tr>
 				<td width="45%"  class="box3" align="right">Điện thoại di động</td>
-				<td  class="box4"><input type="text" name="mobile" id="mobile" value="<?php echo get_usermeta( $current_user->ID, 'mobile'); ?>"  /><span>*</span></td>				
+				<td  class="box4"><input type="text" name="mobile" id="mobile" required value="<?php echo get_usermeta( $current_user->ID, 'mobile'); ?>"  /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Điện thoại công ty</td>
@@ -89,31 +107,78 @@ echo $flag;
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Đối tượng</td>
-				<td  class="box4"><input type="text" name="objectuser" id="objectuser" value="<?php echo get_usermeta( $current_user->ID, 'objectuser'); ?>" /><span>*</span></td>				
+				<td  class="box4">
+					<select id="objectuser" name="objectuser"  validate="required:true">
+						<option>Chưa chọn</option>
+					
+						<?php
+							if(!empty($doituong)){
+								foreach ($doituong as $dt) {
+									if(get_usermeta( $current_user->ID, 'objectuser')==$dt->ID){
+										$selected = 'selected=selected';
+									}else
+										$selected = '';
+							?>
+								<option <?php echo $selected; ?> value="<?php echo $dt->ID ?>"><?php echo $dt->name; ?></option>
+							<?php
+								}
+							}
+						?>
+					</select>
+
+<span>*</span></td>				
 			</tr>
+
 			<tr>
 				<td width="45%"  class="box3" align="right">Ngành nghề</td>
-				<td  class="box4"><input type="text" name="mayjor" value="<?php echo get_usermeta( $current_user->ID, 'mayjor'); ?>"  /></td>				
-			</tr>
+				<td  class="box4">
+					<select id="mayjor" name="mayjor"><option>Chưa chọn</option>
+						<?php
+							if(!empty($nganhnghe)){
+								foreach ($nganhnghe as $dt) {
+									if(get_usermeta( $current_user->ID, 'mayjor')==$dt->ID){
+										$selected = 'selected=selected';
+									}else
+										$selected = '';
+							?>
+								<option <?php echo $selected; ?> value="<?php echo $dt->ID ?>"><?php echo $dt->name; ?></option>
+							<?php
+								}
+							}
+						?>
+					</select>
+</td>	</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Địa chỉ<br/><em style="font-weight:normal">Nhận thẻ và hóa đơn</em></td>
-				<td  class="box4"><input type="text" name="address" id="address" value="<?php echo get_usermeta( $current_user->ID, 'address'); ?>"  /><span>*</span></td>				
+				<td  class="box4"><input type="text" name="address" id="address" required value="<?php echo get_usermeta( $current_user->ID, 'address'); ?>"  /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Tỉnh/Thành phố</td>
-				<td  class="box4"><input type="text" name="city" id="city" value="<?php echo get_usermeta( $current_user->ID, 'city'); ?>"  /><span>*</span></td>				
-			</tr>
-			<tr>
-				<td width="45%"  class="box3" align="right"></td>
-				<td  class="box4"><input type="checkbox" name="dk" value="1" id="agree"/> Tôi đã đọc và đồng ý với <a href="">điều khoản sử dụng</a> 
-				</td>				
-			</tr>
+				<td  class="box4">
+					<select id="city" name="city"  validate="required:true"><option>Chưa chọn</option>
+						<?php
+							if(!empty($cities)){
+								foreach ($cities as $dt) {
+									if(get_usermeta( $current_user->ID, 'city')==$dt->ID){
+										$selected = 'selected=selected';
+									}else
+										$selected = '';
+							?>
+								<option <?php echo $selected; ?> value="<?php echo $dt->ID ?>"><?php echo $dt->name; ?></option>
+							<?php
+								}
+							}
+						?>
+					</select>
+
+<span>*</span></td>	
+				</tr>
 			<tr>
 				<td><input type="hidden" name="action" value="submit"></td>
 				<td align="center" class="update"><input type="submit" value=""  /></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="right"><a href="<?php echo get_site_url(); ?>" class="returnhome">Trở về trang chủ</a></td>
+				<td colspan="2" align="right"><a href="" class="returnhome">Trở về trang chủ</a></td>
 
 			</tr>
 		</table>

@@ -247,8 +247,14 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 				<td  class="box4"><input type="text" id="birthday" name="birthday" value="<?php echo get_usermeta( $current_user->ID, 'birthday'); ?>" placeholder="Ngày/tháng/năm" required/><span>*</span></td>				
 			</tr>
 			<tr>
+			<?php
+				if($current_user->ID > 0)
+					$disable = 'disabled="disabled"';
+				else
+					$disable = '';
+			?>
 				<td width="45%"  class="box3" align="right">Email <br/> <em style="font-weight:normal">Email cá nhân hoặc email thường sử dụng.<br/><strong>Hỗ trợ 24/7: (08) 7302 0168 - (08) 7303 0168</strong></em></td>
-				<td  class="box4"><input required class="email" type="email" name="email" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
+				<td  class="box4"><input required class="email" <?php echo $disable ?> type="email" name="email" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
 			</tr>
 		
 			<tr>
@@ -279,6 +285,8 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 				<td width="45%"  class="box3" align="right">Đối tượng</td>
 				<td  class="box4">
 					<select id="objectuser" name="objectuser"  validate="required:true">
+						<option>Chưa chọn</option>
+					
 						<?php
 							if(!empty($doituong)){
 								foreach ($doituong as $dt) {
@@ -300,7 +308,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Ngành nghề</td>
 				<td  class="box4">
-					<select id="mayjor" name="mayjor">
+					<select id="mayjor" name="mayjor"><option>Chưa chọn</option>
 						<?php
 							if(!empty($nganhnghe)){
 								foreach ($nganhnghe as $dt) {
@@ -323,7 +331,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Tỉnh/Thành phố</td>
 				<td  class="box4">
-					<select id="city" name="city"  validate="required:true">
+					<select id="city" name="city"  validate="required:true"><option>Chưa chọn</option>
 						<?php
 							if(!empty($cities)){
 								foreach ($cities as $dt) {

@@ -3,6 +3,7 @@
 			<ul id="slider">
 
 				<?php foreach ($rpwewidget as $post) : setup_postdata($post); 
+				$sukien_data = get_post_meta($post->ID, '_sukien', true);
 $terms = wp_get_post_terms( $post->ID, 'chude');
 				?>
 					

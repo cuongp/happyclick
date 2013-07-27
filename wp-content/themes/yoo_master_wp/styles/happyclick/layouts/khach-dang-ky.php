@@ -28,7 +28,7 @@ $flag=false;
     'offset'        => '', 
     'search'        => '', 
     'cache_domain'  => 'core'
-); 	
+);
 $cities = get_terms('city',$args);
 $nganhnghe =get_terms('nganhnghe',$args);
 $doituong = get_terms('doituong',$args);
@@ -121,9 +121,7 @@ $db = $GLOBALS['wpdb'];
 			wp_redirect('/hcaccount/xac-nhan-email?act=khach-dang-ky&user_id='.$user_id.'&cid='.$cid.'&code='.time());
 			exit;
 			}
-			
-			
-	wp_reset_query();
+		wp_reset_query();
 		}else
 		{
 			echo 'Đăng ký thất bại';
