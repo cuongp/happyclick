@@ -17,8 +17,8 @@
 
 //Khoa hoc sap dien ra
 $args = array(
-    'category_name' => 'hoc-truc-tuyen',
-    'post_status' => array( 'future' ),
+    'category_name' => 'khoa-hoc-truc-tuyen-sap-dien-ra',
+    'post_status' => array( 'publish' ),
     'posts_per_page' => 1,
     'orderby' => 'date',
     'order' => 'ASC'

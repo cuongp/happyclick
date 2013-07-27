@@ -18,12 +18,16 @@ class Warp_Breadcrumbs extends WP_Widget {
 		global $wp_query;
 		
 		extract($args);
-
+		$is_member = current_user_is_member();
+		$is_subs = current_user_has_subscription();
 		$title = $instance['title'];
 		$home_title = trim($instance['home_title']);
 		
 		if (empty($home_title)) {
-			$home_title = 'Home';
+			if($is_member)
+				$home_title = 'Bạn đang ở đây :Trang chủ dành cho ngưởi xem thử';
+			elseif($is_member && $is_subs)
+				$home_title = 'Bạn đang ở đây :Trang chủ dành cho thành viên';
 		}
 		
 		echo $before_widget;

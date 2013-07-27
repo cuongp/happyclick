@@ -7,7 +7,7 @@ if(isset($_GET['cid']))
 else
 	$cid=0;
 if($current_user->ID>0)
-	wp_redirect('/hcaccount/thanh-toan/?act=khach-dang-ky&user_id='.$current_user->ID.'&cid='.$cid);
+	wp_redirect('/hcaccount/thanh-toan/?act=khach-dang-ky&user_id='.$current_user->ID.'&cid='.$cid.'&code='.time());
 $flag=false;
  $args = array(
     'orderby'       => 'name', 
@@ -66,7 +66,7 @@ $db = $GLOBALS['wpdb'];
 				*/
 				$db->insert($db->prefix.'user_sukien',
 				array('user_id'=>$user_id
-					,'sukien_id'=>$_GET['cid']
+					,'sukien_id'=>$cid
 					,'created_at'=>time()
 					,'payment_status'=>0
 					));
@@ -88,7 +88,7 @@ $db = $GLOBALS['wpdb'];
       Cảm ơn bạn đã đăng ký khóa học/hội thảo '.get_the_title($cid).'<br />
       <br />
       Trước khi tiếp tục đăng ký hội thảo/khóa học, bạn vui lòng nhấn vào đường dẫn bên dưới để xác thực email bạn vừa dùng để đăng ký với Happy Click:<br />
-  <a href="'.get_site_url().'/hcaccount/xac-thuc-email?act=khach-dang-ky&user_id='.$user_id.'&code='.time().'">Kích hoạt đăng ký hội thảo khóa học</a><br />
+  <a href="'.get_site_url().'/hcaccount/thanh-toan/?act=khach-dang-ky&&cid='.$cid.'user_id='.$user_id.'&code='.time().'">Kích hoạt và thanh toán đăng ký hội thảo khóa học</a><br />
     <br />
     Đường dẫn này sẽ chỉ có giá trị đến '.$expdate.'<br />
     <br />
@@ -118,7 +118,7 @@ $db = $GLOBALS['wpdb'];
 			$headers[] ='Content-type: text/html';
 			wp_mail($_POST['email'],'Xác nhận đăng ký hội thảo khóa học',$html,$headers);
 
-			wp_redirect('/hcaccount/xac-nhan-email/?act=khach-dang-ky');
+			wp_redirect('/hcaccount/xac-nhan-email?act=khach-dang-ky&user_id='.$user_id.'&cid='.$cid.'&code='.time());
 			exit;
 			}
 			
@@ -156,7 +156,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 <?php endif; ?>
 <div class="box" style="width:730px">
 
-<form id="form" class="form_profile" method="post" action="/hcaccount/khach-dang-ky/?act=payment&cid=<?php echo $cid; ?>">
+<form id="form" class="form_profile" method="post" action="">
 		<table width="100%" class="form_profile">
 			
 		

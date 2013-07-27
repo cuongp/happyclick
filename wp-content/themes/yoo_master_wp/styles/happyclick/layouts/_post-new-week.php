@@ -5,6 +5,7 @@
 	<div class="content clearfix">
 		<?php the_content(''); ?>
 	</div>
+    <?php /*
     <script type="text/javascript">
         (function($){
             $('.nw_answers').hide();
@@ -45,4 +46,6 @@
             });
         })(jQuery);
     </script>
+     * 
+     */ ?>
 </article>

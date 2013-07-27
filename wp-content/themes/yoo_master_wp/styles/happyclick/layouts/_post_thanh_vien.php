@@ -9,7 +9,7 @@ global $current_user;
 		$width = get_option('thumbnail_size_w'); //get the width of the thumbnail setting
 		$height = get_option('thumbnail_size_h'); //get the height of the thumbnail setting
 		?>
-		<a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail(array(), array('class' => 'size-auto')); ?></a>
+		<?php the_post_thumbnail(array(), array('class' => 'size-auto')); ?>
 	<?php endif; ?>
 	</header>
 

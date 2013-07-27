@@ -38,7 +38,7 @@
 
 .jcarousel-skin-tango .jcarousel-item-horizontal {
 	margin-left: 0;
-    margin-right: 32px;
+    margin-right: 30px;
 }
 
 .jcarousel-skin-tango .jcarousel-direction-rtl .jcarousel-item-horizontal {
@@ -561,7 +561,7 @@ div.wpcf7-validation-errors{ border:none; }
     margin: 10px 12px 0 14px;
 }
 .single .author_info{
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 .single .author_info h3.text-orange{ color: #ff8400; }
 .single .text-orange{}

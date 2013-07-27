@@ -5,7 +5,7 @@ else
 	$cid = 0;
 $post = get_post($cid);
 $data = get_post_meta( $cid, '_sukien', true );
-var_dump($data);
+
 ?>
 <div class="box" style="width:730px">
 	<div class="bodycontent">
