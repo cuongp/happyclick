@@ -4,7 +4,7 @@ if(isset($_GET['act'])){
 	switch ($_GET['act']) {
 		case 'khach-dang-ky':
 			echo '<p>Happy Click đã gửi email cho bạn, vui lòng kiểm tra email và làm theo hướng dẫn để tiếp tục đăng ký.
-</p>';
+					</p>';
 			break;
 		case 'quen-mat-khau':
 			echo '<p>Happy Click đã gửi email cho bạn vào email mà bạn đã đăng ký. Vui lòng làm theo hướng dẫn trong email để lấy lại mật khẩu.</p>';
