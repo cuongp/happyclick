@@ -1,3 +1,8 @@
+<?php global $displayed_post_id;
+	if($displayed_post_id != null) {
+		$displayed_post_id = null;
+	}
+ ?>
 <?php if (have_posts()) : ?>
 		<?php while (have_posts()) : the_post(); ?>
 				<div id="item" class="item courses first-post-radio" data-permalink="<?php the_permalink(); ?>" >
@@ -13,6 +18,8 @@
 					<?php the_content(); ?>
 				</div>
 			</div>
-			<?php echo $this->render('single-happy-click-radio-sub'); ?>
+			<?php
+				$displayed_post_id = get_the_ID();
+			echo $this->render('single-happy-click-radio-sub'); ?>
 		<?php endwhile; ?>
 <?php endif; ?>

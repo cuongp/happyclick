@@ -1,12 +1,15 @@
-<?php global $post_count_chia_se; ?>
-<?php if($post_count_chia_se == 2): ?>
-<div class="posts_sub">
-		<p style="margin: 30px 60px 20px; font-style:italic; font-size:16px;"><strong><?php _e('Các bài khác','warp'); ?></strong></p>
-	<?php  endif; ?>
-	<div id="item-<?php the_ID(); ?>" class="item courses post_sub" data-permalink="<?php the_permalink(); ?>" >
-		<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-		<div class="post-content-sub">
-			<?php echo string_limit_words(get_the_excerpt(),10).'...'; ?>
-			<a href="<?php the_permalink(); ?>"><?php _e('xem thêm','warp'); ?></a>
+<div id="item-<?php the_ID(); ?>" class="item courses item-posts-chia-se" data-permalink="<?php the_permalink(); ?>">
+	<?php if(has_post_thumbnail()) : ?>
+		<?php $width='240'; $height=''; ?>
+		<?php echo the_post_thumbnail(array($width,$height), array('class'=>'img_posts_chia_se')); ?>
+	<?php endif; ?>
+		<div class="posts-content">
+			<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+			<div><?php $excerpt = get_post_custom_values('Excerpt'); ?>
+			<?php if($excerpt[0] != null) {
+					echo $excerpt[0];
+				}
+			?>
+			</div>
 		</div>
-	</div><?php if($post_count_chia_se == 15): ?></div><?php endif; 
+</div>

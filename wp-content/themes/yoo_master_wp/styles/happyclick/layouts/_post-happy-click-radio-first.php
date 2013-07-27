@@ -4,9 +4,10 @@
 			<?php $width = '295'; $height = '195'; ?>
 			<?php the_post_thumbnail(array($width,$height),array('class'=>'size-auto')); ?>
 		<?php endif; ?>
-		<?php if(in_array('URL Audio',get_post_custom_keys())) { ?>
+		<?php  if(in_array('URL Audio',get_post_custom_keys())) { ?>
 		<div class="media"><a href="<?php echo get_post_meta(get_the_ID(), 'URL Audio', true); ?>"></a></div>
-		<?php } ?>
+		<?php }  ?>
+		
 		<div class="post-content-first">
 		<?php the_content(); ?>
 		</div>

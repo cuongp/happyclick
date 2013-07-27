@@ -186,3 +186,14 @@ function string_limit_words($string, $word_limit)
   array_pop($words);
   return implode(' ', $words);
 }
+function get_excerpt($limit, $source = null){
+
+    if($source == "content" ? ($excerpt = get_the_content()) : ($excerpt = get_the_excerpt()));
+    $excerpt = preg_replace(" (\[.*?\])",'',$excerpt);
+    $excerpt = strip_shortcodes($excerpt);
+    $excerpt = strip_tags($excerpt);
+    $excerpt = substr($excerpt, 0, $limit);
+    $excerpt = substr($excerpt, 0, strripos($excerpt, " "));
+    $excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
+    return $excerpt;
+}

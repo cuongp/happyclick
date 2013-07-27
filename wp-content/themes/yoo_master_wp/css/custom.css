@@ -1,4 +1,4 @@
-/* Copyright (C) YOOtheme GmbH, http://www.gnu.org/licenses/gpl.html GNU/GPL */
+187/* Copyright (C) YOOtheme GmbH, http://www.gnu.org/licenses/gpl.html GNU/GPL */
 
 /*
  * Custom Style Sheet - Use this file to style your content
@@ -20,10 +20,10 @@
     padding: 0;
 }
 #system #tabs > ul > li {
-	float: left;
-	height: 63px;
-	width: 259px;
-	margin-top:10px;
+float: left;
+height: 63px;
+width: 257px;
+margin-top: 10px;
 }
 #system #tabs > ul > li > a {
     font-size: 16px;
@@ -75,10 +75,10 @@
 
 
 #system #tabs > ul > li#tab-cs.ui-tabs-active {
-	background: url('../images/tab-cs-active.png') no-repeat right transparent;
-	height: 73px;
-	width: 267px;
-	margin-top:0px;
+background: url('../images/tab-cs-active.png') no-repeat right transparent;
+height: 73px;
+width: 265px;
+margin-top: 0px;
 }
 
 #system #tabs > ul > li#tab-kt.ui-tabs-active {
@@ -119,9 +119,10 @@ width: 675px;
 margin: 20px auto;
 background: #f0f0f0;
 position: relative;
-padding: 20px 10px 10px 15px;
-min-height: 350px;
-overflow: overlay;
+padding: 20px 15px 10px 15px;
+height:auto;
+overflow: hidden;
+margin-bottom: 150px;
 }
  .category-lam-giau-cuoc-song.category-happy-click-radio .posts-wrapper .first-post h1,
 .first-post-radio h1.post-h1-radio {
@@ -157,7 +158,7 @@ float: left;
 .category-lam-giau-cuoc-song.category-happy-click-radio .first-post .post-content-first,
 .first-post-radio .post-content-first-radio {
 	float: left;
-margin-top: 10px;
+margin-top: 15px;
 line-height: 17px;
 word-break: break-word;
 text-align: justify;
@@ -172,11 +173,11 @@ margin-left: 30px;
  
 .category-happy-click-radio .posts_sub .post_sub,
 .posts_sub_radio .post_sub_radio {
-height: 210px;
 width: 178px;
 float: left;
 margin: 30px 30px 0 0;
 overflow: hidden;
+word-spacing: -2px;
 }
 .category-happy-click-radio .posts_sub .post_sub img,
 .posts_sub_radio .post_sub_radio img {
@@ -188,9 +189,9 @@ overflow: hidden;
 .posts_sub_radio .post_sub_radio h3 {
 font-weight: bold;
 font-size: 14px;
-margin-top: 10px;
-margin-bottom: 10px;
- line-height: 14px;
+margin-top: 0px;
+margin-bottom: 2px;
+line-height: 20px;
   }
  .category-happy-click-radio .posts_sub .post_sub h3 a,
 .posts_sub_radio .post_sub_radio h3 a {
@@ -208,7 +209,8 @@ color:#99cc00;
  .category-happy-click-radio .posts_sub .post_sub .post-content-sub,
 .posts_sub_radio .post_sub_radio .post-content-sub-radio {
 font-size: 14px;
-line-height: 16px;
+line-height: 18px;
+font-style: italic;
 }
 /* CSS Goc Kien Thuc*/
 
@@ -217,7 +219,7 @@ line-height: 16px;
 }
  
 .category-goc-kien-thuc .posts-wrapper #download_here {
-margin: 10px auto;
+margin: 10px auto 30px;
 width: 375px;
 border-top: 1px solid #004f8d;
 -webkit-border-radius: 8px;
@@ -235,34 +237,39 @@ margin-left: 20px;
 }.category-goc-kien-thuc .posts-wrapper #download_here  a:hover {
 color: #99cc00;
 }
-.category-goc-kien-thuc .item {
+
+/*  css goc chia se  */
+.category .item-posts-chia-se {
+float: left;
+height: auto;
+overflow: hidden;
 width: 100%;
-float: left;
-margin-top: 50px;
 }
-.category-goc-kien-thuc .item img {
+.category .item-posts-chia-se .img_posts_chia_se {
 float: left;
-margin: 0px 20px 0 60px;
+margin-left: 60px;
+margin-top: 40px;
 }
-.category-goc-kien-thuc .item .posts-content {
+
+.category .item-posts-chia-se .posts-content {
+margin: 40px 70px 0px 30px;
 float: left;
-margin-right: 30px;
-margin-left: 0px;
-width: 550px;
-}
-.category-goc-kien-thuc .item .posts-content h3, .category-goc-kien-thuc .item .posts-content p {
-float: left;
-word-break: break-word;
+height: auto;
+overflow: hidden;
+width: 465px;
 text-align: justify;
-margin-top: 0px;
+word-break: break-word;
+}
+.category .item-posts-chia-se .posts-content h3 {
+margin: 0px;
+font-size: 16px;
+font-weight: bold;
 margin-bottom: 10px;
 }
-.category-goc-kien-thuc .item .posts-content h3 a {
-	color:#000;
+.category .item-posts-chia-se .posts-content h3 a {
+color:#000;
 }
-.category-goc-kien-thuc .item .posts-content h3 a:hover {
-	color:#99cc00;
-}
+
 .single-post .posts-wrapper #sticky-download {
 	float:left;
 	border-bottom:1px dotted #999;
@@ -358,6 +365,7 @@ font-style:italic;
 .single-post h3,.single-post h4,
 .single-post h5,.single-post h6 {
 	color:#68a400;
+	font-weight:bold;
 }
 .single-post #content{
 	margin: 10px 0px 10px 10px;
@@ -381,18 +389,16 @@ margin-left: 20px;
 width:235px;
 }
 .single-hoc-truc-tuyen-old .content-img img{
-	margin-top: 40px;
 margin-right: 25px;
 float: right;
 }
 .single-hoc-truc-tuyen-old .content-box-video {
-float: right;
-width: 520px;
-display: block;
 clear: both;
-margin-top: 40px;
-padding-bottom: 10px;
-margin-left:20px;
+    display: block;
+    float: right;
+    margin-left: 20px;
+    padding-bottom: 10px;
+    width: 520px;
 }
 .single-hoc-truc-tuyen-old h1 {
 font-size: 24px;
@@ -412,7 +418,9 @@ float:right;
 .single-hoc-truc-tuyen-old .content-box-video p a {
 	text-decoration: underline;
 	color:#000;
-}.single-hoc-truc-tuyen-old .content-box-video p a:hover {
+	font-weight: normal;
+}
+.single-hoc-truc-tuyen-old .content-box-video p a:hover {
 	color:#99cc00;
 }
 .single-hoc-truc-tuyen-old .content-box-video p a:hover {
@@ -423,17 +431,16 @@ text-align: justify;
 word-break: break-word;	
 }
 .single-post #system .posts-wrapper {
-	border-radius: 0 5px 5px 5px;
-	-webkit-border-radius: 0 5px 5px 5px;
-	-moz-border-radius: 0 5px 5px 5px;
-box-shadow: 0 0 9px #999999;
--webkit-box-shadow: 0 0 9px #999999;
--moz-box-shadow: 0 0 9px #999999;
-margin-bottom: 80px;
-margin-left: 0px;
+	box-shadow: 0 0 9px #999;
+-webkit-box-shadow: 0 0 9px #999;
+-moz-box-shadow: 0 0 10px #999;
+width: 99%;
 margin-top: 0;
-padding: 10px 30px 30px 0;
-width: 97%;
+border-radius: 0 5px 5px 5px;
+-webkit-border-radius: 0 5px 5px 5px;
+-moz-border-radius: 0 5px 5px 5px;
+margin-bottom: 80px;
+padding-top: 10px;
 overflow: hidden;
 height: auto;
 padding-bottom: 40px;
@@ -444,7 +451,11 @@ padding-bottom: 40px;
 	float:left;
 	margin-right:20px;
  }
-
+.single .author_info {
+	font-weight:normal !important;
+}
+ 
+ 
 .ban-lanh-dao { margin: 0 30px 0 60px; float: left; width: 755px;}
 .ban-lanh-dao h3 { margin: 20px 0 0;; width: 100%; float: left; }
 .ban-lanh-dao .wapper-content { float: left; width: 100%; }

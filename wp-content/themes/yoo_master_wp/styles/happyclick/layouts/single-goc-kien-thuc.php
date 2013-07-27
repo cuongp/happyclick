@@ -1,3 +1,8 @@
+<?php  global $displayed_post_id; 
+		if($displayed_post_id != null) {
+			$displayed_post_id = null;
+		}
+?>
 <?php if (have_posts()) : ?>
 		<?php while (have_posts()) : the_post(); 
 			if(is_sticky(get_the_ID())) : ?>
@@ -7,18 +12,11 @@
 				<div id="item" class="first-post" data-permalink="<?php the_permalink(); ?>">
 					<h1><?php the_title(); ?></h1>
 					<div class="post-content-first">
-						<div class="img-thumb">
-							<?php if(has_post_thumbnail()): ?>
-								<?php $width=''; $height=''; ?>
-								<?php the_post_thumbnail(array($width,$height),array('class'=>'size-auto')); ?>
-							<?php endif; ?>
-						</div>
-						<div>
 						<?php the_content(); ?>
-						</div>
 					</div>
 				</div>
 				<div>
+					 <?php $displayed_post_id = get_the_ID(); ?>
 					<?php echo $this->render('single-goc-kien-thuc-sub'); ?>
 				</div>
 			<?php endif; ?>

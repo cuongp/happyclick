@@ -26,13 +26,9 @@
 				<?php echo $this->render('single-happy-click-radio'); ?>
 			</div>
 		<?php } else if($cat == "goc-chia-se") { ?>
-			<div class='chia-se'>
 			<?php echo $this->render('single-goc-chia-se'); ?>
-			</div>
 		<?php } else if($cat == "goc-kien-thuc") { ?>
-			<div>
 			<?php echo $this->render('single-goc-kien-thuc'); ?>
-			</div>
 		<?php } ?>
 	</div>
 </div>
