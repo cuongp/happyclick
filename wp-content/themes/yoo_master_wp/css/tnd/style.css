@@ -259,7 +259,7 @@ div.wpcf7{
     margin: 25px 0 0;
     overflow: hidden;
 }
-.wpcf7 p{
+.item .content .wpcf7 p{
     clear: both;
     padding: 0; 
 }
@@ -301,7 +301,7 @@ div.wpcf7 span.wpcf7-not-valid-tip{
     border: none;
     background: transparent;
     top: -2px;
-    left: 10px;
+    left: 104%; /* 10px; */
     font-style: italic;
 }
 div.wpcf7 span.wpcf7-form-control-wrap{ float:left; }
@@ -752,7 +752,7 @@ table.quiz td{
     box-shadow: 0 0 5px #4896d4;
     padding: 20px 60px;
     text-align: left;
-    font-weight: bold;
+    /*font-weight: bold;*/
     font-size: 16px;
 }
 .back-home{
@@ -767,4 +767,33 @@ table.quiz td{
     padding-left: 20px;
 }
 .back-home a:hover{ color: #99cc00; }
+.page-template-default #content{
+    border: 1px solid #4B83AF;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 3px #4B83AF;
+    padding: 20px 35px 20px 15px;
+}
+.page-template-default #content h1.title{ color: #88AB35; }
+#content .royalSlider{
+    border: 1px solid #4B83AF;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 10px #9CBED9;
+    margin: 0 auto;
+    padding: 1px;
+}
+#content .royalSlider img {
+    box-shadow: 0 0 4px;
+}
+#content .rsDefaultInv .rsThumb {
+    border: 3px solid #fff;
+    box-shadow: 0 0 3px #888;
+}
+#answer4 h3{
+    font-size: 20px !important;
+    font-weight: bold;
+    line-height: 1.3em;
+    margin: 0;
+    padding: 0 0 10px;
+    text-align: center;
+}
 /* END Tamnd's code */

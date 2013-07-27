@@ -16,7 +16,7 @@
                 Giảng viên: <strong>Trần Đình Dũng</strong>
             </p>
             <p class="register-links">
-                <span class="course-link-wrapper"><a class="link-orange" href="<?php echo get_bloginfo('url'); ?>category/thanh-vien/quyen-loi-thanh-vien/"><span>Trở thành thành viên</span></a></span>
+                <span class="course-link-wrapper"><a class="link-orange" href="<?php echo get_bloginfo('url'); ?>/category/thanh-vien/quyen-loi-thanh-vien/"><span>Trở thành thành viên</span></a></span>
                 <?php 
                 $level_id = 2; //Membership level "HappyClick"
                 $is_membership = current_user_on_level($level_id);
