@@ -386,7 +386,7 @@ div.wpcf7-validation-errors{ border:none; }
     border-radius: 6px;
     box-shadow: 1px 1px 3px #6A9DC3;
 }
-.equaledge{}
+.equaledge{ margin: 0 8px 15px 15px; }
 
 .content-box1 h3.content-box-title{
     background: #f78000;
@@ -607,12 +607,8 @@ div.wpcf7-validation-errors{ border:none; }
     float:right;
     margin: 0 10px;
 }
-.video-pagination a.active{
-    color: #f78000;
-}
-.video-item a{
-    color: #333;
-}
+.video-pagination a.active{ color: #f78000; }
+.video-item a{ color: #333; }
 .video-item a:hover{
     color: #99cc00;
 }
@@ -629,7 +625,7 @@ div.wpcf7-validation-errors{ border:none; }
 .gallery_item{ 
     float:left; 
     width: 235px;
-    padding: 10px 22px;
+    padding: 10px 19px;
     text-align: center;
 }
 .gallery_item .gallery_thumb{
@@ -657,9 +653,7 @@ div.wpcf7-validation-errors{ border:none; }
     font-weight: bold;
     font-style: italic;
 }
-.content.hoc-qua-video {
-    text-align: center;
-}
+.content.hoc-qua-video { text-align: center; }
 .video_title{
     color: #111 !important;
     font-weight: bold;
@@ -671,7 +665,8 @@ div.wpcf7-validation-errors{ border:none; }
     font-size: 18px;
 }
 .archive-new-week{}
-.archive-new-week .course-title{
+.archive-new-week .course-title,
+#module-new-week h3 a{
     color: #87af23;
     font-family: 'UNokieBrush';
     font-size: 36px;
@@ -693,9 +688,7 @@ table.quiz thead{
     color: #fff;
     font-weight: bold;
 }
-table.quiz tbody{
-    text-align: center;
-}
+table.quiz tbody{ text-align: center; }
 table.quiz tr{}
 table.quiz td{
     padding: 5px 10px;
@@ -716,9 +709,7 @@ table.quiz td{
     font-weight: bold;
     margin-left: 5px;
 }
-.tong_diem a{
-    margin-right: 4em;
-}
+.tong_diem a{ margin-right: 4em; }
 .nw_answers{
     border: 1px solid #39f;
     padding: 15px;
@@ -729,9 +720,7 @@ table.quiz td{
 .video-upcomming{}
 .video-upcomming h3{}
 .video-upcomming strong{ color:#0066a1; }
-.video-upcomming td{
-    padding-left: 15px;
-}
+.video-upcomming td{ padding-left: 15px; }
 .back-videos{ 
     padding-left: 14px;
     margin-top: 30px; 
@@ -741,9 +730,7 @@ table.quiz td{
     font-weight: bold;
     font-size: 18px;
 }
-.back-videos a:hover{
-    color: #99cc00;
-}
+.back-videos a:hover{ color: #99cc00; }
 .border-blue{
     width: 735px;
     margin: 0 auto;
@@ -804,4 +791,12 @@ table.quiz td{
     padding: 0;
 }
 .page-id-834 #content h1.title{ display:none; }
+#module-new-week{ padding: 0 15px 10px; }
+#module-new-week h3{
+    text-align: center;
+    display: block;
+    padding: 0 0 25px;
+}
+#module-new-week h3 a{ font-size: 36px !important; }
+#module-new-week .quiz{ margin-top: 1.2em; }
 /* END Tamnd's code */

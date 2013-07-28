@@ -115,13 +115,26 @@ include($this['path']->path('layouts:template.config.php'));
 			</div>
 			<!-- maininner end -->
 			
-			<?php if ($this['modules']->count('sidebar-a')) : ?>
-			<aside id="sidebar-a" class="grid-box"><?php echo $this['modules']->render('sidebar-a', array('layout'=>'stack')); ?></aside>
-			<?php endif; ?>
-			
-			<?php if ($this['modules']->count('sidebar-b')) : ?>
-			<aside id="sidebar-b" class="grid-box"><?php echo $this['modules']->render('sidebar-b', array('layout'=>'stack')); ?></aside>
-			<?php endif; ?>
+			<?php
+            // CHECK USER TO GET SIDEBAR
+            $is_member = current_user_is_member();
+            $is_subs = current_user_has_subscription();
+            if($is_member && !$is_subs):
+            ?>
+                <?php if ($this['modules']->count('sidebar-trial')) : ?>
+                <aside id="sidebar-trial" class="grid-box"><?php echo $this['modules']->render('sidebar-trial', array('layout'=>'stack')); ?></aside>
+                <?php endif; ?>
+			<?php elseif($is_member && $is_subs): ?>
+                <?php if ($this['modules']->count('sidebar-membership')) : ?>
+                <aside id="sidebar-membership" class="grid-box"><?php echo $this['modules']->render('sidebar-membership', array('layout'=>'stack')); ?></aside>
+                <?php endif; ?>
+            <?php else: ?>
+                <?php if ($this['modules']->count('sidebar-a')) : ?>
+                <aside id="sidebar-a" class="grid-box"><?php echo $this['modules']->render('sidebar-a', array('layout'=>'stack')); ?></aside>
+                <?php endif; ?>
+			<?php endif; 
+            // END SIDEBAR
+            ?>         
 
 		</div>
 		<?php endif; ?>
