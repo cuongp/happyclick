@@ -639,7 +639,7 @@ function loadModule($atts) {
       'name' => ''
    ), $atts));
 
-return '<div class="box" style="width:730px">'.$this['modules']->render('login-modal');.'</div>';
+return '<div class="box" style="width:730px">'.$this['modules']->render($name).'</div>';
 }
 add_shortcode('loadModule','loadModule');
 ?>
