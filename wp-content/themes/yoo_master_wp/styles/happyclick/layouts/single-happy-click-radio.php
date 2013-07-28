@@ -19,7 +19,6 @@
 				</div>
 			</div>
 			<?php
-			/*	$displayed_post_id = get_the_ID(); */
 			echo $this->render('single-happy-click-radio-sub'); ?>
 		<?php endwhile; ?>
 <?php endif; ?>
