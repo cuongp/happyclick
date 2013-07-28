@@ -1,8 +1,8 @@
-187/* Copyright (C) YOOtheme GmbH, http://www.gnu.org/licenses/gpl.html GNU/GPL */
+/* Copyright (C) YOOtheme GmbH, http://www.gnu.org/licenses/gpl.html GNU/GPL */
 
 /*
  * Custom Style Sheet - Use this file to style your content
-<<<<<<< HEAD
+
  */
  
 /*  Vu Css*/
@@ -34,6 +34,7 @@ margin-top: 10px;
 
 #system #tabs > ul > li#tab-radio {
 	background: url('../images/tab-radio.png') no-repeat right transparent;
+    border: 1px solid #FFFFFF;
 }
 #system #tabs > ul > li#tab-radio a {
 	color: #3074ff;
@@ -45,6 +46,7 @@ margin-top: 10px;
 
 #system #tabs > ul > li#tab-cs {
 	background: url('../images/tab-cs.png') no-repeat right transparent;
+    border: 1px solid #FFFFFF;
 }
 #system #tabs > ul > li#tab-cs a {
 	color: #5F7D05;
@@ -113,7 +115,7 @@ padding-bottom: 40px;
 	border:none !important;
 }
 
- .category-lam-giau-cuoc-song.category-happy-click-radio .posts-wrapper .first-post,
+.category-happy-click-radio .category-lam-giau-cuoc-song .posts-wrapper .first-post,
 .first-post-radio {
 width: 675px;
 margin: 20px auto;
@@ -124,7 +126,7 @@ height:auto;
 overflow: hidden;
 margin-bottom: 150px;
 }
- .category-lam-giau-cuoc-song.category-happy-click-radio .posts-wrapper .first-post h1,
+.category-happy-click-radio .category-lam-giau-cuoc-song .posts-wrapper .first-post h1,
 .first-post-radio h1.post-h1-radio {
 font-weight: bold;
 font-size: 20px;
@@ -155,7 +157,7 @@ height: 80px;
 float: left;
  margin: 10px 30px;
  }
-.category-lam-giau-cuoc-song.category-happy-click-radio .first-post .post-content-first,
+.category-happy-click-radio .category-lam-giau-cuoc-song .first-post .post-content-first,
 .first-post-radio .post-content-first-radio {
 	float: left;
 margin-top: 15px;
@@ -173,11 +175,12 @@ margin-left: 30px;
  
 .category-happy-click-radio .posts_sub .post_sub,
 .posts_sub_radio .post_sub_radio {
-width: 183px;
+width: 174px;
 float: left;
 margin: 30px 27px 0 0;
 overflow: hidden;
 word-spacing: -2px;
+height: 230px; /*Tam thoi fix cung chieu cao*/
 }
 .category-happy-click-radio .posts_sub .post_sub img,
 .posts_sub_radio .post_sub_radio img {
@@ -260,7 +263,7 @@ margin-top: 40px;
 }
 
 .category .item-posts-chia-se .posts-content {
-margin: 40px 70px 0px 30px;
+margin: 40px 30px 0;
 float: left;
 height: auto;
 overflow: hidden;

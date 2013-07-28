@@ -31,7 +31,7 @@ global $current_user;
 		
 		<!-- begin main -->
 		<?php if ($this['modules']->count('innertop + innerbottom') || $this['config']->get('system_output')) : ?>
-		<div id="main" class="grid-block">
+		<div id="main" class="grid-block category-lam-giau-cuoc-song">
 
 			<div id="maininner" class="grid-box">
 
