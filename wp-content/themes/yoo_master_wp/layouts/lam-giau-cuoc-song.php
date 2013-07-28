@@ -39,9 +39,9 @@ global $current_user;
 				<section id="innertop" class="grid-block"><?php echo $this['modules']->render('innertop', array('layout'=>$this['config']->get('innertop'))); ?></section>
 				<?php endif; ?>
 
-				<?php if ($this['modules']->count('breadcrumbs')) : ?>
+				<?php /* if ($this['modules']->count('breadcrumbs')) : ?>
 				<section id="breadcrumbs"><?php echo $this['modules']->render('breadcrumbs'); ?></section>
-				<?php endif; ?>
+				<?php endif; */ ?>
 
 				<?php if ($this['config']->get('system_output')) : ?>
                     <?php echo $this['template']->render('content-lam-giau-cuoc-song'); ?>
