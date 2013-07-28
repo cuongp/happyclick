@@ -14,5 +14,9 @@
             <?php endif; ?> 
         </div>
     </a>
+    <?php 
+        $is_member  = current_user_is_member(); //Da dang ky
+        $is_subs    = current_user_has_subscription(); //Da tra tien
+    ?>
     <a href="<?php the_permalink() ?>"><?php the_title() ?></a>
 </li>
