@@ -13,6 +13,7 @@ License: GPLv2
 
 include (dirname(__file__) . '/widgets/widget-sukien.php');
 
+//include (dirname(__file__) . '/widgets/widget-sukien.php');
 
 add_action('admin_menu','add_membership_custom_options');
 
@@ -635,11 +636,12 @@ return '<div class="banner"><a title="'.$gv->post_title.'" href="'.$gv->guid.'">
 }
 add_shortcode('bannergiangvien', 'giangvien_banner');
 function loadModule($atts) {
+
    extract(shortcode_atts(array(
       'name' => ''
    ), $atts));
 
-return '<div class="box" style="width:730px">'.$this['modules']->render('login-modal');.'</div>';
+return '<div class="box" style="width:730px">'.$this['modules']->render($name).'</div>';
 }
 add_shortcode('loadModule','loadModule');
 ?>

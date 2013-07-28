@@ -19,7 +19,7 @@ else
 if($current_time>12*3600*1000){
 ?>
 
-<div class="box" style="width:500px;">
+<!--<div class="box" style="width:500px;">
 	<p>Quá thời gian kích hoạt tài khoản</p>
 	
 <table width="100%">
@@ -28,7 +28,7 @@ if($current_time>12*3600*1000){
 
 			</tr>
 		</table>
-</div>
+</div>-->
 <?php	
 }else{
 		update_usermeta($user_id,'wp_membership_active','yes');
