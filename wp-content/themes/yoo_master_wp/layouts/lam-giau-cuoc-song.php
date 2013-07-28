@@ -90,7 +90,7 @@ include($this['path']->path('layouts:template.config.php'));
 		<?php endif; ?>
 		
 		<!-- begin main -->
-		<?php if ($this['modules']->count('innertop + innerbottom + sidebar-a + sidebar-b') || $this['config']->get('system_output')) : ?>
+		<?php if ($this['modules']->count('innertop + innerbottom') || $this['config']->get('system_output')) : ?>
 		<div id="main" class="grid-block">
 
 			<div id="maininner" class="grid-box">
