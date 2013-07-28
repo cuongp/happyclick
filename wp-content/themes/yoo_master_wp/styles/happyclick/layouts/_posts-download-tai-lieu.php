@@ -1,7 +1,6 @@
 
 <?php //<h1><?php _e('Download tài liệu','warp'); </h1> ?>
 <?php
-
 $arg = array(
 	'category_name' 	=> 'download-tai-lieu',
     'post_status' 			=> array( 'publish' ),
