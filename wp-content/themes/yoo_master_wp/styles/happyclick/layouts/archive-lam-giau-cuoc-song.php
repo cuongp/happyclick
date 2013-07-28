@@ -34,6 +34,10 @@
 				<li id="tab-radio"><a href="<?php echo get_site_url().'/category/happy-click-radio'; ?>"><?php _e('Happy Click Radio','warp'); ?></a></li>
 				<li id="tab-cs"><a href="<?php echo get_site_url().'/category/goc-chia-se'; ?>"><?php _e('Góc chia sẻ','warp'); ?></a></li>
 				<li id="tab-kt"  class="ui-tabs-active"><a href="<?php echo get_site_url().'/category/goc-kien-thuc'; ?>"><?php _e('Góc kiến thức','warp'); ?></a></li>
+			<?php elseif($curr_cat->slug == "download-tai-lieu"): ?>
+				<li id="tab-radio"><a href="<?php echo get_site_url().'/category/happy-click-radio'; ?>"><?php _e('Happy Click Radio','warp'); ?></a></li>
+				<li id="tab-cs"><a href="<?php echo get_site_url().'/category/goc-chia-se'; ?>"><?php _e('Góc chia sẻ','warp'); ?></a></li>
+				<li id="tab-kt"  class="ui-tabs-active"><a href="<?php echo get_site_url().'/category/goc-kien-thuc'; ?>"><?php _e('Góc kiến thức','warp'); ?></a></li>
 			<?php endif; ?>
 			</ul>
 			</div>
@@ -46,6 +50,8 @@
 					echo $this->render('_posts-goc-chia-se');
 				} else if($curr_cat->slug == "goc-kien-thuc") {
 					echo $this->render('_posts-goc-kien-thuc');
+				} else if($curr_cat->slug == "download-tai-lieu") {
+					echo $this->render('_posts-download-tai-lieu');
 				} ?>
 			</div>
 			<?php }	?>

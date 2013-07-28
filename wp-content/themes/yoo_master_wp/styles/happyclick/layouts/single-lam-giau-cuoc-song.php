@@ -16,6 +16,10 @@
 				<li id="tab-radio"><a href="<?php echo get_site_url().'/category/happy-click-radio'; ?>"><?php _e('Happy Click Radio','warp'); ?></a></li>
 				<li id="tab-cs"><a href="<?php echo get_site_url().'/category/goc-chia-se'; ?>"><?php _e('Góc chia sẻ','warp'); ?></a></li>
 				<li id="tab-kt" class="ui-tabs-active"><a href="<?php echo get_site_url().'/category/goc-kien-thuc'; ?>"><?php _e('Góc kiến thức','warp'); ?></a></li>
+				<?php elseif ($cat == "download-tai-lieu"): ?>
+				<li id="tab-radio"><a href="<?php echo get_site_url().'/category/happy-click-radio'; ?>"><?php _e('Happy Click Radio','warp'); ?></a></li>
+				<li id="tab-cs"><a href="<?php echo get_site_url().'/category/goc-chia-se'; ?>"><?php _e('Góc chia sẻ','warp'); ?></a></li>
+				<li id="tab-kt" class="ui-tabs-active"><a href="<?php echo get_site_url().'/category/goc-kien-thuc'; ?>"><?php _e('Góc kiến thức','warp'); ?></a></li>
 			<?php endif; ?>
 			</ul>
 	</div>
@@ -29,6 +33,8 @@
 			<?php echo $this->render('single-goc-chia-se'); ?>
 		<?php } else if($cat == "goc-kien-thuc") { ?>
 			<?php echo $this->render('single-goc-kien-thuc'); ?>
+		<?php  } else if($cat == "download-tai-lieu") { ?>
+			<?php echo $this->render('single-download-tai-lieu'); ?>
 		<?php } ?>
 	</div>
 </div>

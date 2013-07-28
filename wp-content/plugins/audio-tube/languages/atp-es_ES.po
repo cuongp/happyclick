@@ -1,0 +1,203 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Audio Tube\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-04-12 18:31+0100\n"
+"PO-Revision-Date: 2013-04-12 18:32+0100\n"
+"Last-Translator: Rodolfo Buaiz <brasofilo@gmai.com>\n"
+"Language-Team: brasofilo <brasofilo@gmail.com>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Generator: Poedit 1.5.4\n"
+
+#: audio-tube.php:101
+msgid "Settings"
+msgstr "Ajustes"
+
+#: inc/class-audio-tube.php:85
+msgid ""
+"Hides the video area and show only the controls. Easy setup page with "
+"examples of the shortcode usage."
+msgstr ""
+"Esconde el area de video y muestra solamente los controles. Página de "
+"ajustes simples con ejemplos de uso del shortcode."
+
+#: inc/page-admin.php:25
+msgid "Settings updated."
+msgstr "Ajustes gravados"
+
+#: inc/page-admin.php:41
+msgid "version"
+msgstr "versión"
+
+#: inc/page-admin.php:53
+msgid "Plugin Options"
+msgstr "Ajustes del plugin"
+
+#: inc/page-admin.php:58
+msgid "<strong>White theme</strong> (default is black)"
+msgstr "<strong>Tema blanco</strong> (por defecto: negro)"
+
+#: inc/page-admin.php:67
+msgid "<strong>JavaScript API</strong>"
+msgstr "<strong>JavaScript API</strong>"
+
+#: inc/page-admin.php:67
+msgid ""
+"The JavaScript API allows users to control the YouTube chromeless or "
+"embedded video players via JavaScript. Calls can be made to play, pause, "
+"seek to a certain time in a video, set the volume, mute the player, and "
+"other useful functions. <a href=\"http://code.google.com/apis/youtube/"
+"js_api_reference.html\">Documentation</a>."
+msgstr ""
+
+#: inc/page-admin.php:80
+msgid ""
+"<strong>Allow editors, authors and colaborators to see this page</strong>"
+msgstr ""
+"<strong>Permitir que editores, autores y colaboradores vean esta página</"
+"strong>"
+
+#: inc/page-admin.php:80
+msgid "Hiding this plugin options box."
+msgstr "Suprimiendo la caja de ajustes del plugin."
+
+#: inc/page-admin.php:84
+msgid "Update settings"
+msgstr "Guardar cambios"
+
+#: inc/page-admin.php:102
+msgid "Shortcode Examples"
+msgstr "Ejemplos de shortcode"
+
+#: inc/page-admin.php:106
+msgid "Basic use"
+msgstr "Uso básico"
+
+#: inc/page-admin.php:111
+msgid "No timer"
+msgstr "Sin tiempo"
+
+#: inc/page-admin.php:116
+msgid "No bar"
+msgstr "Sin barra"
+
+#: inc/page-admin.php:121
+msgid "Tiny"
+msgstr "Mínimo"
+
+#: inc/page-admin.php:126
+msgid "Medium"
+msgstr "Mediano"
+
+#: inc/page-admin.php:131
+msgid "Medium & no time"
+msgstr "Mediano y sin tiempo"
+
+#: inc/page-admin.php:136
+msgid "Large"
+msgstr "Largo"
+
+#: inc/page-admin.php:141
+msgid "Large & no time"
+msgstr "Largo y sin tiempo"
+
+#: inc/page-admin.php:156
+msgid "Shortcode Reference"
+msgstr "Referencia de shortcode"
+
+#: inc/page-admin.php:157
+msgid "<h4>Shortcode options</h4>"
+msgstr "<h4>Ajustes del shortcode</h4>"
+
+#: inc/page-admin.php:160
+msgid ""
+"Required! YouTube video ID, is the part marked in red:<br /> <code>www."
+"youtube.com/watch?v=<strong><font color=\"red\" size=\"3\">5TqqbaOcvP4</"
+"font></strong>&feature=autoplay</code>"
+msgstr ""
+"Obligatorio! El ID del video YouTube es la parte marcada en rojo:<br /> "
+"<code>www.youtube.com/watch?v=<strong><font color=\"red\" size="
+"\"3\">5TqqbaOcvP4</font></strong>&feature=autoplay</code>"
+
+#: inc/page-admin.php:163
+msgid "Progress bar (yes or no, default = yes)"
+msgstr "Barra de progreso (yes o no, por defecto = yes)"
+
+#: inc/page-admin.php:166
+msgid "Timer  (yes or no, default = yes)"
+msgstr "Tiempo (yes o no, por defecto = yes)"
+
+#: inc/page-admin.php:169
+msgid ""
+"Minimal player, not compatible with Progress Bar (yes or no, default = no)"
+msgstr ""
+"Player minimalista, no compatible con la Barra de Progreso (yes o no, por "
+"defecto = no)"
+
+#: inc/page-admin.php:172
+msgid "Extended sizes (small, medium or large, default = small)"
+msgstr "Tamaños extendidos (small, medium o large, por defecto = small)"
+
+#: inc/page-admin.php:175
+msgid "Hidden player (yes or no, default = no)"
+msgstr "Player oculto (yes o no, por defecto = no)"
+
+#: inc/page-admin.php:178
+msgid "Autoplay (yes or no, default = no)"
+msgstr "Reproducción automática (yes o no, por defecto = no)"
+
+#: inc/page-admin.php:181
+msgid "Loop (yes or no, default = no)"
+msgstr "Bucle (yes o no, por defecto = no)"
+
+#: inc/page-admin.php:184
+msgid ""
+"Player color, will override plugin options (dark or light, default = dark)"
+msgstr ""
+"Color del player, sobrepone los ajustes del plugin (dark o light, default, "
+"por defecto = dark)"
+
+#: inc/page-admin.php:187
+msgid "Start time in seconds"
+msgstr "Tiempo inicial en segundos"
+
+#: inc/page-admin.php:199
+msgid ""
+"Porting of Navarr's <a href=\"http://tech.navarr.me/code/youtube-audio-player"
+"\">YouTube Audio Player</a> to WordPress.<br /><em>\"Turns any YouTube Video "
+"or Playlist URL into a small embedded Audio Player\".</em>"
+msgstr ""
+"Adaptación del <a href=\"http://tech.navarr.me/code/youtube-audio-player"
+"\">YouTube Audio Player</a>, por Navarr, para el WordPress<br /><em>"
+"\"Convierte cualquier video o lista de reproducción de YouTube en un pequeño "
+"tocador de audio\".</em>"
+
+#~ msgid ""
+#~ "Easy YouTube music player based on Navarr Barnier's PHP script. Simple "
+#~ "setup page and extended shortcode capabilities."
+#~ msgstr ""
+#~ "Reproductor de audio YouTube. Esconde el area de video y muestra "
+#~ "solamente los controles. Página de ajustes con ejemplos de uso del "
+#~ "shortcode."
+
+#~ msgid "<strong>Allow YouTube to collect cookies</strong>"
+#~ msgstr "<strong>Permitir que YouTube almacene cookies</strong>"
+
+#~ msgid ""
+#~ "This mode restricts YouTube's ability to set cookies for a user who views "
+#~ "a web page that contains a privacy-enhanced YouTube embed video player, "
+#~ "but does not click on the video to begin playback. YouTube may still set "
+#~ "cookies on the user's computer once the visitor clicks on the YouTube "
+#~ "video player, but YouTube will not store personally-identifiable cookie "
+#~ "information for playbacks of embedded videos using the privacy-enhanced "
+#~ "mode.<a href=\"http://www.google.com/support/youtube/bin/answer.py?"
+#~ "answer=171780\">Documentation</a>."
+#~ msgstr ""
+#~ "Este modo impede que YouTube grave cookies para visitantes que no hagan "
+#~ "la reproducción del video. E cuando lo hagen, el cookie no gravara "
+#~ "información de identificación personal. <a href=\"http://www.google.com/"
+#~ "support/youtube/bin/answer.py?answer=171780\">Documentación</a>."

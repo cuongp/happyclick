@@ -1,0 +1,33 @@
+/*#icon-options-bsf-atp {
+margin: 7px 28px 0 0;
+}*/
+.wrap h2 {padding: 14px 0 10px 60px}
+
+.inside {padding:20px !important}
+.inside p {line-height:1.6em !important}
+.desc {color:#787878; padding:0 0 10px 27px;border-bottom: solid #EBEBEB thin; }
+p.desc-black {color:#8F6F64;font-size:1.3em !important;padding-left:0px;}
+input.checkbox { margin-right:8px; }
+input[type="checkbox"], input[type="text"] {
+	margin-right:10px;
+}
+li {margin:5px 0;}
+
+#dark-red, #dark-white, #light-red, #light-white {display:none;}
+
+.submit {
+padding: 14px 0 0 0;
+margin: 0;
+}
+.scode {font-family: monospace;background-color:#DACE9E;margin-right:60px;float:left;padding: 0 15px;
+min-width: 70px;text-align: center;}
+.stext {background-color:#DBDBDB;float:left;margin-bottom:10px;padding: 0 15px;}
+
+.shortcodes {padding:22px}
+.shortcodes ul {padding-left:20px}
+.shortcodes li {display:block;padding:12px 0;}
+
+
+.examples li {line-height:2em;}
+.examples ul { list-style-type: circle; padding: 0 0 0 20px;}
+.examples code {font-size: 1em;margin-left:-4px;padding:5px 0;}

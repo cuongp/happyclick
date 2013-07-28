@@ -200,11 +200,11 @@ word-break: break-word;
 text-align: justify;
 } .category-happy-click-radio .posts_sub .post_sub h3 a:hover,
 .posts_sub_radio .post_sub_radio h3 a:hover {
-color:#99cc00;
+color:#83B87A;
 }
  .category-happy-click-radio .posts_sub .post_sub h3 a:hover,
 .posts_sub_radio .post_sub_radio h3 a:hover {
-color:#99cc00;
+color:#83B87A;
 }
  .category-happy-click-radio .posts_sub .post_sub .post-content-sub,
 .posts_sub_radio .post_sub_radio .post-content-sub-radio {
@@ -214,11 +214,11 @@ font-style: italic;
 }
 
 .category-goc-chia-se .posts-wrapper .posts-content h3 a:hover {
-	color:#5F7D05;
+	color:#83B87A;
 }
 
 .category-goc-kien-thuc .posts-wrapper .posts-content h3 a:hover {
-	color:#940244;
+	color:#83B87A;
 }
 /* CSS Goc Kien Thuc*/
 
@@ -243,7 +243,7 @@ font-size: 22px;
 color: #000;
 margin-left: 20px;
 }.category-goc-kien-thuc .posts-wrapper #download_here  a:hover {
-color: #940244;
+color: #83B87A;
 }
 
 /*  css goc chia se  */
@@ -282,8 +282,9 @@ color:#000;
 	float:left;
 	border-bottom:1px dotted #999;
 	margin: 0px 60px 0 60px;
+	width: 750px;
 }
-.single-post .posts-wrapper #sticky-download a {
+.single-post .posts-wrapper #sticky-download a.link_icon {
 	float:left;
 	background:url('../images/ico-download.png') right center no-repeat;
 	height:20px;
@@ -292,7 +293,7 @@ color:#000;
 }
 .single-post .posts-wrapper #sticky-download a:hover{
 	text-decoration:underline;
-	color:#0079be;
+	color:#83B87A;
 }
 
 .single-post .posts-wrapper .content-post-single {
@@ -356,7 +357,7 @@ padding: 2px 0 5px 0;
 }
 .category-goc-chia-se .posts-wrapper .posts_sub .post_sub  a:hover,
  .single-post  .posts-wrapper .posts_sub .post_sub a:hover {
-	color: #709efd;
+	color: #83B87A;
 }
 .category-goc-chia-se .posts-wrapper .posts_sub .post_sub .post-content-sub,
  .single-post  .posts-wrapper .posts_sub .post_sub .post-content-sub {
@@ -429,7 +430,7 @@ float:right;
 	font-weight: normal;
 }
 .single-hoc-truc-tuyen-old .content-box-video p a:hover {
-	color:#99cc00;
+	color:#83B87A;
 }
 .single-hoc-truc-tuyen-old .content-box-video p a:hover {
 	text-decoration: none;
@@ -462,6 +463,16 @@ padding-bottom: 40px;
 .single .author_info {
 	font-weight:normal !important;
 }
+ 
+ .item-download-tai-lieu {
+	margin: 0 70px 20px 60px;
+	padding-bottom: 10px;
+	border-bottom:1px dotted #888;
+ }
+  .category-download-tai-lieu h1 {
+	font-size:24px;
+	margin: 20px 70px 20px 60px;
+  }
  
  
 .ban-lanh-dao { margin: 0 30px 0 60px; float: left; width: 755px;}
