@@ -309,12 +309,13 @@ function sukien_form()
 {
     $post_id = get_the_ID();
     $sukien_data = get_post_meta($post_id, '_sukien', true);
+    
     $video = (empty($sukien_data['video'])) ? '' : $sukien_data['video'];
     $giatien = (empty($sukien_data['giatien'])) ? '' : $sukien_data['giatien'];
     $thoigian = (empty($sukien_data['thoigian'])) ? '' : $sukien_data['thoigian'];
     $diadiem = (empty($sukien_data['diadiem'])) ? '' : $sukien_data['diadiem'];
-    $articleicon = (empty($sukien_data['diadiem'])) ? '' : $sukien_data['articleicon'];
-    $slidericon = (empty($sukien_data['diadiem'])) ? '' : $sukien_data['slidericon'];
+    $articleicon = (empty($sukien_data['articleicon'])) ? '' : $sukien_data['articleicon'];
+    $slidericon = (empty($sukien_data['slidericon'])) ? '' : $sukien_data['slidericon'];
     wp_nonce_field('sukien', 'sukien');
 ?>
 <p>
@@ -323,11 +324,11 @@ function sukien_form()
 </p>
 <p>
         <label>Slider Icon</label><br />
-        <input type="text" value="<?php echo $video; ?>" name="sukien[slidericon]" size="80" />
+        <input type="text" value="<?php echo $slidericon; ?>" name="sukien[slidericon]" size="80" />
 </p>
 <p>
         <label>Article Icon</label><br />
-        <input type="text" value="<?php echo $video; ?>" name="sukien[articleicon]" size="80" />
+        <input type="text" value="<?php echo $articleicon; ?>" name="sukien[articleicon]" size="80" />
 </p>
 <p>
 		<label>Giá tiền (optional)</label><br />
@@ -351,19 +352,17 @@ function sukien_save_post($post_id)
     if (!empty($_POST['sukien'])) {
         $sukien_data['giatien'] = (empty($_POST['sukien']['giatien'])) ? '' :
             sanitize_text_field($_POST['sukien']['giatien']);
-        
         $sukien_data['video'] = (empty($_POST['sukien']['video'])) ? '' :
-            sanitize_text_field($_POST['sukien']['video']);
+            $_POST['sukien']['video'];
         $sukien_data['thoigian'] = (empty($_POST['sukien']['thoigian'])) ? '' :
             sanitize_text_field($_POST['sukien']['thoigian']);
         $sukien_data['diadiem'] = (empty($_POST['sukien']['diadiem'])) ? '' :
             sanitize_text_field($_POST['sukien']['diadiem']);
         update_post_meta($post_id, '_sukien', $sukien_data);
         $sukien_data['articleicon'] = (empty($_POST['sukien']['articleicon'])) ? '' :
-            sanitize_text_field($_POST['sukien']['articleicon']);
+            $_POST['sukien']['articleicon'];
         $sukien_data['slidericon'] = (empty($_POST['sukien']['slidericon'])) ? '' :
-            sanitize_text_field($_POST['sukien']['slidericon']);
-        
+         $_POST['sukien']['slidericon'];
     } else {
         delete_post_meta($post_id, '_sukien');
     }
@@ -380,6 +379,8 @@ function sukien_edit_columns($columns)
         'sukien-giatien' => 'Giá tiền',
         'sukien-thoigian' => 'Thời gian',
         'sukien-diadiem' => 'Địa điểm',
+        'sukien-articleicon'=>'Article Icon',
+        'sukien-slidericon'=>'Slide Icon',
         'author' => 'Posted by',
         'date' => 'Date');
 
@@ -431,6 +432,14 @@ function sukien_columns($column, $post_id)
         case 'sukien-diadiem':
             if (!empty($sukien_data['diadiem']))
                 echo $sukien_data['diadiem'];
+            break;
+        case 'sukien-slidericon':
+            if (!empty($sukien_data['slidericon']))
+                echo '<img src="'.$sukien_data['slidericon'].'" width=50 height=50 />';
+            break;
+        case 'sukien-articleicon':
+            if (!empty($sukien_data['articleicon']))
+                echo '<img src="'.$sukien_data['articleicon'].'" width=50 height=50 />';
             break;
     }
 }
@@ -625,5 +634,12 @@ function giangvien_banner($atts) {
 return '<div class="banner"><a title="'.$gv->post_title.'" href="'.$gv->guid.'"><img alt="'.$gv->post_title.'" src="'.$image.'" /></a></div>';
 }
 add_shortcode('bannergiangvien', 'giangvien_banner');
+function loadModule($atts) {
+   extract(shortcode_atts(array(
+      'name' => ''
+   ), $atts));
 
+return '<div class="box" style="width:730px">'.$this['modules']->render('login-modal');.'</div>';
+}
+add_shortcode('loadModule','loadModule');
 ?>
