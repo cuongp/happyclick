@@ -67,8 +67,8 @@ global $current_user;
                 <aside id="sidebar-membership" class="grid-box"><?php echo $this['modules']->render('sidebar-membership', array('layout'=>'stack')); ?></aside>
                 <?php endif; ?>
             <?php else: ?>
-                <?php if ($this['modules']->count('sidebar-a')) : ?>
-                <aside id="sidebar-a" class="grid-box"><?php echo $this['modules']->render('sidebar-a', array('layout'=>'stack')); ?></aside>
+                <?php if ($this['modules']->count('sidebar-b')) : ?>
+                <aside id="sidebar-b" class="grid-box"><?php echo $this['modules']->render('sidebar-b', array('layout'=>'stack')); ?></aside>
                 <?php endif; ?>
 			<?php endif; 
             // END SIDEBAR

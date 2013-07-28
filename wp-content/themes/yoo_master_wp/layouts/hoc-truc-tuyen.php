@@ -38,9 +38,9 @@ global $current_user;
 				<section id="innertop" class="grid-block"><?php echo $this['modules']->render('innertop', array('layout'=>$this['config']->get('innertop'))); ?></section>
 				<?php endif; ?>
 
-				<?php if ($this['modules']->count('breadcrumbs')) : ?>
+				<?php /* if ($this['modules']->count('breadcrumbs')) : ?>
 				<section id="breadcrumbs"><?php echo $this['modules']->render('breadcrumbs'); ?></section>
-				<?php endif; ?>
+				<?php endif; */ ?>
 
 				<?php if ($this['config']->get('system_output')) : ?>
                     <?php echo $this['template']->render('content-hoc-truc-tuyen'); ?>
@@ -67,8 +67,8 @@ global $current_user;
                 <aside id="sidebar-membership" class="grid-box"><?php echo $this['modules']->render('sidebar-membership', array('layout'=>'stack')); ?></aside>
                 <?php endif; ?>
             <?php else: ?>
-                <?php if ($this['modules']->count('sidebar-a')) : ?>
-                <aside id="sidebar-a" class="grid-box"><?php echo $this['modules']->render('sidebar-a', array('layout'=>'stack')); ?></aside>
+                <?php if ($this['modules']->count('sidebar-b')) : ?>
+                <aside id="sidebar-b" class="grid-box"><?php echo $this['modules']->render('sidebar-b', array('layout'=>'stack')); ?></aside>
                 <?php endif; ?>
 			<?php endif; 
             // END SIDEBAR

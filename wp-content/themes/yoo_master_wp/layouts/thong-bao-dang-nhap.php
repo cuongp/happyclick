@@ -41,9 +41,9 @@ global $current_user;
 			<?php endif; ?>
 				<?php if ($this['config']->get('system_output')) : ?>
 					<div id="maininner" class="grid-box">
-						<?php if ($this['modules']->count('breadcrumbs')) : ?>
+						<?php /* if ($this['modules']->count('breadcrumbs')) : ?>
 							<section id="breadcrumbs"><?php echo $this['modules']->render('breadcrumbs'); ?></section>
-						<?php endif; ?>
+						<?php endif;*/ ?>
 						<?php echo $this['template']->render('content-thong-bao-dang-nhap'); ?>
 					</div>
 				<?php endif; ?>
