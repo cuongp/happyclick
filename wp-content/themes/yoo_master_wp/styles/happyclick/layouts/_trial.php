@@ -20,7 +20,9 @@ include($this['path']->path('layouts:template.config.php'));
 </head>
 
 <body id="page" class="page <?php echo $this['config']->get('body_classes'); ?>" data-config='<?php echo $this['config']->get('body_config','{}'); ?>'>
-
+<div style="position:fixed;top:0px;border:1px solid red;padding:10px;z-index:9999">
+Bạn đang là thành viên dùng thử
+</div>
 	<?php if ($this['modules']->count('absolute')) : ?>
 	<div id="absolute">
 		<?php echo $this['modules']->render('absolute'); ?>
@@ -104,7 +106,9 @@ dành cho thành viên Happy Click</p>
 		</header>
 
 		
-			<?php if ($this['modules']->count('sidebar-trial')) : ?>
+			<?php 
+			
+			if ($this['modules']->count('sidebar-trial')) : ?>
 			<aside id="sidebar-trial" class="grid-box"><?php echo $this['modules']->render('sidebar-trial', array('layout'=>'stack')); ?></aside>
 			<?php endif; ?>
 

@@ -25,7 +25,9 @@ global $current_user;
 </head>
 
 <body id="page" class="page <?php echo $this['config']->get('body_classes'); ?>" data-config='<?php echo $this['config']->get('body_config','{}'); ?>'>
-
+<div style="position:fixed;top:0px;border:1px solid red;padding:10px;z-index:9999">
+Bạn đang là visitor
+</div>
 	<?php if ($this['modules']->count('absolute')) : ?>
 	<div id="absolute">
 		<?php echo $this['modules']->render('absolute'); ?>
@@ -81,7 +83,31 @@ global $current_user;
 				<a id="logo" href="<?php echo $this['config']->get('site_url'); ?>"><?php echo $this['modules']->render('logo'); ?></a>
 				<?php endif; ?>
 				
-				<?php echo $this['modules']->render('headerbar'); ?>
+				<?php 
+					$is_member = current_user_is_member();
+					$is_subs = current_user_has_subscription();
+					if($is_subs && $is_member){
+						echo $this['modules']->render('headerbar-trial'); 
+					?>
+						<div class='user_info'>
+				<h3 class="username">Chào <?php echo $current_user->last_name; ?> !</h3>
+				<p>Mời bạn bắt đầu hành trình<br/>
+"thăng tiến mỗi ngày" với Happy Click</p>
+				</div>
+					<?php
+					}elseif($is_member && !$is_subs){
+						echo $this['modules']->render('headerbar-trial');
+					?>
+					<div class='user_info'>
+				<h3 class="username">Chào <?php echo $current_user->last_name; ?> !</h3>
+				<p>Mời bạn xem thử một số tiện ích<br/>
+dành cho thành viên Happy Click</p>
+				</div>
+					<?php
+					}else{
+						 echo $this['modules']->render('headerbar');
+					}
+				?>
 				
 			</div>
 			<?php 
@@ -111,11 +137,36 @@ global $current_user;
 				<a id="logo" href="<?php echo $this['config']->get('site_url'); ?>"><?php echo $this['modules']->render('logo'); ?></a>
 				<?php endif; ?>
 				
-				<?php echo $this['modules']->render('headerbar'); ?>
+				<?php 
+					$is_member = current_user_is_member();
+					$is_subs = current_user_has_subscription();
+					if($is_subs && $is_member){
+						echo $this['modules']->render('headerbar-trial'); 
+					?>
+						<div class='user_info'>
+				<h3 class="username">Chào <?php echo $current_user->last_name; ?> !</h3>
+				<p>Mời bạn bắt đầu hành trình<br/>
+"thăng tiến mỗi ngày" với Happy Click</p>
+				</div>
+					<?php
+					}elseif($is_member && !$is_subs){
+						echo $this['modules']->render('headerbar-trial');
+					?>
+					<div class='user_info'>
+				<h3 class="username">Chào <?php echo $current_user->last_name; ?> !</h3>
+				<p>Mời bạn xem thử một số tiện ích<br/>
+dành cho thành viên Happy Click</p>
+				</div>
+					<?php
+					}else{
+						 echo $this['modules']->render('headerbar');
+					}
+				?>
 				
 			</div>
 			<?php 
             endif;
+
             if ($this['modules']->count('top-a2')) : ?>
 			<section id="top-a2" class="grid-block"><?php echo $this['modules']->render('top-a2', array('layout'=>$this['config']->get('top-a2'))); ?></section>
             <?php
