@@ -158,11 +158,7 @@ dành cho thành viên Happy Click</p>
 			<?php endif; ?>
 		
 		</header>
-
-		<?php if ($this['modules']->count('top-a')) : ?>
-		<section id="top-a" class="grid-block"><?php echo $this['modules']->render('top-a', array('layout'=>$this['config']->get('top-a'))); ?></section>
-		<?php endif; ?>
-		
+ 
 		<?php if ($this['modules']->count('top-b')) : ?>
 		<section id="top-b" class="grid-block"><?php echo $this['modules']->render('top-b', array('layout'=>$this['config']->get('top-b'))); ?></section>
 		<?php endif; ?>
