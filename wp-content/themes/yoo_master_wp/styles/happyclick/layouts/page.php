@@ -2,7 +2,7 @@
 	<?php if (have_posts()) : ?>
 		<?php while (have_posts()) : the_post(); ?>
 		
-		<article class="item" data-permalink="<?php the_permalink(); ?>">			 
+    <article class="item" data-permalink="<?php the_permalink(); ?>">			 
 			<header>
 				<h1 class="title"><?php the_title(); ?></h1>
 			</header>

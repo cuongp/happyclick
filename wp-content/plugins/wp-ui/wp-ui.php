@@ -789,7 +789,8 @@ class wpUI {
 		extract( shortcode_atts( array(
 				'class'	=>	''
 			), $atts));
-			return '<div class="wp-tab-content"><div class="wp-tab-content-wrapper">' . do_shortcode($content) . '</div></div><!-- end div.wp-tab-content -->';
+//			return '<div class="wp-tab-content"><div class="wp-tab-content-wrapper">' . do_shortcode($content) . '</div></div><!-- end div.wp-tab-content -->';
+			return '<div class="wp-tab-content"><div class="wp-tab-content-wrapper">' . apply_filters('the_content', do_shortcode($content)) . '</div></div><!-- end div.wp-tab-content -->';
 
 	} // END function sc_wptabcontent
 
