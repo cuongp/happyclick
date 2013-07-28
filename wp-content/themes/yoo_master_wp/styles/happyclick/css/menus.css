@@ -38,8 +38,8 @@
 	background-position: left;
 }
 
-.menu-dropdown li:last-child .active {	
-	background: url(../images/active-menu.png);
+.menu-dropdown li:last-child.active {	
+	
 	background-position: right;
 }
 /* Set Hover */

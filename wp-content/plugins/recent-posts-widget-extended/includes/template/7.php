@@ -3,22 +3,16 @@
 			<ul id="slider">
 
 				<?php foreach ($rpwewidget as $post) : setup_postdata($post); 
-				$sukien_data = get_post_meta($post->ID, '_sukien', true);
-				var_dump($sukien_data);
+				$data = get_post_meta($post->ID, '_sukien', true);
+				
 				$terms = wp_get_post_terms( $post->ID, 'chude');
 				?>
 					
 					<li>
 
-						<?php if (has_post_thumbnail() && $thumb == true) { ?>
-
-							<a href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__('Permalink to %s', 'rpwe'), the_title_attribute('echo=0')); ?>" rel="bookmark">
-								<?php
-								if (current_theme_supports('get-the-image'))
-									get_the_image(array('meta_key' => 'Thumbnail', 'height' => $thumb_height, 'width' => $thumb_width, 'image_class' => 'rpwe-alignleft', 'link_to_post' => false));
-								else
-									the_post_thumbnail(array($thumb_height, $thumb_width), array('class' => 'rpwe-alignleft', 'alt' => esc_attr(get_the_title()), 'title' => esc_attr(get_the_title())));
-								?>
+						<a href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__('Permalink to %s', 'rpwe'), the_title_attribute('echo=0')); ?>" rel="bookmark">
+								
+								<img src="<?php echo $data['slidericon']; ?>" class="rpwe-alignleft" />
 							</a>
 							<?php echo $terms[0]->name; ?>:<br/><strong><a href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__('Permalink to %s', 'rpwe'), the_title_attribute('echo=0')); ?>" rel="bookmark"><?php $title = explode(' ', get_the_title());
 								$t = '';
@@ -28,7 +22,7 @@
 								echo $t.'...';
 							 ?></a></strong>
 
-						<?php } ?>
+						
 
 						
 						
