@@ -2,9 +2,8 @@
 
 // Begin the session
 session_start();
-
-$str = $_SESSION['captcha_id'];
-
+require '../rand.php';
+$_SESSION['captcha_id'] = $str;
 // Set the content type
 //header('Content-type: image/png');
 header('Cache-control: no-cache');
