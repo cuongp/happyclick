@@ -40,6 +40,7 @@ elseif(is_archive() && is_post_type_archive('sukien')){
 elseif (is_archive()) {
 	//$content = 'archive';
     //var_dump(get_taxonomy('chude'));
+   
     $content = 'archive-hinh-anh';
     if(get_query_var('chude'))
         $content = '_chude';
