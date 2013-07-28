@@ -278,38 +278,44 @@ margin-bottom: 10px;
 color:#000;
 }
 
-.single-post .posts-wrapper #sticky-download {
+.single-post .posts-wrapper #sticky-download,
+   .category-download-tai-lieu #sticky-download {
 	float:left;
 	border-bottom:1px dotted #999;
 	margin: 0px 60px 0 60px;
 	width: 750px;
 }
-.single-post .posts-wrapper #sticky-download a.link_icon {
+.single-post .posts-wrapper #sticky-download a.link_icon,
+.category-download-tai-lieu #sticky-download a.link_icon {
 	float:left;
 	background:url('../images/ico-download.png') right center no-repeat;
 	height:20px;
 	padding-right: 40px;
-	margin:10px 0px 0;
+	margin: 30px 0px 0px;
 }
-.single-post .posts-wrapper #sticky-download a:hover{
+.single-post .posts-wrapper #sticky-download a:hover,
+.category-download-tai-lieu #sticky-download a:hover {
 	text-decoration:underline;
 	color:#83B87A;
 }
 
-.single-post .posts-wrapper .content-post-single {
+.single-post .posts-wrapper .content-post-single ,
+.category-download-tai-lieu .posts-wrapper .content-post-single {
 float: left;
 clear: both;
-margin: 10px 20px 30px;
+margin: 10px 20px 20px;
 font-style: italic;
-font-weight: bold;
+font-size:14px;
 }
 	
-.single-post .posts-wrapper #sticky-download a h3{
+.single-post .posts-wrapper #sticky-download a h3,
+.category-download-tai-lieu .posts-wrapper #sticky-download a h3 {
 padding: 0;
 margin: 0;
-color:#0079be;
-font-size:14px;
-font-weight:bold;
+color: #0079be;
+font-size: 14px;
+font-weight: bold;
+text-decoration: underline;
 }
 .category-goc-chia-se .posts-wrapper .first-post, 
 .single-post  .posts-wrapper .first-post {
@@ -470,8 +476,8 @@ padding-bottom: 40px;
 	border-bottom:1px dotted #888;
  }
   .category-download-tai-lieu h1 {
-	font-size:24px;
-	margin: 20px 70px 20px 60px;
+	 font-size: 24px;
+    margin: 20px 70px 10px 60px;
   }
  
  
