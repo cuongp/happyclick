@@ -8,7 +8,7 @@
 
 // get template configuration
 include($this['path']->path('layouts:template.config.php'));
-	
+
 ?>
 <!DOCTYPE HTML>
 <html lang="<?php echo $this['config']->get('language'); ?>" dir="<?php echo $this['config']->get('direction'); ?>">
