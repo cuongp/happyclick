@@ -47,6 +47,9 @@ global $current_user;
 						<?php echo $this['template']->render('content-ve-happy-click'); ?>
 					</div>
 				<?php endif; ?>
+			<?php if ($this['modules']->count('sidebar-b')) : ?>
+				<aside id="sidebar-b" class="grid-box"><?php echo $this['modules']->render('sidebar-b', array('layout'=>'stack')); ?></aside>
+			<?php endif; ?>
 		</div>
 		<?php endif; ?>
 		<!-- end main -->
