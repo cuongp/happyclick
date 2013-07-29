@@ -21,7 +21,7 @@ $args = array(
     'post_status' => array( 'publish' ),
     'posts_per_page' => 21,
     'orderby' => 'date',
-    'order' => 'ASC'
+    'order' => 'DESC'
 );
 
 $the_query = new WP_Query( $args );

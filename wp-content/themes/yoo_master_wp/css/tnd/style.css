@@ -7,7 +7,7 @@
 
 .jcarousel-skin-tango .jcarousel-container-horizontal {
     width: 792px;
-    padding: 5px 10px;
+    padding: 5px 16px;
 }
 
 .jcarousel-skin-tango .jcarousel-container-vertical {
@@ -61,7 +61,7 @@
 .jcarousel-skin-tango .jcarousel-next-horizontal {
     position: absolute;
     top: 45px;
-    right: -25px;
+    right: -27px;
     width: 32px;
     height: 32px;
     cursor: pointer;
@@ -95,7 +95,7 @@
 .jcarousel-skin-tango .jcarousel-prev-horizontal {
     position: absolute;
     top: 45px;
-    left: -8px;
+    left: -10px;
     width: 32px;
     height: 32px;
     cursor: pointer;
@@ -422,7 +422,7 @@ div.wpcf7-validation-errors{ border:none; }
     display: block;
 }
 .item.courses{}
-.item.courses .video-category{ margin-left: 13px; }
+.item.courses .video-category{ margin-left: 18px; }
 .item.courses .course-wrapper{
     overflow: hidden;
 }
@@ -625,7 +625,7 @@ div.wpcf7-validation-errors{ border:none; }
 .gallery_item{ 
     float:left; 
     width: 235px;
-    padding: 10px 16px;
+    padding: 10px 19px;
     text-align: center;
 }
 .gallery_item .gallery_thumb{
@@ -633,7 +633,15 @@ div.wpcf7-validation-errors{ border:none; }
     float: left;
     padding: 20px 16px;
 }
-.gallery_item .gallery_thumb img{}
+.gallery_item .gallery_thumb .cropper{
+    width: 199px;
+    height: 131px;
+    overflow: hidden;
+}
+.gallery_item .gallery_thumb img{
+    width: 199px;
+    height: auto;
+}
 .gallery_item .post-categories{
     list-style: none;
     text-align: center;

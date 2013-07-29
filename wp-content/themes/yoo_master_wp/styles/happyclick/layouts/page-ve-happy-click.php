@@ -1,7 +1,6 @@
 <div id="system">
 	<?php if (have_posts()) : ?>
 		<?php $curr_page = get_query_var('pagename'); ?>
-		
 		<div id="tabs">
 			<ul>
 			<?php if ($curr_page == "ve-happy-click"): ?>
