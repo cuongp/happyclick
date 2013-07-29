@@ -106,6 +106,9 @@ elseif (is_archive()) {
         case 'khoi-dong-tuan-moi':
             $content = 'archive-new-week';
             break;
+        case 'hanh-trang-nghe-nghiep':
+            $content = 'archive-hanh-trang-nghe-nghiep';
+            break;
         case 'lam-giau-cuoc-song':
         case 've-happy-click':
         case 'happy-click-radio':
