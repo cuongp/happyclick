@@ -59,8 +59,8 @@ global $current_user;
             $is_subs = current_user_has_subscription();
             if($is_member && !$is_subs):
             ?>
-                <?php if ($this['modules']->count('sidebar-trial')) : ?>
-                <aside id="sidebar-trial" class="grid-box"><?php echo $this['modules']->render('sidebar-trial', array('layout'=>'stack')); ?></aside>
+                <?php if ($this['modules']->count('sidebar-a')) : ?>
+                <aside id="sidebar-a" class="grid-box"><?php echo $this['modules']->render('sidebar-a', array('layout'=>'stack')); ?></aside>
                 <?php endif; ?>
 			<?php elseif($is_member && $is_subs): ?>
                 <?php if ($this['modules']->count('sidebar-membership')) : ?>

@@ -40,8 +40,11 @@ elseif(is_archive() && is_post_type_archive('sukien')){
 elseif (is_archive()) {
 	//$content = 'archive';
     //var_dump(get_taxonomy('chude'));
-   
-    $content = 'archive-hinh-anh';
+    $cat_id     = get_query_var('cat');
+    $curr_cat   = get_category ($cat_id);
+//    var_dump($curr_cat); //slug
+    
+    $content    = 'archive-'.$curr_cat->slug;
     if(get_query_var('chude'))
         $content = '_chude';
 	if ($this["path"]->path("layouts:{$queried_object->taxonomy}.php")) {

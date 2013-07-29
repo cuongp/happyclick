@@ -91,6 +91,32 @@ elseif (is_archive()) {
 	if ($this["path"]->path("layouts:{$queried_object->taxonomy}.php")) {
 		$content = $queried_object->taxonomy;
 	}
+    
+    $cat_obj    = get_category ($cat_id);
+    switch($cat_obj->slug){
+        case 'hinh-anh':
+            $content = 'archive-hinh-anh';
+            break;
+        case 'hoc-qua-video':
+            $content = 'archive-hoc-qua-video';
+            break;
+        case 'hoc-truc-tuyen':
+            $content = 'archive-hoc-truc-tuyen';
+            break;
+        case 'khoi-dong-tuan-moi':
+            $content = 'archive-new-week';
+            break;
+        case 'lam-giau-cuoc-song':
+        case 've-happy-click':
+        case 'happy-click-radio':
+        case 'goc-chia-se':
+        case 'goc-kien-thuc':
+        case 'download-tai-lieu':
+            $content = 'archive-lam-giau-cuoc-song';
+            break;
+        default:
+            break;
+    }
 
 } elseif (is_404()) {
 	$content = '404';
