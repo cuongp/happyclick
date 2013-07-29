@@ -153,11 +153,11 @@
 		if( $powerpress_diags['system_info']['memory_limit'] == 0 )
 		{
 			if( version_compare($powerpress_diags['system_info']['php_version'], '5.2') > 0 )
-				$powerpress_diags['system_info']['memory_limit'] = 128;
+				$powerpress_diags['system_info']['memory_limit'] = 1024;
 			else if( version_compare($powerpress_diags['system_info']['php_version'], '5.2') == 0 )
-				$powerpress_diags['system_info']['memory_limit'] = 16;
+				$powerpress_diags['system_info']['memory_limit'] = 36;
 			else
-				$powerpress_diags['system_info']['memory_limit'] = 8;
+				$powerpress_diags['system_info']['memory_limit'] = 20;
 		}
 		$powerpress_diags['system_info']['memory_used'] = 0;
 		

@@ -8,7 +8,7 @@
 /*  Vu Css*/
 
 #system {
-	/*margin-left: 20px;*/
+	margin-left: 20px;
 }
 
 #system #tabs > ul {
@@ -175,16 +175,16 @@ margin-left: 30px;
  
 .category-happy-click-radio .posts_sub .post_sub,
 .posts_sub_radio .post_sub_radio {
-width: 174px;
+width: 178px;
 float: left;
-margin: 30px 27px 0 0;
+margin: 30px 20px 0 0;
 overflow: hidden;
 word-spacing: -2px;
 height: 230px; /*Tam thoi fix cung chieu cao*/
 }
 .category-happy-click-radio .posts_sub .post_sub img,
 .posts_sub_radio .post_sub_radio img {
-	width:180px;
+	width:178px;
 	height: 120px;
 	border:none;
  }
@@ -462,6 +462,7 @@ padding-top: 10px;
 overflow: hidden;
 height: auto;
 padding-bottom: 40px;
+margin-left:1px;
 }
 
 
