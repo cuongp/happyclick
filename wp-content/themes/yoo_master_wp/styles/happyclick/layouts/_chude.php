@@ -70,6 +70,8 @@ return $first_img;
 			
 			if($i>1){
 				$terms = wp_get_post_terms( $p->ID, 'chude');
+				if($terms[0]->slug=='hoi-thao' || $terms[0]->slug =='khoa-hoc'):
+
 				if($i%2==0)
 					$class='sub1';
 				else
@@ -93,6 +95,7 @@ return $first_img;
 					
 				</div>
 		<?php
+			endif;
 		}
 			$i++;
 			}
