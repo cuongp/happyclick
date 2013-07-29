@@ -7,16 +7,7 @@
 		<?php while (have_posts()) : the_post(); ?>
 				<div id="item" class="item courses first-post-radio" data-permalink="<?php the_permalink(); ?>" >
 				<h1 class="post-h1-radio"><?php _e('Happy Click Radio - '); ?><?php the_title(); ?></h1>
-					<?php if(has_post_thumbnail()): ?>
-						<?php $width = '295'; $height = '195'; ?>
-						<?php the_post_thumbnail(array($width,$height),array('class'=>'wp-post-image')); ?>
-					<?php endif; ?>
-				<?php if(in_array('URL Audio',get_post_custom_keys())) { ?>
-					<div class="media"><?php echo apply_filters('the_content', get_post_meta(get_the_ID(), 'URL Audio', true)); ?></div>
-				<?php } ?>
-				<div class="post-content-first-radio">
 					<?php the_content(); ?>
-				</div>
 			</div>
 			<?php
 			echo $this->render('single-happy-click-radio-sub'); ?>
