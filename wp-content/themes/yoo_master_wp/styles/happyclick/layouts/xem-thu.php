@@ -166,7 +166,6 @@ $gender = get_usermeta( $current_user->ID, 'gender');
         <td class="box3" width="45%"  align="right">Tên</td>
         <td  class="box4"><input required type="text" id="last_name" name="last_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo get_usermeta( $current_user->ID, 'last_name'); ?>" /><span>*</span></td>        
       </tr>
-      <tr>
 			<tr>
 				<td width="45%"  class="box3"  align="right">Giới tính</td>
 				<td  class="box4"><input type="radio" name="gender" value="0" <?php if($gender==0) echo 'checked=checked'; else echo ''; ?> /> Nam <input type="radio" name="gender" value="1" <?php if($gender==1) echo 'checked=checked'; else echo ''; ?> /> Nữ</td>				
