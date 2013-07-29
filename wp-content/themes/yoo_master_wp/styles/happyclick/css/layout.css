@@ -115,7 +115,7 @@ a.prev span, a.next span{display: none}
 
 #footer .module { margin: 0; }
 
-#sidebar-b{margin-top: 29px}
+#sidebar-b{margin-top: 15px}
 
 #sidebar-a{margin-top: 10px}
 #membership .mod-box{
@@ -246,7 +246,7 @@ border-radius:5px;
 padding: 10px;
 }
 #innertop{
-    margin-top: 25px;
+    margin-top: 15px;
 }
 #innertop h3.module-title{
     display: none;
