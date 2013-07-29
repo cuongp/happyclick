@@ -1,8 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="<?php echo $this['config']->get('language'); ?>" dir="<?php echo $this['config']->get('direction'); ?>">
-
 <head>
-
 <?php echo $this['template']->render('head'); ?>
 </head>
 
@@ -92,7 +90,7 @@ Bạn đang là thành viên chính thức
 			</div>
 			<?php 
         
-            endif; ?>
+            endif; //hh ?>
 
 
  			<?php 
