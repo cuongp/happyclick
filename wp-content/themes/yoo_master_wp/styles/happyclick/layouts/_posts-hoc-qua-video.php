@@ -6,7 +6,7 @@
 * @license   http://www.gnu.org/licenses/gpl.html GNU/GPL
 */
 
-$category_per_page  = 6; //So category hien thi tren 1 page
+$category_per_page  = 8; //So category hien thi tren 1 page
 $current_page       = 1; //Set trang dang xem
 if(isset($_GET['page']) && $_GET['page']!='' )
     $current_page   = $_GET['page'];
