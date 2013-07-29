@@ -20,7 +20,6 @@ global $current_user;
         $is_member = current_user_is_member();
         $is_subs = current_user_has_subscription();
         if($is_member && $is_subs){
-
             echo $warp['template']->render('header_member');
         }else if($is_member && !$is_subs){
             echo $warp['template']->render('header_trial');

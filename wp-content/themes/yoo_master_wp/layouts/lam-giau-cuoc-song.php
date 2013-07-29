@@ -20,7 +20,6 @@ global $current_user;
         $is_member = current_user_is_member();
         $is_subs = current_user_has_subscription();
         if($is_member && $is_subs){
-
             echo $warp['template']->render('header_member');
         }else if($is_member && !$is_subs){
             echo $warp['template']->render('header_trial');
@@ -30,7 +29,7 @@ global $current_user;
         ?>	
 		
 		<!-- begin main -->
-		<?php if ($this['modules']->count('innertop + innerbottom') || $this['config']->get('system_output')) : ?>
+		<?php if ($this['modules']->count('innertop + innerbottom + sidebar-trial + sidebar-membership + sidebar-b') || $this['config']->get('system_output')) : ?>
 		<div id="main" class="grid-block category-lam-giau-cuoc-song">
 
 			<div id="maininner" class="grid-box">

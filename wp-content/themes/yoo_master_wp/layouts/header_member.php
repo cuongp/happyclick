@@ -1,8 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="<?php echo $this['config']->get('language'); ?>" dir="<?php echo $this['config']->get('direction'); ?>">
-
 <head>
-
 <?php echo $this['template']->render('head'); ?>
 </head>
 
