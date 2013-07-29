@@ -24,7 +24,15 @@ while($the_query->have_posts()) {
 			<div class="post-content-sub">
 				<?php $excerpt = get_post_custom_values('Excerpt'); ?>
 				<?php if($excerpt[0] != null) {
-						echo string_limit_words($excerpt[0],12).'...';
+							$excerpt_str = string_limit_words($excerpt[0],12);
+							$num = strpos($excerpt_str,'<br />');
+							$str=null;
+							if($num != 0) {
+								$str = substr($excerpt_str,0,$num);
+							} else {
+								$str = $excerpt_str;
+							}
+						echo trim(preg_replace('/\PL+/u',' ',$str)).'...';
 					} else {
 						echo string_limit_words(get_the_content(), 16).'...';
 					}
