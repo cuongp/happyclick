@@ -21,7 +21,7 @@
 
 						<?php } ?><div  style="margin-top:10px;">
 <span class="rpwe-time"><p><?php echo date("d/m",get_the_time('U'));?></p><?php echo date("Y",get_the_time('U'));?> </span>
-						<h3 class="rpwe-title">
+						<h3 class="rpwe-title" style="padding-top:20px;">
 						<?php if ($date == true) { ?>
 							
 						<?php } ?>
@@ -31,7 +31,7 @@
 						<?php if ($excerpt == true) { ?>
 							<div class="rpwe-summary"><?php echo rpwe_excerpt($length); ?></div>
 						<?php } ?>
-						<p style="text-align:right"><a class="returnhome" style="font-size:12px; padding-left:20px;" href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__('Permalink to %s', 'rpwe'), the_title_attribute('echo=0')); ?>" rel="bookmark">Xem chi tiết</a></p>
+						
 						</div>
 					</li>
 				<?php
