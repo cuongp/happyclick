@@ -577,13 +577,14 @@ function get_chude($post_type = 'sukien', $posts_per_page = -1, $orderby =
                  $out = array();
             foreach ( $terms as $c )
                 $out[] = esc_html(sanitize_term_field('name', $c->name, $c->term_id, 'category', 'display'));
-            $diengia = join( ', ', $out );    
+            $diengia = join( ', ', $out );
+
             }
             $thumbnail = get_the_post_thumbnail($post_id);
             if(empty($thumbnail))
                 $thumbnail = '<img src="/wp-content/uploads/no-image.jpg" alt='.get_the_title().' />';
-            $giatien = ( empty( $data['giatien'] ) ) ? 'Vui lòng liên hệ' : number_format($data['giatien'],0,'.','').' đ';
-            $giatienthanhvien = ( empty( $data['giatien'] ) ) ? 'Vui lòng liên hệ' : number_format($data['giatien'] - $data['giatien']*(get_option('hpbasicmembership')/100),0,'.','').' đ';
+            $giatien = ( empty( $data['giatien'] ) ) ? 'Vui lòng liên hệ' : number_format($data['giatien'] , 0, '.', '.').' đ';
+            $giatienthanhvien = ( empty( $data['giatien'] ) ) ? 'Vui lòng liên hệ' : number_format($data['giatien'] - $data['giatien']*(get_option('hpbasicmembership')/100),0,'.','.').' đ';
             $thoigian =( empty( $data['thoigian'] ) ) ? '' : $data['thoigian'];
             $diadiem = ( empty( $data['diadiem'] ) ) ? '' : $data['diadiem'];
             if($taxonomy->slug=='hoi-thao')

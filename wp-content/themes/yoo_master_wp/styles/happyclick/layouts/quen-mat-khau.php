@@ -10,6 +10,7 @@ if(isset($_POST) && $_POST['action'] == 'submit')
 		$flag = '<h3 class="error">Email không tồn tại trong hệ thống.</h3>';
 	}else
 	{
+		$expdate = date("Y-m-d H:i:s",strtotime('+24 hour')); = date("Y-m-d H:i:s",strtotime('+24 hour'));
 		$db = $GLOBALS['wpdb'];
 		$user = get_user_by('email',$_POST['email']);
 		$key = md5($user->ID . time().rand());
@@ -33,7 +34,7 @@ if(isset($_POST) && $_POST['action'] == 'submit')
       Happy Click vừa nhận được yêu cầu thiết lập mật khẩu mới của bạn dùng để đăng nhập vào trang web <a href="http://www.happyclick.com.vn">www.happyclick.com.vn</a> cho tài khoản email '.$_POST['email'].' Vui lòng nhấn vào đường dẫn bên dưới để thực hiện thiết lập mật khẩu mới cho tài khoản của bạn:<br />
       <a href="'.get_site_url().'/hcaccount/doi-mat-khau/?act=rp&user_id='.$user->ID.'&key='.$key.'">Lấy lại mật khẩu</a><br />
       <br />
-      Đường dẫn này sẽ chỉ có giá trị đến &lt;giờ, ngày, tháng, năm&gt;<br />
+      Đường dẫn này sẽ chỉ có giá trị đến '.$expdate.'<br />
       <br />
       Nếu bạn không phải là người gửi yêu cầu thiết lập mật khẩu mới, vui lòng bỏ qua email này.<br />
       <br />

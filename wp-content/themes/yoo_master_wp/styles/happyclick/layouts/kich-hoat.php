@@ -38,7 +38,7 @@ function update_card($card_id){
 function get_card_info($card_id){
 	$db = $GLOBALS['wpdb'];
 	$cardTable = $db->prefix.'cards';
-
+	
 	$card = $db->get_row('select id,sub_id from '.$cardTable.' where id = '.$card_id);
 	
 	return !empty($card)?$card :null;
@@ -232,11 +232,11 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>
 			<tr>
 				<td class="box3" width="45%"  align="right">Họ</td>
-				<td  class="box4"><input required type="text" id="first_name" name="first_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo get_usermeta( $current_user->ID, 'first_name'); ?>" /><span>*</span></td>				
+				<td  class="box4"><input required type="text" id="first_name" name="first_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo $current_user->first_name; ?>" /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td class="box3" width="45%"  align="right">Tên</td>
-				<td  class="box4"><input required type="text" id="last_name" name="last_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo get_usermeta( $current_user->ID, 'last_name'); ?>" /><span>*</span></td>				
+				<td  class="box4"><input required type="text" id="last_name" name="last_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo $current_user->last_name; ?>" /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3"  align="right">Giới tính</td>
@@ -256,7 +256,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 				<td width="45%"  class="box3" align="right">Email <br/> <em style="font-weight:normal">Email cá nhân hoặc email thường sử dụng.<br/><strong>Hỗ trợ 24/7: (08) 7302 0168 - (08) 7303 0168</strong></em></td>
 				<td  class="box4"><input required class="email" <?php echo $disable ?> type="email" name="email" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
 			</tr>
-		
+			<?php if($current_user->ID > 0): ?>
 			<tr>
 				<td width="45%"  class="box3" align="right">Mật khẩu</td>
 				<td  class="box4"><input type="password" name="password" required /><span>*</span></td>				
@@ -265,6 +265,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 				<td width="45%"  class="box3" align="right">Xác nhận mật khẩu</td>
 				<td  class="box4"><input type="password" name="confirm_pass" required /><span>*</span></td>				
 			</tr>
+		<?php endif;?>
 			<tr>
 				<td width="45%"  class="box3" align="right">Điện thoại di động</td>
 				<td  class="box4"><input type="text" name="mobile" id="mobile" required value="<?php echo get_usermeta( $current_user->ID, 'mobile'); ?>"  /><span>*</span></td>				
