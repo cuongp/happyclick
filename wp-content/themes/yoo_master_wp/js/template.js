@@ -2377,7 +2377,7 @@ function log() {
 
 	$(document).ready(function() {
 	$("#refreshimg").click(function(){
-		$.post('newsession.php');
+		$.post('/wp-content/themes/yoo_master_wp/js/newsession.php');
 		$("#captchaimage").load('image_req.php');
 		return false;
 	});
