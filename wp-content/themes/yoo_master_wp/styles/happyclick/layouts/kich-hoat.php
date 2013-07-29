@@ -199,6 +199,17 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 <div class="box" style="width:730px">
 
 <form id="form" class="form_profile" method="post">
+<div class="container">
+	<ol>
+		<li><label for="first_name" class="error">Bạn chưa nhập họ</label></li>
+		<li><label for="last_name" class="error">Bạn chưa nhập tên</label></li>
+		<li><label for="email" class="error">Bạn chưa nhập email</label></li>
+		<li><label for="password" class="error">Bạn chưa mật khẩu</label></li>
+		<li><label for="confirm_password" class="error">Bạn chưa nhập lại mật khẩu</label></li>
+		<li><label for="mobile" class="error">Bạn chưa nhập số điện thoại di động</label></li>
+		
+	</ol>
+</div>
 <?php echo $flag; ?>
 <p>Kích hoạt cho thành viên mới, chưa có tài khoản. Vui lòng nhập thông tin để tạo tài khoản.</p>
 		<table width="100%" class="form_profile">
@@ -300,12 +311,12 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 						<?php
 							if(!empty($doituong)){
 								foreach ($doituong as $dt) {
-									if(get_usermeta( $current_user->ID, 'objectuser')==$dt->ID){
+									if(get_usermeta( $current_user->ID, 'objectuser')==$dt->term_id){
 										$selected = 'selected=selected';
 									}else
 										$selected = '';
 							?>
-								<option <?php echo $selected; ?> value="<?php echo $dt->ID ?>"><?php echo $dt->name; ?></option>
+								<option <?php echo $selected; ?> value="<?php echo $dt->term_id ?>"><?php echo $dt->name; ?></option>
 							<?php
 								}
 							}
@@ -322,12 +333,12 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 						<?php
 							if(!empty($nganhnghe)){
 								foreach ($nganhnghe as $dt) {
-									if(get_usermeta( $current_user->ID, 'mayjor')==$dt->ID){
+									if(get_usermeta( $current_user->ID, 'mayjor')==$dt->term_id){
 										$selected = 'selected=selected';
 									}else
 										$selected = '';
 							?>
-								<option <?php echo $selected; ?> value="<?php echo $dt->ID ?>"><?php echo $dt->name; ?></option>
+								<option <?php echo $selected; ?> value="<?php echo $dt->term_id ?>"><?php echo $dt->name; ?></option>
 							<?php
 								}
 							}
@@ -345,12 +356,13 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 						<?php
 							if(!empty($cities)){
 								foreach ($cities as $dt) {
-									if(get_usermeta( $current_user->ID, 'city')==$dt->ID){
+
+									if(get_usermeta( $current_user->ID, 'city')==$dt->term_id){
 										$selected = 'selected=selected';
 									}else
 										$selected = '';
 							?>
-								<option <?php echo $selected; ?> value="<?php echo $dt->ID ?>"><?php echo $dt->name; ?></option>
+								<option <?php echo $selected; ?> value="<?php echo $dt->term_id ?>"><?php echo $dt->name;?></option>
 							<?php
 								}
 							}
