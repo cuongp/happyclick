@@ -543,6 +543,8 @@ div.wpcf7-validation-errors{ border:none; }
     border: none;
     box-shadow: 0px 0px 10px #999;
 }
+/* Temporary fix */
+/*.sidebar-b-right .onecolumn .content-box1{ margin: 5px 15px 0 0; }*/
 .onecolumn.single .content h3{
     color: #68a400;
     padding-left: 14px;
