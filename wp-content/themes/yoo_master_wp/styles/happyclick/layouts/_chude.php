@@ -1,4 +1,4 @@
-<div id="system">
+<div id="">
 <?php 
 $args = array(
 	'posts_per_page'  => -1,

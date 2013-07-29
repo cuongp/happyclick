@@ -6,7 +6,9 @@
 /* Spacing
 ----------------------------------------------------------------------------------------------------*/
 
-
+#system{
+    padding-left: 0px;
+}
 .xemthu{
     background: url(../images/xem-thu.png) no-repeat;
     display: block;
@@ -516,9 +518,8 @@ border-top: none;
 
 #content{
 margin: 15px 0px;
-margin-left: 10px;
+margin-right: 15px;
 padding:10px;
-padding-right: 0px;
 }
 .box{
     -webkit-border-radius:5px;
