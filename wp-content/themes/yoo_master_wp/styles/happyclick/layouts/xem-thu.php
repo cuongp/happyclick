@@ -37,7 +37,6 @@ $db = $GLOBALS['wpdb'];
 				if($key !='action')
 					update_usermeta( $user_id, $key, $val);
 				}
-				update_usermeta($user_id,'first_name',$_POST['fullname']);
 				$db->insert($db->prefix.'m_membership_relationships',
 				array('user_id'=>$user_id
 					,'sub_id'=>0
