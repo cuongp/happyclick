@@ -138,7 +138,7 @@ color: #7f0119;
 }
 
  .category-lam-giau-cuoc-song .first-post img.wp-post-image,
-.first-post-radio img {
+.first-post-radio img.alignleft {
 	width: 300px;
 height: 200px;
 border: 5px solid #fff;
