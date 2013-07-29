@@ -65,7 +65,10 @@ class HCcard{
         }elseif($valid=="0" || $valid!=""){
             $where.="where valid={$valid}";
         }
-        $posts = $db->get_results('select * from '.$db->prefix.'cards '.$where.' order by id desc limit '.$params['start'].','.$params['show']);
+        if(!empty($params))
+            $posts = $db->get_results('select * from '.$db->prefix.'cards '.$where.' order by id desc limit '.$params['start'].','.$params['show']);
+        else
+            $posts = $db->get_results('select * from '.$db->prefix.'cards '.$where);
         return !empty($posts)?$posts:null;
     }
     public static function countAllResult($status = "",$valid = ""){
