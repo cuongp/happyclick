@@ -19,7 +19,11 @@ echo'<p>Happy Click đã gửi email cho bạn, vui lòng kiểm tra email và l
 <li style="padding-left: 10px;">- Nếu vẫn không tìm thấy email, vui lòng thực hiện lại.</li>
 </ul>
 
-<span style="text-align:right"> <a class="returnhome" href="<?php echo get_site_url(); ?>">Trở về trang chủ </a></span>
 
+<table width="100%">
+	<tr>
+				<td align="right"><a href="/index.php" class="returnhome" style="font-size:14px">Trở về trang chủ</a></td>
 
+			</tr>
+		</table>
 </div>
