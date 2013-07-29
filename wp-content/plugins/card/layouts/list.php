@@ -55,10 +55,10 @@ $cards = HCcard::getAll("","",$params);
 </form>
 <table class="list">
 			<thead>
-				<th class="shortcode">ID</th>
+				<th class="shortcode"><input type="checkbox" name="id[]" value="checkall" />ID</th>
 				<th class="shortcode">Serial</th>
 				<th class="modified">Code</th>
-				<th class="modified">Sub ID</th>
+				<th class="modified">Plan</th>
 				<th class="modified">Ngày tạo</th>
 				<th class="modified">Ngày hết hạn</th>
 				<th class="modified">Trạng thái</th>
@@ -72,7 +72,7 @@ $cards = HCcard::getAll("","",$params);
 					$datetime = new DateTime(); 
 			?>
 			<tr id="item-<?php echo $card->id; ?>">
-				<td class="shortcode"><?php echo $card->id; ?></td>
+				<td class="shortcode"><input type="checkbox" name="id[]" value="<?php echo $card->id; ?>" /><?php echo $card->id; ?></td>
 				<td class="shortcode"><?php echo $card->serial; ?></td>
 				<td class="modified"><?php echo $card->code; ?></td>
 				<td class="modified"><?php echo $card->sub_id; ?></td>
