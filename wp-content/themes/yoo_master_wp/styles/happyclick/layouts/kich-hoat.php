@@ -28,7 +28,7 @@ $nganhnghe =get_terms('nganhnghe',$args);
 $doituong = get_terms('doituong',$args);
 function check_card($code,$serial){
 	 $db = $GLOBALS['wpdb'];
-        $post = $db->get_row('select id from '.$db->prefix.'cards where serial="'.$serial.'" and code= "'.$code.'" and valid=1 and status=0');
+        $post = $db->get_row('select id from '.$db->prefix.'cards where serial="'.$serial.'" and code= "'.md5($code).'" and valid=1 and status=0');
         return !empty($post)? $post :null;
 }
 function update_card($card_id){
@@ -76,6 +76,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 			$card_info = get_card_info($card_id->id);		
 			$sub_info = get_sub_info($card_info->sub_id);
 			$startdate = date("Y-m-d H:i:s");		
+			update_card($card_id->id);
 			$level_period_unit = $sub_info->level_period_unit;
 			switch ($level_period_unit) {
 				case 'y':

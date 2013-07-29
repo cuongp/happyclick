@@ -1,11 +1,9 @@
-
 <div style="position:relative">		
-			<ul id="slider">
-
+			<ul id="slider" style="left:-20px">
 				<?php foreach ($rpwewidget as $post) : setup_postdata($post); 
 				$sukien_data = get_post_meta($post->ID, '_sukien', true);
-//				var_dump($sukien_data);
 				$terms = wp_get_post_terms( $post->ID, 'chude');
+				if($sukien_data['isslider']==1):
 				?>
 					
 					<li>
@@ -25,18 +23,14 @@
 							 ?></a></strong>
 
 						<?php } ?>
-
-						
-						
-
 					</li>
-
-				<?php endforeach;
+				<?php 
+					endif;
+				endforeach;
 				wp_reset_postdata(); ?>
 
 			</ul>
 			<div style="clear:both"></div>
     <a class="prev" id="foo1_prev" href="#"><span>prev</span></a>
-
     <a class="next" id="foo1_next" href="#"><span>next</span></a>
 </div>

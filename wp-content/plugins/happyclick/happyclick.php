@@ -372,6 +372,7 @@ function sukien_form()
     $diadiem = (empty($sukien_data['diadiem'])) ? '' : $sukien_data['diadiem'];
     $articleicon = (empty($sukien_data['articleicon'])) ? '' : $sukien_data['articleicon'];
     $slidericon = (empty($sukien_data['slidericon'])) ? '' : $sukien_data['slidericon'];
+    $isslider = (empty($sukien_data['isslider'])) ? '' : $sukien_data['isslider'];
     wp_nonce_field('sukien', 'sukien');
 ?>
 <p>
@@ -381,6 +382,13 @@ function sukien_form()
 <p>
         <label>Slider Icon</label><br />
         <input type="text" value="<?php echo $slidericon; ?>" name="sukien[slidericon]" size="80" />
+</p>
+<p>
+        <label>Is slider</label><br />
+        <select name="sukien[isslider]">
+            <option value="0" <?php if($isslider==0) echo 'selected="selected"'; else echo '' ?>>No</option>
+            <option value="1" <?php if($isslider==1) echo 'selected="selected"'; else echo '' ?>>Yes</option>
+        </select>
 </p>
 <p>
         <label>Article Icon</label><br />
@@ -400,6 +408,21 @@ function sukien_form()
 </p>
 <?php
 }
+add_action('save_post', 'hcfaq_save_post');
+
+function hcfaq_save_post($post_id)
+{
+
+    if (!empty($_POST['hcfaq'])) {
+
+        $hcfaq_data['hcfaq'] = (empty($_POST['hcfaq']['pageid'])) ? '' :
+            sanitize_text_field($_POST['hcfaq']['pageid']);
+        
+    } else {
+        delete_post_meta($post_id, '_hcfaq');
+    }
+}
+
 add_action('save_post', 'sukien_save_post');
 
 function sukien_save_post($post_id)
@@ -414,6 +437,8 @@ function sukien_save_post($post_id)
             $_POST['sukien']['articleicon'];
         $sukien_data['slidericon'] = (empty($_POST['sukien']['slidericon'])) ? '' :
          $_POST['sukien']['slidericon'];
+         $sukien_data['isslider'] = (empty($_POST['sukien']['isslider'])) ? '' :
+         $_POST['sukien']['isslider'];
         $sukien_data['thoigian'] = (empty($_POST['sukien']['thoigian'])) ? '' :
             sanitize_text_field($_POST['sukien']['thoigian']);
         $sukien_data['diadiem'] = (empty($_POST['sukien']['diadiem'])) ? '' :
