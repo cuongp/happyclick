@@ -1,6 +1,7 @@
 <?php
 
 global $current_user;
+
 $flag='';
  $args = array(
     'orderby'       => 'name', 
@@ -71,7 +72,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 				if($key !='action')
 					update_usermeta( $user_id, $key, $val);
 				}
-			
+			update_usermeta( $user_id, 'first_name', $_POST['first_name']);
 			$card_info = get_card_info($card_id->id);		
 			$sub_info = get_sub_info($card_info->sub_id);
 			$startdate = date("Y-m-d H:i:s");		
@@ -253,10 +254,17 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 				else
 					$disable = '';
 			?>
-				<td width="45%"  class="box3" align="right">Email <br/> <em style="font-weight:normal">Email cá nhân hoặc email thường sử dụng.<br/><strong>Hỗ trợ 24/7: (08) 7302 0168 - (08) 7303 0168</strong></em></td>
-				<td  class="box4"><input required class="email" <?php echo $disable ?> type="email" name="email" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
+				<td width="45%"  class="box3" align="right">Email <br/> <em style="font-weight:normal">
+				<?php if($current_user<1): ?>
+				Email cá nhân hoặc email thường sử dụng.
+			<?php else: ?>
+				<p style="font-size:12px">Email này bạn đã dùng để đăng nhập,<br/> Nếu cần thay đổi vui lòng liên hệ với Happy Click.<br/>
+				<strong><em>
+				Hỗ trợ 24/7: (08) 7302 0168 - (08) 7303 0168</em></strong></p></td>
+			<?php endif; ?>	
+			<td  class="box4"><input required class="email" <?php echo $disable ?> type="email" name="email" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
 			</tr>
-			<?php if($current_user->ID > 0): ?>
+			<?php if($current_user->ID < 1): ?>
 			<tr>
 				<td width="45%"  class="box3" align="right">Mật khẩu</td>
 				<td  class="box4"><input type="password" name="password" required /><span>*</span></td>				
