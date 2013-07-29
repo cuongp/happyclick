@@ -753,6 +753,13 @@ function form_faq($atts){
        return '<form method="post" id="form" class="form_profile"><textarea name="question" id="question" requited></textarea><br/><input type="hidden" name="'.$pageid.'"/><input type="submit" class="wpcf7-form-control wpcf7-submit btn_send" value="" id="sendfaq"/></form>';
 }
 add_shortcode('Form_FAQ', 'form_faq');
+
+function redirect_hcpage($atts){
+       extract(shortcode_atts(array(
+      'link' => ''), $atts));
+    wp_redirect($link);       
+}
+add_shortcode('Redirect_Page', 'redirect_hcpage');
 function giangvien_banner($atts) {
    extract(shortcode_atts(array(
       'image' => ''

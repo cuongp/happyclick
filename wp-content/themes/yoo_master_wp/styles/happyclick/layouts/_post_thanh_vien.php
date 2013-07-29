@@ -6,16 +6,17 @@ global $current_user;
 
 		<?php if (has_post_thumbnail()) : ?>
 		<?php
-		$width = get_option('thumbnail_size_w'); //get the width of the thumbnail setting
-		$height = get_option('thumbnail_size_h'); //get the height of the thumbnail setting
+		$width = 400; //get the width of the thumbnail setting
+		$height = 110; //get the height of the thumbnail setting
 		?>
-		<?php the_post_thumbnail(array(), array('class' => 'size-auto')); ?>
+		<?php the_post_thumbnail(array($width,$height), array()); ?>
 	<?php endif; ?>
 	</header>
 
-	
-	<p style="text-align: center;display:block">
-		<?php
+	<table width="100%">
+		<tr>
+			<td align="center">
+				<?php
 		if($current_user->ID >0):
 		?>
 		<a href="<?php the_permalink() ?>" class="xemthu" title="<?php the_title_attribute(); ?>"><?php _e('<span>Xem thử</span>', 'warp'); ?></a>
@@ -28,5 +29,9 @@ global $current_user;
 		<?php
 		endif;
 		?>
-	</p>
+			</td>
+		</tr>
+
+	</table>
+	
 </div>
