@@ -7,7 +7,7 @@
 
 .jcarousel-skin-tango .jcarousel-container-horizontal {
     width: 792px;
-    padding: 5px 18px;
+    padding: 5px 10px;
 }
 
 .jcarousel-skin-tango .jcarousel-container-vertical {
@@ -61,7 +61,7 @@
 .jcarousel-skin-tango .jcarousel-next-horizontal {
     position: absolute;
     top: 45px;
-    right: -22px;
+    right: -25px;
     width: 32px;
     height: 32px;
     cursor: pointer;
@@ -95,7 +95,7 @@
 .jcarousel-skin-tango .jcarousel-prev-horizontal {
     position: absolute;
     top: 45px;
-    left: -5px;
+    left: -8px;
     width: 32px;
     height: 32px;
     cursor: pointer;
@@ -422,7 +422,7 @@ div.wpcf7-validation-errors{ border:none; }
     display: block;
 }
 .item.courses{}
-.item.courses .video-category{ margin-left: -4px; }
+.item.courses .video-category{ margin-left: 13px; }
 .item.courses .course-wrapper{
     overflow: hidden;
 }
@@ -625,7 +625,7 @@ div.wpcf7-validation-errors{ border:none; }
 .gallery_item{ 
     float:left; 
     width: 235px;
-    padding: 10px 18px;
+    padding: 10px 16px;
     text-align: center;
 }
 .gallery_item .gallery_thumb{
