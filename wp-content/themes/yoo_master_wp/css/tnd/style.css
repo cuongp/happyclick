@@ -799,4 +799,9 @@ table.quiz td{
 }
 #module-new-week h3 a{ font-size: 36px !important; }
 #module-new-week .quiz{ margin-top: 1.2em; }
+
+/* Temporary fix for widget sidebar */
+/*.wrapper #maininner{ width: 75%; } 
+.wrapper #sidebar-a{ left: -75%; } 
+.public #maininner{ left: 0; } */
 /* END Tamnd's code */
