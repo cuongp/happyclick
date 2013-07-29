@@ -131,6 +131,43 @@ function sukien_post_type()
 
 flush_rewrite_rules();
 }
+add_action('init', 'hcfaq_post_type');
+function hcfaq_post_type()
+{
+    $labels = array(
+        'name' => 'HC FAQ',
+        'singular_name' => 'HC FAQ',
+        'add_new' => 'Add New',
+        'add_new_item' => 'Add New item',
+        'edit_item' => 'Edit item',
+        'new_item' => 'New item',
+        'view_item' => 'View item',
+        'search_items' => 'Search item',
+        'not_found' => 'No item found',
+        'not_found_in_trash' => 'No item in the trash',
+        'parent_item_colon' => '',
+        );
+    register_post_type('hcfaq', array(
+        'labels' => $labels,
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'exclude_from_search' => false,
+        'query_var' => true,
+        'rewrite' => array('slug' => 'hcfaq'),
+        'capability_type' => 'post',
+        'has_archive' => true,
+        'menu_position' => 10,
+        'supports' => array(
+            'title',
+            'editor',
+            'thumbnail',
+            'excerpt',
+            ),'register_meta_box_cb' => 'hcfaq_meta_boxes',
+        ));
+
+flush_rewrite_rules();
+}
 
 add_action('init', 'chude_taxonomy_type');
 function chude_taxonomy_type()
@@ -306,6 +343,24 @@ function sukien_meta_boxes()
 {
     add_meta_box('sukien_form', 'Details', 'sukien_form', 'sukien', 'normal', 'high');
 }
+function hcfaq_meta_boxes()
+{
+    add_meta_box('hcfaq_form', 'Details', 'hcfaq_form', 'hcfaq', 'normal', 'high');
+}
+
+function hcfaq_form(){
+    $post_id = get_the_ID();
+    $hcfaq_data = get_post_meta($post_id, '_hcfaq', true);
+    $pageid = (empty($hcfaq_data['pageid'])) ? '' : $hcfaq_data['pageid'];
+
+?>
+<p>
+        <label>Câu hỏi của bài viết</label><br />
+        <input type="text" value="<?php echo $pageid; ?>" name="hcfaq[pageid]" size="80" />
+        
+</p>
+<?php
+}
 function sukien_form()
 {
     $post_id = get_the_ID();
@@ -387,6 +442,31 @@ function sukien_edit_columns($columns)
         'date' => 'Date');
 
     return $columns;
+}
+add_filter('manage_edit-hcfaq_columns', 'hcfaq_edit_columns');
+function hcfaq_edit_columns($columns)
+{
+    $columns = array(
+        'cb' => '<input type="checkbox" />',
+        'title' => 'Title',
+        'hcfaq-pageid' => 'Bài viết',
+        
+        'date' => 'Date');
+
+    return $columns;
+}
+add_action('manage_posts_custom_column', 'hcfaq_columns', 10, 2);
+
+function hcfaq_columns($column, $post_id)
+{
+    $hcfaq_data = get_post_meta($post_id, '_hcfaq', true);
+
+    switch ($column) {
+        case 'hcfaq-pageid':
+            if (!empty($hcfaq_data['pageid']))
+                echo $hcfaq_data['pageid'];
+            break;
+    }
 }
 add_action('manage_posts_custom_column', 'sukien_columns', 10, 2);
 
@@ -625,7 +705,17 @@ endwhile;
     }
    echo '</div>';
 }
-    
+
+function form_faq($atts){
+       extract(shortcode_atts(array(
+      'pageid' => get_the_ID()
+      ,'disable'=>'0'
+      ,'msg'=>''), $atts));
+       if($disable<1)
+            return '<h3 class="error">'.$msg.'</h3>';
+       return '<form method="post" id="form" class="form_profile"><textarea name="question" id="question" requited></textarea><br/><input type="hidden" name="'.$pageid.'"/><input type="submit" class="wpcf7-form-control wpcf7-submit btn_send" value="" id="sendfaq"/></form>';
+}
+add_shortcode('Form_FAQ', 'form_faq');
 function giangvien_banner($atts) {
    extract(shortcode_atts(array(
       'image' => ''

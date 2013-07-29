@@ -195,9 +195,7 @@ dành cho thành viên Happy Click</p>
 				<section id="innertop" class="grid-block"><?php echo $this['modules']->render('innertop', array('layout'=>$this['config']->get('innertop'))); ?></section>
 				<?php endif; ?>
 
-				<?php if ($this['modules']->count('breadcrumbs')) : ?>
-				<section id="breadcrumbs"><?php echo $this['modules']->render('breadcrumbs'); ?></section>
-				<?php endif; ?>
+			
 
 				<?php if ($this['config']->get('system_output')) : ?><section id="content" class="grid-block"><?php echo $this['template']->render('content'); ?></section>
 				<?php endif; ?>
