@@ -2,8 +2,21 @@
     <?php 
     $youtubeVideo = get_post_custom_values('youtube-video'); 
     $youtubeVideo_link = $youtubeVideo[0];
+    
+    $member_id      = 2; //Membership level "HappyClick"
+    $trial_id       = 1; //Trial level
+    $is_membership  = current_user_on_level($member_id);
+    $is_trial       = current_user_on_level($trial_id);
+    
+    $sticky = (is_sticky() && $is_trial) ? 'sticky_video' : '';
+    
+    $video_link     = get_bloginfo('url').'/thong-bao-dang-nhap';
+    if($is_membership || $sticky!=''){
+        $video_link = get_permalink();
+    }
     ?>
-    <a href="<?php the_permalink() ?>" class="iframe">
+    <a href="<?php echo $video_link; ?>" class="iframe">
+        <span class="sticky_span <?php echo $sticky; ?>">&nbsp;</span>
         <div class="course-video-thumb">
             <?php if (has_post_thumbnail()) : ?>
                 <?php
@@ -14,9 +27,5 @@
             <?php endif; ?> 
         </div>
     </a>
-    <?php 
-        $is_member  = current_user_is_member(); //Da dang ky
-        $is_subs    = current_user_has_subscription(); //Da tra tien
-    ?>
-    <a href="<?php the_permalink() ?>"><?php the_title() ?></a>
+    <a href="<?php echo $video_link; ?>"><?php the_title() ?></a>
 </li>
