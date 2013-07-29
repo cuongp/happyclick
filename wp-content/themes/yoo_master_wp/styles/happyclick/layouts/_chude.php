@@ -77,14 +77,16 @@ return $first_img;
 
 								?>
 				<div class="<?php echo $class; ?>">
-					<div class="left" style="float:left;padding:10px;width:500px;">
+					<div class="left" style="float:left;padding:10px;padding-bottom:0px;width:500px;">
 								<p class="subject" style="font-size:14px;"><em><?php echo $terms[0]->name ?></em><span><?php echo $data['thoigian'] ?></span></p>
 								<h2 class="sukien-title"><?php echo $p->post_title; ?></h2>
 								<p style="text-align:right"><a style="font-size:12px" href="<?php echo $p->guid; ?>" class="returnhome">Xem chi tiết</a></p>
 							</div>
 
-							<div class="right" style="float:right;width:300px">
-								<a href="<?php echo $p->guid; ?>"><img src="<?php echo catch_that_image($p->post_content); ?>" width="300" height="135" /></a>
+							<div class="right" style="float:right;width:300px;padding-bottom:0px">
+								<a href="<?php echo $p->guid; ?>"><img src="<?php echo $data['articleicon']; ?>" width="300" height="135" /></a>
+							<div style="clear:both"></div>
+						
 							</div>
 							<div style="clear:both"></div>
 						

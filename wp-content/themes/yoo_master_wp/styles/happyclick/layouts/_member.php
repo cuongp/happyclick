@@ -20,7 +20,7 @@ include($this['path']->path('layouts:template.config.php'));
 </head>
 
 <body id="page" class="page <?php echo $this['config']->get('body_classes'); ?>" data-config='<?php echo $this['config']->get('body_config','{}'); ?>'>
-<div style="position:fixed;top:0px;border:1px solid red;padding:10px;z-index:9999">
+<div style="position:fixed;top:50px;border:1px solid red;padding:10px;z-index:9999">
 Bạn đang là thành viên chính thức
 </div>
 	<?php if ($this['modules']->count('absolute')) : ?>

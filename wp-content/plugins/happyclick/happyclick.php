@@ -355,15 +355,16 @@ function sukien_save_post($post_id)
             sanitize_text_field($_POST['sukien']['giatien']);
         $sukien_data['video'] = (empty($_POST['sukien']['video'])) ? '' :
             $_POST['sukien']['video'];
+        $sukien_data['articleicon'] = (empty($_POST['sukien']['articleicon'])) ? '' :
+            $_POST['sukien']['articleicon'];
+        $sukien_data['slidericon'] = (empty($_POST['sukien']['slidericon'])) ? '' :
+         $_POST['sukien']['slidericon'];
         $sukien_data['thoigian'] = (empty($_POST['sukien']['thoigian'])) ? '' :
             sanitize_text_field($_POST['sukien']['thoigian']);
         $sukien_data['diadiem'] = (empty($_POST['sukien']['diadiem'])) ? '' :
             sanitize_text_field($_POST['sukien']['diadiem']);
         update_post_meta($post_id, '_sukien', $sukien_data);
-        $sukien_data['articleicon'] = (empty($_POST['sukien']['articleicon'])) ? '' :
-            $_POST['sukien']['articleicon'];
-        $sukien_data['slidericon'] = (empty($_POST['sukien']['slidericon'])) ? '' :
-         $_POST['sukien']['slidericon'];
+        
     } else {
         delete_post_meta($post_id, '_sukien');
     }

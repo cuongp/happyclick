@@ -4,7 +4,7 @@
 
 				<?php foreach ($rpwewidget as $post) : setup_postdata($post); 
 				$sukien_data = get_post_meta($post->ID, '_sukien', true);
-				var_dump($sukien_data);
+//				var_dump($sukien_data);
 				$terms = wp_get_post_terms( $post->ID, 'chude');
 				?>
 					
