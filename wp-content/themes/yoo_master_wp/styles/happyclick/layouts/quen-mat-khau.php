@@ -10,7 +10,7 @@ if(isset($_POST) && $_POST['action'] == 'submit')
 		$flag = '<h3 class="error">Email không tồn tại trong hệ thống.</h3>';
 	}else
 	{
-		$expdate = date("Y-m-d H:i:s",strtotime('+24 hour')); = date("Y-m-d H:i:s",strtotime('+24 hour'));
+		$expdate = date("Y-m-d H:i:s",strtotime('+24 hour'));
 		$db = $GLOBALS['wpdb'];
 		$user = get_user_by('email',$_POST['email']);
 		$key = md5($user->ID . time().rand());
@@ -29,10 +29,10 @@ if(isset($_POST) && $_POST['action'] == 'submit')
   <td><a href="http://www.happyclick.com.vn"><img src="http://www.unity.com.vn/images/HC_Banner.png" align="center" width="598" height="130" /></a></td>
 </tr>
 <tr>
-  <td height="323" valign="top" style="padding: 10px 10px 0px 10px; height=; color: #003399; font-size: 14px;"><p style="padding:10px">Chào '.$user->first_name.'<br />
+  <td height="323" valign="top" style="padding: 10px 10px 0px 10px; height=; color: #003399; font-size: 14px;"><p style="padding:10px">Chào '.$user->last_name.'<br />
       <br />
-      Happy Click vừa nhận được yêu cầu thiết lập mật khẩu mới của bạn dùng để đăng nhập vào trang web <a href="http://www.happyclick.com.vn">www.happyclick.com.vn</a> cho tài khoản email '.$_POST['email'].' Vui lòng nhấn vào đường dẫn bên dưới để thực hiện thiết lập mật khẩu mới cho tài khoản của bạn:<br />
-      <a href="'.get_site_url().'/hcaccount/doi-mat-khau/?act=rp&user_id='.$user->ID.'&key='.$key.'">Lấy lại mật khẩu</a><br />
+      Happy Click vừa nhận được yêu cầu thiết lập mật khẩu mới của bạn dùng để đăng nhập vào trang web <a href="http://www.happyclick.com.vn">www.happyclick.com.vn</a> cho tài khoản email '.$_POST['email'].' Vui lòng nhấn vào đường dẫn bên dưới để thực hiện thiết lập mật khẩu mới cho tài khoản của bạn:<br /><br />
+      <a href="'.get_site_url().'/hcaccount/doi-mat-khau/?act=rp&user_id='.$user->ID.'&key='.$key.'">Click vào đây để lấy lại mật khẩu</a><br />
       <br />
       Đường dẫn này sẽ chỉ có giá trị đến '.$expdate.'<br />
       <br />
@@ -70,17 +70,11 @@ if(isset($_POST) && $_POST['action'] == 'submit')
 ?>
 		<form id="form" method="post" class="form_profile">
 		<?php echo $flag; ?>
-		<p>Vui lòng nhập email mà bạn dùng để đăng nhập vào ô bên dưới</p>
+		<p>Vui lòng nhập email mà bạn dùng để đăng nhập vào ô bên dưới</p><br/>
 		<table width="100%" class="form_doipass">
+						
 			<tr>
-				<td colspan="2">
-					<p><strong>QUÊN MẬT KHẨU</strong></p>
-					
-				</td>
-			</tr>
-			
-			<tr>
-				<td  width="20%"  align="right">Email</td>
+				<td  width="20%" style="padding-right:30px"  align="right">Email</td>
 				<td width="50%" ><input class="email" name="email"  type="email"required/><span>*</span></td>				
 			</tr>
 			<tr>
@@ -88,7 +82,7 @@ if(isset($_POST) && $_POST['action'] == 'submit')
 				<td colspan="2" align="center"><input type="hidden" name="action" value="submit"><input type="submit" value="" class="submit_final" /></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="right"><a href="<?php echo get_site_url(); ?>" class="returnhome">Trở về trang chủ</a></td>
+				<td colspan="2" align="right"><a style="font-size:!4px" href="<?php echo get_site_url(); ?>" class="returnhome">Trở về trang chủ</a></td>
 
 			</tr>
 		</table>
