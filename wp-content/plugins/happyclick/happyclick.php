@@ -525,7 +525,13 @@ function sukien_columns($column, $post_id)
             break;
     }
 }
-
+function get_feautre_cat($cat_id){
+    $db = $GLOBALS['wpdb'];
+    $sql ="select field_value,field_name from ".$db->prefix."ccf_Value where term_id = '".$cat_id."'";
+   
+    $result =$db->get_row($sql);
+    return $result;
+}
 function get_chude($post_type = 'sukien', $posts_per_page = -1, $orderby =
     'none', $subject_id = null)
 {
@@ -533,10 +539,14 @@ function get_chude($post_type = 'sukien', $posts_per_page = -1, $orderby =
     echo '<div class="items items-col-'.$count.' grid-block">';
     //$taxonomies = get_terms('chude');
     $taxonomies = get_categories('taxonomy=chude');
+    
     $i=0;
     if (!empty($taxonomies)) {
         foreach ($taxonomies as $taxonomy) {
             $margin = 0;
+            $feature = get_feautre_cat($taxonomy->term_id);
+            if($feature->field_name=='Feature' && $feature->field_value==1){
+
                 if($taxonomy->slug=='hoi-thao')
                     $margin=26;
                 echo '<div class="clearfix '.$taxonomy->slug.'"><h3 class="module-title" style="padding:0px;margin:0px;margin-bottom:'.$margin.'px;border-bottom:1px solid #ccc"><a href="/chude/' . $taxonomy->slug . '">' . $taxonomy->
@@ -702,6 +712,7 @@ $i++;
 endwhile;
             }
             echo '</div><br/>';
+        }
         }
     }
    echo '</div>';

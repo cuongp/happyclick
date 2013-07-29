@@ -4,6 +4,12 @@
 		<?php while (have_posts()) : the_post();
 		$post_id = get_the_ID(); 
 		$data = get_post_meta( $post_id, '_sukien', true );
+		$term = get_the_terms($post_id, 'chude');
+
+		foreach ($term as $key => $value) {
+			$id = $value->term_id;
+		}
+		if($id < 35){
 		?>
 		
 		<article class="item" data-permalink="<?php the_permalink(); ?>">
@@ -64,7 +70,31 @@
 
 		</article>
 
-		<?php endwhile; ?>
+		<?php 
+			}else
+			{
+		?>
+			<article class="item" style="padding:20px 10px" data-permalink="<?php the_permalink(); ?>">
+			<header>
+		
+				<h1 class="title"><?php the_title(); ?></h1>
+			</header>
+			<div class="content clearfix" >
+			<?php the_content(''); ?>
+			<p>Thời gian: <?php echo $data['thoigian']; ?></p>
+			<ul class="rg">
+				<li><a href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $post_id; ?>" class="dk4"><span><?php echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></a></li>
+
+				<li><a href="/hcaccount/khach-dang-ky/?cid=<?php echo $post_id; ?>"  class="dk5"><span><?php echo number_format($data['giatien'],0,'.','.');?>đ</span></a></li>
+
+				<li><a href="" onclick="" class="dk6"><span>Trở thành thành viên</span></a></li>
+			</ul>
+			</div>
+			
+		</article>
+		<?php
+			}
+		endwhile; ?>
 	<?php endif; ?>
 
 </div>
