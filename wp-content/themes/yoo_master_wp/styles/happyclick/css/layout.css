@@ -115,9 +115,9 @@ a.prev span, a.next span{display: none}
 
 #footer .module { margin: 0; }
 
-#sidebar-b{margin-top: 15px}
+#sidebar-b{margin-top: 15px; margin-left:20px; }
 
-#sidebar-a{margin-top: 10px}
+#sidebar-a{margin-top: 10px; margin-right: 20px; }
 #membership .mod-box{
     border:1px solid #0c5893;
     -webkit-border-radius:5px;
