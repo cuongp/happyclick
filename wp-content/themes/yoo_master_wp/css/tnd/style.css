@@ -6,7 +6,7 @@
 }
 
 .jcarousel-skin-tango .jcarousel-container-horizontal {
-    width: 813px;
+    width: 792px;
     padding: 5px 18px;
 }
 
@@ -304,7 +304,7 @@ div.wpcf7 span.wpcf7-not-valid-tip{
     left: 104%; /* 10px; */
     font-style: italic;
 }
-div.wpcf7 .captchar span.wpcf7-not-valid-tip{ left: 131%; width: 130px; }
+div.wpcf7 .captchar span.wpcf7-not-valid-tip{ left: 131%; width: 130px; line-height: 1.2em; }
 div.wpcf7 span.wpcf7-form-control-wrap{ float:left; }
 div.wpcf7-validation-errors{ border:none; }
 /* trang hoi thao/khoa hoc */
@@ -583,7 +583,7 @@ div.wpcf7-validation-errors{ border:none; }
 .video-category h3{}
 .video-category p{}
 .video-category .jcarousel-skin-tango .jcarousel-item-horizontal{
-    margin-right: 31px;
+    margin-right: 24px;
 }
 .video-category .jcarousel-skin-tango .jcarousel-prev-horizontal{
     background: url(images/video_prev.jpg) 0 50% no-repeat;
@@ -625,7 +625,7 @@ div.wpcf7-validation-errors{ border:none; }
 .gallery_item{ 
     float:left; 
     width: 235px;
-    padding: 10px 19px;
+    padding: 10px 18px;
     text-align: center;
 }
 .gallery_item .gallery_thumb{
@@ -800,8 +800,20 @@ table.quiz td{
 #module-new-week h3 a{ font-size: 36px !important; }
 #module-new-week .quiz{ margin-top: 1.2em; }
 
-/* Temporary fix for widget sidebar */
-/*.wrapper #maininner{ width: 75%; } 
-.wrapper #sidebar-a{ left: -75%; } 
-.public #maininner{ left: 0; } */
+.wpui-light .ui-collapsible-header, .wpui-light .ui-accordion h3.ui-accordion-header{
+    font-weight: normal;
+    padding: 9px;
+}
+
+#answer4{
+    margin: 35px auto 10px;
+    width: 90%;
+    text-align: justify;
+    padding: 20px;
+}
+#answer4 p{padding-left: 0;}
+#answer4 img{
+    float:right;
+    margin-left: 15px;
+}
 /* END Tamnd's code */

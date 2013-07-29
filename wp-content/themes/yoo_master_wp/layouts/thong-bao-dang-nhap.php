@@ -27,7 +27,7 @@ global $current_user;
 
             echo $warp['template']->render('header_member');
         }else if($is_member && !$is_subs){
-            echo $warp['template']->render('header_trial');
+            echo $warp['template']->render('header_member');
         }else
             echo $warp['template']->render('header_public');
         
