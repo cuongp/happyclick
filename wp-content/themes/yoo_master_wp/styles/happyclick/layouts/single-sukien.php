@@ -30,10 +30,11 @@
 
 			<div class="content clearfix" >
 			<?php the_content(''); ?>
+			
 <ul class="rg">
-				<li><a href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $post_id; ?>" class="dk1"><span><?php echo $data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100 ?>đ</span></a></li>
+				<li><a href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $post_id; ?>" class="dk1"><span><?php echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></a></li>
 
-				<li><a href="/hcaccount/khach-dang-ky/?cid=<?php echo $post_id; ?>"  class="dk2"><span><?php echo $data['giatien']; ?>đ</span></a></li>
+				<li><a href="/hcaccount/khach-dang-ky/?cid=<?php echo $post_id; ?>"  class="dk2"><span><?php echo number_format($data['giatien'],0,'.','.');?>đ</span></a></li>
 
 				<li><a href="/category/thanh-vien/quyen-loi-thanh-vien/"  class="dk3"><span>Trở thành thành viên</span></a></li>
 			</ul>
