@@ -58,7 +58,7 @@ foreach ($categories as $key=>$category){
                             $the_query = new WP_Query( $args );
                             while ( $the_query->have_posts() ) {
                                 $the_query->the_post();
-                                echo $this->render('_post-hoc-qua-video');
+                                echo $this->render('_post-hanh-trang-nghe-nghiep');
                             }
         echo '          </ul>
                     </div>
