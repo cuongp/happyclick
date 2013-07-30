@@ -7,7 +7,7 @@
 */
 
 // generate css for layout
-$css[] = sprintf('.wrapper { width: %dpx; }', $this['config']->get('template_width'));
+$css[] = sprintf('.wrapper { max-width: %dpx; }', $this['config']->get('template_width'));
 
 // generate css for 3-column-layout
 $sidebar_a       = '';
@@ -97,7 +97,7 @@ if (($font = $this['config']->get('font2')) && $this['path']->path("css:/font2/$
 if (($font = $this['config']->get('font3')) && $this['path']->path("css:/font3/$font.css")) { $this['asset']->addFile('css', "css:/font3/$font.css"); }
 $this['asset']->addFile('css', 'css:style.css');
 if ($this['config']->get('direction') == 'rtl') $this['asset']->addFile('css', 'css:rtl.css');
-//$this['asset']->addFile('css', 'css:responsive.css');
+$this['asset']->addFile('css', 'css:responsive.css');
 $this['asset']->addFile('css', 'css:print.css');
 $this['asset']->addFile('css', 'template:fonts/8/8.css');
 $this['asset']->addFile('css', 'template:fonts/11/11.css');

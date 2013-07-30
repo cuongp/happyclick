@@ -30,8 +30,7 @@ class WarpMenuDefault extends WarpMenu {
 			Void
 	*/
 	protected static function _process($module, $element, $level = 0) {
-		$is_subs = current_user_has_subscription();
-		
+
 		if ($level == 0) {
 			$element->attr('class', 'menu '.$module->menu_style);
 		} else {
