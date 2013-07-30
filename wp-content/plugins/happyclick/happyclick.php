@@ -216,7 +216,7 @@ function hcaccount_taxonomy_type()
         'query_var' => 'hcaccount',
         'rewrite' => true,
         'show_in_nav_menus' => true));
-        flush_rewrite_rules();
+    flush_rewrite_rules();
 }
 
 

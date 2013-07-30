@@ -2386,25 +2386,18 @@ function log() {
 	var container = $('div.container');
 	// validate the form when it is submitted
 	var validator = $(".form_profile").validate({
-		rules: {
-			captcha: {
-				required: true,
-				remote: "/wp-content/themes/yoo_master_wp/js/process.php"
-			}
-		},
-		messages: {
-			captcha: "Correct captcha is required. Click the captcha to generate a new one"	
-		},
-		submitHandler: function() {
-			alert("Correct captcha!");
-		},
-		success: function(label) {
-			label.addClass("valid").text("Valid captcha!")
-		},
-		onkeyup: false,
 		errorContainer: container,
 		errorLabelContainer: $("ol", container),
 		wrapper: 'li'
+	});
+
+	$('.form_profile2').validate({
+		
+		messages: {
+			cemail: {
+				required: 'Enter this!'
+			}
+		}
 	});
 $("#slider").carouFredSel({
 	items	: 4,

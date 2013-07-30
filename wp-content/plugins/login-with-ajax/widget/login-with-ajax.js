@@ -53,7 +53,8 @@ jQuery(document).ready( function($) {
 					lwaOrg.replaceWith(lwaSub);
 				});
 			}else{
-				if(hcaccount=='dang-xuat' || hcaccount=='xac-thuc-email'){
+				
+				if(hcaccount=='dang-xuat' || hcaccount=='xac-thuc-email' || hcaccount=='xem-thu'){
 					window.location = site_url;
 				}else{	
 					if(data.redirect == null){
