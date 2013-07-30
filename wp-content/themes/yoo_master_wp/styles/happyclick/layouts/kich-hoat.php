@@ -235,7 +235,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Mã kiểm tra</td>
-				<td  class="box4"><div id="captchaimage"><a href="<?php echo $_SERVER['PHP_SELF']; ?>" id="refreshimg" title="Click to refresh image"><img src="/wp-content/themes/<?php echo get_template() ?>/js/images/image.php?<?php echo time(); ?>" width="132" height="46" alt="Captcha image" /></a></div><input type="text" maxlength="6" name="captcha" id="captcha" /><span>*</span></td>				
+				<td  class="box4"><a href="<?php echo $_SERVER['PHP_SELF']; ?>" id="refreshimg" title="Click to refresh image"><img src="/wp-content/themes/<?php echo get_template() ?>/js/images/image.php?<?php echo time(); ?>" width="132" height="46" alt="Captcha image" /></a><input type="text" maxlength="6" name="captcha" id="captcha" /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td colspan="2"><br/>
