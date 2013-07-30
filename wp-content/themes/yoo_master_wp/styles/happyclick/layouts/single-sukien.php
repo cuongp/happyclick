@@ -4,6 +4,12 @@
 		<?php while (have_posts()) : the_post();
 		$post_id = get_the_ID(); 
 		$data = get_post_meta( $post_id, '_sukien', true );
+		$term = get_the_terms($post_id, 'chude');
+
+		foreach ($term as $key => $value) {
+			$id = $value->term_id;
+		}
+		if($id < 35){
 		?>
 		
 		<article class="item" data-permalink="<?php the_permalink(); ?>">
@@ -30,10 +36,11 @@
 
 			<div class="content clearfix" >
 			<?php the_content(''); ?>
+			
 <ul class="rg">
-				<li><a href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $post_id; ?>" class="dk1"><span><?php echo $data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100 ?>đ</span></a></li>
+				<li><a href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $post_id; ?>" class="dk1"><span><?php echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></a></li>
 
-				<li><a href="/hcaccount/khach-dang-ky/?cid=<?php echo $post_id; ?>"  class="dk2"><span><?php echo $data['giatien']; ?>đ</span></a></li>
+				<li><a href="/dang-ky-su-kien-cho-khach/"  class="dk2"><span><?php echo number_format($data['giatien'],0,'.','.');?></span></a></li>
 
 				<li><a href="/category/thanh-vien/quyen-loi-thanh-vien/"  class="dk3"><span>Trở thành thành viên</span></a></li>
 			</ul>
@@ -63,7 +70,55 @@
 
 		</article>
 
-		<?php endwhile; ?>
+		<?php 
+			}else
+			{
+		?>
+			<article class="item" style="padding:20px 10px" data-permalink="<?php the_permalink(); ?>">
+			<header>
+		
+				<h1 class="title"><?php the_title(); ?></h1>
+			</header>
+			<div class="content clearfix" >
+			<?php the_content(''); 
+			$time = explode('|', $data['thoigian']);
+			if(count($time)>1){
+				$date = $time[1];
+				$hour = $time[0];
+			}else
+			{
+				$date = $time[0];
+				$hour = $time[0];
+			}
+			?>
+			<p>Thời gian: <?php echo $hour; ?></p>
+			<p>Ngày: <?php echo $date; ?></p>
+			<table border="0" align="left">
+<tbody>
+<tr>
+<td width="250"><a target="_blank" href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $post_id; ?>"><img width="122" height="35" src="/wp-content/uploads/2013/07/dang-ky.png" alt="Đăng ký" class="alignnone size-full wp-image-2481"></a></td>
+<td width="280"><a href="/category/thanh-vien/quyen-loi-thanh-vien/"><img src="/wp-content/uploads/2013/07/tro-thanh-thanh-vien.png" alt="Trở thành thành viên" class="alignnone size-full wp-image-2480"></a></td>
+<td width="300"><a href="/huong-dan-tham-du"><img src="/wp-content/uploads/2013/07/huong-dan-tham-du-.png" alt="Hướng dẫn tham dự" class="alignnone size-full wp-image-2482"/></a></td>
+</tr>
+<tr>
+<td width="250">(<em>Chỉ dành cho thành viên</em>)</td>
+<td width="280"></td>
+<td width="300"></td>
+</tr>
+</tbody>
+</table>
+<p>
+<span style="color: #83b87a;">
+<strong>Các câu hỏi đã được đặt:</strong>
+</span>
+</p>
+		
+			</div>
+			
+		</article>
+		<?php
+			}
+		endwhile; ?>
 	<?php endif; ?>
 
 </div>

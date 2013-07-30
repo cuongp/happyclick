@@ -41,7 +41,7 @@ return $first_img;
             
 	?>
 	<div class="box2">
-	<div class="banner"><img src="<?php echo catch_that_image($posts_array[0]->post_content); ?>"/></div>
+	<div class="banner"><a href="<?php echo $posts_array[0]->guid; ?>"><img src="<?php echo catch_that_image($posts_array[0]->post_content); ?>"/></a></div>
 	<div class="bodycontent">
 		<?php echo the_excerpt();?>
 		<p style="text-align:right;float:right;"><a href="<?php echo $posts_array[0]->guid; ?>" class='viewmore'><span>Xem chi tiết</span></a></p>
@@ -50,9 +50,9 @@ return $first_img;
 	</div>
 	<div style="clear:both">
 			<ul class="rg">
-				<li><a href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $posts_array[0]->ID; ?>" class="dk1"><span><?php echo $data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100 ?>đ</span></a></li>
+				<li><a href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $posts_array[0]->ID; ?>" class="dk1"><span><?php echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></a></li>
 
-				<li><a href="/hcaccount/khach-dang-ky/?cid=<?php echo $posts_array[0]->ID; ?>"  class="dk2"><span><?php echo $data['giatien'];?>đ</span></a></li>
+				<li><a href="/dang-ky-su-kien-cho-khach/"  class="dk2"><span><?php echo number_format($data['giatien'],0,'.','.');?></span></a></li>
 
 				<li><a href="/category/thanh-vien/quyen-loi-thanh-vien/"  class="dk3"><span>Trở thành thành viên</span></a></li>
 			</ul>
@@ -70,6 +70,8 @@ return $first_img;
 			
 			if($i>1){
 				$terms = wp_get_post_terms( $p->ID, 'chude');
+				if($terms[0]->slug=='hoi-thao' || $terms[0]->slug =='khoa-hoc'):
+
 				if($i%2==0)
 					$class='sub1';
 				else
@@ -93,6 +95,7 @@ return $first_img;
 					
 				</div>
 		<?php
+			endif;
 		}
 			$i++;
 			}

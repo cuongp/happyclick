@@ -372,6 +372,7 @@ function sukien_form()
     $diadiem = (empty($sukien_data['diadiem'])) ? '' : $sukien_data['diadiem'];
     $articleicon = (empty($sukien_data['articleicon'])) ? '' : $sukien_data['articleicon'];
     $slidericon = (empty($sukien_data['slidericon'])) ? '' : $sukien_data['slidericon'];
+    $isslider = (empty($sukien_data['isslider'])) ? '' : $sukien_data['isslider'];
     wp_nonce_field('sukien', 'sukien');
 ?>
 <p>
@@ -381,6 +382,13 @@ function sukien_form()
 <p>
         <label>Slider Icon</label><br />
         <input type="text" value="<?php echo $slidericon; ?>" name="sukien[slidericon]" size="80" />
+</p>
+<p>
+        <label>Is slider</label><br />
+        <select name="sukien[isslider]">
+            <option value="0" <?php if($isslider==0) echo 'selected="selected"'; else echo '' ?>>No</option>
+            <option value="1" <?php if($isslider==1) echo 'selected="selected"'; else echo '' ?>>Yes</option>
+        </select>
 </p>
 <p>
         <label>Article Icon</label><br />
@@ -400,6 +408,21 @@ function sukien_form()
 </p>
 <?php
 }
+add_action('save_post', 'hcfaq_save_post');
+
+function hcfaq_save_post($post_id)
+{
+
+    if (!empty($_POST['hcfaq'])) {
+
+        $hcfaq_data['hcfaq'] = (empty($_POST['hcfaq']['pageid'])) ? '' :
+            sanitize_text_field($_POST['hcfaq']['pageid']);
+        
+    } else {
+        delete_post_meta($post_id, '_hcfaq');
+    }
+}
+
 add_action('save_post', 'sukien_save_post');
 
 function sukien_save_post($post_id)
@@ -414,6 +437,8 @@ function sukien_save_post($post_id)
             $_POST['sukien']['articleicon'];
         $sukien_data['slidericon'] = (empty($_POST['sukien']['slidericon'])) ? '' :
          $_POST['sukien']['slidericon'];
+         $sukien_data['isslider'] = (empty($_POST['sukien']['isslider'])) ? '' :
+         $_POST['sukien']['isslider'];
         $sukien_data['thoigian'] = (empty($_POST['sukien']['thoigian'])) ? '' :
             sanitize_text_field($_POST['sukien']['thoigian']);
         $sukien_data['diadiem'] = (empty($_POST['sukien']['diadiem'])) ? '' :
@@ -525,7 +550,13 @@ function sukien_columns($column, $post_id)
             break;
     }
 }
-
+function get_feautre_cat($cat_id){
+    $db = $GLOBALS['wpdb'];
+    $sql ="select field_value,field_name from ".$db->prefix."ccf_Value where term_id = '".$cat_id."'";
+   
+    $result =$db->get_row($sql);
+    return $result;
+}
 function get_chude($post_type = 'sukien', $posts_per_page = -1, $orderby =
     'none', $subject_id = null)
 {
@@ -533,10 +564,14 @@ function get_chude($post_type = 'sukien', $posts_per_page = -1, $orderby =
     echo '<div class="items items-col-'.$count.' grid-block">';
     //$taxonomies = get_terms('chude');
     $taxonomies = get_categories('taxonomy=chude');
+    
     $i=0;
     if (!empty($taxonomies)) {
         foreach ($taxonomies as $taxonomy) {
             $margin = 0;
+            $feature = get_feautre_cat($taxonomy->term_id);
+            if($feature->field_name=='Feature' && $feature->field_value==1){
+
                 if($taxonomy->slug=='hoi-thao')
                     $margin=26;
                 echo '<div class="clearfix '.$taxonomy->slug.'"><h3 class="module-title" style="padding:0px;margin:0px;margin-bottom:'.$margin.'px;border-bottom:1px solid #ccc"><a href="/chude/' . $taxonomy->slug . '">' . $taxonomy->
@@ -703,6 +738,7 @@ endwhile;
             }
             echo '</div><br/>';
         }
+        }
     }
    echo '</div>';
 }
@@ -717,6 +753,13 @@ function form_faq($atts){
        return '<form method="post" id="form" class="form_profile"><textarea name="question" id="question" requited></textarea><br/><input type="hidden" name="'.$pageid.'"/><input type="submit" class="wpcf7-form-control wpcf7-submit btn_send" value="" id="sendfaq"/></form>';
 }
 add_shortcode('Form_FAQ', 'form_faq');
+
+function redirect_hcpage($atts){
+       extract(shortcode_atts(array(
+      'link' => ''), $atts));
+    wp_redirect($link);       
+}
+add_shortcode('Redirect_Page', 'redirect_hcpage');
 function giangvien_banner($atts) {
    extract(shortcode_atts(array(
       'image' => ''

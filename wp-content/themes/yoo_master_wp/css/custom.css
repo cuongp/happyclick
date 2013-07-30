@@ -23,7 +23,7 @@
 float: left;
 height: 63px;
 width: 259px;
-margin-top: 10px;
+margin-top: 11px;
 }
 #system #tabs > ul > li > a {
     font-size: 16px;
@@ -71,7 +71,7 @@ margin-top: 10px;
 	background: url('../images/tab-radio-active.png') no-repeat right transparent;
 	height: 73px;
 	width: 270px;
-	margin-top:0px;
+	margin-top:1px;
 	margin-left:-5px;
 }
 
@@ -80,14 +80,14 @@ margin-top: 10px;
 background: url('../images/tab-cs-active.png') no-repeat right transparent;
 height: 73px;
 width: 265px;
-margin-top: 0px;
+margin-top: 1px;
 }
 
 #system #tabs > ul > li#tab-kt.ui-tabs-active {
 	background: url('../images/tab-kt-active.png') no-repeat right transparent;
 height: 73px;
 width: 266px;
-margin-top: 0px;
+margin-top: 3px;
 }
 
 #system .posts-wrapper {
@@ -104,6 +104,7 @@ padding-top: 10px;
 overflow: hidden;
 height: auto;
 padding-bottom: 40px;
+margin-left: 1px;
 }
 .margin_right {
 	margin-right:0px !important;
@@ -138,7 +139,7 @@ color: #7f0119;
 }
 
  .category-lam-giau-cuoc-song .first-post img.wp-post-image,
-.first-post-radio img {
+.first-post-radio img.alignleft {
 	width: 300px;
 height: 200px;
 border: 5px solid #fff;
@@ -170,7 +171,7 @@ text-align: justify;
 .posts_sub_radio {
 	width: 100p%;
 	height: 1000px;
-margin-left: 30px;
+margin-left: 45px;
  }
  
 .category-happy-click-radio .posts_sub .post_sub,
@@ -386,9 +387,9 @@ font-style:italic;
 	font-weight:bold;
 }
 .single-post #content{
-	margin: 10px 0px 10px 10px;
+	/*margin: 10px 0px 10px 10px;*/
 	padding:0;
-	margin-left:10px;
+	/*margin-left:10px;*/
 }
 .single-hoc-truc-tuyen-old .content-box1 {
 	width:100%;
@@ -484,6 +485,13 @@ margin-left:1px;
     margin: 20px 70px 10px 60px;
   }
  
+ .download-notify {
+	margin: 20px 60px;
+line-height: 21px;
+ }
+  .download-notify a img {
+	margin-top:0px;	
+  }
  
 .ban-lanh-dao { margin: 0 30px 0 60px; float: left; width: 755px;}
 .ban-lanh-dao h3 { margin: 20px 0 0;; width: 100%; float: left; }

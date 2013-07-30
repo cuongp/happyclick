@@ -25,9 +25,7 @@ global $current_user;
 </head>
 
 <body id="page" class="page <?php echo $this['config']->get('body_classes'); ?>" data-config='<?php echo $this['config']->get('body_config','{}'); ?>'>
-<div style="position:fixed;top:50px;border:1px solid red;padding:10px;z-index:9999;background:#fff">
-Bạn đang là visitor
-</div>
+
 	<?php if ($this['modules']->count('absolute')) : ?>
 	<div id="absolute">
 		<?php echo $this['modules']->render('absolute'); ?>
@@ -45,10 +43,10 @@ Bạn đang là visitor
 
 		?>
 	<div class="wrapper clearfix">
-
 		<header id="header">
-
-		
+            <?php if(!$current_user->ID): ?>
+            <h3 style="color: rgb(218, 118, 35); text-align: center; line-height: 1.5em; left: 334px; position: absolute; top: 178px;" class="text-green">TRANG WEB SẼ ĐƯỢC CHÍNH THỨC KHAI TRƯƠNG <br>VÀO 10:00, NGÀY 01/08/2013</h3>
+            <?php endif; ?>
 			<?php if ($this['modules']->count('toolbar-l + toolbar-r') || $this['config']->get('date')) : ?>
 			<div id="toolbar" class="clearfix">
 
@@ -80,7 +78,7 @@ Bạn đang là visitor
 			<div id="headerbar" class="clearfix">
 			
 				<?php if ($this['modules']->count('logo')) : ?>	
-				<a id="logo" href="<?php echo $this['config']->get('site_url'); ?>"><?php echo $this['modules']->render('logo'); ?></a>
+				<a id="logo" href="<?php echo get_site_url();?>"><?php echo $this['modules']->render('logo'); ?></a>
 				<?php endif; ?>
 				
 				<?php 

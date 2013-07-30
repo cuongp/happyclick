@@ -20,9 +20,7 @@ include($this['path']->path('layouts:template.config.php'));
 </head>
 
 <body id="page" class="page <?php echo $this['config']->get('body_classes'); ?>" data-config='<?php echo $this['config']->get('body_config','{}'); ?>'>
-<div style="position:fixed;top:50px;border:1px solid red;padding:10px;z-index:9999;background:#fff">
-Bạn đang là thành viên dùng thử
-</div>
+
 	<?php if ($this['modules']->count('absolute')) : ?>
 	<div id="absolute">
 		<?php echo $this['modules']->render('absolute'); ?>
@@ -75,7 +73,7 @@ Bạn đang là thành viên dùng thử
 			<div id="headerbar" class="clearfix">
 			
 				<?php if ($this['modules']->count('logo')) : ?>	
-				<a id="logo" href="<?php echo $this['config']->get('site_url'); ?>"><?php echo $this['modules']->render('logo'); ?></a>
+				<a id="logo" href="<?php echo get_site_url();?>"><?php echo $this['modules']->render('logo'); ?></a>
 				<?php endif; ?>
 				
 				<?php echo $this['modules']->render('headerbar-trial'); ?>
@@ -104,8 +102,8 @@ dành cho thành viên Happy Click</p>
 		<div style="clear:both"></div><br/>
 	<?php endif;?>
 		</header>
+			<!-- EDITED -->
 			<?php 
-			
 			if ($this['modules']->count('sidebar-trial')) : ?>
 			<aside id="sidebar-trial" class="grid-box"><?php echo $this['modules']->render('sidebar-trial', array('layout'=>'stack')); ?></aside>
 			<?php endif; ?>

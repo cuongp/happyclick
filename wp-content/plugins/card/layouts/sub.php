@@ -7,12 +7,12 @@ if(isset($_POST) && $_POST['action']=='submit'){
 }
 if(isset($_POST) && $_POST['action']=='submit2'){
 	$db = $GLOBALS['wpdb'];
-	$sql = "update ".$db->prefix."cards set valid='".$_POST['sub']."' where id >= ".$_POST['to']." and id<=".$_POST['from'];
+	$sql = "update ".$db->prefix."cards set status='".$_POST['sub']."' where id >= ".$_POST['to']." and id<=".$_POST['from'];
 	$db->query($sql);
 }
 if(isset($_POST) && $_POST['action']=='submit3'){
 	$db = $GLOBALS['wpdb'];
-	$sql = "update ".$db->prefix."cards set status='".$_POST['sub']."' where id >= ".$_POST['to']." and id<=".$_POST['from'];
+	$sql = "update ".$db->prefix."cards set valid='".$_POST['sub']."' where id >= ".$_POST['to']." and id<=".$_POST['from'];
 	$db->query($sql);
 }
 if(isset($_POST) && $_POST['action']=='submit4'){

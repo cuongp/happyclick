@@ -64,7 +64,9 @@ class rpwe_widget extends WP_Widget
 			$args = array(
 				'numberposts' => $limit,
 				'cat' => $cat,
-				'post_type' => $post_type
+				'post_type' => $post_type,
+				'orderby'         => 'post_date',
+				'order'           => 'ASC'
 			);
 
 			$rpwewidget = get_posts($args);

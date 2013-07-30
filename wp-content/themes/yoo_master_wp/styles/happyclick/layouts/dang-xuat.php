@@ -1,4 +1,4 @@
-<div class="box dangxuat" style="width:760px; text-align:center;margin-top:5px;">
+<div class="box dangxuat" style="width:760px; text-align:center;margin-top:15px;">
 
 
 <p style="line-height:25px;padding-top:210px;">Bạn đã đăng xuất khỏi trang <a href="http://happyclick.com.vn">happyclick.com.vn</a></p>

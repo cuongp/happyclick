@@ -2,18 +2,36 @@
 global $current_user;
 	$is_member = current_user_is_member();
 	$is_subs = current_user_has_subscription();
-
+function check_register($user_id,$pageid){
+	$db = $GLOBALS['wpdb'];
+	$post = $db->get_row('select id from '.$db->prefix.'user_sukien where user_id="'.$user_id.'"  and sukien_id = "'.$pageid.'"');
+        return !empty($post)? $post :null;
+}
 $cid = $_GET['cid'];
 if($current_user->ID > 0){
-	$db = $GLOBALS['wpdb'];
-	$db->insert($db->prefix.'user_sukien',
+	if(check_register($current_user->ID,$cid)){
+				wp_redirect('/hcaccount/thong-bao-dang-ky/?cid='.$cid);
+	
+	}else{
+		$db->insert($db->prefix.'user_sukien',
 				array('user_id'=>$current_user->ID 
 					,'sukien_id'=>$_GET['cid']
 					,'created_at'=>time()
 					,'payment_status'=>0
 					));
-	if($is_member && $is_subs)
+	if($is_member && $is_subs){
+		$post = get_post($cid);
+		$data = get_post_meta( $post->ID, '_sukien', true );
+		if($data['giatien']=="" || $data['giatien']<1)
+		{
+			wp_redirect('/hcaccount/xac-nhan-thanh-toan/?cid='.$cid.'&type=2');
+			exit;
+		}
 		wp_redirect('/hcaccount/thanh-toan/?act=thanh-vien-dang-ky&user_id='.$current_user->ID.'&cid='.$cid.'&code='.time());
+		exit;
+	}	
+	}
+	
 }
 ?>
 <?php if($current_user->ID < 1 ): ?>

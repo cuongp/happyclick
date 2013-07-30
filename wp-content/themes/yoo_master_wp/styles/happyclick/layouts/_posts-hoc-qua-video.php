@@ -96,15 +96,18 @@ foreach ($categories as $key=>$category){
     ?>
 </div>
 
-<div class="video-upcomming">
-    <?php 
+<div class="video-upcomming" style="padding-top: 2em; text-align: center;">
+    <?php /*
         $post_id = 2075;
         $video_upcomming = get_post($post_id);
-    ?>
+    
     <h3 class="text-orange"><?php echo $video_upcomming->post_title; ?></h3>
     <div>
         <?php echo $video_upcomming->post_content; ?>
     </div>
+    */?>
+    
+    <img src="<?php echo get_bloginfo('url').'/wp-content/uploads/2013/07/lich_video_tiep_theo.jpg' ?>" />
 </div>
 <?php
 
