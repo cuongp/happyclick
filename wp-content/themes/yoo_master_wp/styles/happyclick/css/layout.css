@@ -5,20 +5,7 @@
 
 /* Spacing
 ----------------------------------------------------------------------------------------------------*/
-div.container {
-    background-color: #eee;
-    border: 1px solid red;
-    margin: 5px;
-    padding: 5px;
-}
-div.container ol li {
-    list-style-type: disc;
-    margin-left: 20px;
-}
-div.container { display: none }
-.container label.error {
-    display: inline;
-}
+
 #system{
     padding-left: 0px;
 }
@@ -32,7 +19,7 @@ div.container { display: none }
 em{color: #000;}
 #breadcrumbs,
 #content,#bottom-b
-{ margin: 15px; }
+{ margin: 0 15px 40px; }
 .title_muathe{
     font-size: 24px;
     color: #88ab35;
@@ -883,7 +870,8 @@ height: auto;
     text-transform: capitalize;
 }
 .box2{
-    margin-top:-12px;padding:0 10px
+    margin-top: 18px;
+	padding:0 10px
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
     border-radius:5px;
