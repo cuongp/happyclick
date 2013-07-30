@@ -102,8 +102,8 @@ dành cho thành viên Happy Click</p>
 		<div style="clear:both"></div><br/>
 	<?php endif;?>
 		</header>
+			<!-- EDITED -->
 			<?php 
-			
 			if ($this['modules']->count('sidebar-trial')) : ?>
 			<aside id="sidebar-trial" class="grid-box"><?php echo $this['modules']->render('sidebar-trial', array('layout'=>'stack')); ?></aside>
 			<?php endif; ?>

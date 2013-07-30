@@ -29,6 +29,7 @@ $args = array(
 $categories = get_categories( $args );
 $total_records      = count($categories);
 $number_of_pages    = ceil($total_records/$category_per_page);
+
 $i=0;
 //Hien thi danh sach cac category
 foreach ($categories as $key=>$category){
@@ -99,7 +100,6 @@ foreach ($categories as $key=>$category){
     <?php 
         $post_id = 3543;
         $video_upcomming = get_post($post_id);
-
     ?>
     <h3 class="text-orange"><?php echo $video_upcomming->post_title; ?></h3>
     <div>
