@@ -312,8 +312,8 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Đối tượng</td>
 				<td  class="box4">
-					<select id="objectuser" name="cobjectuser"  validate="required:true">
-						<option>Chưa chọn</option>
+					<select id="objectuser" name="cobjectuser"   required="">
+						<option value="">Chưa chọn</option>
 					
 						<?php
 							if(!empty($doituong)){
@@ -336,7 +336,8 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Ngành nghề</td>
 				<td  class="box4">
-					<select id="mayjor" name="cmayjor"><option>Chưa chọn</option>
+					<select id="mayjor" name="cmayjor">
+					<option value="" >Chưa chọn</option>
 						<?php
 							if(!empty($nganhnghe)){
 								foreach ($nganhnghe as $dt) {
@@ -359,7 +360,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Tỉnh/Thành phố</td>
 				<td  class="box4">
-					<select id="city" name="ccity"  validate="required:true"><option>Chưa chọn</option>
+					<select id="city" name="ccity"  required=""><option value="">Chưa chọn</option>
 						<?php
 							if(!empty($cities)){
 								foreach ($cities as $dt) {
