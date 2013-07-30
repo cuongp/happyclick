@@ -143,6 +143,17 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 <div class="box" style="width:730px">
 
 <form id="form" class="form_profile" method="post" >
+<div class="container">
+	<ol>
+		<li><label for="first_name" class="error">Bạn chưa nhập họ</label></li>
+		<li><label for="last_name" class="error">Bạn chưa nhập tên</label></li>
+		<li><label for="email" class="error">Bạn chưa nhập email</label></li>
+		<li><label for="password" class="error">Bạn chưa mật khẩu</label></li>
+		<li><label for="confirm_password" class="error">Bạn chưa nhập lại mật khẩu</label></li>
+		<li><label for="mobile" class="error">Bạn chưa nhập số điện thoại di động</label></li>
+
+	</ol>
+</div>
 <?php echo $flag; ?>
 		<table width="100%" class="form_doipass">
 			
@@ -176,7 +187,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>-->
 			<tr>
 				<td width="45%"  class="box3" align="right">Email <br/> <em style="font-weight:normal">Email cá nhân hoặc email thường sử dụng</td>
-				<td  class="box4"><input type="email" class="email" name="email" id="email" value="<?php echo $current_user->user_email ?>" required/><span>*</span></td>				
+				<td  class="box4"><input type="email" class="email" name="email" id="email" value="<?php echo $current_user->user_email ?>" data-msg-email="Email không hợp lệ" data-msg-required="Bạn chưa nhập email" /><span>*</span></td>				
 			</tr>
 			<!--<tr>
 				<td width="45%"  class="box3" align="right">Email<br/><em>Email cá nhân hoặc email thường sử dụng</em></td>
@@ -209,16 +220,16 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Đối tượng</td>
 				<td  class="box4">
-					<select id="objectuser" name="objectuser" validate="required:true">
+					<select id="objectuser" name="objectuser" validate="required:true"><option>Chưa chọn</option>
 						<?php
 							if(!empty($doituong)){
 								foreach ($doituong as $dt) {
-									if(get_usermeta( $current_user->ID, 'objectuser')==$dt->ID){
+									if(get_usermeta( $current_user->ID, 'objectuser')==$dt->term_id){
 										$selected = 'selected=selected';
 									}else
 										$selected = '';
 							?>
-								<option <?php echo $selected; ?> value="<?php echo $dt->ID ?>"><?php echo $dt->name; ?></option>
+								<option <?php echo $selected; ?> value="<?php echo $dt->term_id ?>"><?php echo $dt->name; ?></option>
 							<?php
 								}
 							}
@@ -230,16 +241,16 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Ngành nghề</td>
 				<td  class="box4">
-					<select id="mayjor" name="mayjor">
+					<select id="mayjor" name="mayjor"><option>Chưa chọn</option>
 						<?php
 							if(!empty($nganhnghe)){
 								foreach ($nganhnghe as $dt) {
-									if(get_usermeta( $current_user->ID, 'mayjor')==$dt->ID){
+									if(get_usermeta( $current_user->ID, 'mayjor')==$dt->term_id){
 										$selected = 'selected=selected';
 									}else
 										$selected = '';
 							?>
-								<option <?php echo $selected; ?> value="<?php echo $dt->ID ?>"><?php echo $dt->name; ?></option>
+								<option <?php echo $selected; ?> value="<?php echo $dt->term_id ?>"><?php echo $dt->name; ?></option>
 							<?php
 								}
 							}
@@ -254,16 +265,16 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Tỉnh/Thành phố</td>
 				<td  class="box4">
-					<select id="city" name="city" validate="required:true">
+					<select id="city" name="city" validate="required:true"><option>Chưa chọn</option>
 						<?php
 							if(!empty($cities)){
 								foreach ($cities as $dt) {
-									if(get_usermeta( $current_user->ID, 'city')==$dt->ID){
+									if(get_usermeta( $current_user->ID, 'city')==$dt->term_id){
 										$selected = 'selected=selected';
 									}else
 										$selected = '';
 							?>
-								<option <?php echo $selected; ?> value="<?php echo $dt->ID ?>"><?php echo $dt->name; ?></option>
+								<option <?php echo $selected; ?> value="<?php echo $dt->term_id ?>"><?php echo $dt->name; ?></option>
 							<?php
 								}
 							}

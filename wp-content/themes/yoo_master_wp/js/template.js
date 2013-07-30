@@ -2382,7 +2382,15 @@ function log() {
 		return false;
 	});
 
-		$('.form_profile').validate();
+	//	$('.form_profile').validate();
+	var container = $('div.container');
+	// validate the form when it is submitted
+	var validator = $(".form_profile").validate({
+		
+		errorContainer: container,
+		errorLabelContainer: $("ol", container),
+		wrapper: 'li'
+	});
 $("#slider").carouFredSel({
 	items	: 4,
 	scroll	: {
