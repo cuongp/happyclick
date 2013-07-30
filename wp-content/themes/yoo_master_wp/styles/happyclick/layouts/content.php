@@ -23,7 +23,18 @@ if (is_home()) {
 	$content = 'index';
 	
 } elseif (is_page()) {
-	$content = 'page';
+    
+    $content = 'page';
+    
+    echo '<!-- begin mark-post '; 
+    $post_obj   = get_post();
+    $post_name  = $post_obj->post_name;
+    echo $post_name;
+    echo ' end mark -->';
+    
+    if($post_name == 've-happy-click' || $post_name == 'ban-lanh-dao'){
+		$content = 'page-ve-happy-click';
+    }
 	
 } elseif (is_attachment()) {
 	$content = 'attachment';
