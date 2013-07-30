@@ -2377,12 +2377,20 @@ function log() {
 
 	$(document).ready(function() {
 	$("#refreshimg").click(function(){
-		$.post('newsession.php');
+		$.post('/wp-content/themes/yoo_master_wp/js/newsession.php');
 		$("#captchaimage").load('image_req.php');
 		return false;
 	});
 
-		$('.form_profile').validate();
+	//	$('.form_profile').validate();
+	var container = $('div.container');
+	// validate the form when it is submitted
+	var validator = $(".form_profile").validate({
+		
+		errorContainer: container,
+		errorLabelContainer: $("ol", container),
+		wrapper: 'li'
+	});
 $("#slider").carouFredSel({
 	items	: 4,
 	scroll	: {
