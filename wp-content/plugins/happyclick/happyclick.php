@@ -26,10 +26,11 @@ if(is_admin()){
     function _adminViewSukien(){
     ?>
     <h1 class="title">Danh sách thành viên đăng ký</h1>
-<table class="list" width="100%">
+    <table class="list" width="100%" border="1">
             <thead>
                 <th class="shortcode">ID</th>
-                <th class="shortcode">USER</th>
+                <th class="shortcode">Thành viên</th>
+                <th class="shortcode">Sự kiện</th>
                 <th class="modified">Ngày đăng ký</th>
                 <th class="modified">Ngày thanh toán</th>
                 <th class="modified">Loại hình thanh toán</th>
@@ -43,12 +44,13 @@ if(is_admin()){
             if(!empty($posts)){
                 foreach ($posts as $post) {
                     $user = get_user_by('id',$post->user_id);
-                  
+                    $sukien = get_post($post->sukien_id);
                     //get_usermeta($post->user_id,'first_name');
                 ?>
                 <tr>
                 <td class="shortcode" ><?php echo $post->id ?>                    </td>
                 <td class="shortcode"><?php echo $user->user_login; ?></td>
+                <td class="shortcode"><?php echo $sukien->post_title; ?></td>
                 <td class="modified"><?php  echo  $post->created_at ?></td>
                 <td class="modified"><?php  if($post->payment_at>0) echo $post->payment_at;
                 else echo 'Chưa thanh toán';
@@ -57,7 +59,7 @@ if(is_admin()){
                 else echo 'Thanh toán chuyển khoản';
                  ?></td>
                 <td class="modified"><?php  if($post->payment_status==0) echo 'Chưa thanh toán'; else echo 'Đã thanh toán'; ?> </td>
-                <td class="actions"><a href="#">Edit</a><a href="#">Delete</a></td>
+                <td class="actions"><a href="#">Edit</a> | <a href="#">Delete</a></td>
                 </tr>
                 <?php
                 }
