@@ -45,6 +45,10 @@
 		<position>membership 1</position>
 		<position>membership 2</position>
 		<position>membership 3</position>
+
+		<position>membership trial 1</position>
+		<position>membership trial 2</position>
+		<position>membership trial 3</position>
 		<position settings="display">footer</position>
 	</positions>
 	<modulesettings>

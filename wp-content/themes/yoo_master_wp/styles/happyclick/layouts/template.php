@@ -176,7 +176,19 @@ dành cho thành viên Happy Click</p>
 		
 		</header>
 
-		
+		<section id="membership">
+	<div class="grid-block">
+		<div class="grid-box width33 grid-h">
+			<?php echo $this['modules']->render('membership-trial-1', array('layout'=>$this['config']->get('membership-trial-1'))); ?>	
+		</div>
+		<div class="grid-box width33 grid-h">
+			<?php echo $this['modules']->render('membership-trial-2', array('layout'=>$this['config']->get('membership-trial-2'))); ?>	
+		</div>
+		<div class="grid-box width33 grid-h">
+			<?php echo $this['modules']->render('membership-trial-3', array('layout'=>$this['config']->get('membership-trial-3'))); ?>	
+		</div>
+	</div>
+	</section>
 		<?php if ($this['modules']->count('top-b')) : ?>
 		<section id="top-b" class="grid-block"><?php echo $this['modules']->render('top-b', array('layout'=>$this['config']->get('top-b'))); ?></section>
 		<?php endif; ?>
