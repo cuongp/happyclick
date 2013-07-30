@@ -18,4 +18,16 @@ $the_query = new WP_Query( $args );
 while ( $the_query->have_posts() ) {
 	$the_query->the_post();
     echo $this->render('_post-new-week');
-}
+} 
+?>
+<div class="next-week">
+    <?php
+    $my_postid      = 3714; //3698 on test - This is page id or post id
+    $content_post   = get_post($my_postid);
+    $content        = $content_post->post_content;
+    $content        = apply_filters('the_content', $content);
+    $content        = str_replace(']]>', ']]&gt;', $content);
+    echo '<h3 class="text-orange">'.$content_post->post_title.'</h3>';
+    echo $content;
+    ?>
+</div>

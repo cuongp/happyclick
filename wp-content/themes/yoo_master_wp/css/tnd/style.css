@@ -727,6 +727,7 @@ table.quiz td{
     margin: 26px 130px 0;
     box-shadow: 1px 1px 3px #39f;
 }
+.nw_answers img.alignleft{display:none;}
 .video-upcomming{}
 .video-upcomming h3{}
 .video-upcomming strong{ color:#0066a1; }
@@ -826,4 +827,14 @@ table.quiz td{
     float:right;
     margin-left: 15px;
 }
+
+.next-week{ padding: 0 3em; }
+.next-week h3{}
+.next-week table{ width: 100%; }
+.next-week tr{}
+.next-week tr td{
+    padding: 10px 0;
+    border-bottom: 1px dotted #ccc;
+}
+.next-week tr:last-child td{ border:none; }
 /* END Tamnd's code */
