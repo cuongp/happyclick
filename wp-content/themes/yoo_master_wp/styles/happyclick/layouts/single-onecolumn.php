@@ -48,21 +48,6 @@
                         </header>
                         <div class="content clearfix">
                             <?php the_content(''); ?>
-                            <?php 
-                            /*
-                            <br/>
-                            <br/>
-                            <h3>Thông tin về giảng viên</h3>
-                            <div class="avatar"><img src="http://dev.happyclick.vn/wp-content/themes/yoo_master_wp/styles/happyclick/images/mr.trandinhdung.jpg"/></div>
-                            <div class="author_info">
-                                <h3 class="text-orange">Trần Đình Dũng</h3>
-                                <p>Giám đốc Điều hành Khuê Văn Academy<br />
-                                Thạc Sỹ Xã hội học – Đại Học Kinh Tế Chính Trị London – (LSE) Anh Quốc <br />
-                                Cử Nhân Kinh Tế – Đại học Kinh tế TP. HCM </p>
-                                <p style="text-align:right;"><a href="#" class="black-arrow">Xem thêm về tác giả</a></p>
-                            </div>
-                             * 
-                             */ ?>
                         </div>
                     </article>
                 </div>
