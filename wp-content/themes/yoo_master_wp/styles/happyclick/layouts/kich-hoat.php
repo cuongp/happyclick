@@ -80,22 +80,6 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 				update_usermeta( $user_id, 'address', $_POST['hcaddress']);
 
 			
-<<<<<<< HEAD
-		
-			update_usermeta( $user_id, 'first_name', $_POST['cfirst_name']);
-				update_usermeta( $user_id, 'last_name', $_POST['clast_name']);
-				update_usermeta( $user_id, 'mobile', $_POST['cmobile']);
-				update_usermeta( $user_id, 'position', $_POST['cposition']);
-				update_usermeta( $user_id, 'companyphone', $_POST['companyphone']);
-				update_usermeta( $user_id, 'gender', $_POST['cgender']);
-				update_usermeta( $user_id, 'company', $_POST['ccompany']);
-				update_usermeta( $user_id, 'birthday', $_POST['cbirthday']);
-				update_usermeta( $user_id, 'objectuser', $_POST['cobjectuser']);
-				update_usermeta( $user_id, 'mayjor', $_POST['cmayjor']);
-				update_usermeta( $user_id, 'city', $_POST['ccity']);
-				update_usermeta( $user_id, 'address', $_POST['caddress']);
-=======
->>>>>>> 1eaaac5f442c9a62a6e3c67d240d9286abad0e38
 			$card_info = get_card_info($card_id->id);		
 			$sub_info = get_sub_info($card_info->sub_id);
 			$startdate = date("Y-m-d H:i:s");		
@@ -127,11 +111,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					,'usinggateway'=>'card'
 					));
 			update_usermeta($user_id,'wp_membership_active','no');
-<<<<<<< HEAD
-			$key = md5($user_id. $_POST['cpassword'] . time());
-=======
 			$key = md5($user_id. $_POST['hcpassword'] . time());
->>>>>>> 1eaaac5f442c9a62a6e3c67d240d9286abad0e38
 			update_user_meta($user->ID, '_membership_key', $key);
 			$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 <tbody>
@@ -146,23 +126,14 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
   <td><a href="http://www.happyclick.com.vn"><img src="http://www.unity.com.vn/images/HC_Banner.png" align="center" width="598" height="130" /></a></td>
 </tr>
 <tr>
-<<<<<<< HEAD
-  <td height="323" valign="top" style="padding: 10px 10px 0px 10px; height=; color: #003399; font-size: 14px;"><p style="padding:10px">Chào '.$_POST['clast_name'].'<br />
-=======
   <td height="323" valign="top" style="padding: 10px 10px 0px 10px; height=; color: #003399; font-size: 14px;"><p style="padding:10px">Chào '.$_POST['hclast_name'].'<br />
->>>>>>> 1eaaac5f442c9a62a6e3c67d240d9286abad0e38
       <br />
       Chúc mừng bạn đã trở thành thành viên của Happy Click!<br />
       <br />
       Thông tin tài khoản đăng nhập bạn đã đăng ký:</p>
     <blockquote>
-<<<<<<< HEAD
-      <p style="padding:10px">Tên đăng nhập: '.$_POST['cemail'].'<br />
-        Mật khẩu:'.$_POST['cpassword'].'</p>
-=======
       <p style="padding:10px">Tên đăng nhập: '.$_POST['hcemail'].'<br />
         Mật khẩu:'.$_POST['hcpassword'].'</p>
->>>>>>> 1eaaac5f442c9a62a6e3c67d240d9286abad0e38
       </blockquote>
     <p style="padding:10px">Số sê-ri của thẻ cào: '.$_POST['hcserial'].'</p>
     <p style="padding:10px">Thời hạn sử dụng: đến hết ngày '.$enddate.'<br />
@@ -200,11 +171,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 			//wpMandrill::mail($_POST['email'],'Kích hoạt thành viên',$html);
 			$headers[] = 'From: Happy Click <support@happyclick.vn>';
 			$headers[] ='Content-type: text/html';
-<<<<<<< HEAD
-			wp_mail($_POST['cemail'],'Xác nhận email',$html,$headers);
-=======
 			wp_mail($_POST['hcemail'],'Xác nhận email',$html,$headers);
->>>>>>> 1eaaac5f442c9a62a6e3c67d240d9286abad0e38
 
 
 			if($current_user->ID > 0)
@@ -275,21 +242,6 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>
 			<tr>
 				<td class="box3" width="45%"  align="right">Họ</td>
-<<<<<<< HEAD
-				<td  class="box4"><input required type="text" id="cfirst_name" name="first_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo $current_user->first_name; ?>" /><span>*</span></td>				
-			</tr>
-			<tr>
-				<td class="box3" width="45%"  align="right">Tên</td>
-				<td  class="box4"><input required type="text" id="clast_name" name="last_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo $current_user->last_name; ?>" /><span>*</span></td>				
-			</tr>
-			<tr>
-				<td width="45%"  class="box3"  align="right">Giới tính</td>
-				<td  class="box4"><input type="radio" name="cgender" value="0" <?php if($gender==0) echo 'checked=checked'; else echo ''; ?> /> Nam <input type="radio" name="gender" value="1" <?php if($gender==1) echo 'checked=checked'; else echo ''; ?> /> Nữ</td>				
-			</tr>
-			<tr>
-				<td width="45%"  class="box3" align="right">Ngày sinh</td>
-				<td  class="box4"><input type="text" id="birthday" name="cbirthday" value="<?php echo get_usermeta( $current_user->ID, 'birthday'); ?>" placeholder="Ngày/tháng/năm" required/><span>*</span></td>				
-=======
 				<td  class="box4"><input required type="text" id="first_name" name="hcfirst_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo $current_user->first_name; ?>" /><span>*</span></td>				
 			</tr>
 			<tr>
@@ -303,7 +255,6 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Ngày sinh</td>
 				<td  class="box4"><input type="text" id="birthday" name="hcbirthday" value="<?php echo get_usermeta( $current_user->ID, 'birthday'); ?>" placeholder="Ngày/tháng/năm" required/><span>*</span></td>				
->>>>>>> 1eaaac5f442c9a62a6e3c67d240d9286abad0e38
 			</tr>
 			<tr>
 			<?php
@@ -320,47 +271,20 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 				<strong><em>
 				Hỗ trợ 24/7: (08) 7302 0168 - (08) 7303 0168</em></strong></p></td>
 			<?php endif; ?>	
-<<<<<<< HEAD
-			<td  class="box4"><input required class="email" <?php echo $disable ?> type="email" name="cemail" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
-=======
 			<td  class="box4"><input required class="email" <?php echo $disable ?> type="email" name="hcemail" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
->>>>>>> 1eaaac5f442c9a62a6e3c67d240d9286abad0e38
 			</tr>
 			<?php if($current_user->ID < 1): ?>
 			<tr>
 				<td width="45%"  class="box3" align="right">Mật khẩu</td>
-<<<<<<< HEAD
-				<td  class="box4"><input type="password" name="cpassword" required /><span>*</span></td>				
-			</tr>
-			<tr>
-				<td width="45%"  class="box3" align="right">Xác nhận mật khẩu</td>
-				<td  class="box4"><input type="password" name="cconfirm_pass" required /><span>*</span></td>				
-=======
 				<td  class="box4"><input type="password" name="hcpassword" required /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Xác nhận mật khẩu</td>
 				<td  class="box4"><input type="password" name="hcconfirm_pass" required /><span>*</span></td>				
->>>>>>> 1eaaac5f442c9a62a6e3c67d240d9286abad0e38
 			</tr>
 		<?php endif;?>
 			<tr>
 				<td width="45%"  class="box3" align="right">Điện thoại di động</td>
-<<<<<<< HEAD
-				<td  class="box4"><input type="text" name="cmobile" id="mobile" required value="<?php echo get_usermeta( $current_user->ID, 'mobile'); ?>"  /><span>*</span></td>				
-			</tr>
-			<tr>
-				<td width="45%"  class="box3" align="right">Điện thoại công ty</td>
-				<td  class="box4"><input type="text" name="ccompanyphone" value="<?php echo get_usermeta( $current_user->ID, 'companyphone'); ?>" /></td>				
-			</tr>
-			<tr>
-				<td width="45%"  class="box3" align="right">Chức vụ</td>
-				<td  class="box4"><input type="text" name="cposition" value="<?php echo get_usermeta( $current_user->ID, 'position'); ?>" /></td>				
-			</tr>
-			<tr>
-				<td width="45%"  class="box3" align="right">Công ty</td>
-				<td  class="box4"><input type="text" name="ccompany" value="<?php echo get_usermeta( $current_user->ID, 'company'); ?>" /></td>				
-=======
 				<td  class="box4"><input type="text" name="hcmobile" id="mobile" required value="<?php echo get_usermeta( $current_user->ID, 'mobile'); ?>"  /><span>*</span></td>				
 			</tr>
 			<tr>
@@ -374,18 +298,12 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Công ty</td>
 				<td  class="box4"><input type="text" name="hccompany" value="<?php echo get_usermeta( $current_user->ID, 'company'); ?>" /></td>				
->>>>>>> 1eaaac5f442c9a62a6e3c67d240d9286abad0e38
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Đối tượng</td>
 				<td  class="box4">
-<<<<<<< HEAD
-					<select id="objectuser" name="cobjectuser"   required="">
-						<option value="">Chưa chọn</option>
-=======
 					<select id="objectuser" name="hcobjectuser"  validate="required:true">
 						<option>Chưa chọn</option>
->>>>>>> 1eaaac5f442c9a62a6e3c67d240d9286abad0e38
 					
 						<?php
 							if(!empty($doituong)){
@@ -408,12 +326,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Ngành nghề</td>
 				<td  class="box4">
-<<<<<<< HEAD
-					<select id="mayjor" name="cmayjor">
-					<option value="" >Chưa chọn</option>
-=======
 					<select id="mayjor" name="hcmayjor"><option>Chưa chọn</option>
->>>>>>> 1eaaac5f442c9a62a6e3c67d240d9286abad0e38
 						<?php
 							if(!empty($nganhnghe)){
 								foreach ($nganhnghe as $dt) {
@@ -431,20 +344,12 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 </td>	</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Địa chỉ<br/><em style="font-weight:normal">Nhận thẻ và hóa đơn</em></td>
-<<<<<<< HEAD
-				<td  class="box4"><input type="text" name="caddress" id="address" required value="<?php echo get_usermeta( $current_user->ID, 'address'); ?>"  /><span>*</span></td>				
-=======
 				<td  class="box4"><input type="text" name="hcaddress" id="address" required value="<?php echo get_usermeta( $current_user->ID, 'address'); ?>"  /><span>*</span></td>				
->>>>>>> 1eaaac5f442c9a62a6e3c67d240d9286abad0e38
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Tỉnh/Thành phố</td>
 				<td  class="box4">
-<<<<<<< HEAD
-					<select id="city" name="ccity"  required=""><option value="">Chưa chọn</option>
-=======
 					<select id="city" name="hccity"  validate="required:true"><option>Chưa chọn</option>
->>>>>>> 1eaaac5f442c9a62a6e3c67d240d9286abad0e38
 						<?php
 							if(!empty($cities)){
 								foreach ($cities as $dt) {
