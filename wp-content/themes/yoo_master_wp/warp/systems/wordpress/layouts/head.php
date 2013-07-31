@@ -1,7 +1,7 @@
 <meta charset="<?php bloginfo('charset'); ?>" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <?php if($this['config']->get('responsive', false)): ?>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 <?php endif; ?>
 <title><?php bloginfo('name'); ?> <?php wp_title(); ?></title>
 <link rel="shortcut icon" href="<?php echo $this['path']->url('template:favicon.ico');?>" />
