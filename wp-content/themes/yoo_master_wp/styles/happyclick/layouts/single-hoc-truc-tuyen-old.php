@@ -6,7 +6,7 @@
 				 <h3 class="content-box-title"><?php _e('KHÓA HỌC TRỰC TUYẾN ĐÃ TỔ CHỨC','warp'); ?></h3>
 				 <div class="content-box-inside">
 					<div class="content-img">
-						<a href="<?php echo get_bloginfo('url'); ?>/wp-content/uploads/2013/07/Webinar_Guide.pdf" class="how-to-join">&nbsp;</a> 
+						<a href="<?php echo get_bloginfo('url'); ?>/wp-content/uploads/2013/07/Webinar_Guide.pdf" class="how-to-join" target="_blank">&nbsp;</a> 
 						<?php if(has_post_thumbnail()): ?>
 						<?php $width = '218'; $height = ''; ?>
 							<?php the_post_thumbnail(array($width,$height),array('class'=>'size-auto')); ?>
