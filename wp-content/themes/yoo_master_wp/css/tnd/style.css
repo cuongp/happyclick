@@ -751,7 +751,7 @@ table.quiz td{
 }
 .back-videos a:hover{ color: #99cc00; }
 .border-blue{
-    width: 735px;
+    width: 705px;
     margin: 0 auto;
     border: 1px solid #387bb1;
     overflow: hidden;
@@ -806,6 +806,7 @@ table.quiz td{
 .page-id-834 #content,
 .page-id-1783 #content,
 .page-id-1865 #content,
+.page-id-2656 #content,
 .page-id-1994 #content{
     border: none;
     box-shadow: none;
