@@ -870,8 +870,7 @@ height: auto;
     text-transform: capitalize;
 }
 .box2{
-    margin-top: 18px;
-	padding:0 10px
+	padding:0 10px;
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
     border-radius:5px;
