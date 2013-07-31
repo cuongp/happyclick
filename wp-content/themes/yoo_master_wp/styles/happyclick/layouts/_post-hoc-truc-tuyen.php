@@ -18,14 +18,22 @@
             <p class="register-links">
                 <span class="course-link-wrapper"><a class="link-orange" href="<?php echo get_bloginfo('url'); ?>/category/thanh-vien/quyen-loi-thanh-vien/"><span>Trở thành thành viên</span></a></span>
                 <?php 
-                $level_id = 2; //Membership level "HappyClick"
-                $is_membership = current_user_on_level($level_id);
-                $register_link = get_bloginfo('url').'/thong-bao-dang-nhap';
+                $level_id       = 2; //Membership level "HappyClick"
+                $link_class     = '';
+                $is_membership  = current_user_on_level($level_id);
+                $register_link  = get_bloginfo('url').'/thong-bao-dang-nhap';
                 if($is_membership){
-                    $register_link = '#';
-                }
+                    $register_link  = 'javascript:void(0)';
+                    $target         = '';
+                    $link_class     = 'fancy iframe';
+                    $webex_link     = get_post_custom_values('webex-link');
+                    if($webex_link){
+                        $register_link  = $webex_link[0];
+                        $target         = 'target="_blank"';
+                    }
+                }                
                 ?>
-                <span class="course-link-wrapper"><a class="link-orange" href="<?php echo $register_link; ?>" style="margin-right: 40px;"><span>Đăng ký</span></a><span class="course-note">(Chỉ dành cho thành viên)</span></span>
+                <span class="course-link-wrapper"><a class="link-orange <?php echo $link_class; ?>" href="<?php echo $register_link; ?>" style="margin-right: 40px;" <?php echo $target; ?>><span>Đăng ký</span></a><span class="course-note">(Chỉ dành cho thành viên)</span></span>
             </p>
         </div>
     </header>

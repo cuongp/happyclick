@@ -46,6 +46,10 @@ foreach ($categories as $key=>$category){
     );
     //Category chua co du lieu => bo qua
     if($category->count == 0 ) continue;
+    
+    
+    $trial_id       = 1; //Trial level
+    $is_trial       = current_user_on_level($trial_id);
     ?>
     <div class="video-category">
         <h3><?php echo $category->name.' ('.$category->count.')'; ?></h3>

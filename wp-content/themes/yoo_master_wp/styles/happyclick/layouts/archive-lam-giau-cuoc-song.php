@@ -30,9 +30,27 @@
 			<div class="posts-wrapper">
 				<?php
 				if($curr_cat->slug == "happy-click-radio") {
-					echo $this->render('_posts-happy-click-radio-first');
+                    
+                    //Alert cho trial user
+                    $trial_id       = 1;
+                    $is_trial       = current_user_on_level($trial_id);
+                    if($is_trial):
+                        echo '<div style="text-align:center"><span style="color:#F20000;">Bạn được nghe thử radio "Hạnh phúc chẳng vì lý do nào cả".</span></div>';
+                    endif;
+                    //End alert
+                    
+					echo $this->render('_posts-happy-click-radio-first');                    
 					echo $this->render('_posts-happy-click-radio');
 				} else if($curr_cat->slug == "goc-chia-se") {
+                    
+                    //Alert cho trial user
+                    $trial_id       = 1;
+                    $is_trial       = current_user_on_level($trial_id);
+                    if($is_trial):
+                        echo '<div style="text-align:center"><span style="color:#F20000;">Bạn được xem thử bài viết đầu tiên.</span></div>';
+                    endif;
+                    //End alert
+    
 					echo $this->render('_posts-goc-chia-se');
 				} else if($curr_cat->slug == "goc-kien-thuc") {
 					echo $this->render('_posts-goc-kien-thuc');

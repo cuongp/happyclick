@@ -33,7 +33,7 @@ class WPCF7_ShortcodeManager {
 
 		$pattern = $this->get_shortcode_regex();
 		return preg_replace_callback( '/' . $pattern . '/s',
-			array( &$this, 'normalize_space_cb' ), $content );
+			array( &$this, 'normalize_space_cb' ), $n );
 	}
 
 	function normalize_space_cb( $m ) {

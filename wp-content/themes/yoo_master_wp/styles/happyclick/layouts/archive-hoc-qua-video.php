@@ -26,8 +26,11 @@
                 </h3>
                 <div class="content-box-inside">
                     <?php
-                    
-                        echo '<div style="text-align:center">'.apply_filters('the_content', get_category(get_query_var('cat'))->description).'</div>';
+                        $trial_id       = 1; //Trial level
+                        $is_trial       = current_user_on_level($trial_id);
+                        echo '<div style="text-align:center">'.apply_filters('the_content', get_category(get_query_var('cat'))->description);
+                        echo ($is_trial) ? '<br /><span style="color:#F20000;">Bạn được xem thử video đầu tiên của mỗi chủ đề</span>' : '';
+                        echo '</div>';
                         echo $this->render('_posts-hoc-qua-video'); 
 
                     ?>
