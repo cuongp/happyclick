@@ -47,7 +47,7 @@
                     $trial_id       = 1;
                     $is_trial       = current_user_on_level($trial_id);
                     if($is_trial):
-                        echo '<div style="text-align:center"><span style="color:#F20000;">Bạn được xem bài viết đầu tiên.</span></div>';
+                        echo '<div style="text-align:center"><span style="color:#F20000;">Bạn được xem thử bài viết đầu tiên.</span></div>';
                     endif;
                     //End alert
     
