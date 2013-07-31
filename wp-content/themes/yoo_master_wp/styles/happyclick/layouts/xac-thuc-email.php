@@ -1,5 +1,9 @@
 <?php
-
+function check_token($user_id,$token){
+	$db = $GLOBALS['wpdb'];
+    	$post = $db->get_row('select ID from '.$db->prefix.'users where ID="'.$user_id.'" and user_activation_key="'.$token.'"');
+	return !empty($post) ? $post->ID : 0;
+}
 if(isset($_GET['act']))
 	$act = $_GET['act'];
 else
@@ -31,9 +35,14 @@ if($current_time>12*3600*1000){
 </div>-->
 <?php	
 }else{
-		update_usermeta($user_id,'wp_membership_active','yes');
+		
+
+		
+			update_usermeta($user_id,'wp_membership_active','yes');
+		
 		if($act=='khach-dang-ky')
 			wp_redirect('/hcaccount/thanh-toan/?act=khach-dang-ky&user_id='.$user_id);
+		
 ?>
 
 <div class="box" style="width:500px;">
@@ -49,9 +58,7 @@ if($current_time>12*3600*1000){
 			</tr>
 		</table>
 </div>
-<?php
-}
-?>
+
 
 <?php
 if(isset($_GET['act']) && $_GET['act'] =='doi-mat-khau'){

@@ -55,6 +55,17 @@ class HCcard{
         return !empty($post)? $post :null;
     }
 
+    public static function getHistory(){
+        $db = $GLOBALS['wpdb'];
+        $posts = $db->get_results('select * from '.$db->prefix.'user_card,'.$db->prefix.'cards where '.$db->prefix.'user_card.card_id='.$db->prefix.'cards.id');
+        return !empty($posts)?$posts:null;
+    }
+
+    public static function getSub($id){
+        $db = $GLOBALS['wpdb'];
+        $post = $db->get_row('select * from '.$db->prefix.'m_subscriptions where id="'.$id.'"');
+        return !empty($post)?$post->sub_name:null;
+    }
     public static function getAll($status = "",$valid = "",$params=array()){
         $db = $GLOBALS['wpdb'];
         $where = '';

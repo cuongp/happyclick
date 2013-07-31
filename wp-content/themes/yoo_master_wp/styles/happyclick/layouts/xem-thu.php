@@ -34,15 +34,15 @@ $db = $GLOBALS['wpdb'];
 			if(!is_array($user_id->errors)){
 			if($user_id>0){
 
-			  update_usermeta( $user_id, 'first_name', $_POST['hcfirst_name']);
-        update_usermeta( $user_id, 'last_name', $_POST['hclast_name']);
-        update_usermeta( $user_id, 'mobile', $_POST['hcmobile']);
-        update_usermeta( $user_id, 'position', $_POST['hcposition']);
-        update_usermeta( $user_id, 'gender', $_POST['hcgender']);
-        update_usermeta( $user_id, 'company', $_POST['hccompany']);
-        update_usermeta( $user_id, 'objectuser', $_POST['hcobjectuser']);
-        update_usermeta( $user_id, 'mayjor', $_POST['hcmayjor']);
-        update_usermeta( $user_id, 'city', $_POST['hccity']);
+			update_usermeta( $user_id, 'first_name', $_POST['hcfirst_name']);
+        	update_usermeta( $user_id, 'last_name', $_POST['hclast_name']);
+        	update_usermeta( $user_id, 'mobile', $_POST['hcmobile']);
+        	update_usermeta( $user_id, 'position', $_POST['hcposition']);
+        	update_usermeta( $user_id, 'gender', $_POST['hcgender']);
+        	update_usermeta( $user_id, 'company', $_POST['hccompany']);
+        	update_usermeta( $user_id, 'objectuser', $_POST['hcobjectuser']);
+        	update_usermeta( $user_id, 'mayjor', $_POST['hcmayjor']);
+        	update_usermeta( $user_id, 'city', $_POST['hccity']);
 
 				update_usermeta( $user_id, 'first_name', $_POST['hcfirst_name']);
 				$db->insert($db->prefix.'m_membership_relationships',
@@ -50,11 +50,13 @@ $db = $GLOBALS['wpdb'];
 					,'sub_id'=>0
 					,'level_id'=>1
 					,'startdate'=>date("Y-m-d H:i:s")
-					,'expirydate'=>NULL
+					,'expirydate'=>'0000-00-00 00:00:00'
 					,'updateddate'=>date("Y-m-d H:i:s")
 					,'order_instance'=>0
 					,'usinggateway'=>'admin'
 					));
+				$key = md5($user_id. $_POST['hcpassword'] . time());
+				$db->update($db->prefix.'users',array('user_activation_key'=>$key),array('ID'=>$user_id));
 				$expdate = date("Y-m-d H:i:s",strtotime('+24 hour'));
 				update_usermeta($user_id,'wp_membership_active','no');
 				$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
@@ -80,7 +82,7 @@ $db = $GLOBALS['wpdb'];
         Mật khẩu: '.$_POST['hcpassword'].'</p>
     </blockquote>
     <p style="padding:10px">Để hoàn tất quy trình đăng ký xem thử, vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản xem thử:<br />
-    <a href="'.get_site_url().'/hcaccount/xac-thuc-email/?act=active&user_id='.$user_id.'&code='.time().'">Kích hoạt tài khoản xem thử</a></p>
+    <a href="'.get_site_url().'/hcaccount/xac-thuc-email/?act=active&user_id='.$user_id.'&token='.$key.'&code='.time().'">Kích hoạt tài khoản xem thử</a></p>
     <p  style="padding:10px"> Đường dẫn này sẽ chỉ có giá trị đến '.$expdate.'</p>
     <p  style="padding:10px">Ngay sau khi kích hoạt tài khoản, bạn đã có thể bắt đầu xem thử một số tiện ích. Happy Click hy vọng bạn sẽ được trải nghiệm những kiến thức bổ ích, nội dung thiết thực.</p>
     <p  style="padding:10px">Đây là email tự động gửi, vui lòng không trả lời vào email này.<br />
@@ -149,7 +151,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 <?php endif; ?>
 <div class="box" style="width:730px">
 
-<form id="form" class="form_profile" method="post" >
+<form id="form" class="form_profile2" method="post" >
 
 <?php echo $flag; ?>
 		<table width="100%" class="form_doipass">
@@ -176,7 +178,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
       </tr>
 			<tr>
 				<td width="45%"  class="box3"  align="right">Giới tính</td>
-				<td  class="box4"><input type="radio" name="hcgender" value="0" <?php if($gender==0) echo 'checked=checked'; else echo ''; ?> /> Nam <input type="radio" name="gender" value="1" <?php if($gender==1) echo 'checked=checked'; else echo ''; ?> /> Nữ</td>				
+				<td  class="box4"><input type="radio" name="hcgender" value="0" <?php if($gender==0) echo 'checked=checked'; else echo ''; ?> /> Nam <input type="radio" name="hcgender" value="1" <?php if($gender==1) echo 'checked=checked'; else echo ''; ?> /> Nữ</td>				
 			</tr>
 			<!--<tr>
 				<td width="45%"  class="box3" align="right">Ngày sinh</td>

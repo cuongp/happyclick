@@ -50,6 +50,9 @@
                         CardSystem::render('cardtype/list');
                     if($_GET['options']=='subscription')
                         CardSystem::render('sub');
+                     if($_GET['options']=='viewuser')
+                        CardSystem::render('viewuser');
+
 
                 ?></li>
             </ul>

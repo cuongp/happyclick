@@ -50,6 +50,8 @@ if($_GET['task'] == 'edit_carttype'){
                         CardSystem::render('sub');
                     if($_GET['options']=='cardtype')
                         CardSystem::render('cardtype/list');
+                    if($_GET['options']=='viewuser')
+                        CardSystem::render('viewuser');
 
 
                 ?></li>

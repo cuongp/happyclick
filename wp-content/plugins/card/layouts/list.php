@@ -95,10 +95,12 @@ $cards = HCcard::getAll("","",$params);
 			<?php 
 				if($pages>0){
 					for ($i=1; $i<= $pages ;$i++){
+
 						if(isset($_GET['status']) || isset($_GET['valid']))
 							echo '<a style="padding:5px" href=?page=hccard&options=list&valid='.$_GET['valid'].'&status='.$_GET['status'].'&p='.$i.'>'.$i.'</a>';
 						else
 							echo '<a style="padding:5px" href=?page=hccard&options=list&p='.$i.'>'.$i.'</a>';
+						if($i%45==0) echo '<br/>';
 					}
 				}
 			?>

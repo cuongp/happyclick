@@ -2394,7 +2394,7 @@ function log() {
 	$('.form_profile2').validate({
 		
 		messages: {
-			cemail: {
+			hcemail: {
 				required: 'Enter this!'
 			}
 		}
