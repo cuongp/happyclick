@@ -94,7 +94,7 @@ class Warp_Breadcrumbs extends WP_Widget {
 			
 		} else {
 			
-			$output = '<div class="breadcrumbs">';
+			$output = '<div class="breadcrumbs"><strong>'._e('Bạn đang ở đây: ','warp').'</strong>';
 			
 			$output .= '<strong>'.$home_title.'</strong>';
 			
