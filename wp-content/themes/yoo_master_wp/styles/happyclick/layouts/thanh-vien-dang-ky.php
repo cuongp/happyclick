@@ -13,6 +13,7 @@ if($current_user->ID > 0){
 				wp_redirect('/hcaccount/thong-bao-dang-ky/?cid='.$cid);
 	
 	}else{
+		$db = $GLOBALS['wpdb'];
 		$db->insert($db->prefix.'user_sukien',
 				array('user_id'=>$current_user->ID 
 					,'sukien_id'=>$_GET['cid']
