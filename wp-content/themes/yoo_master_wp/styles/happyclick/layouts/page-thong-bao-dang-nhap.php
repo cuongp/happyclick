@@ -20,7 +20,7 @@
                         <div class="border-blue">
                             <p>Nếu bạn đã đăng ký xem thử hoặc chưa có tài khoản của Happy Click, bạn có thể trở thành
                                 thành viên để được tham dự chương trình</p>
-                            <p><a class="link-orange" href="http://dev.happyclick.vn/category/thanh-vien/quyen-loi-thanh-vien/"><span>Trở thành thành viên</span></a></p>
+                            <p><a class="link-orange" href="<?php echo get_bloginfo('url'); ?>/category/thanh-vien/quyen-loi-thanh-vien/"><span>Trở thành thành viên</span></a></p>
                         </div>
                         <div class="back-home"><a href="<?php echo get_bloginfo('url'); ?>">Trở về trang chủ</a></div>
                     </div>

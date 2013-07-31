@@ -34,6 +34,9 @@ if (is_home()) {
     if($post_name == 've-happy-click' || $post_name == 'ban-lanh-dao'){
 		$content = 'page-ve-happy-click';
     }
+    if($post_name == 'thong-bao-dang-nhap'){
+		$content = 'page-thong-bao-dang-nhap';
+    }
 	
 } elseif (is_attachment()) {
 	$content = 'attachment';
