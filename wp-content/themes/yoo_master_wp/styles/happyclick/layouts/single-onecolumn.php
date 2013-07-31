@@ -32,30 +32,22 @@
                                     $is_membership = current_user_on_level($level_id);
                                     $register_link = get_bloginfo('url').'/thong-bao-dang-nhap';
                                     if($is_membership){
-                                        $register_link = '#';
-                                    }
+                                        $register_link  = 'javascript:void(0)';
+                                        $target         = '';
+                                        $link_class     = 'fancy iframe';
+                                        $webex_link     = get_post_custom_values('webex-link');
+                                        if($webex_link){
+                                            $register_link  = $webex_link[0];
+                                            $target         = 'target="_blank"';
+                                        }
+                                    }        
                                     ?>
-                                    <span class="course-link-wrapper"><a class="link-orange" href="<?php echo $register_link; ?>" style="margin-right: 40px;"><span>Đăng ký</span></a><span class="course-note">(Chỉ dành cho thành viên)</span></span>
+                                    <span class="course-link-wrapper"><a class="link-orange <?php echo $link_class; ?>" href="<?php echo $register_link; ?>" style="margin-right: 40px;" <?php echo $target; ?>><span>Đăng ký</span></a><span class="course-note">(Chỉ dành cho thành viên)</span></span>
                                 </p>
                             </div>
                         </header>
                         <div class="content clearfix">
                             <?php the_content(''); ?>
-                            <?php 
-                            /*
-                            <br/>
-                            <br/>
-                            <h3>Thông tin về giảng viên</h3>
-                            <div class="avatar"><img src="http://dev.happyclick.vn/wp-content/themes/yoo_master_wp/styles/happyclick/images/mr.trandinhdung.jpg"/></div>
-                            <div class="author_info">
-                                <h3 class="text-orange">Trần Đình Dũng</h3>
-                                <p>Giám đốc Điều hành Khuê Văn Academy<br />
-                                Thạc Sỹ Xã hội học – Đại Học Kinh Tế Chính Trị London – (LSE) Anh Quốc <br />
-                                Cử Nhân Kinh Tế – Đại học Kinh tế TP. HCM </p>
-                                <p style="text-align:right;"><a href="#" class="black-arrow">Xem thêm về tác giả</a></p>
-                            </div>
-                             * 
-                             */ ?>
                         </div>
                     </article>
                 </div>

@@ -115,7 +115,7 @@ a.prev span, a.next span{display: none}
 
 #footer .module { margin: 0; }
 
-/*#sidebar-b{margin-top: 15px;}*/
+#sidebar-b{margin-top: 15px;}
 
 #sidebar-a{margin-top: 10px;}
 #membership .mod-box{

@@ -60,7 +60,7 @@
  */
 .jcarousel-skin-tango .jcarousel-next-horizontal {
     position: absolute;
-    top: 45px;
+    top: 60px;
     right: -27px;
     width: 32px;
     height: 32px;
@@ -94,7 +94,7 @@
 
 .jcarousel-skin-tango .jcarousel-prev-horizontal {
     position: absolute;
-    top: 45px;
+    top: 60px;
     left: -10px;
     width: 32px;
     height: 32px;
@@ -401,10 +401,10 @@ div.wpcf7-validation-errors{ border:none; }
 }
 
 #system article {
-	padding:0px !important;
+	/*padding:0px !important;*/
 }
 .single-sukien .content {
-margin:0 10px;
+    margin:0 10px;
 }
 
 .content-box1 h4.content-box-title-h4{
@@ -430,7 +430,7 @@ margin:0 10px;
     display: block;
 }
 .item.courses{}
-.item.courses .video-category{ margin-left: 18px; }
+.item.courses .video-category{ margin-left: 10px; }
 .item.courses .course-wrapper{
     overflow: hidden;
 }
