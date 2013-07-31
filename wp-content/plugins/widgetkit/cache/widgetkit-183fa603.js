@@ -1,0 +1,1 @@
+var widgetkitajax="http://test.happyclick.vn/wp-admin/admin-ajax.php?action=widgetkit&ajax=1";

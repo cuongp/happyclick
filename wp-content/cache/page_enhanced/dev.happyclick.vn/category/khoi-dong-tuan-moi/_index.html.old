@@ -1,0 +1,371 @@
+<!DOCTYPE HTML>
+<html lang="en-US" dir="ltr">
+
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Happy Click  &raquo; Khởi động tuần mới</title>
+<link rel="shortcut icon" href="/wp-content/themes/yoo_master_wp/favicon.ico" />
+<link rel="apple-touch-icon-precomposed" href="/wp-content/themes/yoo_master_wp/apple_touch_icon.png" />
+<link rel="alternate" type="application/rss+xml" title="Happy Click &raquo; Khởi động tuần mới Category Feed" href="http://dev.happyclick.vn/category/khoi-dong-tuan-moi/feed/" />
+<link rel='stylesheet' id='login-with-ajax-css'  href='http://dev.happyclick.vn/wp-content/plugins/login-with-ajax/widget/widget.css?ver=3.5.2' type='text/css' media='all' />
+<link rel='stylesheet' id='rpwe-style-css'  href='http://dev.happyclick.vn/wp-content/plugins/recent-posts-widget-extended/rpwe.css?ver=3.5.2' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='http://dev.happyclick.vn/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=3.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-cpl-base-css-css'  href='http://dev.happyclick.vn/wp-content/plugins/wp-category-posts-list/static/css/wp-cat-list-theme.css?ver=2.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp_cpl_css_0-css'  href='http://dev.happyclick.vn/wp-content/plugins/wp-category-posts-list/static/css/wp-cat-list-light.css?ver=2.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp_cpl_css_1-css'  href='http://dev.happyclick.vn/wp-content/plugins/wp-category-posts-list/static/css/wp-cat-list-dark.css?ver=2.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp_cpl_css_2-css'  href='http://dev.happyclick.vn/wp-content/plugins/wp-category-posts-list/static/css/wp-cat-list-giant-gold-fish.css?ver=2.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp_cpl_css_3-css'  href='http://dev.happyclick.vn/wp-content/plugins/wp-category-posts-list/static/css/wp-cat-list-adrift-in-dreams.css?ver=2.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-ui-css'  href='http://dev.happyclick.vn/wp-content/plugins/wp-ui/css/wp-ui.css?ver=3.5.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wpui-light-css'  href='http://dev.happyclick.vn/wp-content/plugins/wp-ui/css/themes/wpui-light.css?ver=3.5.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wpui-multiple-css'  href='http://dev.happyclick.vn/wp-content/plugins/wp-ui/css/css.php?styles=wpui-light%7Cwpui-blue%7Cwpui-red%7Cwpui-green%7Cwpui-dark%7Cwpui-quark%7Cwpui-alma%7Cwpui-macish%7Cwpui-redmond%7Cwpui-sevin&#038;ver=3.5.2' type='text/css' media='all' />
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/jquery.js?ver=1.8.3'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.core.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.widget.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.mouse.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.sortable.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-content/plugins/login-with-ajax/widget/login-with-ajax.js?ver=3.5.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-content/plugins/wordpress-popup/popover-load-js.php?ver=3.5.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.tabs.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.accordion.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.resizable.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.draggable.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.button.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.position.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.dialog.min.js?ver=1.9.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpUIOpts = {"wpUrl":"http:\/\/dev.happyclick.vn","pluginUrl":"http:\/\/dev.happyclick.vn\/wp-content\/plugins\/wp-ui\/","enableTabs":"off","enableAccordion":"on","enableSpoilers":"on","enableDialogs":"on","tabsEffect":"none","effectSpeed":"400","accordEffect":"none","alwaysRotate":"stop","tabsEvent":"click","collapsibleTabs":"off","accordEvent":"click","topNav":"off","accordAutoHeight":"on","accordCollapsible":"off","accordEasing":"false","mouseWheelTabs":"false","bottomNav":"on","tabPrevText":"Prev","tabNextText":"Next","spoilerShowText":"Click to show","spoilerHideText":"Click to hide","cookies":"on","hashChange":"on","docWriteFix":"on","linking_history":"on","misc_options":"hashing_timeout=1000\r\ntinymce_icon_row=3"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-content/plugins/wp-ui/js/wp-ui.js?ver=0.8.7'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://dev.happyclick.vn/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://dev.happyclick.vn/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 3.5.2" />
+<style type="text/css" media="screen"> 
+          html { margin-top: 0px !important; } 
+          * html body { margin-top: 0px !important; } 
+          </style><link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/base.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/styles/happyclick/css/layout.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/styles/happyclick/css/menus.css" />
+<style>.wrapper { max-width: 1172px; }
+#maininner { width: 100%; }
+#menu .dropdown { width: 250px; }
+#menu .columns2 { width: 500px; }
+#menu .columns3 { width: 750px; }
+#menu .columns4 { width: 1000px; }</style>
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/modules.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/tools.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/system.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/extensions.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/custom.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/color2/green.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/font2/arial.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/style.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/responsive.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/print.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/fonts/8/8.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/fonts/11/11.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/fonts/12/12.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/fonts/13/13.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/fancy/jquery.fancybox.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/tnd/style.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/fonts/10/10.css" />
+<script src="/wp-content/themes/yoo_master_wp/warp/js/warp.js"></script>
+<script src="/wp-content/themes/yoo_master_wp/warp/js/responsive.js"></script>
+<script src="/wp-content/themes/yoo_master_wp/warp/js/accordionmenu.js"></script>
+<script src="/wp-content/themes/yoo_master_wp/warp/js/dropdownmenu.js"></script>
+<script src="/wp-content/themes/yoo_master_wp/js/template.js"></script>
+<script src="/wp-content/themes/yoo_master_wp/js/fancy/jquery.fancybox.pack.js"></script>
+<script src="/wp-content/themes/yoo_master_wp/js/tnd/scripts.js"></script>
+<script src="/wp-content/themes/yoo_master_wp/js/tnd/scripts_vu.js"></script>
+<script src="/wp-content/themes/yoo_master_wp/js/tnd/jquery.jcarousel.min.js"></script>
+</head>
+
+<body id="page" class="page archive category category-khoi-dong-tuan-moi category-70  isblog wp-archive wp-cat-70 wp-category wp-cat-70" data-config='{"twitter":0,"plusone":0,"facebook":0}'>
+
+		
+	<div class="wrapper clearfix">
+
+		<header id="header">
+
+			
+				
+			<div id="headerbar" class="clearfix">
+			
+					
+				<a id="logo" href="http://dev.happyclick.vn"><img class="size-auto" src="/wp-content/uploads/yootheme/logo.png" alt="logo" /></a>
+								
+				<div class="module widget_nav_menu  deepest">
+
+			<ul class="menu menu-sidebar"><li class="level1 item817"><a href="http://dev.happyclick.vn/category/thanh-vien/quyen-loi-thanh-vien/" class="level1"><span>Trở thành thành viên</span></a></li><li class="level1 item836"><a href="http://dev.happyclick.vn/lien-he/" class="level1"><span>Liên Hệ</span></a></li></ul>		
+</div>				
+			</div>
+			
+						<div id="menubar" class="clearfix">
+				
+								<nav id="menu"><ul class="menu menu-dropdown"><li class="level1 item41"><a href="http://dev.happyclick.vn" class="level1"><span>Trang chủ</span></a></li><li class="level1 item1901"><a href="http://dev.happyclick.vn/category/thanh-vien/quyen-loi-thanh-vien/" class="level1"><span>Thành Viên</span></a></li><li class="level1 item1779"><a href="/chude/hoi-thao/" class="level1"><span>Hội thảo / Khóa học</span></a></li><li class="level1 item1927"><a href="http://dev.happyclick.vn/category/hinh-anh/" class="level1"><span>Hình ảnh</span></a></li><li class="level1 item2388"><a href="http://dev.happyclick.vn/co-hoi-nghe-nghiep/" class="level1"><span>Cơ hội nghề nghiệp</span></a></li></ul></nav>
+				
+								
+			</div>
+					
+					
+		</header>
+
+				<section id="top-a" class="grid-block"><div class="grid-box width16 grid-h"><div class="module widget_black_studio_tinymce  deepest">
+
+						<div class="textwidget"><p><a href="http://dev.happyclick.vn/category/hoc-truc-tuyen/"><img class="alignnone size-full wp-image-830" alt="hoctructuyen" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/hoctructuyen.png" width="214" height="169" /></a></p></div>
+				
+</div></div><div class="grid-box width16 grid-h"><div class="module widget_black_studio_tinymce  deepest">
+
+						<div class="textwidget"><p><a href="http://dev.happyclick.vn/category/hoc-qua-video/"><img class="alignnone size-full wp-image-829" alt="hocquaemail" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/hocquaemail.png" width="214" height="169" /></a></p></div>
+				
+</div></div><div class="grid-box width16 grid-h"><div class="module widget_black_studio_tinymce  deepest">
+
+						<div class="textwidget"><p><a href="http://dev.happyclick.vn/category/lam-giau-cuoc-song/"><img class="alignnone size-full wp-image-832" alt="lamgiaucuocsong" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/lamgiaucuocsong.png" width="214" height="169" /></a></p></div>
+				
+</div></div><div class="grid-box width16 grid-h"><div class="module widget_black_studio_tinymce  deepest">
+
+						<div class="textwidget"><p><a href="http://dev.happyclick.vn/phat-trien-nghe-nghiep/"><img class="alignnone size-full wp-image-831" alt="ptng" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/ptng.png" width="214" height="169" /></a></p></div>
+				
+</div></div><div class="grid-box width16 grid-h"><div class="module widget_black_studio_tinymce  deepest">
+
+						<div class="textwidget"><p><a href="http://dev.happyclick.vn/hoi-dap-voi-chuyen-gia/"><img class="alignnone size-full wp-image-828" alt="hdcg" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/hdcg.png" width="214" height="169" /></a></p></div>
+				
+</div></div><div class="grid-box width16 grid-h"><div class="module widget_black_studio_tinymce  deepest">
+
+						<div class="textwidget"><p><a href="http://dev.happyclick.vn/category/khoi-dong-tuan-moi"><img class="alignnone size-full wp-image-833" alt="kdtm" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/kdtm.png" width="214" height="169" /></a></p></div>
+				
+</div></div></section>
+				
+				
+				<div id="main" class="grid-block">
+
+			<div id="maininner" class="grid-box">
+
+				
+								<section id="breadcrumbs"><div class="breadcrumbs"><a href="http://dev.happyclick.vn">Trang chủ</a><strong>Khởi động tuần mới</strong></div></section>
+				
+				                    <div id="system">
+	
+							        
+            <div class="archive-new-week">
+                <div class="content-box-inside">
+                    <article id="item-1697" class="item courses" data-permalink="http://dev.happyclick.vn/ban-co-noi-gian-mot-cach-tich-cuc-khong/">
+    <header class="course-wrapper">
+        <h3 class="course-title">Bạn có nổi giận một cách tích cực không?</h3>
+    </header>
+	<div class="content clearfix">
+		<p>Chắc hẳn trong chúng ta, ai cũng đã từng nổi giận với nhiều nguyên nhân khác nhau, có người nổi giận vì ai đó thất hứa, khi công việc không như ý muốn hay xung đột với người khác… Những lúc như vậy, bạn đã hành động như thế nào? Có người không kiểm soát được cơn giận nên đã gây ra những hậu quả đáng tiếc. Nhưng nếu bạn bình tĩnh đánh giá và hành động đúng đắn thì bạn có thể đã biến cơn giận trở nên tích cực hơn.</p>
+<p>Hãy xem bạn có nổi giận một cách tích cực không qua bài trắc nghiệm sau nhé:</p>
+<p>Bạn hãy đánh dấu vào câu trả lời bạn cho là đúng với mình nhất.</p>
+<table class="quiz">
+<thead>
+<tr>
+<td colspan="2">  Nội dung</td>
+<td style="width: 54px;">Đồng ý</td>
+<td style="width: 65px;">Phần nào đồng ý</td>
+<td style="width: 54px;">Không đồng ý</td>
+</tr>
+</thead>
+<tbody>
+<tr style="background: #f0f0f0;">
+<td>1</td>
+<td style="text-align:left;">Bạn không bao giờ hoặc rất ít khi giận</td>
+<td><input type="radio" name="cau1" value="1" /></td>
+<td><input type="radio" name="cau1" value="2" /></td>
+<td><input type="radio" name="cau1" value="3" /></td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:left;">Bạn tránh biểu lộ cơn giận, bởi vì hầu hết mọi người đều nghĩ giận đồng nghĩa với ghét</td>
+<td><input type="radio" name="cau2" value="1" /></td>
+<td><input type="radio" name="cau2" value="2" /></td>
+<td><input type="radio" name="cau2" value="3" /></td>
+</tr>
+<tr style="background: #f0f0f0;">
+<td>3</td>
+<td style="text-align:left;">Thật lòng mà nói bạn thà đề nén cơn giận của mình còn hơn là bị mất bạn bè</td>
+<td><input type="radio" name="cau3" value="1" /></td>
+<td><input type="radio" name="cau3" value="2" /></td>
+<td><input type="radio" name="cau3" value="3" /></td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align:left;">Giận dữ chắc chắn sẽ làm hỏng việc</td>
+<td><input type="radio" name="cau4" value="1" /></td>
+<td><input type="radio" name="cau4" value="2" /></td>
+<td><input type="radio" name="cau4" value="3" /></td>
+</tr>
+<tr style="background: #f0f0f0;">
+<td>5</td>
+<td style="text-align:left;">Bạn nghĩ tốt hơn là tự tìm cách giải quyết cơn giận của mình hơn là nói cho người khác biết là bạn đang giận</td>
+<td><input type="radio" name="cau5" value="1" /></td>
+<td><input type="radio" name="cau5" value="2" /></td>
+<td><input type="radio" name="cau5" value="3" /></td>
+</tr>
+<tr>
+<td>6</td>
+<td style="text-align:left;">Giận không phải là một cách hay để phản ứng lại một tình huống làm bạn thất vọng, không vui</td>
+<td><input type="radio" name="cau6" value="1" /></td>
+<td><input type="radio" name="cau6" value="2" /></td>
+<td><input type="radio" name="cau6" value="3" /></td>
+</tr>
+<tr style="background: #f0f0f0;">
+<td>7</td>
+<td style="text-align:left;">Kỷ luật một ai đó khi bạn đang giận họ thì không phải là một hành động đúng</td>
+<td><input type="radio" name="cau7" value="1" /></td>
+<td><input type="radio" name="cau7" value="2" /></td>
+<td><input type="radio" name="cau7" value="3" /></td>
+</tr>
+<tr>
+<td>8</td>
+<td style="text-align:left;">Giận chỉ làm mọi việc xấu đi như là &#8220;đổ thêm dầu vào lửa&#8221;</td>
+<td><input type="radio" name="cau8" value="1" /></td>
+<td><input type="radio" name="cau8" value="2" /></td>
+<td><input type="radio" name="cau8" value="3" /></td>
+</tr>
+<tr style="background: #f0f0f0;">
+<td>9</td>
+<td style="text-align:left;">Bạn thường giấu cơn giận bởi vì bạn sợ người khác cười chê</td>
+<td><input type="radio" name="cau9" value="1" /></td>
+<td><input type="radio" name="cau9" value="2" /></td>
+<td><input type="radio" name="cau9" value="3" /></td>
+</tr>
+<tr>
+<td>10</td>
+<td style="text-align:left;">Khi giận ai đó rất gần gũi với bạn, bạn nên cố gắng nói ra bằng một cách nào đó cho dù nói ra như thế rất đau lòng</td>
+<td><input type="radio" name="cau10" value="1" /></td>
+<td><input type="radio" name="cau10" value="2" /></td>
+<td><input type="radio" name="cau10" value="3" /></td>
+</tr>
+</tbody>
+</table>
+<div class="tong_diem"><span id="total_point" class="point_span"></span><span class="point_span">Tổng điểm = </span><a href="#" class="link-orange"><span>Xem kết quả</span></a> </div>
+<div class="nw_answers" id="answer1">Bạn chấp nhận những cảm xúc của cơn giận của bạn và bạn biết cần thể hiện những cảm xúc này như thế nào để xây dựng các mối quan hệ giữa con người tốt hơn</div>
+<div class="nw_answers" id="answer2">Bạn phần nào biết được tại sao một người cần thể hiện cơn giận và thể hiện như thế nào để làm cho bầu khí trở nên thân thiện hơn. Tuy nhiên bạn vẫn cần cải thiện thêm nữa</div>
+<div class="nw_answers" id="answer3">Bạn không biểu lộ được cơn giận của mình như mong muốn nhằm giữ được mối quan hệ bền chặt với những người khác. Có thể bạn có cảm giác có lỗi vì đã biểu lộ cơn giận đặc biệt là với người thân của bạn. Hãy nhớ rằng thà biểu lộ cơn giận một lúc còn tốt hơn là sau đó để sự việc &#8220;leo thang&#8221;.</div>
+<div class="nw_answers" id="answer4">
+<h3 class="text-orange">Bí quyết biểu lộ cơn giận một cách tích cực<br />Hãy tập khẳng định bản thân!</h3>
+<p>Khẳng định bản thân là cách bạn thể hiện cơn giận một cách tích cực, tự tin thể hiện suy nghĩ và mong muốn của mình (assertive). Điều này hoàn toàn khác với chuyện bạn cho phép mình “nổi giận đùng đùng” để thỏa cơn giận và làm tổn thương người khác (aggressive). Khi giận, quả là thật khó để thể hiện bản thân một cách đúng mực. Bạn dễ bị cuốn vào cảm xúc tiêu cực, kèm theo những phản ứng có hại cho sức khỏe (nóng bừng mặt, tim đập nhanh, run người…) và với tình trạng này bạn khó có thể đưa ra những lập luận vững chắc hoặc phản ứng một cách thích hợp.</p>
+<p>Tuy nhiên, nếu bạn học cách khẳng định bản thân và thể hiện cho người khác biết những mong đợi của mình, những giới hạn, nguyên tắc… chắc chắn bạn sẽ đạt được điều mình muốn và vẫn giữ được các mối quan hệ tốt đẹp.  </p>
+<p>Cơn giận có sức mạnh riêng của nó, kể cả tích cực hay tiêu cực. Nếu không biết kiểm soát, nó có thể gây tổn hại đến các mối quan hệ, công việc và cả sức khỏe của bạn.</p>
+<p>Ngược lại nếu bạn biết cách biểu lộ cơn giận bằng những hành động mang tính xây dựng, bạn sẽ tạo ra được những thay đổi tích cực và giải quyết mọi việc hiệu quả hơn.Chủ động trong việc quản lý cơn giận sẽ giúp bạn duy trì cảm xúc lành mạnh nhằm tránh những tổn thương hoặc mối đe dọa không cần thiết. Quyền LỰA CHỌN là CỦA BẠN.</p>
+<p>Điều bạn cần rèn luyện mỗi ngày để biết cách biểu lộ cơn giận một cách tích cực chính là kỹ năng khẳng định bản thân.</p>
+<p>Hãy khám phá những bí quyết sau đây để giúp bạn rèn luyện kỹ năng khẳng định bản thân.</p>
+<ul>
+<li>Hãy xác định những điều bạn mong muốn, bạn cần và không ngại nói ra những điều đó. Bạn hãy tập thẳng thắn nói ra chứ đừng bắt người khác phải đoán đúng ý của bạn. Bạn nhớ bình tĩnh tìm cách đáp ứng nhu cầu của mình mà không làm tổn hại đến nhu cầu của người khác. Một khi bạn không làm tổn hại đến nhu cầu của người khác, bạn có quyền nói và làm những gì bạn muốn</li>
+<li>Cho phép bản thân nóng giận nhưng luôn thể hiện sự tôn trọng người khác. Nói những điều bạn nghĩ nhưng theo cách không làm tổn thương người khác và luôn kiểm soát cảm xúc của mình</li>
+<li>Để tập biểu lộ cơn giận một cách tích cực, bạn có thể theo 4 bước gợi ý sau đây:
+<ul>
+<li>1. Mô tả sự việc: Hãy nói chính xác suy nghĩ của bạn về tình huống xảy ra hoặc vấn đề nào đó<br />
+Ví dụ: “Này A, chi phí sản xuất của tháng này cao hơn 23% so với mức trung bình. Tôi rất ngạc nhiên khi biết tin này bởi vì anh không hề báo trước cho tôi biết…”</li>
+<li>2. Mô tả cảm xúc của bạn: nói rõ bạn cảm thấy như thế nào, thể hiện rõ ràng cảm xúc của bạn…<br />
+Ví dụ: “Hành động của bạn khiến tôi thất vọng và có cảm giác như bạn không hề hiểu hoặc không đánh giá cao tầm quan trọng của việc kiểm soát tài chính của công ty”</li>
+<li>3. Nói rõ nhu cầu của bạn: Hãy nói rõ cho người khác biết bạn cần gì để họ không phải “đoán già đoán non”<br />
+Ví dụ: “Tôi muốn bạn trung thực với tôi và cho tôi biết khi nào chúng ta bắt đầu vượt quá ngân sách và hướng giải quyết”</li>
+<li>4. Chỉ ra kết quả: mô tả những kết quả tích cực sẽ đạt được nếu họ đáp ứng những điều bạn yêu cầu<br />
+Ví dụ: “Tôi ở đây để giúp bạn trong khả năng của mình. Nếu bạn tin tưởng tôi thì chúng ta có thể cùng nhau xoay chuyển tình thế”</li>
+</li>
+</ul>
+<p>Khẳng định bản thân là nhận biết ranh giới và cân bằng giữa việc tự tin thể hiện bản thân một cách tích cực (assertive) và việc biểu lộ cơn giận thái quá, làm tổn thương người khác (aggressive). Điều này có nghĩa là bạn phải có nhận thức rõ ràng về bản thân và biết rõ rằng bạn xứng đáng có được những gì bạn muốn. Bạn cần phải đấu tranh cho bản thân ngay cả trong những tình huống khó khăn nhất.</p>
+<p>Bạn có thể rèn luyện và phát triển kỹ năng khẳng định bản thân. Dĩ nhiên là kết quả sẽ không có trong “một sớm một chiều” nhưng bằng cách luyện tập những phương pháp trên đây, bạn sẽ dần trở nên tự tin hơn để thể hiện những nhu cầu và mong muốn của mình. Khi bạn đã phát triển được kỹ năng khẳng định bản thân, năng suất và hiệu quả làm việc của bạn cũng tăng cao. Hãy bắt đầu rèn luyện ngay hôm nay để thấy được kỹ năng khẳng định bản thân hỗ trợ bạn như thế nào khi làm việc với người khác để hoàn thành công việc, giải quyết vấn đề và tìm kiếm giải pháp.
+</p></div>
+<p><script type="text/javascript">
+        (function($){
+            $('.nw_answers').hide();
+            var $total_point    = 0;
+            var $array          = new Array();
+            var $count          = 0;
+            $(".quiz input").click(function(){
+                key = $(this).attr('name');
+                if(!$array[key]){ 
+                    $array[key] = 0;
+                    $count      += 1;
+                }
+                $total_point    -= $array[key];
+                $total_point    += parseInt($(this).val());
+                $array[key]      = parseInt($(this).val());
+                $('#total_point').text(' '+$total_point);
+                console.log($count);
+            });
+            $(".tong_diem a").click(function(){
+                $('.nw_answers').hide();
+                if($count < 10){
+                    alert('Vui lòng lựa chọn đầy đủ các đáp án để biết được kết quả!')
+                    return false;
+                }
+                $("#answer4").show('fast');
+                if($total_point >= 24){
+                    $("#answer1").show('fast');
+                    return false;
+                }
+                if($total_point >= 17){
+                    $("#answer2").show('fast');
+                    return false;
+                }
+                if($total_point >= 10){
+                    $("#answer3").show('fast');
+                    return false;
+                }
+                return false;
+            });
+        })(jQuery);
+    </script></p>
+	</div>
+    </article>                </div>
+            </div>
+		
+	
+</div>				
+				
+			</div>
+			<!-- maininner end -->
+			
+						
+			
+		</div>
+				<!-- main end -->
+
+				
+				<section id="bottom-b" class="grid-block"><div class="grid-box width100 grid-h"><div class="module widget_black_studio_tinymce  deepest">
+
+						<div class="textwidget"><div id="support"><img class="size-full wp-image-810 alignnone" alt="bg_footer" src="http://dev.happyclick.vn/wp-content/uploads/2013/06/bg_footer.png" width="1170" height="80" /></div></div>
+				
+</div></div></section>
+				
+				<footer id="footer">
+
+			
+			<div class="module widget_nav_menu  deepest">
+
+			<ul class="menu menu-line"><li class="level1 item2401"><a href="http://dev.happyclick.vn/lien-he/" class="level1"><span>Liên Hệ</span></a></li><li class="level1 item712"><a href="http://dev.happyclick.vn/category/ve-happy-click/" class="level1"><span>Về Happy Click</span></a></li><li class="level1 item2402"><a href="http://dev.happyclick.vn/dieu-khoan-su-dung/" class="level1"><span>Điều khoản và chính sách</span></a></li><li class="level1 item2405"><a href="http://dev.happyclick.vn/goc-bao-chi/" class="level1"><span>Góc báo chí</span></a></li><li class="level1 item2406"><a href="http://dev.happyclick.vn/cau-hoi-thuong-gap/" class="level1"><span>Câu hỏi thường gặp</span></a></li></ul>		
+</div>
+<div class="module widget_black_studio_tinymce  deepest">
+
+						<div class="textwidget"><p style="padding-top:8px"><a href="http://dev.happyclick.vn/wp-content/uploads/2013/07/footer.jpg"><img class="size-full wp-image-878 aligncenter" alt="footer" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/footer.jpg" width="259" height="21" /></a></p></div>
+				
+</div>
+		</footer>
+		
+	</div>
+	
+	<script type='text/javascript' src='http://dev.happyclick.vn/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.36.0-2013.06.16'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/dev.happyclick.vn\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ...","cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=3.4.2'></script>
+<script id="new-royalslider-init-code" type="text/javascript">
+jQuery(document).ready(function($) {
+});
+</script>
+</body>
+</html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using disk: enhanced
+Object Caching 1487/1567 objects using disk
+
+ Served from: dev.happyclick.vn @ 2013-07-27 19:59:38 by W3 Total Cache -->

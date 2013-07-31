@@ -23,7 +23,7 @@
 float: left;
 height: 63px;
 width: 259px;
-margin-top: 10px;
+margin-top: 11px;
 }
 #system #tabs > ul > li > a {
     font-size: 16px;
@@ -71,7 +71,7 @@ margin-top: 10px;
 	background: url('../images/tab-radio-active.png') no-repeat right transparent;
 	height: 73px;
 	width: 270px;
-	margin-top:0px;
+	margin-top:1px;
 	margin-left:-5px;
 }
 
@@ -80,14 +80,14 @@ margin-top: 10px;
 background: url('../images/tab-cs-active.png') no-repeat right transparent;
 height: 73px;
 width: 265px;
-margin-top: 0px;
+margin-top: 1px;
 }
 
 #system #tabs > ul > li#tab-kt.ui-tabs-active {
 	background: url('../images/tab-kt-active.png') no-repeat right transparent;
 height: 73px;
 width: 266px;
-margin-top: 0px;
+margin-top: 3px;
 }
 
 #system .posts-wrapper {
@@ -104,6 +104,7 @@ padding-top: 10px;
 overflow: hidden;
 height: auto;
 padding-bottom: 40px;
+margin-left: 1px;
 }
 .margin_right {
 	margin-right:0px !important;
@@ -484,6 +485,13 @@ margin-left:1px;
     margin: 20px 70px 10px 60px;
   }
  
+ .download-notify {
+	margin: 20px 60px;
+line-height: 21px;
+ }
+  .download-notify a img {
+	margin-top:0px;	
+  }
  
 .ban-lanh-dao { margin: 0 30px 0 60px; float: left; width: 755px;}
 .ban-lanh-dao h3 { margin: 20px 0 0;; width: 100%; float: left; }

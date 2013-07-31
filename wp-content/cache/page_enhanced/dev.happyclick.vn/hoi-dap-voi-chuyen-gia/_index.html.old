@@ -1,0 +1,266 @@
+<!DOCTYPE HTML>
+<html lang="en-US" dir="ltr">
+
+<head>
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Happy Click  &raquo; Hỏi đáp với chuyên gia</title>
+<link rel="shortcut icon" href="/wp-content/themes/yoo_master_wp/favicon.ico" />
+<link rel="apple-touch-icon-precomposed" href="/wp-content/themes/yoo_master_wp/apple_touch_icon.png" />
+<link rel='stylesheet' id='login-with-ajax-css'  href='http://dev.happyclick.vn/wp-content/plugins/login-with-ajax/widget/widget.css?ver=3.5.2' type='text/css' media='all' />
+<link rel='stylesheet' id='rpwe-style-css'  href='http://dev.happyclick.vn/wp-content/plugins/recent-posts-widget-extended/rpwe.css?ver=3.5.2' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='http://dev.happyclick.vn/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=3.4.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-cpl-base-css-css'  href='http://dev.happyclick.vn/wp-content/plugins/wp-category-posts-list/static/css/wp-cat-list-theme.css?ver=2.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp_cpl_css_0-css'  href='http://dev.happyclick.vn/wp-content/plugins/wp-category-posts-list/static/css/wp-cat-list-light.css?ver=2.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp_cpl_css_1-css'  href='http://dev.happyclick.vn/wp-content/plugins/wp-category-posts-list/static/css/wp-cat-list-dark.css?ver=2.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp_cpl_css_2-css'  href='http://dev.happyclick.vn/wp-content/plugins/wp-category-posts-list/static/css/wp-cat-list-giant-gold-fish.css?ver=2.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp_cpl_css_3-css'  href='http://dev.happyclick.vn/wp-content/plugins/wp-category-posts-list/static/css/wp-cat-list-adrift-in-dreams.css?ver=2.0.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-ui-css'  href='http://dev.happyclick.vn/wp-content/plugins/wp-ui/css/wp-ui.css?ver=3.5.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wpui-light-css'  href='http://dev.happyclick.vn/wp-content/plugins/wp-ui/css/themes/wpui-light.css?ver=3.5.2' type='text/css' media='all' />
+<link rel='stylesheet' id='wpui-multiple-css'  href='http://dev.happyclick.vn/wp-content/plugins/wp-ui/css/css.php?styles=wpui-light%7Cwpui-blue%7Cwpui-red%7Cwpui-green%7Cwpui-dark%7Cwpui-quark%7Cwpui-alma%7Cwpui-macish%7Cwpui-redmond%7Cwpui-sevin&#038;ver=3.5.2' type='text/css' media='all' />
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/jquery.js?ver=1.8.3'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.core.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.widget.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.mouse.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.sortable.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-content/plugins/login-with-ajax/widget/login-with-ajax.js?ver=3.5.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-content/plugins/wordpress-popup/popover-load-js.php?ver=3.5.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.tabs.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.accordion.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.resizable.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.draggable.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.button.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.position.min.js?ver=1.9.2'></script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-includes/js/jquery/ui/jquery.ui.dialog.min.js?ver=1.9.2'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpUIOpts = {"wpUrl":"http:\/\/dev.happyclick.vn","pluginUrl":"http:\/\/dev.happyclick.vn\/wp-content\/plugins\/wp-ui\/","enableTabs":"off","enableAccordion":"on","enableSpoilers":"on","enableDialogs":"on","tabsEffect":"none","effectSpeed":"400","accordEffect":"none","alwaysRotate":"stop","tabsEvent":"click","collapsibleTabs":"off","accordEvent":"click","topNav":"off","accordAutoHeight":"on","accordCollapsible":"off","accordEasing":"false","mouseWheelTabs":"false","bottomNav":"on","tabPrevText":"Prev","tabNextText":"Next","spoilerShowText":"Click to show","spoilerHideText":"Click to hide","cookies":"on","hashChange":"on","docWriteFix":"on","linking_history":"on","misc_options":"hashing_timeout=1000\r\ntinymce_icon_row=3"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-content/plugins/wp-ui/js/wp-ui.js?ver=0.8.7'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://dev.happyclick.vn/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://dev.happyclick.vn/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Góc báo chí' href='http://dev.happyclick.vn/goc-bao-chi/' />
+<link rel='next' title='Phát triển Nghề nghiệp' href='http://dev.happyclick.vn/phat-trien-nghe-nghiep/' />
+<meta name="generator" content="WordPress 3.5.2" />
+<link rel='canonical' href='http://dev.happyclick.vn/hoi-dap-voi-chuyen-gia/' />
+<style type="text/css" media="screen"> 
+          html { margin-top: 0px !important; } 
+          * html body { margin-top: 0px !important; } 
+          </style><link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/base.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/styles/happyclick/css/layout.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/styles/happyclick/css/menus.css" />
+<style>.wrapper { max-width: 1172px; }
+#maininner { width: 100%; }
+#menu .dropdown { width: 250px; }
+#menu .columns2 { width: 500px; }
+#menu .columns3 { width: 750px; }
+#menu .columns4 { width: 1000px; }</style>
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/modules.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/tools.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/system.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/extensions.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/custom.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/color2/green.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/font2/arial.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/style.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/responsive.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/print.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/fonts/8/8.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/fonts/11/11.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/fonts/12/12.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/fonts/13/13.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/fancy/jquery.fancybox.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/css/tnd/style.css" />
+<link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/fonts/10/10.css" />
+<script src="/wp-content/themes/yoo_master_wp/warp/js/warp.js"></script>
+<script src="/wp-content/themes/yoo_master_wp/warp/js/responsive.js"></script>
+<script src="/wp-content/themes/yoo_master_wp/warp/js/accordionmenu.js"></script>
+<script src="/wp-content/themes/yoo_master_wp/warp/js/dropdownmenu.js"></script>
+<script src="/wp-content/themes/yoo_master_wp/js/template.js"></script>
+<script src="/wp-content/themes/yoo_master_wp/js/fancy/jquery.fancybox.pack.js"></script>
+<script src="/wp-content/themes/yoo_master_wp/js/tnd/scripts.js"></script>
+<script src="/wp-content/themes/yoo_master_wp/js/tnd/scripts_vu.js"></script>
+<script src="/wp-content/themes/yoo_master_wp/js/tnd/jquery.jcarousel.min.js"></script>
+<script type="text/javascript">
+	var hcaccount = "";
+	var site_url = "http://dev.happyclick.vn";
+</script>
+</head>
+
+<body id="page" class="page page page-id-2394 page-template-default  isblog wp-page wp-page-2394" data-config='{"twitter":0,"plusone":0,"facebook":0}'>
+
+			<div class="wrapper clearfix">
+
+		<header id="header">
+
+		
+			
+					<section id="top-a" class="grid-block"><div class="grid-box width16 grid-h"><div class="module widget_black_studio_tinymce  deepest">
+
+						<div class="textwidget"><p><a href="http://dev.happyclick.vn/category/hoc-truc-tuyen/"><img class="alignnone size-full wp-image-830" alt="hoctructuyen" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/hoctructuyen.png" width="214" height="169" /></a></p></div>
+				
+</div></div><div class="grid-box width16 grid-h"><div class="module widget_black_studio_tinymce  deepest">
+
+						<div class="textwidget"><p><a href="http://dev.happyclick.vn/category/hoc-qua-video/"><img class="alignnone size-full wp-image-829" alt="hocquaemail" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/hocquaemail.png" width="214" height="169" /></a></p></div>
+				
+</div></div><div class="grid-box width16 grid-h"><div class="module widget_black_studio_tinymce  deepest">
+
+						<div class="textwidget"><p><a href="http://dev.happyclick.vn/category/lam-giau-cuoc-song/"><img class="alignnone size-full wp-image-832" alt="lamgiaucuocsong" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/lamgiaucuocsong.png" width="214" height="169" /></a></p></div>
+				
+</div></div><div class="grid-box width16 grid-h"><div class="module widget_black_studio_tinymce  deepest">
+
+						<div class="textwidget"><p><a href="http://dev.happyclick.vn/phat-trien-nghe-nghiep/"><img class="alignnone size-full wp-image-831" alt="ptng" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/ptng.png" width="214" height="169" /></a></p></div>
+				
+</div></div><div class="grid-box width16 grid-h"><div class="module widget_black_studio_tinymce  deepest">
+
+						<div class="textwidget"><p><a href="http://dev.happyclick.vn/hoi-dap-voi-chuyen-gia/"><img class="alignnone size-full wp-image-828" alt="hdcg" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/hdcg.png" width="214" height="169" /></a></p></div>
+				
+</div></div><div class="grid-box width16 grid-h"><div class="module widget_black_studio_tinymce  deepest">
+
+						<div class="textwidget"><p><a href="http://dev.happyclick.vn/category/khoi-dong-tuan-moi"><img class="alignnone size-full wp-image-833" alt="kdtm" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/kdtm.png" width="214" height="169" /></a></p></div>
+				
+</div></div></section>
+		 	
+			<div id="headerbar" class="clearfix">
+			
+					
+				<a id="logo" href="http://dev.happyclick.vn"><img class="size-auto" src="/wp-content/uploads/yootheme/logo.png" alt="logo" /></a>
+								
+				<div class="module widget_nav_menu  deepest">
+
+			<ul class="menu menu-sidebar"><li class="level1 item817"><a href="http://dev.happyclick.vn/category/thanh-vien/quyen-loi-thanh-vien/" class="level1"><span>Trở thành thành viên</span></a></li><li class="level1 item836"><a href="http://dev.happyclick.vn/lien-he/" class="level1"><span>Liên Hệ</span></a></li></ul>		
+</div>				
+			</div>
+			
+						<div id="menubar" class="clearfix">
+				<div class="left_topnav"></div>
+                <div class="right_topnav"></div>
+								<nav id="menu"><ul class="menu menu-dropdown"><li class="level1 item41"><a href="http://dev.happyclick.vn" class="level1"><span>Trang chủ</span></a></li><li class="level1 item1901"><a href="http://dev.happyclick.vn/category/thanh-vien/quyen-loi-thanh-vien/" class="level1"><span>Thành Viên</span></a></li><li class="level1 item1779"><a href="/chude/hoi-thao/" class="level1"><span>Hội thảo / Khóa học</span></a></li><li class="level1 item1927"><a href="http://dev.happyclick.vn/category/hinh-anh/" class="level1"><span>Hình ảnh</span></a></li><li class="level1 item2388"><a href="http://dev.happyclick.vn/co-hoi-nghe-nghiep/" class="level1"><span>Cơ hội nghề nghiệp</span></a></li></ul></nav>
+				
+								
+			</div>
+										
+		</header>
+
+		
+		        		
+				<div id="main" class="grid-block">
+
+			<div id="maininner" class="grid-box">
+
+                
+				
+				<section id="content" class="grid-block"><div id="system">
+					
+		<article class="item" data-permalink="http://dev.happyclick.vn/hoi-dap-voi-chuyen-gia/">			 
+			<header>
+				<h1 class="title">Hỏi đáp với chuyên gia</h1>
+			</header>
+
+			<div class="content clearfix"><p>Chuyên mục <strong>“Hỏi đáp với chuyên gia”</strong> của Happy Click tập hợp một đội ngũ các chuyên gia uy tín trong nhiều lĩnh vực như marketing, nhân sự, kinh doanh, tài chính, IT… Hàng tháng, sẽ có một chuyên gia trong một lĩnh vực cùng giao lưu, chia sẻ kinh nghiệm với các bạn qua chương trình hỏi đáp trực tuyến.</p>
+<p>Hình thức tổ chức:</p>
+<p>1. Thành viên đặt câu hỏi cho chuyên gia theo chuyên đề của tháng.<br />
+2. 20 câu hỏi tiêu biểu và gửi sớm nhất sẽ được chọn trả lời trực tuyến.<br />
+3. Thành viên có thể đăng ký tham dự nghe trả lời trực tuyến theo <span style="text-decoration: underline;"><em>hướng dẫn</em></span>.<br />
+4.Trong trường hợp thành viên không tham dự được, các câu trả lời của chuyên gia sẽ được thu lại để bạn có thể xem vào bất cứ lúc nào.</p>
+<h4 style="text-align: center;"><strong>Chuyên đề tháng 8/2013: Hỏi &amp; đáp với Chuyên gia nhân sự Huỳnh Ngọc Ánh</strong></h4>
+<p style="text-align: center;"><img class="size-full wp-image-2466 aligncenter" alt="Nên làm gì khi bạn chưa tìm được việc làm?" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/Nen_lam_gi_khi_ban_chua_viec_lam.png" width="579" height="68" /></p>
+<div style="width: 100%; clear: both; margin: 20px 0 20px 0; float: left;"><img class="size-full wp-image-1767 alignleft" alt="about_chinhtruc" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/huynh_ngoc_anh.jpg" /><br />
+<span style="color: #da7623;"><strong>Huỳnh Ngọc Ánh</strong></span><br />
+Giám đốc điều hành công ty Career Vision, chuyên tuyển dụng và tư vấn quản trị nhân sự doanh nghiệp.<br />
+Thạc sĩ quản trị hệ thống &#8211; Đại học Monash &#8211; Úc<br />
+Cử nhân khoa Ngoại thương &#8211; Đại học Kinh tế TP.HCM</p>
+<p style="text-align:right;"><a href="http://dev.happyclick.vn/giangvien/huynh-ngoc-anh/" class="black-arrow">Xem thêm về giảng viên</a></p>
+</div>
+<p>Mời các bạn đặt câu hỏi cho Chuyên gia nhân sự Huỳnh Ngọc Ánh<br />
+(<em>Bạn nên xem các câu đã được hỏi dưới đây để không đặt trùng</em>)</p>
+<div class="wpcf7" id="wpcf7-f2461-p2394-o1"><form action="/hoi-dap-voi-chuyen-gia/#wpcf7-f2461-p2394-o1" method="post" class="wpcf7-form" novalidate="novalidate">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="2461" />
+<input type="hidden" name="_wpcf7_version" value="3.4.2" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f2461-p2394-o1" />
+<input type="hidden" name="_wpnonce" value="89cd4d67de" />
+</div>
+<p>Câu hỏi dành cho chuyên gia<br />
+    <span class="wpcf7-form-control-wrap your-message"><textarea name="your-message" cols="40" rows="10" class="wpcf7-form-control wpcf7-textarea"></textarea></span> </p>
+<p><label>&nbsp;</label><input type="submit" value="&nbsp;" class="wpcf7-form-control wpcf7-submit btn_send" /></p>
+<div class="wpcf7-response-output wpcf7-display-none"></div></form></div>
+<p>Nếu bạn quan tâm nghe chuyên gia trả lời các câu hỏi dưới đây, vui lòng đăng ký tham dự chương trình trả lời trực tuyến:<br />
+Thời gian: <strong>19:00 &#8211; 20:30</strong><br />
+Ngày: <strong>30/08/2013</strong></p>
+<table border="0" align="left">
+<tbody>
+<tr>
+<td width="250"><img class="alignnone size-full wp-image-2481" alt="Đăng ký" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/dang-ky.png" /></td>
+<td width="280"><a href="http://dev.happyclick.vn/category/thanh-vien/quyen-loi-thanh-vien/"><img class="alignnone size-full wp-image-2480" alt="Trở thành thành viên" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/tro-thanh-thanh-vien.png" /></a></td>
+<td width="300"><img class="alignnone size-full wp-image-2482" alt="Hướng dẫn tham dự" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/huong-dan-tham-du-.png" /></td>
+</tr>
+<tr>
+<td width="250">(<em>Chỉ dành cho thành viên</em>)</td>
+<td width="280"></td>
+<td width="300"></td>
+</tr>
+</tbody>
+</table>
+<p><span style="color: #83b87a;"><strong>Các câu hỏi đã được đặt:</strong></span></p>
+</div>
+		</article>
+
+			
+</div></section>
+				
+				
+			</div>
+			<!-- maininner end -->
+			
+						
+			
+		</div>
+				<!-- main end -->
+        
+						
+				
+        <section id="bottom-b" class="grid-block"><div class="grid-box width100 grid-h"><div class="module widget_black_studio_tinymce  deepest">
+
+						<div class="textwidget"><div id="support"><img class="size-full wp-image-810 alignnone" alt="bg_footer" src="http://dev.happyclick.vn/wp-content/uploads/2013/06/bg_footer.png" width="1170" height="80" /></div></div>
+				
+</div></div></section>
+		
+				<footer id="footer">
+
+			
+			<div class="module widget_nav_menu  deepest">
+
+			<ul class="menu menu-line"><li class="level1 item2401"><a href="http://dev.happyclick.vn/lien-he/" class="level1"><span>Liên Hệ</span></a></li><li class="level1 item712"><a href="http://dev.happyclick.vn/category/ve-happy-click/" class="level1"><span>Về Happy Click</span></a></li><li class="level1 item2402"><a href="http://dev.happyclick.vn/dieu-khoan-su-dung/" class="level1"><span>Điều khoản và chính sách</span></a></li><li class="level1 item2405"><a href="http://dev.happyclick.vn/goc-bao-chi/" class="level1"><span>Góc báo chí</span></a></li><li class="level1 item2406"><a href="http://dev.happyclick.vn/cau-hoi-thuong-gap/" class="level1"><span>Câu hỏi thường gặp</span></a></li></ul>		
+</div>
+<div class="module widget_black_studio_tinymce  deepest">
+
+						<div class="textwidget"><p style="padding-top:8px"><a href="http://dev.happyclick.vn/wp-content/uploads/2013/07/footer.jpg"><img class="size-full wp-image-878 aligncenter" alt="footer" src="http://dev.happyclick.vn/wp-content/uploads/2013/07/footer.jpg" width="259" height="21" /></a></p></div>
+				
+</div>
+		</footer>
+		
+	</div>
+	
+	<script type='text/javascript' src='http://dev.happyclick.vn/wp-content/plugins/contact-form-7/includes/js/jquery.form.min.js?ver=3.36.0-2013.06.16'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var _wpcf7 = {"loaderUrl":"http:\/\/dev.happyclick.vn\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Sending ...","cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://dev.happyclick.vn/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=3.4.2'></script>
+<script id="new-royalslider-init-code" type="text/javascript">
+jQuery(document).ready(function($) {
+});
+</script>
+	
+</body>
+</html>
+<!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
+
+Page Caching using disk: enhanced
+Object Caching 1528/1723 objects using disk
+
+ Served from: dev.happyclick.vn @ 2013-07-27 19:59:44 by W3 Total Cache -->
