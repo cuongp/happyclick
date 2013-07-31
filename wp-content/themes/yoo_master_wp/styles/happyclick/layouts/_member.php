@@ -90,7 +90,7 @@ include($this['path']->path('layouts:template.config.php'));
 			<div id="headerbar" class="clearfix">
 			
 				<?php if ($this['modules']->count('logo')) : ?>	
-				<a id="logo" href="<?php echo $this['config']->get('site_url'); ?>"><?php echo $this['modules']->render('logo'); ?></a>
+				<a id="logo" href="<?php echo get_site_url();?>"><?php echo $this['modules']->render('logo'); ?></a>
 				<?php endif; ?>
 				
 				<?php echo $this['modules']->render('headerbar-trial'); ?>
