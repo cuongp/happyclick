@@ -464,6 +464,15 @@ div.wpcf7-validation-errors{ border:none; }
     float: right;
 }
 .item.courses .item-global-info .register-links a{}
+.item.courses .item-global-info .delayed_msg{
+    display: block;
+    font-size: 0.9em;
+    padding-top: 3px;
+}
+.no-pointer a,
+a.no-pointer{
+    cursor: default;
+}
 .item.courses .clearfix{}
 .item.courses .clearfix p{
     padding: 0.5em 0 0.5em 1em;
