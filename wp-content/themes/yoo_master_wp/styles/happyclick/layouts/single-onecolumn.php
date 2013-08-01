@@ -5,7 +5,7 @@
             <div class="content-box1">
                 <h3 class="content-box-title">Khóa học trực tuyến</h3>
                 <div class="content-box-inside">
-                    <a href="#" class="how-to-join">&nbsp;</a> 
+                    <a href="<?php echo get_bloginfo('url'); ?>/wp-content/uploads/2013/07/Webinar_Guide.pdf" class="how-to-join" target="_blank">&nbsp;</a> 
 
                     <article id="item-<?php the_ID(); ?>" class="item courses" data-permalink="<?php the_permalink(); ?>">
                         <header class="course-wrapper">

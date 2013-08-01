@@ -35,7 +35,10 @@ function update_card($card_id){
 	$db = $GLOBALS['wpdb'];
 	return $db->update($db->prefix.'cards',array('status'=>1),array('id'=>$card_id));
 }
-
+function insert_user_data($data){
+	$db = $GLOBALS['wpdb'];
+	return $db->insert($db->prefix.'user_card',$data);
+}
 function get_card_info($card_id){
 	$db = $GLOBALS['wpdb'];
 	$cardTable = $db->prefix.'cards';
@@ -54,8 +57,7 @@ function get_sub_info($sub_id){
 if(isset($_POST) && $_POST['action'] == 'submit'){
 	$db = $GLOBALS['wpdb'];
 	$card_id = check_card($_POST['hccode'],$_POST['hcserial']); 
-
-	if($card_id){
+	if($card_id>0){
 		if($current_user->ID > 0){
 			$user_id = $current_user->ID;
 		}
@@ -110,9 +112,18 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					,'order_instance'=>1
 					,'usinggateway'=>'card'
 					));
+			
 			update_usermeta($user_id,'wp_membership_active','no');
+			insert_user_data(array('user_id'=>$user_id,'card_id'=>$card_id->id,'created_at'=>time()));
 			$key = md5($user_id. $_POST['hcpassword'] . time());
+			$db->update($db->prefix.'users',array('user_activation_key'=>$key),array('ID'=>$user->ID));
 			update_user_meta($user->ID, '_membership_key', $key);
+			
+			if($current_user->ID > 0)
+				$hcemail = $current_user->user_email;
+			else
+				$hcemail = $_POST['hcemail'];
+			
 			$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 <tbody>
 <tr>
@@ -132,7 +143,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
       <br />
       Thông tin tài khoản đăng nhập bạn đã đăng ký:</p>
     <blockquote>
-      <p style="padding:10px">Tên đăng nhập: '.$_POST['hcemail'].'<br />
+      <p style="padding:10px">Tên đăng nhập: '.$hcemail.'<br />
         Mật khẩu:'.$_POST['hcpassword'].'</p>
       </blockquote>
     <p style="padding:10px">Số sê-ri của thẻ cào: '.$_POST['hcserial'].'</p>
@@ -171,28 +182,32 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 			//wpMandrill::mail($_POST['email'],'Kích hoạt thành viên',$html);
 			$headers[] = 'From: Happy Click <support@happyclick.vn>';
 			$headers[] ='Content-type: text/html';
-			wp_mail($_POST['hcemail'],'Xác nhận email',$html,$headers);
-
-
-			if($current_user->ID > 0)
+			
+			wp_mail($hcemail,'Xác nhận email',$html,$headers);
+			
+			if($current_user->ID > 0){
 				wp_redirect('/index.php?mod=kich-hoat');
-			else
-				wp_redirect('/hcaccount/xac-nhan-email/');
-			exit;			
+				exit;
 			}
 			else
 			{
-				$flag ='<h3 class="error">Email đã được sử dụng, vui lòng sử dụng email khác để đăng ký</h3>';
+				wp_redirect('/hcaccount/xac-nhan-email/');
+				exit;
 			}
+						
 		}
+		else
+		{
+			$flag ='<h3 class="error">Email đã được sử dụng, vui lòng sử dụng email khác để đăng ký</h3>';
+		}
+	}
 	else
 	{
 		$flag ='<h3 class="error">Thẻ cào không đúng</h3>';
 	}
-	wp_reset_query();
-	
-}
 
+wp_reset_query();
+}
 $gender = get_usermeta( $current_user->ID, 'gender');
 
 ?>
