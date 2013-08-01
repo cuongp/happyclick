@@ -6,7 +6,9 @@
 <?php
     $trial_id       = 1;
     $is_trial       = current_user_on_level($trial_id);
-    if($is_trial):
+    $member_id       = 2;
+    $is_member     = current_user_on_level($member_id);
+    if($is_trial && !$is_member):
         echo '<div style="text-align:center"><span style="color:#F20000;">Bạn được xem thử bài viết đầu tiên.</span></div>';
     endif;
     ?>
