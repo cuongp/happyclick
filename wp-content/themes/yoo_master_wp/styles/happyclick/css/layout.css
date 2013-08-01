@@ -17,12 +17,15 @@
 }
 .xemthu span{display: none}
 em{color: #000;}
-#breadcrumbs,
+
 #content,#bottom-b
 { margin: 0 15px 40px; }
 .title_muathe{
     font-size: 24px;
     color: #88ab35;
+}
+#breadcrumbs {
+	margin:15px 15px 0;
 }
 #top-a2 .mod-box,#homeslider .mod-box{
 -webkit-border-radius:5px;
@@ -115,7 +118,7 @@ a.prev span, a.next span{display: none}
 
 #footer .module { margin: 0; }
 
-#sidebar-b{/*margin-top: 15px;*/}
+#sidebar-b{ margin-top: 15px; }
 
 #sidebar-a{margin-top: 10px;}
 #membership .mod-box{
@@ -293,6 +296,9 @@ z-index: 9;
 -moz-border-radius: 5px;
 border-radius: 5px;
 vertical-align: middle;
+}
+#sidebar-trial {
+	margin-top:15px;	
 }
 #sidebar-trial .module{
     margin-bottom: 5px;
@@ -881,6 +887,7 @@ height: auto;
     min-height: 100%;
     height: auto !important;
     height: 100%;
+	margin-top:15px;
 }
 .box2 .bodycontent{
     padding:20px 40px;

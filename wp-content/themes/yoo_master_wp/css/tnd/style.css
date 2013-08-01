@@ -385,6 +385,7 @@ div.wpcf7-validation-errors{ border:none; }
     border: 1px solid #2c6da0;
     border-radius: 6px;
     box-shadow: 1px 1px 3px #6A9DC3;
+	margin-top: 15px;
 }
 .equaledge{  }
 
@@ -779,6 +780,7 @@ table.quiz td{
     border-radius: 5px 5px 5px 5px;
     box-shadow: 0 0 3px #4B83AF;
     padding: 20px 35px 20px 15px;
+	margin-top: 15px;
 }
 .page-template-default #content h1.title{ color: #88AB35; }
 #content .royalSlider{
