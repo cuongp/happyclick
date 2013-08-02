@@ -3,15 +3,7 @@
         <?php _e('Mời các bạn tải tài liệu học tại đây','warp'); ?>
     </a>
 </div>
-<?php
-    $trial_id       = 1;
-    $is_trial       = current_user_on_level($trial_id);
-    $member_id       = 2;
-    $is_member     = current_user_on_level($member_id);
-    if($is_trial && !$is_member):
-        echo '<div style="text-align:center"><span style="color:#F20000;">Bạn được xem thử bài viết đầu tiên.</span></div>';
-    endif;
-    ?>
+
 <?php 
 
 $arg = array(
@@ -19,7 +11,6 @@ $arg = array(
     'post_status' 			=> array( 'publish' ),
 	'type'						=> 'post',
 	'taxonomy'             => 'category',
-	'post__not_in'  => get_option( 'sticky_posts' ),
     'posts_per_page' 	=> 10,
     'orderby' 				=> 'date',
     'order' 					=> 'DESC'
