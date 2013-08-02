@@ -385,6 +385,7 @@ div.wpcf7-validation-errors{ border:none; }
     border: 1px solid #2c6da0;
     border-radius: 6px;
     box-shadow: 1px 1px 3px #6A9DC3;
+	margin-top: 15px;
 }
 .equaledge{  }
 
@@ -463,6 +464,15 @@ div.wpcf7-validation-errors{ border:none; }
     float: right;
 }
 .item.courses .item-global-info .register-links a{}
+.item.courses .item-global-info .delayed_msg{
+    display: block;
+    font-size: 0.9em;
+    padding-top: 3px;
+}
+.no-pointer a,
+a.no-pointer{
+    cursor: default;
+}
 .item.courses .clearfix{}
 .item.courses .clearfix p{
     padding: 0.5em 0 0.5em 1em;
@@ -672,6 +682,16 @@ div.wpcf7-validation-errors{ border:none; }
     font-style: italic;
 }
 .content.hoc-qua-video { text-align: center; }
+.hoc-qua-video .iframe_fake{
+    border: 1px solid #EEEEEE;
+    box-shadow: 0 0 10px #DDDDDD;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 20px;
+    text-align: left;
+    width: 700px;
+}
+.hoc-qua-video .iframe_fake .alignleft{}
 .video_title{
     color: #111 !important;
     font-weight: bold;
@@ -779,6 +799,7 @@ table.quiz td{
     border-radius: 5px 5px 5px 5px;
     box-shadow: 0 0 3px #4B83AF;
     padding: 20px 35px 20px 15px;
+	margin-top: 15px;
 }
 .page-template-default #content h1.title{ color: #88AB35; }
 #content .royalSlider{

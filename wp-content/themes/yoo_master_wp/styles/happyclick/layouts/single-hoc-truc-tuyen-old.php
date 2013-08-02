@@ -6,7 +6,7 @@
 				 <h3 class="content-box-title"><?php _e('KHÓA HỌC TRỰC TUYẾN ĐÃ TỔ CHỨC','warp'); ?></h3>
 				 <div class="content-box-inside">
 					<div class="content-img">
-						<a href="#" class="how-to-join">&nbsp;</a> 
+						<a href="<?php echo get_bloginfo('url'); ?>/wp-content/uploads/2013/07/Webinar_Guide.pdf" class="how-to-join" target="_blank">&nbsp;</a> 
 						<?php if(has_post_thumbnail()): ?>
 						<?php $width = '218'; $height = ''; ?>
 							<?php the_post_thumbnail(array($width,$height),array('class'=>'size-auto')); ?>
@@ -26,7 +26,7 @@
                                 $link = $links[0];
                                 ?>
                                 <iframe width="510" height="311" src="<?php echo $youtubeVideo_link; ?>?autoplay=0&amp;version=3&amp;rel=0&amp;ps=docs&amp;color=white&amp;theme=light&amp;showinfo=0&amp;hl=en_US" type="application/x-shockwave-flash" frameborder="0" allowfullscreen style="float:right;" ></iframe>
-                            <p><a href="<?php echo $link; ?>"><?php _e('Download tài liệu','warp'); ?></a></p>
+                            <?php /* <p><a href="<?php echo $link; ?>"><?php _e('Download tài liệu','warp'); ?></a></p> */?>
                         </div>
                      <?php endif; ?>
 					<h1><?php the_title(); ?></h1>

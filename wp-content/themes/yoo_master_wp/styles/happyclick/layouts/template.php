@@ -20,6 +20,7 @@ global $current_user;
 <?php echo $this['template']->render('head'); ?>
 <script type="text/javascript">
 	var hcaccount = "<?php echo get_query_var('hcaccount'); ?>";
+	var backurl  = "<?php echo get_query_var('backurl'); ?>";
 	var site_url = "<?php echo get_site_url() ?>";
 </script>
 </head>
@@ -45,7 +46,32 @@ global $current_user;
 	<div class="wrapper clearfix">
 		<header id="header">
             
+<<<<<<< HEAD
             <h3 style="color: rgb(218, 118, 35); text-align: center; line-height: 1.5em; left: 334px; position: absolute; top: 178px;" class="text-green">TRANG WEB SẼ ĐƯỢC CHÍNH THỨC KHAI TRƯƠNG <br>VÀO 10:00, NGÀY 01/08/2013</h3>
+=======
+			<?php if ($this['modules']->count('toolbar-l + toolbar-r') || $this['config']->get('date')) : ?>
+			<div id="toolbar" class="clearfix">
+
+				<?php if ($this['modules']->count('toolbar-l') || $this['config']->get('date')) : ?>
+				<div class="float-left">
+				
+					<?php if ($this['config']->get('date')) : ?>
+					<time datetime="<?php echo $this['config']->get('datetime'); ?>"><?php echo $this['config']->get('actual_date'); ?></time>
+					<?php endif; ?>
+				
+					<?php echo $this['modules']->render('toolbar-l'); ?>
+					
+				</div>
+				<?php endif; ?>
+					
+				<?php if ($this['modules']->count('toolbar-r')) : ?>
+				<div class="float-right"><?php echo $this['modules']->render('toolbar-r'); ?></div>
+				<?php endif; ?>
+				
+			</div>
+			<?php endif; ?>
+
+>>>>>>> 858ae719dcad11fb3b03d39d0f851234f8232665
 			<?php 
             if(is_front_page() || $current_user->ID<1):
             if ($this['modules']->count('top-a')) : ?>

@@ -50,7 +50,7 @@ var wpUIOpts = {"wpUrl":"http:\/\/dev.happyclick.vn","pluginUrl":"http:\/\/dev.h
 <link rel="stylesheet" href="/wp-content/themes/yoo_master_wp/styles/happyclick/css/menus.css" />
 <style>.wrapper { max-width: 1172px; }
 #sidebar-b { width: 24%; }
-#sidebar-trial { width: 24%; }
+#sidebar-trial { width: 24%; margin-top: 15px; }
 #maininner { width: 76%; }
 #menu .dropdown { width: 250px; }
 #menu .columns2 { width: 500px; }
