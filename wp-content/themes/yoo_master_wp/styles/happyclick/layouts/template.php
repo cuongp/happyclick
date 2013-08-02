@@ -20,7 +20,6 @@ global $current_user;
 <?php echo $this['template']->render('head'); ?>
 <script type="text/javascript">
 	var hcaccount = "<?php echo get_query_var('hcaccount'); ?>";
-	var backurl  = "<?php echo get_query_var('backurl'); ?>";
 	var site_url = "<?php echo get_site_url() ?>";
 </script>
 </head>
@@ -175,19 +174,7 @@ dành cho thành viên Happy Click</p>
 		
 		</header>
 
-		<section id="membership">
-	<div class="grid-block">
-		<div class="grid-box width33 grid-h">
-			<?php echo $this['modules']->render('membership-trial-1', array('layout'=>$this['config']->get('membership-trial-1'))); ?>	
-		</div>
-		<div class="grid-box width33 grid-h">
-			<?php echo $this['modules']->render('membership-trial-2', array('layout'=>$this['config']->get('membership-trial-2'))); ?>	
-		</div>
-		<div class="grid-box width33 grid-h">
-			<?php echo $this['modules']->render('membership-trial-3', array('layout'=>$this['config']->get('membership-trial-3'))); ?>	
-		</div>
-	</div>
-	</section>
+	
 		<?php if ($this['modules']->count('top-b')) : ?>
 		<section id="top-b" class="grid-block"><?php echo $this['modules']->render('top-b', array('layout'=>$this['config']->get('top-b'))); ?></section>
 		<?php endif; ?>
@@ -195,11 +182,11 @@ dành cho thành viên Happy Click</p>
 				<section id="breadcrumbs"><?php echo $this['modules']->render('breadcrumbs'); ?></section>
 				<?php endif; ?>
 		
-		<?php if ($this['modules']->count('innertop + innerbottom + sidebar-b') || $this['config']->get('system_output')) : ?>
+		<?php if ($this['modules']->count('innertop + innerbottom + sidebar-b + membership-trial-1') || $this['config']->get('system_output')) : ?>
 		<div id="main" class="grid-block">
 
 			<div id="maininner" class="grid-box">
-
+		
                 <?php if ($this['modules']->count('innertop')) : ?>
 				<section id="innertop" class="grid-block"><?php echo $this['modules']->render('innertop', array('layout'=>$this['config']->get('innertop'))); ?></section>
 				<?php endif; ?>
@@ -227,7 +214,19 @@ dành cho thành viên Happy Click</p>
 		</div>
 		<?php endif; ?>
 		<!-- main end -->
-        
+        	<section id="membership">
+			<div class="grid-block">
+				<div class="grid-box width33 grid-h">
+					<?php echo $this['modules']->render('membership-trial-1', array('layout'=>$this['config']->get('membership-trial-1'))); ?>	
+				</div>
+				<div class="grid-box width33 grid-h">
+					<?php echo $this['modules']->render('membership-trial-2', array('layout'=>$this['config']->get('membership-trial-2'))); ?>	
+				</div>
+				<div class="grid-box width33 grid-h">
+					<?php echo $this['modules']->render('membership-trial-3', array('layout'=>$this['config']->get('membership-trial-3'))); ?>	
+				</div>
+			</div>
+			</section>
 		<?php if ($this['config']->get('totop_scroller')) : ?>
 			<a id="totop-scroller" href="#page">Quay về trang chủ</a>
 			<?php endif; ?>

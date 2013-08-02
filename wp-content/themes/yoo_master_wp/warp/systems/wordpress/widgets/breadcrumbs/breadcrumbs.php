@@ -25,11 +25,11 @@ class Warp_Breadcrumbs extends WP_Widget {
 		
 		if (empty($home_title)) {
 			if($is_member)
-				$home_title = 'Bạn đang ở đây :Trang chủ dành cho ngưởi xem thử';
+				$home_title = 'Trang chủ dành cho ngưởi xem thử';
 			elseif($is_member && $is_subs)
-				$home_title = 'Bạn đang ở đây :Trang chủ dành cho thành viên';
+				$home_title = 'Trang chủ dành cho thành viên';
 			else
-				$home_title = 'Bạn đang ở đây :Trang chủ dành cho mọi người';
+				$home_title = 'Trang chủ dành cho mọi người';
 		}
 		
 		echo $before_widget;
@@ -42,7 +42,7 @@ class Warp_Breadcrumbs extends WP_Widget {
 			
 			$output = '<div class="breadcrumbs">';
 			
-			$output .= '<a href="'.get_option('home').'">';
+			$output .= 'Bạn đang ở đây: <a href="'.get_option('home').'">';
 			$output .= $home_title;
 			$output .= '</a>';
 

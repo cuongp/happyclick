@@ -35,7 +35,7 @@ if($current_time>12*3600*1000){
 </div>-->
 <?php	
 }else{
-		
+
 
 		
 			update_usermeta($user_id,'wp_membership_active','yes');
@@ -78,5 +78,5 @@ sử dụng dịch vụ của Happy Click</p>
 		</table>
 </div>
 <?php
-}
+}}
 ?>

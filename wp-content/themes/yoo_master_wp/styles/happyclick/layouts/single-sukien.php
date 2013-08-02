@@ -38,9 +38,9 @@
 			<?php the_content(''); ?>
 			
 <ul class="rg">
-				<li><a href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $post_id; ?>" class="dk1"><span><?php echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></a></li>
+				<li><a href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $post_id; ?>" class="dk1"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></a></li>
 
-				<li><a href="/dang-ky-su-kien-cho-khach/"  class="dk2"><span><?php echo number_format($data['giatien'],0,'.','.');?>đ</span></a></li>
+				<li><a href="/dang-ky-su-kien-cho-khach/"  class="dk2"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien'],0,'.','.');?>đ</span></a></li>
 
 				<li><a href="/category/thanh-vien/quyen-loi-thanh-vien/"  class="dk3"><span>Trở thành thành viên</span></a></li>
 			</ul>
@@ -91,7 +91,7 @@
 				$hour = $time[0];
 			}
 			?>
-			<p>Thời gian: <?php echo $hour; ?></p>
+			<!--<p>Thời gian: <?php echo $hour; ?></p>
 			<p>Ngày: <?php echo $date; ?></p>
 			<table border="0" align="left">
 <tbody>
@@ -111,7 +111,7 @@
 <span style="color: #83b87a;">
 <strong>Các câu hỏi đã được đặt:</strong>
 </span>
-</p>
+</p>-->
 		
 			</div>
 			
