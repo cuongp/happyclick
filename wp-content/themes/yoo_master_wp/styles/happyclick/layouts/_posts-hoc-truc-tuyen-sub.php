@@ -35,8 +35,7 @@ while ( $the_query->have_posts() ) {
 }
 
 
-//  Cac khoa hoc truc tuyen da to chuc  ==========================
-
+//  Cac khoa hoc truc tuyen da to chuc  
 //echo '<h3 class="course-old-title">Xem lại các khóa đã tổ chức</h3>';
 //echo '<p class="course-old-sub-title">(chỉ dành cho thành viên)</p>';
 $args = array(
