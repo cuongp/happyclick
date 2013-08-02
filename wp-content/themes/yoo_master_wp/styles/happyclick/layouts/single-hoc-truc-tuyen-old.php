@@ -26,7 +26,7 @@
                                 $link = $links[0];
                                 ?>
                                 <iframe width="510" height="311" src="<?php echo $youtubeVideo_link; ?>?autoplay=0&amp;version=3&amp;rel=0&amp;ps=docs&amp;color=white&amp;theme=light&amp;showinfo=0&amp;hl=en_US" type="application/x-shockwave-flash" frameborder="0" allowfullscreen style="float:right;" ></iframe>
-                            <p><a href="<?php echo $link; ?>"><?php _e('Download tài liệu','warp'); ?></a></p>
+                            <?php /* <p><a href="<?php echo $link; ?>"><?php _e('Download tài liệu','warp'); ?></a></p> */?>
                         </div>
                      <?php endif; ?>
 					<h1><?php the_title(); ?></h1>
