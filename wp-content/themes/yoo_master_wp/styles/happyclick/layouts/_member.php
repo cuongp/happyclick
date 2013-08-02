@@ -122,7 +122,9 @@ include($this['path']->path('layouts:template.config.php'));
 			<?php endif;?>
 		
 		</header>
-
+<?php if ($this['modules']->count('breadcrumbs')) : ?>
+				<section id="breadcrumbs"><?php echo $this['modules']->render('breadcrumbs'); ?></section>
+				<?php endif; ?>
 		
 	<section id="membership">
 	<div class="grid-block">

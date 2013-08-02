@@ -102,6 +102,9 @@ dành cho thành viên Happy Click</p>
 		<div style="clear:both"></div><br/>
 	<?php endif;?>
 		</header>
+		<?php if ($this['modules']->count('breadcrumbs')) : ?>
+				<section id="breadcrumbs"><?php echo $this['modules']->render('breadcrumbs'); ?></section>
+				<?php endif; ?>
 			<?php 
 			
 			if ($this['modules']->count('sidebar-trial')) : ?>

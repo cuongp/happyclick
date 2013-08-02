@@ -148,11 +148,6 @@ global $current_user;
 
 			</div>
 			<!-- maininner end -->
-			
-			
-			
-			
-
 		</div>
 		<?php endif; ?>
 		<!-- main end -->

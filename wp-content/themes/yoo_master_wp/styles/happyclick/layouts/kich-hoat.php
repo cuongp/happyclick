@@ -101,6 +101,20 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					$enddate = $startdate;
 					break;
 			}
+			switch ($level_period_unit) {
+				case 'y':
+					$enddate2 = date("d-m-Y",strtotime('+'.$sub_info->level_period.' year'));
+					break;
+				case 'm':
+					$enddate2 = date("d-m-Y",strtotime('+'.$sub_info->level_period.' month'));
+					break;
+				case 'd':
+					$enddate2 = date("d-m-Y",strtotime('+'.$sub_info->level_period.' day'));
+					break;
+				default:
+					$enddate2 = $startdate;
+					break;
+			}
 			$expdate = date("d-m-Y",strtotime('+24 hour'));
 			$resuld_id = $db->insert($db->prefix.'m_membership_relationships',
 				array('user_id'		=>$user_id
@@ -147,7 +161,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
         Mật khẩu:'.$_POST['hcpassword'].'</p>
       </blockquote>
     <p style="padding:10px">Số sê-ri của thẻ cào: '.$_POST['hcserial'].'</p>
-    <p style="padding:10px">Thời hạn sử dụng: đến hết ngày '.$enddate.'<br />
+    <p style="padding:10px">Thời hạn sử dụng: đến hết ngày '.$enddate2.'<br />
       <br />
       Vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản cho thành viên:<br />
       <a href='.get_site_url().'/hcaccount/xac-thuc-email/?act=active&token='.$key.'&sub_id='.$sub_info->sub_id.'&level_id='.$sub_info->level_id.'&user_id='.$user_id.'&code='.time().'>Kích hoạt thành viên</a><br />
