@@ -4,7 +4,6 @@
 	<h1 style="font-size:24px">Quyền lợi thành viên</h1>
         
 		<?php 
-            
     
                 echo $this->render('_posts_thanh_vien'); ?>
 		
