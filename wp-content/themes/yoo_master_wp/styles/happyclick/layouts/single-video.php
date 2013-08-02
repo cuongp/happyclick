@@ -7,11 +7,22 @@
                     <div class="remove_link video-category-title"><?php echo get_the_category_list(); ?></div>
                     <article id="item-<?php the_ID(); ?>" class="item courses" data-permalink="<?php the_permalink(); ?>">
                         <div class="content clearfix hoc-qua-video">
-                            <?php 
+                            <?php
+                            $member_id      = 2; //Membership level "HappyClick"
+                            $trial_id       = 1; //Trial level
+                            $is_membership  = current_user_on_level($member_id);
+                            $is_trial       = current_user_on_level($trial_id);
+                            $is_trialview   = is_sticky() && $is_trial;
+                            
+                            if($is_membership || $is_trialview):
+                            
                             $youtubeVideo = get_post_custom_values('youtube-video'); 
                             $youtubeVideo_link = $youtubeVideo[0];
                             ?>
-                            <iframe width="760" height="427" src="<?php echo $youtubeVideo_link; ?>?autoplay=1&amp;version=3&amp;rel=0&amp;ps=docs&amp;color=white&amp;theme=light&amp;showinfo=0&amp;hl=en_US" frameborder="0" allowfullscreen style="border: 1px solid #ddd; box-shadow: 0px 2px 25px #aaa;" ></iframe>
+                                <iframe width="760" height="427" src="<?php echo $youtubeVideo_link; ?>?autoplay=1&amp;version=3&amp;rel=0&amp;ps=docs&amp;color=white&amp;theme=light&amp;showinfo=0&amp;hl=en_US" frameborder="0" allowfullscreen style="border: 1px solid #ddd; box-shadow: 0px 2px 25px #aaa;" ></iframe>
+                            <?php else:
+                                do_shortcode('[level-member]');
+                            endif; ?>
                         </div>
                         <div class="related-video">
                             <?php
