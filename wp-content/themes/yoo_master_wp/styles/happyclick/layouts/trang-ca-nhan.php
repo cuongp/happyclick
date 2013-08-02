@@ -7,9 +7,7 @@ function get_exprydate($user_id){
         return !empty($post)? $post :null;
 }
 ?>
-<?php if ($this['modules']->count('breadcrumbs')) : ?>
-	<section id="breadcrumbs"><?php echo $this['modules']->render('breadcrumbs'); ?></section>
-<?php endif; ?>
+
 <div class="box">
 	<table width="100%">
 		<tr>
