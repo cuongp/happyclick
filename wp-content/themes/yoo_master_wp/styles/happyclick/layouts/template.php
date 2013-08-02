@@ -46,29 +46,6 @@ global $current_user;
 		<header id="header">
             
             <h3 style="color: rgb(218, 118, 35); text-align: center; line-height: 1.5em; left: 334px; position: absolute; top: 178px;" class="text-green">TRANG WEB SẼ ĐƯỢC CHÍNH THỨC KHAI TRƯƠNG <br>VÀO 10:00, NGÀY 01/08/2013</h3>
-		
-			<?php if ($this['modules']->count('toolbar-l + toolbar-r') || $this['config']->get('date')) : ?>
-			<div id="toolbar" class="clearfix">
-
-				<?php if ($this['modules']->count('toolbar-l') || $this['config']->get('date')) : ?>
-				<div class="float-left">
-				
-					<?php if ($this['config']->get('date')) : ?>
-					<time datetime="<?php echo $this['config']->get('datetime'); ?>"><?php echo $this['config']->get('actual_date'); ?></time>
-					<?php endif; ?>
-				
-					<?php echo $this['modules']->render('toolbar-l'); ?>
-					
-				</div>
-				<?php endif; ?>
-					
-				<?php if ($this['modules']->count('toolbar-r')) : ?>
-				<div class="float-right"><?php echo $this['modules']->render('toolbar-r'); ?></div>
-				<?php endif; ?>
-				
-			</div>
-			<?php endif; ?>
-
 			<?php 
             if(is_front_page() || $current_user->ID<1):
             if ($this['modules']->count('top-a')) : ?>
@@ -176,19 +153,7 @@ dành cho thành viên Happy Click</p>
 		
 		</header>
 
-		<section id="membership">
-	<div class="grid-block">
-		<div class="grid-box width33 grid-h">
-			<?php echo $this['modules']->render('membership-trial-1', array('layout'=>$this['config']->get('membership-trial-1'))); ?>	
-		</div>
-		<div class="grid-box width33 grid-h">
-			<?php echo $this['modules']->render('membership-trial-2', array('layout'=>$this['config']->get('membership-trial-2'))); ?>	
-		</div>
-		<div class="grid-box width33 grid-h">
-			<?php echo $this['modules']->render('membership-trial-3', array('layout'=>$this['config']->get('membership-trial-3'))); ?>	
-		</div>
-	</div>
-	</section>
+	
 		<?php if ($this['modules']->count('top-b')) : ?>
 		<section id="top-b" class="grid-block"><?php echo $this['modules']->render('top-b', array('layout'=>$this['config']->get('top-b'))); ?></section>
 		<?php endif; ?>
@@ -196,11 +161,11 @@ dành cho thành viên Happy Click</p>
 				<section id="breadcrumbs"><?php echo $this['modules']->render('breadcrumbs'); ?></section>
 				<?php endif; ?>
 		
-		<?php if ($this['modules']->count('innertop + innerbottom + sidebar-b') || $this['config']->get('system_output')) : ?>
+		<?php if ($this['modules']->count('innertop + innerbottom + sidebar-b + membership-trial-1') || $this['config']->get('system_output')) : ?>
 		<div id="main" class="grid-block">
 
 			<div id="maininner" class="grid-box">
-
+		
                 <?php if ($this['modules']->count('innertop')) : ?>
 				<section id="innertop" class="grid-block"><?php echo $this['modules']->render('innertop', array('layout'=>$this['config']->get('innertop'))); ?></section>
 				<?php endif; ?>
@@ -228,7 +193,19 @@ dành cho thành viên Happy Click</p>
 		</div>
 		<?php endif; ?>
 		<!-- main end -->
-        
+        	<section id="membership">
+			<div class="grid-block">
+				<div class="grid-box width33 grid-h">
+					<?php echo $this['modules']->render('membership-trial-1', array('layout'=>$this['config']->get('membership-trial-1'))); ?>	
+				</div>
+				<div class="grid-box width33 grid-h">
+					<?php echo $this['modules']->render('membership-trial-2', array('layout'=>$this['config']->get('membership-trial-2'))); ?>	
+				</div>
+				<div class="grid-box width33 grid-h">
+					<?php echo $this['modules']->render('membership-trial-3', array('layout'=>$this['config']->get('membership-trial-3'))); ?>	
+				</div>
+			</div>
+			</section>
 		<?php if ($this['config']->get('totop_scroller')) : ?>
 			<a id="totop-scroller" href="#page">Quay về trang chủ</a>
 			<?php endif; ?>

@@ -101,7 +101,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					$enddate = $startdate;
 					break;
 			}
-			$expdate = date("Y-m-d H:i:s",strtotime('+24 hour'));
+			$expdate = date("d-m-Y",strtotime('+24 hour'));
 			$resuld_id = $db->insert($db->prefix.'m_membership_relationships',
 				array('user_id'		=>$user_id
 					,'sub_id'=>$card_info->sub_id

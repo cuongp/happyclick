@@ -4,8 +4,8 @@ $args = array(
 	'posts_per_page'  => -1,
 	'offset'          => 0,
 	'category'        => '',
-	'orderby'         => 'thoigian',
-	'order'           => 'DESC',
+	'orderby'         => 'post_date',
+	'order'           => 'ASC',
 	'include'         => '',
 	'exclude'         => '',
 	'meta_key'        => '',
@@ -50,9 +50,9 @@ return $first_img;
 	</div>
 	<div style="clear:both">
 			<ul class="rg">
-				<li><a href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $posts_array[0]->ID; ?>" class="dk1"><span><?php echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></a></li>
+				<li><a href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $posts_array[0]->ID; ?>" class="dk1"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></a></li>
 
-				<li><a href="/dang-ky-su-kien-cho-khach/"  class="dk2"><span><?php echo number_format($data['giatien'],0,'.','.');?>đ</span></a></li>
+				<li><a href="/dang-ky-su-kien-cho-khach/"  class="dk2"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien'],0,'.','.');?>đ</span></a></li>
 
 				<li><a href="/category/thanh-vien/quyen-loi-thanh-vien/"  class="dk3"><span>Trở thành thành viên</span></a></li>
 			</ul>

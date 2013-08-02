@@ -2,7 +2,10 @@
 if(isset($_POST['action']) && $_POST['action']=='editcard'){
 	$a = strptime($_POST['expired'], '%d/%m/%Y');
 	
-	$timestamp = mktime(0, 0, 0, $a['tm_mon']+1, $a['tm_mday'], $a['tm_year']+1900);
+	$d = ($a['tm_year']+1900).'-'.($a['tm_mon']+1).'-'.$a['tm_mday'];
+	$timestamp = strtotime($d);
+
+	//mktime(0, 0, 0, $a['tm_mday'],$a['tm_mon']+1, $a['tm_year']+1900);
 	$update = HCcard::update(array('serial'	=>	$_POST['serial'],
 						'code'		=>	$_POST['code'],
 						'expired'	=>	$timestamp,
