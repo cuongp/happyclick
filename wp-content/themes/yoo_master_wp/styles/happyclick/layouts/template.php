@@ -20,6 +20,7 @@ global $current_user;
 <?php echo $this['template']->render('head'); ?>
 <script type="text/javascript">
 	var hcaccount = "<?php echo get_query_var('hcaccount'); ?>";
+	var backurl  = "<?php echo get_query_var('backurl'); ?>";
 	var site_url = "<?php echo get_site_url() ?>";
 </script>
 </head>
@@ -45,8 +46,6 @@ global $current_user;
 	<div class="wrapper clearfix">
 		<header id="header">
             
-            <h3 style="color: rgb(218, 118, 35); text-align: center; line-height: 1.5em; left: 334px; position: absolute; top: 178px;" class="text-green">TRANG WEB SẼ ĐƯỢC CHÍNH THỨC KHAI TRƯƠNG <br>VÀO 10:00, NGÀY 01/08/2013</h3>
-		
 			<?php if ($this['modules']->count('toolbar-l + toolbar-r') || $this['config']->get('date')) : ?>
 			<div id="toolbar" class="clearfix">
 
