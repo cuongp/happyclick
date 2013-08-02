@@ -27,9 +27,12 @@
                 <div class="content-box-inside">
                     <?php
                         $trial_id       = 1; //Trial level
+                        $member_id      = 2; //Membership level "HappyClick"
                         $is_trial       = current_user_on_level($trial_id);
+                        $is_membership  = current_user_on_level($member_id);
+    
                         echo '<div style="text-align:center">'.apply_filters('the_content', get_category(get_query_var('cat'))->description);
-                        echo ($is_trial) ? '<br /><span style="color:#F20000;">Bạn được xem thử video đầu tiên của mỗi chủ đề</span>' : '';
+                        echo ($is_trial && !$is_membership) ? '<br /><span style="color:#F20000;">Bạn được xem thử video đầu tiên của mỗi chủ đề</span>' : '';
                         echo '</div>';
                         echo $this->render('_posts-hoc-qua-video'); 
 
