@@ -25,11 +25,11 @@ class Warp_Breadcrumbs extends WP_Widget {
 		
 		if (empty($home_title)) {
 			if($is_member)
-				$home_title = 'Trang chủ dành cho ngưởi xem thử';
+				$home_title = 'Trang chủ dành cho xem thử';
 			elseif($is_member && $is_subs)
 				$home_title = 'Trang chủ dành cho thành viên';
 			else
-				$home_title = 'Trang chủ dành cho mọi người';
+				$home_title = 'Trang chủ';
 		}
 		
 		echo $before_widget;

@@ -20,6 +20,7 @@ global $current_user;
 <?php echo $this['template']->render('head'); ?>
 <script type="text/javascript">
 	var hcaccount = "<?php echo get_query_var('hcaccount'); ?>";
+	var backurl  = "<?php echo get_query_var('backurl'); ?>";
 	var site_url = "<?php echo get_site_url() ?>";
 </script>
 </head>
@@ -45,27 +46,6 @@ global $current_user;
 	<div class="wrapper clearfix">
 		<header id="header">
             
-			<?php if ($this['modules']->count('toolbar-l + toolbar-r') || $this['config']->get('date')) : ?>
-			<div id="toolbar" class="clearfix">
-
-				<?php if ($this['modules']->count('toolbar-l') || $this['config']->get('date')) : ?>
-				<div class="float-left">
-				
-					<?php if ($this['config']->get('date')) : ?>
-					<time datetime="<?php echo $this['config']->get('datetime'); ?>"><?php echo $this['config']->get('actual_date'); ?></time>
-					<?php endif; ?>
-				
-					<?php echo $this['modules']->render('toolbar-l'); ?>
-					
-				</div>
-				<?php endif; ?>
-					
-				<?php if ($this['modules']->count('toolbar-r')) : ?>
-				<div class="float-right"><?php echo $this['modules']->render('toolbar-r'); ?></div>
-				<?php endif; ?>
-				
-			</div>
-			<?php endif; ?>
 
 			<?php 
             if(is_front_page() || $current_user->ID<1):
