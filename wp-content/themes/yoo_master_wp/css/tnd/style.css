@@ -870,4 +870,5 @@ table.quiz td{
     border-bottom: 1px dotted #ccc;
 }
 .next-week tr:last-child td{ border:none; }
+.lien-he-mua-the textarea{ height: 90px; }
 /* END Tamnd's code */

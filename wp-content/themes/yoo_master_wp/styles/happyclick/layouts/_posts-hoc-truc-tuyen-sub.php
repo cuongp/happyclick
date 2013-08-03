@@ -37,8 +37,8 @@ while ( $the_query->have_posts() ) {
 
 //  Cac khoa hoc truc tuyen da to chuc  ==========================
 
-//echo '<h3 class="course-old-title">Xem lại các khóa đã tổ chức</h3>';
-//echo '<p class="course-old-sub-title">(chỉ dành cho thành viên)</p>';
+echo '<h3 class="course-old-title">Xem lại các khóa đã tổ chức</h3>';
+echo '<p class="course-old-sub-title">(chỉ dành cho thành viên)</p>';
 $args = array(
     'category_name' => 'khoa-hoc-truc-tuyen-da-to-chuc',
     'post_status' => array( 'publish' ),
@@ -49,18 +49,18 @@ $args = array(
 
 $the_query = new WP_Query( $args );
 
-//echo '<div class=" jcarousel-skin-tango">
-//        <div class="jcarousel-container jcarousel-container-horizontal" >
-//            <div class="jcarousel-clip jcarousel-clip-horizontal">
-//                <ul id="mycarousel" class="jcarousel-list jcarousel-list-horizontal">';
-//                    while ( $the_query->have_posts() ) {
-//                        $the_query->the_post();
-//                        echo $this->render('_post-hoc-truc-tuyen-old');
-//                    }
-//echo '          </ul>
-//            </div>
-//            <div class="jcarousel-prev jcarousel-prev-horizontal" style="display: block;"></div>
-//            <div class="jcarousel-next jcarousel-next-horizontal" style="display: block;"></div>
-//        </div>
-//    </div>';
+echo '<div class=" jcarousel-skin-tango">
+        <div class="jcarousel-container jcarousel-container-horizontal" >
+            <div class="jcarousel-clip jcarousel-clip-horizontal">
+                <ul id="mycarousel" class="jcarousel-list jcarousel-list-horizontal">';
+                    while ( $the_query->have_posts() ) {
+                        $the_query->the_post();
+                        echo $this->render('_post-hoc-truc-tuyen-old');
+                    }
+echo '          </ul>
+            </div>
+            <div class="jcarousel-prev jcarousel-prev-horizontal" style="display: block;"></div>
+            <div class="jcarousel-next jcarousel-next-horizontal" style="display: block;"></div>
+        </div>
+    </div>';
  
