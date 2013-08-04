@@ -56,6 +56,9 @@ elseif (is_single()) {
 	if($kat == 'happy-click-radio' || $kat == 'goc-chia-se' || $kat == 'goc-kien-thuc' || $kat == 'download-tai-lieu') {
 		$content = 'single-lam-giau-cuoc-song';
 	}
+    if($kat == 'khoi-dong-tuan-moi'){
+        $content = 'single-khoi-dong-tuan-moi';
+    }
 	/*
     if ($this["path"]->path("layouts:{$queried_object->post_type}.php")) {
 		$content = $queried_object->post_type;

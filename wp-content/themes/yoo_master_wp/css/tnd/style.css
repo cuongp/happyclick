@@ -849,14 +849,14 @@ table.quiz td{
     padding: 9px;
 }
 
-#answer4{
+#answer_biquyet{
     margin: 35px auto 10px;
     width: 90%;
     text-align: justify;
     padding: 20px;
 }
-#answer4 p{padding-left: 0;}
-#answer4 img{
+#answer_biquyet p{padding-left: 0;}
+#answer_biquyet img{
     float:right;
     margin-left: 15px;
 }
@@ -871,4 +871,5 @@ table.quiz td{
 }
 .next-week tr:last-child td{ border:none; }
 .lien-he-mua-the textarea{ height: 90px; }
+#headerbar .module { max-width: 400px; }
 /* END Tamnd's code */
