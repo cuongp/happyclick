@@ -116,6 +116,8 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					break;
 			}
 			$expdate = date("d-m-Y",strtotime('+24 hour'));
+
+			$db->query("delete from ".$db->prefix.'m_membership_relationships where user_id="'.$user_id.'"');
 			$resuld_id = $db->insert($db->prefix.'m_membership_relationships',
 				array('user_id'		=>$user_id
 					,'sub_id'=>$card_info->sub_id
@@ -133,71 +135,128 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 			$db->update($db->prefix.'users',array('user_activation_key'=>$key),array('ID'=>$user->ID));
 			update_user_meta($user->ID, '_membership_key', $key);
 			
-			if($current_user->ID > 0)
+			if($current_user->ID > 0){
+				update_usermeta($user_id,'wp_membership_active','yes');
 				$hcemail = $current_user->user_email;
+			}
 			else
 				$hcemail = $_POST['hcemail'];
+
+			if($current_user->ID > 0){
 			
-			$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
-<tbody>
-<tr>
-<td align="center" valign="top"> </td>
-</tr>
-<tr>
-<td align="center" valign="top">
-<table width="600" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="width: 600px; font-family: Arial, Helvetica, sans-serif;">
-<tbody>
-<tr>
-  <td><a href="http://www.happyclick.com.vn"><img src="http://www.unity.com.vn/images/HC_Banner.png" align="center" width="598" height="130" /></a></td>
-</tr>
-<tr>
-  <td height="323" valign="top" style="padding: 10px 10px 0px 10px; height=; color: #003399; font-size: 14px;"><p style="padding:10px">Chào '.$_POST['hclast_name'].'<br />
-      <br />
-      Chúc mừng bạn đã trở thành thành viên của Happy Click!<br />
-      <br />
-      Thông tin tài khoản đăng nhập bạn đã đăng ký:</p>
-    <blockquote>
-      <p style="padding:10px">Tên đăng nhập: '.$hcemail.'<br />
-        Mật khẩu:'.$_POST['hcpassword'].'</p>
-      </blockquote>
-    <p style="padding:10px">Số sê-ri của thẻ cào: '.$_POST['hcserial'].'</p>
-    <p style="padding:10px">Thời hạn sử dụng: đến hết ngày '.$enddate2.'<br />
-      <br />
-      Vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản cho thành viên:<br />
-      <a href='.get_site_url().'/hcaccount/xac-thuc-email/?act=active&token='.$key.'&sub_id='.$sub_info->sub_id.'&level_id='.$sub_info->level_id.'&user_id='.$user_id.'&code='.time().'>Kích hoạt thành viên</a><br />
-      <br />
-      Đường dẫn này sẽ chỉ có giá trị đến '.$expdate.'<br />
-      <br />
-      Ngay sau khi kích hoạt tài khoản, bạn đã có thể bắt đầu hành trình <span style="font-weight: bold; font-style: italic;">&ldquo;thăng tiến mỗi ngày&rdquo;</span> với Happy Click.<br />
-      <br />
-      Đây là email tự động gửi, vui lòng không trả lời vào email này.<br />
-      <br />
-      Thân mến,<br />
-      <br />
-      <strong style="color: #68A400">Công ty Cổ phần Tư vấn và Đào tạo Happy Click</strong><br />
-      <em>Hỗ trợ 24/7: (08) 7302 0168 – (08) 7303 0168</em><br />
-      <em>Email: <span style="color: #3399FF; font-style: italic; font-weight: bold;"><a href="mailto:lienhe@happyclick.com.vn">lienhe@happyclick.com.vn</a></span></em>    </p>
-    <p><br />
-  </p></td>
-</tr>
-</tbody>
-</table>
-<table style="width: 600px;" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
-  <tbody>
-    <tr> </tr>
-    </tbody>
-</table></td>
-</tr>
-<tr>
-<td align="center" valign="top"> </td>
-</tr>
-</tbody>
-</table>';
+				$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
+					<tbody>
+					<tr>
+					<td align="center" valign="top"> </td>
+					</tr>
+					<tr>
+					<td align="center" valign="top">
+					<table width="600" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="width: 600px; font-family: Arial, Helvetica, sans-serif;">
+					<tbody>
+					<tr>
+					  <td><a href="http://www.happyclick.com.vn"><img src="http://www.unity.com.vn/images/HC_Banner.png" align="center" width="598" height="130" /></a></td>
+					</tr>
+					<tr>
+					  <td height="323" valign="top" style="padding: 10px 10px 0px 10px; height=; color: #003399; font-size: 14px;"><p style="padding:10px">Chào '.$_POST['hclast_name'].'<br />
+					      <br />
+					      Chúc mừng bạn đã trở thành thành viên của Happy Click!<br />
+					      <br />
+					      Thông tin tài khoản đăng nhập bạn đã đăng ký:</p>
+					    <blockquote>
+					      <p style="padding:10px">Tên đăng nhập: '.$hcemail.'<br />
+					        Mật khẩu:'.$_POST['hcpassword'].'</p>
+					      </blockquote>
+					    <p style="padding:10px">Số sê-ri của thẻ cào: '.$_POST['hcserial'].'</p>
+					    <p style="padding:10px">Thời hạn sử dụng: đến hết ngày '.$enddate2.'<br />
+					      <br />
+					      
+					      
+					      Đây là email tự động gửi, vui lòng không trả lời vào email này.<br />
+					      <br />
+					      Thân mến,<br />
+					      <br />
+					      <strong style="color: #68A400">Công ty Cổ phần Tư vấn và Đào tạo Happy Click</strong><br />
+					      <em>Hỗ trợ 24/7: (08) 7302 0168 – (08) 7303 0168</em><br />
+					      <em>Email: <span style="color: #3399FF; font-style: italic; font-weight: bold;"><a href="mailto:lienhe@happyclick.com.vn">lienhe@happyclick.com.vn</a></span></em>    </p>
+					    <p><br />
+					  </p></td>
+					</tr>
+					</tbody>
+					</table>
+					<table style="width: 600px;" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+					  <tbody>
+					    <tr> </tr>
+					    </tbody>
+					</table></td>
+					</tr>
+					<tr>
+					<td align="center" valign="top"> </td>
+					</tr>
+					</tbody>
+					</table>';}
+			else
+				$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
+					<tbody>
+					<tr>
+					<td align="center" valign="top"> </td>
+					</tr>
+					<tr>
+					<td align="center" valign="top">
+					<table width="600" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="width: 600px; font-family: Arial, Helvetica, sans-serif;">
+					<tbody>
+					<tr>
+					  <td><a href="http://www.happyclick.com.vn"><img src="http://www.unity.com.vn/images/HC_Banner.png" align="center" width="598" height="130" /></a></td>
+					</tr>
+					<tr>
+					  <td height="323" valign="top" style="padding: 10px 10px 0px 10px; height=; color: #003399; font-size: 14px;"><p style="padding:10px">Chào '.$_POST['hclast_name'].'<br />
+					      <br />
+					      Chúc mừng bạn đã trở thành thành viên của Happy Click!<br />
+					      <br />
+					      Thông tin tài khoản đăng nhập bạn đã đăng ký:</p>
+					    <blockquote>
+					      <p style="padding:10px">Tên đăng nhập: '.$hcemail.'<br />
+					        Mật khẩu:'.$_POST['hcpassword'].'</p>
+					      </blockquote>
+					    <p style="padding:10px">Số sê-ri của thẻ cào: '.$_POST['hcserial'].'</p>
+					    <p style="padding:10px">Thời hạn sử dụng: đến hết ngày '.$enddate2.'<br />
+					      <br />
+					      <br />
+					      Vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản cho thành viên:<br />
+					      <a href='.get_site_url().'/hcaccount/xac-thuc-email/?act=active&token='.$key.'&sub_id='.$sub_info->sub_id.'&level_id='.$sub_info->level_id.'&user_id='.$user_id.'&code='.time().'>Kích hoạt thành viên</a><br />
+					      <br />
+					      Đường dẫn này sẽ chỉ có giá trị đến '.$expdate.'<br />
+					      <br />
+					      Ngay sau khi kích hoạt tài khoản, bạn đã có thể bắt đầu hành trình <span style="font-weight: bold; font-style: italic;">&ldquo;thăng tiến mỗi ngày&rdquo;</span> với Happy Click.<br />
+					      <br />
+					      Đây là email tự động gửi, vui lòng không trả lời vào email này.<br />
+					      <br />
+					      Thân mến,<br />
+					      <br />
+					      <strong style="color: #68A400">Công ty Cổ phần Tư vấn và Đào tạo Happy Click</strong><br />
+					      <em>Hỗ trợ 24/7: (08) 7302 0168 – (08) 7303 0168</em><br />
+					      <em>Email: <span style="color: #3399FF; font-style: italic; font-weight: bold;"><a href="mailto:lienhe@happyclick.com.vn">lienhe@happyclick.com.vn</a></span></em>    </p>
+					    <p><br />
+					  </p></td>
+					</tr>
+					</tbody>
+					</table>
+					<table style="width: 600px;" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF">
+					  <tbody>
+					    <tr> </tr>
+					    </tbody>
+					</table></td>
+					</tr>
+					<tr>
+					<td align="center" valign="top"> </td>
+					</tr>
+					</tbody>
+					</table>';
+
 			//wpMandrill::mail($_POST['email'],'Kích hoạt thành viên',$html);
 			$headers[] = 'From: Happy Click <support@happyclick.vn>';
 			$headers[] ='Content-type: text/html';
 			
-			wp_mail($hcemail,'Xác nhận email',$html,$headers);
+			wp_mail($hcemail,'Chào mừng thành viên mới của Happy Click!',$html,$headers);
 			
 			if($current_user->ID > 0){
 				wp_redirect('/index.php?mod=kich-hoat');

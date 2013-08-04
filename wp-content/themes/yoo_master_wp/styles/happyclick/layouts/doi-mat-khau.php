@@ -1,7 +1,5 @@
 
-<?php if ($this['modules']->count('breadcrumbs')) : ?>
-	<section id="breadcrumbs"><?php echo $this['modules']->render('breadcrumbs'); ?></section>
-<?php endif; ?>
+
 <div class="box" style="width:730px">
 <?php
 $flag = '';
@@ -66,7 +64,7 @@ echo $flag; ?>
 			</tr>
 			<tr>
 				<td class="box3" width="45%"  align="right">Mật khẩu hiện tại</td>
-				<td  class="box4"><input type="password" name="current_pass" /><span>*</span></td>				
+				<td  class="box4"><input type="password" name="current_pass" required /><span>*</span></td>				
 			</tr>
 		<?php elseif($_GET['act']=='rp'): ?>
 			<tr>
@@ -76,19 +74,14 @@ echo $flag; ?>
 				</td>
 			</tr>
 		<?php endif; ?>
-			<?php if(!isset($_GET)): ?>
-			<tr>
-				<td class="box3" width="45%"  align="right">Mật khẩu hiện tại</td>
-				<td  class="box4"><input type="password" name="current_pass" /><span>*</span></td>				
-			</tr>
-			<?php endif; ?>
+			
 			<tr>
 				<td width="45%"  class="box3"  align="right">Mật khẩu mới</td>
-				<td  class="box4"><input type="password" name="new_pass" /><span>*</span></td>				
+				<td  class="box4"><input type="password" id="password" name="new_pass" required/><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Xác nhận mật khẩu mới</td>
-				<td  class="box4"><input type="password" name="confirm_pass" /><span>*</span></td>				
+				<td  class="box4"><input type="password" name="confirm_pass" id="confirm_pass" required /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td><input type="hidden" name="action" value="submit"></td>
