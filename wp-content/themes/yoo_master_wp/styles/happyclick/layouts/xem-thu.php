@@ -111,7 +111,7 @@ $db = $GLOBALS['wpdb'];
 			//wpMandrill::mail($_POST['email'],'Xác nhận email',$html);	
 			$headers[] = 'From: Happy Click <support@happyclick.vn>';
 			$headers[] ='Content-type: text/html';
-			wp_mail($_POST['hcemail'],'Xác nhận email',$html,$headers);
+			wp_mail($_POST['hcemail'],'Kích hoạt tài khoản xem thử',$html,$headers);
 
 			wp_redirect('/hcaccount/xac-nhan-email/');
 			exit;

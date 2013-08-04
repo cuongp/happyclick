@@ -2399,6 +2399,7 @@ function log() {
 			}
 		}
 	});
+	$('.form_doipass').validate();
 $("#slider").carouFredSel({
 	items	: 4,
 	scroll	: {

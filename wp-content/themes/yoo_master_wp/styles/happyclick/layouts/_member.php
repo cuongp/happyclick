@@ -17,6 +17,11 @@ include($this['path']->path('layouts:template.config.php'));
 <head>
 
 <?php echo $this['template']->render('head'); ?>
+<script type="text/javascript">
+	var hcaccount = "<?php echo get_query_var('hcaccount'); ?>";
+	var backurl  = "<?php echo get_query_var('backurl'); ?>";
+	var site_url = "<?php echo get_site_url() ?>";
+</script>
 </head>
 
 <body id="page" class="page <?php echo $this['config']->get('body_classes'); ?>" data-config='<?php echo $this['config']->get('body_config','{}'); ?>'>
