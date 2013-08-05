@@ -2,6 +2,9 @@
     <header class="course-wrapper">
         <h3 class="course-title"><?php the_title() ?></h3>
     </header>
+    <div class="course-date">
+        Thứ 2, ngày <?php echo get_the_date('d/m/Y'); ?>
+    </div>
 	<div class="content clearfix">
 		<?php the_content(''); ?>
 	</div>

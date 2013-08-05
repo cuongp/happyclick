@@ -18,8 +18,30 @@ $the_query = new WP_Query( $args );
 while ( $the_query->have_posts() ) {
 	$the_query->the_post();
     echo $this->render('_post-new-week');
+    $current_postID = get_the_ID();
 } 
 ?>
+<div class="next-week past-weeks">
+    <h3 class="pass-weeks-title text-orange">Các chương trình đã qua</h3>
+    <table>
+        <tbody>
+            <?php
+            $args = array(
+                'category_name' => 'khoi-dong-tuan-moi',
+                'post_status' => array( 'publish' ),
+                'post__not_in' => array($current_postID),
+                'posts_per_page' => 10,
+                'orderby' => 'date',
+                'order' => 'DESC'
+            );
+            $the_query = new WP_Query( $args );
+            while ( $the_query->have_posts() ) {
+                    $the_query->the_post();
+                    echo '<tr><td width="110">'.get_the_date('d/m/Y').'</td><td><a href="'. get_post_permalink() .'">'.  get_the_title() .'</a></td></tr>';
+            } ?>
+        </tbody>
+    </table>
+</div>
 <div class="next-week">
     <?php
     $my_postid      = 3707; //3698 on test - This is page id or post id

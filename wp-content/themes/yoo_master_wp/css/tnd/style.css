@@ -702,13 +702,16 @@ a.no-pointer{
     padding: 0 10px 15px;
     font-size: 18px;
 }
-.archive-new-week{}
+.archive-new-week{
+    position: relative;
+}
 .archive-new-week .course-title,
 #module-new-week h3 a{
     color: #87af23;
     font-family: 'UNokieBrush';
     font-size: 36px;
-    line-height: 1em;
+    font-weight: normal;
+    line-height: 1.5em;
     text-align: center;
 }
 .archive-new-week .content{
@@ -872,4 +875,25 @@ table.quiz td{
 .next-week tr:last-child td{ border:none; }
 .lien-he-mua-the textarea{ height: 90px; }
 #headerbar .module { max-width: 400px; }
+.course-date{
+    color: #FF4700;
+    position: absolute;
+    top: 0;
+    left: 1em;
+    font-weight: bold;
+}
+.box-blue{
+    background: #FCFCFC;
+    border: 1px solid #39f;
+    padding: 1em;
+    box-shadow: 0 0 3px #39f;
+    border-radius: 5px;
+}
+.box-orange{
+    background: #FCFCFC;
+    border: 1px solid #FF4700;
+    padding: 1em;
+    box-shadow: 0 0 3px #FF4700;
+    border-radius: 5px;
+}
 /* END Tamnd's code */
