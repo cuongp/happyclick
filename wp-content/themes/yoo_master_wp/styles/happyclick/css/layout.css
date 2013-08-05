@@ -25,8 +25,9 @@ em{color: #000;}
     color: #88ab35;
 }
 #breadcrumbs {
-	margin:15px 15px 0;
+    margin:15px 5px 10px;
 }
+
 #top-a2 .mod-box,#homeslider .mod-box{
 -webkit-border-radius:5px;
 
@@ -118,7 +119,7 @@ a.prev span, a.next span{display: none}
 
 #footer .module { margin: 0; }
 
-#sidebar-b{ margin-top: 15px; }
+#sidebar-b{margin-top: 15px;}
 
 #sidebar-a{margin-top: 10px;}
 #membership .mod-box{
@@ -297,10 +298,6 @@ z-index: 9;
 border-radius: 5px;
 vertical-align: middle;
 }
-#sidebar-trial {
-	margin-top:15px;	
-	width: 24%;
-}
 #sidebar-trial .module{
     margin-bottom: 5px;
 }
@@ -378,13 +375,11 @@ color: #414141;
     -moz-box-shadow:    0px 1px 3px rgba(28, 101, 159, 1);
     box-shadow:         0px 1px 3px rgba(28, 101, 159, 1);
     margin: 0 auto;
-    margin-bottom: 25px;
-}
-	
+    margin-bottom: 25px;}
 .sub2{ -webkit-border-radius:5px;
     -moz-border-radius:5px;
     border-radius:5px;
-    border: 1px solid #f7650e;   
+    border: 1px solid #f7650e;    
     -webkit-box-shadow: 0px 1px 3px rgba(247, 101, 14, 1);
     -moz-box-shadow:    0px 1px 3px rgba(247, 101, 14, 1);
     box-shadow:         0px 1px 3px rgba(247, 101, 14, 1);
@@ -890,7 +885,6 @@ height: auto;
     min-height: 100%;
     height: auto !important;
     height: 100%;
-	margin-top:15px;
 }
 .box2 .bodycontent{
     padding:20px 40px;

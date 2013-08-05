@@ -40,9 +40,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 
 ?>
 
-<?php if ($this['modules']->count('breadcrumbs')) : ?>
-	<section id="breadcrumbs"><?php echo $this['modules']->render('breadcrumbs'); ?></section>
-<?php endif; ?>
+
 <div class="box" style="width:730px">
 
 <form id="form" class="form_profile" method="post">
