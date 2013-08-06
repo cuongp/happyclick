@@ -51,7 +51,7 @@ if(is_admin()){
                 <td class="shortcode" ><?php echo $post->id ?>                    </td>
                 <td class="shortcode"><?php echo $user->user_login; ?></td>
                 <td class="shortcode"><?php echo $sukien->post_title; ?></td>
-                <td class="modified"><?php  echo  $post->created_at ?></td>
+                <td class="modified"><?php  echo  date('d-m-Y',$post->created_at); ?></td>
                 <td class="modified"><?php  if($post->payment_at>0) echo $post->payment_at;
                 else echo 'Chưa thanh toán';
                  ?>       </td>
@@ -746,16 +746,48 @@ endwhile;
 }
 
 function form_faq($atts){
-       extract(shortcode_atts(array(
-      'pageid' => get_the_ID()
-      ,'disable'=>'0'
-      ,'msg'=>''), $atts));
-       if($disable<1)
-            return '<h3 class="error">'.$msg.'</h3>';
-       return '<form method="post" id="form" class="form_profile"><textarea name="question" id="question" requited></textarea><br/><input type="hidden" name="'.$pageid.'"/><input type="submit" class="wpcf7-form-control wpcf7-submit btn_send" value="" id="sendfaq"/></form>';
+    extract(shortcode_atts(array(
+        'pageid' => get_the_ID()
+        ), $atts));
+    global $current_user;
+        $is_subs = current_user_has_subscription();
+        if($is_subs){
+            $str = '<br/><p style="text-align:center;margin:0 auto;width:120px;"><a href="javascript:;" id="datcauhoi" class="datcauhoi"><span>Đặt câu hỏi</span></a></p>';    
+            $str .= '<form method="post" id="form" style="display:none" class="form_profile"><textarea name="question" class="question" id="question" requited></textarea><br/><input type="hidden" name="pageid" value="'.$pageid.'"/><input type="submit" class="wpcf7-form-control wpcf7-submit btn_send" value="" id="sendfaq"/></form><br/><br/>';
+        }
+        else
+            $str = '<a href="/hcaccount/thanh-vien-dang-ky/" class="datcauhoi"><span>Đặt câu hỏi</span></a>';
+        return $str;
 }
 add_shortcode('Form_FAQ', 'form_faq');
+function get_qna($atts){
+    extract(shortcode_atts(array(
+      'pageid' => get_the_ID()
+      ), $atts));
+    $db = $GLOBALS['wpdb'];
+    $result = $db->get_results('select * from '.$db->prefix.'qna where post_id="'.$pageid.'" and valid =1');
+    //echo 'select * from '.$db->prefix.'qna where post_id="'.$pageid.'" and valid =1';
+    if(!empty($result)){
+        $str = '<ul class="fqalist">';
+        $str.='<li class="fqatitle">Các câu hỏi đã được đặt:</li>';
+        $i=1;
+            foreach ($result as $post) {
 
+    
+    $str.='<li class="listitem">
+            <b>'.$i.'. '.$post->question.'</b><br/>
+            '.$post->answer.'
+        </li>';
+    $i++;    
+            }
+        $str.='</ul>';
+    
+    }else{
+        $str = '<h3>Hiện tại chưa có câu hỏi.</h3>';
+    }
+    return $str;
+}
+add_shortcode('FAQ_LIST','get_qna');
 function redirect_hcpage($atts){
        extract(shortcode_atts(array(
       'link' => ''), $atts));
@@ -772,13 +804,4 @@ function giangvien_banner($atts) {
 return '<div class="banner"><a title="'.$gv->post_title.'" href="'.$gv->guid.'"><img alt="'.$gv->post_title.'" src="'.$image.'" /></a></div>';
 }
 add_shortcode('bannergiangvien', 'giangvien_banner');
-function loadModule($atts) {
-
-   extract(shortcode_atts(array(
-      'name' => ''
-   ), $atts));
-
-return '<div class="box" style="width:730px">'.$this['modules']->render($name).'</div>';
-}
-add_shortcode('loadModule','loadModule');
 ?>

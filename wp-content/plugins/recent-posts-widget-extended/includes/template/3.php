@@ -4,8 +4,24 @@
 
 				<?php 
 					$i=1;
-				foreach ($rpwewidget as $post) : setup_postdata($post); 
+				$args = array(
+				'numberposts' => -1,
+				'cat' => $cat,
+				'post_type' => $post_type,
+				'orderby'         => 'post_date',
+				'order'           => 'ASC'
+				);
+				$rpwewidget = get_posts($args);
+				$news = null;
+				foreach ($rpwewidget as $post) : 
+					if(strtotime($post->post_date)>time()):
+						$news[] = $post;
+					endif;
+				endforeach;
+				foreach ($news as $post) :
+					setup_postdata($post);
 					if($i==1):
+				
 				?>
 					<li class="rpwe-clearfix first">
 						<?php if (has_post_thumbnail() && $thumb == true) { ?>
@@ -53,22 +69,44 @@
 			</table>
 						
 					</li>
-				<?php
-				elseif($i==4):
-				?>
-				<h2 class="another">Xem các khóa đã tổ chức</h2>
-				<li style="list-style-type: disc;font-weight:bold;margin-left:13px"><a href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__('Permalink to %s', 'rpwe'), the_title_attribute('echo=0')); ?>" rel="bookmark"><?php the_title(); ?></a></li>
-				<?php
-				else:
-				?>
-				<li style="list-style-type: disc;font-weight:bold;margin-left:13px"><a href="<?php the_permalink(); ?>" title="<?php printf(esc_attr__('Permalink to %s', 'rpwe'), the_title_attribute('echo=0')); ?>" rel="bookmark"><?php the_title(); ?></a></li>
 				
 				<?php
-				endif; 
+				endif;
+				
 				$i++;
 				endforeach;
-				wp_reset_postdata(); ?>
-
+				wp_reset_postdata(); 
+				?>
+					<h2 class="another">Xem các khóa đã tổ chức</h2>
+				<?php
+				$args = array(
+				'numberposts' => -1,
+				'cat' => $cat,
+				'post_type' => $post_type,
+				'orderby'         => 'post_date',
+				'order'           => 'DESC'
+				);
+				$ps = get_posts($args);
+				if(!empty($ps)):
+					$old =null;
+					$i = 0;
+					foreach($ps as $p):
+						
+						if(time() > strtotime($p->post_date)):
+						$old[] = $p;
+					endif;
+					endforeach;
+				endif;
+				if(!empty($old)):
+					foreach ($old as $p) :
+						setup_postdata($p);
+				?>
+				<li style="list-style-type: disc;font-weight:bold;margin-left:13px"><a href="<?php echo $p->guid; ?>" title="<?php echo $p->post_title; ?>" rel="bookmark"><?php echo $p->post_title; ?></a></li>
+				<?php
+					$i++;
+					endforeach;
+					endif;
+				?>
 			</ul>
 
 		</div>
