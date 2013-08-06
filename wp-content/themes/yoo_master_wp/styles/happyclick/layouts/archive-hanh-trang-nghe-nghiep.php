@@ -21,7 +21,7 @@
                 <p>
                   <a href="/phat-trien-nghe-nghiep/">
                     <img class="alignnone size-full wp-image-2758" alt="phat trien nghe nghiep" src="/wp-content/uploads/2013/07/phat-trien-nghe-nghiep.png" width="322" height="48"></a>
-                  <a href="http://dev.happyclick.vn/category/hanh-trang-nghe-nghiep/">
+                  <a href="/category/hanh-trang-nghe-nghiep/">
                     <img class="alignnone size-full wp-image-2757" alt="Hành trang nghề nghiệp" src="/wp-content/uploads/2013/07/hanh-trang-nghe-nghiep.png" width="268" height="44"></a>
                 </p>
                 <div class="content-box-inside">

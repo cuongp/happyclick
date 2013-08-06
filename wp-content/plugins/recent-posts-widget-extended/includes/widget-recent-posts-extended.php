@@ -76,7 +76,8 @@ class rpwe_widget extends WP_Widget
 
 			set_transient('rpwewidget_' . $widget_id, $rpwewidget, $cacheLife);
 
-		} 
+		}
+		 
 		$path = 'template/'.$layout.'.php';
 		
 		include($path);

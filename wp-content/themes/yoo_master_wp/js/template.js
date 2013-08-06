@@ -2411,6 +2411,11 @@ $("#slider").carouFredSel({
 	prev	: "#foo1_prev",
 	next	: "#foo1_next"
 }).parent().css("margin", "auto");
+$("#datcauhoi").click(function(){
+	
+	$('#form').fadeIn(500);
+	return false;
+});
 $('.popup_kichhoat .close').click(function(){
 	$(this).parent().parent().fadeOut(1000);
 	

@@ -14,10 +14,12 @@ if($current_user->ID > 0){
 	
 	}else{
 		$db = $GLOBALS['wpdb'];
-		$db->insert($db->prefix.'user_sukien',
+		$query = $db->insert($db->prefix.'user_sukien',
 				array('user_id'=>$current_user->ID 
 					,'sukien_id'=>$_GET['cid']
 					,'created_at'=>time()
+					,'payment_type'=> 0
+					,'payment_at' => 0
 					,'payment_status'=>0
 					));
 	if($is_member && $is_subs){

@@ -38,8 +38,8 @@
 	                    </td>
 	                    <td class="lwa-links" align="center">
 	                    	<?php if( !empty($lwa_data['remember']) ): ?>
-							<a class="lwa-links-remember" style="color:#000;
-text-decoration: underline;" href="<?php echo esc_attr(LoginWithAjax::$url_remember); ?>" title="<?php esc_attr_e('Quên mật khẩu','login-with-ajax') ?>"><?php esc_attr_e('Quên mật khẩu','login-with-ajax') ?></a>
+							<a style="color:#000;
+text-decoration: underline;" href="/hcaccount/quen-mat-khau/" title="<?php esc_attr_e('Quên mật khẩu','login-with-ajax') ?>"><?php esc_attr_e('Quên mật khẩu','login-with-ajax') ?></a>
 							<?php endif; ?>
 							
 	                    	<input type="submit" name="wp-submit" class="lwa-wp-submit" value="<?php esc_attr_e('','login-with-ajax'); ?>" tabindex="100" />
