@@ -111,6 +111,7 @@ elseif (is_archive()) {
     $cat_obj    = get_category ($cat_id);
     switch($cat_obj->slug){
         case 'hinh-anh':
+        case 'happy-click':
             $content = 'archive-hinh-anh';
             break;
         case 'hoc-qua-video':
