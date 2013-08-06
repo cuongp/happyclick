@@ -81,7 +81,7 @@
 				if($_POST['question']){
 					$result_id = $db->insert($db->prefix.'qna'
 								,array('user_id'	=>	$current_user->ID
-										,'post_id'	=>	$_POST['pageid']
+										,'post_id'	=>	$_POST['post_id']
 										,'question'	=>	$_POST['question']
 										,'post_date'=>	time()
 					));
@@ -121,7 +121,7 @@
             
             $headers[] = 'From: Happy Click <support@happyclick.vn>';
 			$headers[] = 'Content-type: text/html';
-			wp_mail('support@happyclick.vn','Bạn có câu hỏi từ '.$current_user->last_name,$html,$headers);
+			wp_mail($email,'Bạn có câu hỏi từ '.$current_user->last_name,$html,$headers);
 					}else
 						$flag = '';
 				}

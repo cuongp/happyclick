@@ -176,7 +176,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 				<td align="center" class="update"><input type="submit" value=""  /></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="right"><a href="" class="returnhome">Trở về trang chủ</a></td>
+				<td colspan="2" align="right"><a href="/index.php" class="returnhome">Trở về trang chủ</a></td>
 
 			</tr>
 		</table>

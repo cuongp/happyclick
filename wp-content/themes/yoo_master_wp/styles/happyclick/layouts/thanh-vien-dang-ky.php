@@ -9,7 +9,14 @@ function check_register($user_id,$pageid){
 }
 $cid = $_GET['cid'];
 if($current_user->ID > 0){
-	if(check_register($current_user->ID,$cid)){
+	if($_GET['act']=='dat-cau-hoi'){
+
+		if($current_user->ID>0 && $is_subs){
+			header('Location:' . $_SERVER['HTTP_REFERER']);
+			exit;
+		}
+	}
+	elseif(check_register($current_user->ID,$cid)){
 				wp_redirect('/hcaccount/thong-bao-dang-ky/?cid='.$cid);
 	
 	}else{
@@ -34,7 +41,6 @@ if($current_user->ID > 0){
 		exit;
 	}	
 	}
-	
 }
 ?>
 <?php if($current_user->ID < 1 ): ?>

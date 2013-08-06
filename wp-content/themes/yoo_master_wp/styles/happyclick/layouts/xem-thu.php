@@ -219,7 +219,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Đối tượng</td>
 				<td  class="box4">
-					<select id="objectuser" name="objectuser" required=""><option>Chưa chọn</option>
+					<select id="objectuser" name="objectuser" required=""><option  value="">Chưa chọn</option>
 						<?php
 							if(!empty($doituong)){
 								foreach ($doituong as $dt) {
@@ -233,7 +233,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 								}
 							}
 						?>
-					</select>
+					</select><span>*</span>
 
 </td>				
 			</tr>
@@ -264,7 +264,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Tỉnh/Thành phố</td>
 				<td  class="box4">
-					<select id="city" name="hccity" required=""><option>Chưa chọn</option>
+					<select id="city" name="hccity" required=""><option value="">Chưa chọn</option>
 						<?php
 							if(!empty($cities)){
 								foreach ($cities as $dt) {
