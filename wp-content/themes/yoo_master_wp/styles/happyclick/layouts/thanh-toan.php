@@ -19,7 +19,7 @@ if(isset($_POST['action']) && $_POST['action']=='submit'){
   if($is_subs)
     $giatien = number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.');
   else
-    $giatien = echo number_format($data['giatien'],0,'.','.');
+    $giatien = number_format($data['giatien'],0,'.','.');
   if($query){
     if($current_user->ID>0){
       $email = $current_user->user_email;
