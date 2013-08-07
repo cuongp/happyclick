@@ -22,7 +22,7 @@ function get_exprydate($user_id){
 <?php 
 $p = get_exprydate($current_user->ID);
 ?>
-				<?php echo date('d/m/Y',strtotime($p->expirydate)); ?></span></p>
+				<?php echo date('d/m/Y H:i:s',strtotime($p->expirydate)); ?></span></p>
 				<p style="text-align:right"><br/><br/><br/><br/><br/><a href="/index.php" class="returnhome">Trở về trang chủ</a></p>
 			</td>
 		</tr>

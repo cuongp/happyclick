@@ -89,13 +89,13 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 			$level_period_unit = $sub_info->level_period_unit;
 			switch ($level_period_unit) {
 				case 'y':
-					$enddate = date("Y-m-d",strtotime('+'.$sub_info->level_period.' year'));
+					$enddate = date("Y-m-d H:i:s",strtotime('+'.$sub_info->level_period.' year'));
 					break;
 				case 'm':
-					$enddate = date("Y-m-d",strtotime('+'.$sub_info->level_period.' month'));
+					$enddate = date("Y-m-d H:i:s",strtotime('+'.$sub_info->level_period.' month'));
 					break;
 				case 'd':
-					$enddate = date("Y-m-d",strtotime('+'.$sub_info->level_period.' day'));
+					$enddate = date("Y-m-d H:i:s",strtotime('+'.$sub_info->level_period.' day'));
 					break;
 				default:
 					$enddate = $startdate;
@@ -103,19 +103,19 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 			}
 			switch ($level_period_unit) {
 				case 'y':
-					$enddate2 = date("d-m-Y",strtotime('+'.$sub_info->level_period.' year'));
+					$enddate2 = date("d-m-Y H:i:s",strtotime('+'.$sub_info->level_period.' year'));
 					break;
 				case 'm':
-					$enddate2 = date("d-m-Y",strtotime('+'.$sub_info->level_period.' month'));
+					$enddate2 = date("d-m-Y H:i:s",strtotime('+'.$sub_info->level_period.' month'));
 					break;
 				case 'd':
-					$enddate2 = date("d-m-Y",strtotime('+'.$sub_info->level_period.' day'));
+					$enddate2 = date("d-m-Y H:i:s",strtotime('+'.$sub_info->level_period.' day'));
 					break;
 				default:
 					$enddate2 = $startdate;
 					break;
 			}
-			$expdate = date("d-m-Y",strtotime('+24 hour'));
+			$expdate = date("d-m-Y H:i:s",strtotime('+24 hour'));
 
 			$db->query("delete from ".$db->prefix.'m_membership_relationships where user_id="'.$user_id.'"');
 			$resuld_id = $db->insert($db->prefix.'m_membership_relationships',
@@ -390,8 +390,8 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Đối tượng</td>
 				<td  class="box4">
-					<select id="objectuser" name="hcobjectuser"  validate="required:true">
-						<option>Chưa chọn</option>
+					<select id="objectuser" name="hcobjectuser"   required="">
+						<option value="">Chưa chọn</option>
 					
 						<?php
 							if(!empty($doituong)){
@@ -437,7 +437,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<tr>
 				<td width="45%"  class="box3" align="right">Tỉnh/Thành phố</td>
 				<td  class="box4">
-					<select id="city" name="hccity"  validate="required:true"><option>Chưa chọn</option>
+					<select id="city" name="hccity"   required=""><option value="">Chưa chọn</option>
 						<?php
 							if(!empty($cities)){
 								foreach ($cities as $dt) {

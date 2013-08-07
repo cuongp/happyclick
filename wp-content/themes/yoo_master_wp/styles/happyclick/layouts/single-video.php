@@ -1,8 +1,17 @@
 <div id="system" class="onecolumn single">
 	<?php if (have_posts()) : ?>
-		<?php while (have_posts()) : the_post(); ?>
+		<?php while (have_posts()) : the_post(); 
+            $categories = get_the_category();
+            $current_category = $categories[0];
+            
+        ?>
             <div class="content-box1">
+            <?php if($current_category->cat_ID>=189):
+            ?>
+            <h3 class="content-box-title">Hành trang nghề nghiệp</h3>
+        <?php else:?>
                 <h3 class="content-box-title">Học qua Video</h3>
+                <?php endif; ?>
                 <div class="content-box-inside">
                     <div class="remove_link video-category-title"><?php echo get_the_category_list(); ?></div>
                     <article id="item-<?php the_ID(); ?>" class="item courses" data-permalink="<?php the_permalink(); ?>">

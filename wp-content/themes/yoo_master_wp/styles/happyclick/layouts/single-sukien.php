@@ -38,11 +38,11 @@
 			<?php the_content(''); ?>
 			<h3>Chương trình hội thảo sẽ bắt đầu mở đăng ký từ ngày 10/08/2013</h3>
 			<ul class="rg">
-				<!--<li><a href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $post_id; ?>" class="dk1"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></a></li>-->
-				<li class="dk1"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span>	</li>
+				<li><a href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $post_id; ?>" class="dk1"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></a></li>
+				<!--<li class="dk1"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span>	</li>-->
 						
-				<!--<li><a href="/dang-ky-su-kien-cho-khach/"  class="dk2"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien'],0,'.','.');?>đ</span></a></li>-->
-				<li class="dk2"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien'],0,'.','.');?>đ</span></li>
+				<li><a href="/dang-ky-su-kien-cho-khach/"  class="dk2"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien'],0,'.','.');?>đ</span></a></li>
+				<!--<li class="dk2"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien'],0,'.','.');?>đ</span></li>-->
 
 
 				<li><a href="/category/thanh-vien/quyen-loi-thanh-vien/"  class="dk3"><span>Trở thành thành viên</span></a></li>
@@ -81,7 +81,7 @@
 				if($_POST['question']){
 					$result_id = $db->insert($db->prefix.'qna'
 								,array('user_id'	=>	$current_user->ID
-										,'post_id'	=>	$_POST['pageid']
+										,'post_id'	=>	$_POST['post_id']
 										,'question'	=>	$_POST['question']
 										,'post_date'=>	time()
 					));
@@ -121,7 +121,7 @@
             
             $headers[] = 'From: Happy Click <support@happyclick.vn>';
 			$headers[] = 'Content-type: text/html';
-			wp_mail('support@happyclick.vn','Bạn có câu hỏi từ '.$current_user->last_name,$html,$headers);
+			wp_mail($email,'Bạn có câu hỏi từ '.$current_user->last_name,$html,$headers);
 					}else
 						$flag = '';
 				}

@@ -753,10 +753,10 @@ function form_faq($atts){
         $is_subs = current_user_has_subscription();
         if($is_subs){
             $str = '<br/><p style="text-align:center;margin:0 auto;width:120px;"><a href="javascript:;" id="datcauhoi" class="datcauhoi"><span>Đặt câu hỏi</span></a></p>';    
-            $str .= '<form method="post" id="form" style="display:none" class="form_profile"><textarea name="question" class="question" id="question" requited></textarea><br/><input type="hidden" name="pageid" value="'.$pageid.'"/><input type="submit" class="wpcf7-form-control wpcf7-submit btn_send" value="" id="sendfaq"/></form><br/><br/>';
+            $str .= '<form method="post" id="form" style="display:none" class="form_profile"><textarea name="question" class="question" id="question" requited></textarea><br/><input id="post_id" type="hidden" name="post_id" value="'.$pageid.'"/><input type="submit" class="wpcf7-form-control wpcf7-submit btn_send" value="" id="sendfaq"/></form><br/><br/>';
         }
         else
-            $str = '<a href="/hcaccount/thanh-vien-dang-ky/" class="datcauhoi"><span>Đặt câu hỏi</span></a>';
+            $str = '<br/><p style="text-align:center;margin:0 auto;width:120px;"><a href="/hcaccount/thanh-vien-dang-ky/?act=dat-cau-hoi" class="datcauhoi"><span>Đặt câu hỏi</span></a></p><br/><br/>';
         return $str;
 }
 add_shortcode('Form_FAQ', 'form_faq');

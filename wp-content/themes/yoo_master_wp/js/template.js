@@ -2382,24 +2382,24 @@ function log() {
 		return false;
 	});
 
-	//	$('.form_profile').validate();
-	var container = $('div.container');
 	// validate the form when it is submitted
-	var validator = $(".form_profile").validate({
-		errorContainer: container,
-		errorLabelContainer: $("ol", container),
-		wrapper: 'li'
-	});
+	var validator = $(".form_profile").validate();
 
 	$('.form_profile2').validate({
 		
 		messages: {
-			hcemail: {
+			email: {
 				required: 'Enter this!'
 			}
 		}
 	});
 	$('.form_doipass').validate();
+	$('#sendfaq').click(function(){
+		$.post(document.URL, { question: $("#question").val() , post_id: $("#post_id").val() } );
+		alert('Cám ơn bạn đã đặt câu hỏi.');
+		$("#question").val("");
+		return false;
+	});
 $("#slider").carouFredSel({
 	items	: 4,
 	scroll	: {

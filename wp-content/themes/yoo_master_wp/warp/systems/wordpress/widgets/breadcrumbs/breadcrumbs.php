@@ -84,8 +84,9 @@ class Warp_Breadcrumbs extends WP_Widget {
 				$taxonomy = get_taxonomy (get_query_var('taxonomy'));
 
 				$term = get_query_var('term');
+				$destname = get_term_by('slug',$term,$taxonomy->name);
 				
-				$output .= '<strong>'.$taxonomy->label .': '.$term.'</strong>';
+				$output .= '<strong>'.$destname->name.'</strong>';
 			} else {
 				$output .= '<strong>'.get_the_title().'</strong>';
 			}
