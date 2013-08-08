@@ -1,11 +1,12 @@
 
 <div id="system" class="box2">
+
 	<?php if (have_posts()) : ?>
 		<?php while (have_posts()) : the_post();
 		$post_id = get_the_ID(); 
 		$data = get_post_meta( $post_id, '_sukien', true );
 		$term = get_the_terms($post_id, 'chude');
-
+		$is_subs = current_user_has_subscription();
 		foreach ($term as $key => $value) {
 			$id = $value->term_id;
 		}
@@ -36,7 +37,7 @@
 
 			<div class="content clearfix" >
 			<?php the_content(''); ?>
-			<h3>Chương trình hội thảo sẽ bắt đầu mở đăng ký từ ngày 10/08/2013</h3>
+			
 			<ul class="rg">
 				<li><a href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $post_id; ?>" class="dk1"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></a></li>
 				<!--<li class="dk1"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span>	</li>-->
@@ -45,7 +46,7 @@
 				<!--<li class="dk2"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien'],0,'.','.');?>đ</span></li>-->
 
 
-				<li><a href="/category/thanh-vien/quyen-loi-thanh-vien/"  class="dk3"><span>Trở thành thành viên</span></a></li>
+				<?php if(!$is_subs):?><li><a href="/category/thanh-vien/quyen-loi-thanh-vien/"  class="dk3"><span>Trở thành thành viên</span></a></li><?php endif; ?>
 			</ul>
 			</div>
 
@@ -126,7 +127,8 @@
 						$flag = '';
 				}
 		?>
-			<article class="item" style="padding:20px 10px" data-permalink="<?php the_permalink(); ?>">
+			<article class="item" style="padding:20px 10px;position:relative" data-permalink="<?php the_permalink(); ?>">
+			
 			<header>
 		
 				<h1 class="title"><?php the_title(); ?></h1>
@@ -144,30 +146,36 @@
 			}
 			echo $flag;
 			?>
-			<!--<p>Thời gian: <?php echo $hour; ?></p>
+			<p>Thời gian: <?php echo $hour; ?></p>
 			<p>Ngày: <?php echo $date; ?></p>
 			<table border="0" align="left">
 <tbody>
 <tr>
-<td width="250"><a target="_blank" href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $post_id; ?>"><img width="122" height="35" src="/wp-content/uploads/2013/07/dang-ky.png" alt="Đăng ký" class="alignnone size-full wp-image-2481"></a></td>
-<td width="280"><a href="/category/thanh-vien/quyen-loi-thanh-vien/"><img src="/wp-content/uploads/2013/07/tro-thanh-thanh-vien.png" alt="Trở thành thành viên" class="alignnone size-full wp-image-2480"></a></td>
-<td width="300"><a href="/huong-dan-tham-du"><img src="/wp-content/uploads/2013/07/huong-dan-tham-du-.png" alt="Hướng dẫn tham dự" class="alignnone size-full wp-image-2482"/></a></td>
+<td width="250"><a target="" href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $post_id; ?>"><img width="122" height="35" src="/wp-content/uploads/2013/07/dang-ky.png" alt="Đăng ký" class="alignnone size-full wp-image-2481"></a></td>
+<?php if($current_user->ID<1 || !$is_subs): ?><td width="280"><a href="/category/thanh-vien/quyen-loi-thanh-vien/"><img src="/wp-content/uploads/2013/07/tro-thanh-thanh-vien.png" alt="Trở thành thành viên" class="alignnone size-full wp-image-2480"></a></td><?php endif; ?>
+<td width="300"><a href="/huong-dan-tham-du/"><img src="/wp-content/uploads/2013/07/huong-dan-tham-du-.png" alt="Hướng dẫn tham dự" class="alignnone size-full wp-image-2482"/></a></td>
 </tr>
 <tr>
 <td width="250">(<em>Chỉ dành cho thành viên</em>)</td>
-<td width="280"></td>
+<?php if($current_user->ID<1): ?><td width="280"></td><?php endif; ?>
 <td width="300"></td>
 </tr>
 </tbody>
 </table>
-<p>
-<span style="color: #83b87a;">
-<strong>Các câu hỏi đã được đặt:</strong>
-</span>
-</p>-->
-		
 			</div>
-			
+	<div style="position:relative;margin:0 auto;width:400px">
+		<div id="modal" style="padding:0 10px;top:-500px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    border: 1px solid #eaeaea;    
+    -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow:    0px 0px 5px rgba(0, 0, 0, 0.75);
+    box-shadow:         0px 0px 5px rgba(0, 0, 0, 0.75);padding:10px;text-align:center;position: absolute;width:400px;background:#FFF;display:none;border:1px solid #ccc;">
+				Cám ơn bạn đã đặt câu hỏi.
+			</div>
+	</div>	
+<?php echo do_shortcode("[FAQ_LIST pageid='".$post_id."']");?>	
 		</article>
 		<?php
 			}

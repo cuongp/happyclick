@@ -2396,7 +2396,7 @@ function log() {
 	$('.form_doipass').validate();
 	$('#sendfaq').click(function(){
 		$.post(document.URL, { question: $("#question").val() , post_id: $("#post_id").val() } );
-		alert('Cám ơn bạn đã đặt câu hỏi.');
+		$("#modal").fadeIn().delay(3000).fadeOut(1000);
 		$("#question").val("");
 		return false;
 	});

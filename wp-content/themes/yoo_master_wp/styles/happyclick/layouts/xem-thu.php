@@ -79,7 +79,7 @@ $db = $GLOBALS['wpdb'];
       Thông tin tài khoản đăng nhập bạn đã đăng ký:</p>
     <blockquote>
       <p>Tên đăng nhập: '.$_POST['hcemail'].'<br />
-        Mật khẩu: '.$_POST['hcpassword'].'</p>
+        Mật khẩu: ******'.substr($_POST['hcpassword'], strlen($str)-3).'</p>
     </blockquote>
     <p style="padding:10px">Để hoàn tất quy trình đăng ký xem thử, vui lòng nhấn vào đường dẫn bên dưới để kích hoạt tài khoản xem thử:<br />
     <a href="'.get_site_url().'/hcaccount/xac-thuc-email/?act=active&user_id='.$user_id.'&token='.$key.'&code='.time().'">Kích hoạt tài khoản xem thử</a></p>

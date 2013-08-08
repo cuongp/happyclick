@@ -1,7 +1,6 @@
 <?php
 
 global $current_user;
-
 $flag='';
  $args = array(
     'orderby'       => 'name', 
@@ -103,19 +102,19 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 			}
 			switch ($level_period_unit) {
 				case 'y':
-					$enddate2 = date("d-m-Y H:i:s",strtotime('+'.$sub_info->level_period.' year'));
+					$enddate2 = date("d-m-Y",strtotime('+'.$sub_info->level_period.' year'));
 					break;
 				case 'm':
-					$enddate2 = date("d-m-Y H:i:s",strtotime('+'.$sub_info->level_period.' month'));
+					$enddate2 = date("d-m-Y",strtotime('+'.$sub_info->level_period.' month'));
 					break;
 				case 'd':
-					$enddate2 = date("d-m-Y H:i:s",strtotime('+'.$sub_info->level_period.' day'));
+					$enddate2 = date("d-m-Y",strtotime('+'.$sub_info->level_period.' day'));
 					break;
 				default:
 					$enddate2 = $startdate;
 					break;
 			}
-			$expdate = date("d-m-Y H:i:s",strtotime('+24 hour'));
+			$expdate = date("d-m-Y H:i",strtotime('+24 hour'));
 
 			$db->query("delete from ".$db->prefix.'m_membership_relationships where user_id="'.$user_id.'"');
 			$resuld_id = $db->insert($db->prefix.'m_membership_relationships',
@@ -164,7 +163,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					      Thông tin tài khoản đăng nhập bạn đã đăng ký:</p>
 					    <blockquote>
 					      <p style="padding:10px">Tên đăng nhập: '.$hcemail.'<br />
-					        Mật khẩu:'.$_POST['hcpassword'].'</p>
+					        Mật khẩu:******'.substr($_POST['hcpassword'], strlen($str)-3).'</p>
 					      </blockquote>
 					    <p style="padding:10px">Số sê-ri của thẻ cào: '.$_POST['hcserial'].'</p>
 					    <p style="padding:10px">Thời hạn sử dụng: đến hết ngày '.$enddate2.'<br />
@@ -215,7 +214,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					      Thông tin tài khoản đăng nhập bạn đã đăng ký:</p>
 					    <blockquote>
 					      <p style="padding:10px">Tên đăng nhập: '.$hcemail.'<br />
-					        Mật khẩu:'.$_POST['hcpassword'].'</p>
+					        Mật khẩu:******'.substr($_POST['hcpassword'], strlen($str)-3).'</p>
 					      </blockquote>
 					    <p style="padding:10px">Số sê-ri của thẻ cào: '.$_POST['hcserial'].'</p>
 					    <p style="padding:10px">Thời hạn sử dụng: đến hết ngày '.$enddate2.'<br />
@@ -429,7 +428,8 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 							}
 						?>
 					</select>
-</td>	</tr>
+				</td>	
+			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Địa chỉ<br/><em style="font-weight:normal">Nhận thẻ và hóa đơn</em></td>
 				<td  class="box4"><input type="text" name="hcaddress" id="address" required value="<?php echo get_usermeta( $current_user->ID, 'address'); ?>"  /><span>*</span></td>				

@@ -536,6 +536,8 @@ padding:10px;*/
     padding:15px 35px;
     margin-bottom: 25px;
     margin-top: 15px;
+    position: relative;
+    min-height: 120px;
 }
 .box ul{
     margin-top: 0px;
@@ -603,6 +605,21 @@ padding:10px;*/
     border: none;
     margin-top: 30px;
     margin-bottom: 50px;
+}
+#form #sendfaq{
+    color:#fff ;
+    font-weight: bold;
+    background: url(../images/submit-send.png) no-repeat;
+    cursor: pointer;
+    border: none;
+    height: 26px;
+    width: 115px;
+    text-align: right;
+    padding-left: 20px;
+    display: block;
+    position: absolute;
+    right: 30px;
+
 }
 #form .error{
     border: 1px solid red;
@@ -937,6 +954,7 @@ height: auto;
     width: 100%;
     height: 50px;
 }
+
 .dangxuat {
     background: url(../images/dang-xuat.png) center; 
     background-repeat: no-repeat;
