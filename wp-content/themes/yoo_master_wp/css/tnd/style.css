@@ -874,7 +874,7 @@ table.quiz td{
 }
 .next-week tr:last-child td{ border:none; }
 .lien-he-mua-the textarea{ height: 90px; }
-#headerbar .module { max-width: 400px; }
+#headerbar .module { max-width: 460px; }
 .course-date{
     color: #FF4700;
     position: absolute;
