@@ -5,7 +5,7 @@
 * @copyright Copyright (C) YOOtheme GmbH
 * @license   http://www.gnu.org/licenses/gpl.html GNU/GPL
 */
-
+date_default_timezone_set('Asia/Ho_Chi_Minh');
 // get warp
 $warp = Warp::getInstance();
 

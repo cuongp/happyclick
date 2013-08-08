@@ -16,6 +16,7 @@ $args = array(
 	'post_parent'     => '',
 	'post_status'     => 'publish',
 	'suppress_filters' => true ); 
+$is_subs = current_user_has_subscription();
 function catch_that_image($content){
 
 $first_img = '';
@@ -50,7 +51,6 @@ return $first_img;
 		<div style="clear:both"></div>
 	</div>
 	<div style="clear:both">
-	<h3>Chương trình hội thảo sẽ bắt đầu mở đăng ký từ ngày 10/08/2013</h3>
 			<ul class="rg">
 				<li><a href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $posts_array[0]->ID; ?>" class="dk1"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></a></li>
 				<!--<li class="dk1"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></li>-->
@@ -58,7 +58,7 @@ return $first_img;
 				
 				
 				<!--<li class="dk2"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien'],0,'.','.');?>đ</span></li>-->
-				<li><a href="/category/thanh-vien/quyen-loi-thanh-vien/"  class="dk3"><span>Trở thành thành viên</span></a></li>
+				<?php if(!$is_subs): ?><li><a href="/category/thanh-vien/quyen-loi-thanh-vien/"  class="dk3"><span>Trở thành thành viên</span></a></li><?php endif; ?>
 			</ul>
 		</div>
 		<div style="clear:both"></div>

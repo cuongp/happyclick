@@ -6,7 +6,7 @@
 */
 ?>
 <div class="lwa lwa-divs-only">
-	<span class="lwa-status"></span>
+	<span class=""></span>
 	<form name="lwa-form" class="lwa-form" action="<?php echo esc_attr(LoginWithAjax::$url_login); ?>" method="post">
 		
 		<div class="lwa-password">

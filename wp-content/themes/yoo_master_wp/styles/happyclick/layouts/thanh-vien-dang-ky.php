@@ -50,8 +50,14 @@ if($current_user->ID > 0){
 </div>
 <?php endif; ?>
 <div class="box" style="width:730px">
+<?php if($_GET['act'] == 'dat-cau-hoi'): ?>
+<p>Nếu bạn đã đăng ký xem thử hoặc chưa có tài khoản của Happy Click, bạn có thể trở thành
+thành viên để tham gia chương trình này</p>
+
+<?php else: ?>
 <p>Nếu bạn đã đăng ký xem thử hoặc chưa có tài khoản của Happy Click, bạn có thể trở thành
 thành viên để được ưu đãi phí tham dự hội thảo và khóa học của Happy Click</p>
+<?php endif; ?>
 <p class="cat-post-title1" style="text-align:right" >
 <a href="/category/thanh-vien/quyen-loi-thanh-vien/"  style="height:30px;width:200px;float:right;"></a>
 </p>
