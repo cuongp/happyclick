@@ -1,6 +1,12 @@
 <?php
 
 global $current_user;
+$is_subs = current_user_has_subscription();
+if($is_subs){
+	$db = $GLOBALS['wpdb'];
+	$u = $post = $db->get_row('select id from '.$db->prefix.'m_membership_relationships where user_id="'.$current_user->ID.'"');
+	var_dump($u);
+}
 $flag='';
  $args = array(
     'orderby'       => 'name', 
