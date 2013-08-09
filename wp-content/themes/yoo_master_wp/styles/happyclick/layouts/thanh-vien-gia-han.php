@@ -75,6 +75,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					break;
 		}
 		$query = $db->update($db->prefix.'m_membership_relationships',array('expirydate'=>$enddate),array('user_id'=>$current_user->ID));
+		
 		if($query){
 			$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 					<tbody>
@@ -125,9 +126,11 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 			$headers[] ='Content-type: text/html';
 			
 			wp_mail($hcemail,'Gia hạn thành viên Happy Click!',$html,$headers);
+			}else{
+				$flag='<h3 class="error">Gia hạn không thành công. Vui lòng liên hệ bộ phận hỗ trợ khách hàng để biết thêm thông tin</h3>';
 			}
 		}
-	}else{
+	else{
 		$flag ='<h3 class="error">Thẻ cào không đúng</h3>';
 	}
 }
@@ -165,7 +168,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 			</tr>
 			<tr>
 				<td><input type="hidden" name="action" value="submit"></td>
-				<td align="center" class="update"><input id="renew" type="submit" value=""  /></td>
+				<td align="center" class="update"><input type="submit" value=""  /></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="right"><a href="" class="returnhome">Trở về trang chủ</a></td>

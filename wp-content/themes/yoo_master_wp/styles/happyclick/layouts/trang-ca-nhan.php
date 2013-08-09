@@ -25,7 +25,8 @@ function get_exprydate($user_id){
 <?php 
 $p = get_exprydate($current_user->ID);
 ?>
-				<?php echo date('d/m/Y',strtotime($p->expirydate)); ?></span><br/><a href="/hcaccount/thanh-vien-gia-han/" class="renew"><span>Gia hạn</span></a></p>
+				<?php echo date('d/m/Y',strtotime($p->expirydate)); ?></span></p>
+				<p style="text-align:center"><br/><br/><a href="/hcaccount/thanh-vien-gia-han/" class="renew"><span>Gia hạn</span></a></p>
 				<p style="text-align:right"><br/><br/><br/><br/><br/><a href="/index.php" class="returnhome">Trở về trang chủ</a></p>
 
 			</td>
