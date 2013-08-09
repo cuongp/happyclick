@@ -725,7 +725,7 @@ ul.chude_taxonomy li.active{
     margin: 0;
     font-size: 22px;   
 }
-.item2{border-bottom: 1px solid #ccc;}
+.item2{border-bottom: 1px solid #ccc;min-height: 280px;}
 .item2:last-child{
     border-bottom: none;
 }
