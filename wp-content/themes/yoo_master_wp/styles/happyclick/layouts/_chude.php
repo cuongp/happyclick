@@ -73,6 +73,7 @@ return $first_img;
 			$data = get_post_meta( $p->ID, '_sukien', true );
 			
 			if($i>1){
+				
 				$terms = wp_get_post_terms( $p->ID, 'chude');
 				if($terms[0]->slug=='hoi-thao' || $terms[0]->slug =='khoa-hoc'):
 

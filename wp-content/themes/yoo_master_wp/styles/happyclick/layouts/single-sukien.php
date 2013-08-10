@@ -151,7 +151,7 @@
 			<table border="0" align="left">
 <tbody>
 <tr>
-<td width="250"><a target="" href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $post_id; ?>"><img width="122" height="35" src="/wp-content/uploads/2013/07/dang-ky.png" alt="Đăng ký" class="alignnone size-full wp-image-2481"></a></td>
+<!--<td width="250"><a target="" href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $post_id; ?>"><img width="122" height="35" src="/wp-content/uploads/2013/07/dang-ky.png" alt="Đăng ký" class="alignnone size-full wp-image-2481"></a></td>-->
 <?php if($current_user->ID<1 || !$is_subs): ?><td width="280"><a href="/category/thanh-vien/quyen-loi-thanh-vien/"><img src="/wp-content/uploads/2013/07/tro-thanh-thanh-vien.png" alt="Trở thành thành viên" class="alignnone size-full wp-image-2480"></a></td><?php endif; ?>
 <td width="300"><a href="/huong-dan-tham-du/"><img src="/wp-content/uploads/2013/07/huong-dan-tham-du-.png" alt="Hướng dẫn tham dự" class="alignnone size-full wp-image-2482"/></a></td>
 </tr>

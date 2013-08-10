@@ -1,6 +1,14 @@
 <?php
 
 global $current_user;
+$is_subs = current_user_has_subscription();
+if($is_subs){
+	$db = $GLOBALS['wpdb'];
+	$post = $db->get_row('select expirydate from '.$db->prefix.'m_membership_relationships where user_id='.$current_user->ID);
+	if(strtotime($post->expirydate) > time()){
+		wp_redirect('/hcaccount/thanh-vien-gia-han/');
+	}
+}
 $flag='';
  $args = array(
     'orderby'       => 'name', 

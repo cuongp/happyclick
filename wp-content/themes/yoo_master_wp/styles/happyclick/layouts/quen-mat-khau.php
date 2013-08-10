@@ -10,7 +10,7 @@ if(isset($_POST) && $_POST['action'] == 'submit')
 		$flag = '<h3 class="error">Email không tồn tại trong hệ thống.</h3>';
 	}else
 	{
-		$expdate = date("d-m-Y H:i:s",strtotime('+24 hour'));
+		$expdate = date("d-m-Y H:i",strtotime('+24 hour'));
 		$db = $GLOBALS['wpdb'];
 		$user = get_user_by('email',$_POST['email']);
 		$key = md5($user->ID . time().rand());

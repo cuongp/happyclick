@@ -1,4 +1,9 @@
-
+<?php
+global $current_user;
+if($current_user->ID<1){
+	wp_redirect('/index.php');
+}
+?>
 
 <div class="box" style="width:730px">
 <?php
