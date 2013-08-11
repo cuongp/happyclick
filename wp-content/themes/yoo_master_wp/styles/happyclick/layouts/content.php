@@ -116,6 +116,14 @@ elseif (is_archive()) {
             $content = 'archive-hinh-anh';
             break;
         case 'hoc-qua-video':
+        case 'nghe-thuat-trinh-bay-hieu-qua':
+        case 'chinh-phuc-dong-nghiep-bang-quan-ly-theo-tinh-huong':
+        case 'gia-tri-ca-nhan':
+        case 'mbti':
+        case 'nghe-thuat-xay-dung-quan-he-ben-vung':
+        case 'quan-ly-theo-muc-tieu-mbo':
+        case 'vu-khi-cho-nha-quan-ly':
+        case 'yeu-thuong-trong-ban-tay':
             $content = 'archive-hoc-qua-video';
             break;
         case 'hoc-truc-tuyen':

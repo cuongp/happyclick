@@ -11,7 +11,9 @@ $current_page       = 1; //Set trang dang xem
 if(isset($_GET['page']) && $_GET['page']!='' )
     $current_page   = $_GET['page'];
 
-$category_id        = 44; //ID cua category hoc qua video
+$cat_id = get_query_var('cat');
+
+$category_id        = $cat_id; //ID cua category hoc qua video
 
 $args = array(
 	'type'                     => 'post',
@@ -46,7 +48,6 @@ foreach ($categories as $key=>$category){
     );
     //Category chua co du lieu => bo qua
     if($category->count == 0 ) continue;
-    
     
     $trial_id       = 1; //Trial level
     $is_trial       = current_user_on_level($trial_id);
@@ -87,18 +88,63 @@ foreach ($categories as $key=>$category){
         break;
 } // end foreach
 ?>
-<div class="video-pagination">    
-    <span>Trang</span>
-    <?php        
-        while($number_of_pages>0){
-            if($number_of_pages != $current_page){
-                echo '<a href="?page='.$number_of_pages.'">'.$number_of_pages--.'</a>';
-            }else{
-                echo '<a class="active" href="javascript:void(0);">'.$number_of_pages--.'</a>';
-            }
-        }
+
+
+<?php
+//Neu dang view sub-category
+if(!count($categories)){
+    $args = array(
+        'cat' => $cat_id,
+        'post_status' => array( 'publish' ),
+        'posts_per_page' => 50,
+        'orderby' => 'date',
+        'order' => 'ASC',
+        'show_count' => 1
+    );   
     ?>
-</div>
+    <div class="video-category">
+        <?php
+        echo '<div class=" jcarousel-skin-tango">
+                <div class="jcarousel-container jcarousel-container-horizontal" >
+                    <div class="jcarousel-clip jcarousel-clip-horizontal">
+                        <ul id="mycarousel_'.$cat_id.'" class="jcarousel-list jcarousel-list-horizontal">';
+                            $the_query = new WP_Query( $args );
+                            while ( $the_query->have_posts() ) {
+                                $the_query->the_post();
+                                echo $this->render('_post-hoc-qua-video');
+                            }
+        echo '          </ul>
+                    </div>
+                    <div class="jcarousel-prev jcarousel-prev-horizontal" style="display: block;"></div>
+                    <div class="jcarousel-next jcarousel-next-horizontal" style="display: block;"></div>
+                </div>
+            </div>';
+        ?>
+        <script type="text/javascript" language="javascript">
+            (function($) {
+                /* Jquery carousel script */
+                $(document).ready(function() {
+                    jQuery('#mycarousel_<?php echo $cat_id ?>').jcarousel({
+                        scroll: 1
+                    });
+                });
+            })(jQuery);
+        </script>
+    </div>
+<?php }else{ ?>
+    <div class="video-pagination">    
+        <span>Trang</span>
+        <?php        
+            while($number_of_pages>0){
+                if($number_of_pages != $current_page){
+                    echo '<a href="?page='.$number_of_pages.'">'.$number_of_pages--.'</a>';
+                }else{
+                    echo '<a class="active" href="javascript:void(0);">'.$number_of_pages--.'</a>';
+                }
+            }
+        ?>
+    </div>
+<?php } ?>
 
 <div class="video-upcomming" style="padding-top: 2em; text-align: center;">
     <?php /*

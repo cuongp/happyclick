@@ -472,6 +472,7 @@ div.wpcf7-validation-errors{ border:none; }
 .no-pointer a,
 a.no-pointer{
     cursor: default;
+    opacity: 0.3;
 }
 .item.courses .clearfix{}
 .item.courses .clearfix p{
