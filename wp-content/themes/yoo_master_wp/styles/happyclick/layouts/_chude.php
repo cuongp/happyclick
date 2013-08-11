@@ -17,6 +17,21 @@ $args = array(
 	'post_status'     => 'publish',
 	'suppress_filters' => true ); 
 $is_subs = current_user_has_subscription();
+
+function catch_that_url($content){
+
+$first_img = '';
+ob_start();
+ob_end_clean();
+$output = preg_match_all('/<a.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
+$first_img = $matches [1] [0];
+
+// no image found display default image instead
+if(empty($first_img)){
+$first_img = "";
+}
+return $first_img;
+}
 function catch_that_image($content){
 
 $first_img = '';
@@ -43,7 +58,7 @@ return $first_img;
             
 	?>
 	<div class="box2">
-	<div class="banner"><img src="<?php echo catch_that_image($posts_array[0]->post_content); ?>"/></div>
+	<div class="banner"><a href="<?php echo catch_that_url($posts_array[0]->post_content); ?>"><img src="<?php echo catch_that_image($posts_array[0]->post_content); ?>"/></a></div>
 	<div class="bodycontent">
 		<?php echo the_excerpt();?>
 		<p style="text-align:right;float:right;"><a href="<?php echo $posts_array[0]->guid; ?>" class='viewmore'><span>Xem chi tiết</span></a></p>

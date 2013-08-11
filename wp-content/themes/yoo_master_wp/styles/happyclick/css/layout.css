@@ -718,14 +718,14 @@ ul.chude_taxonomy li.active{
 .chude_item{
   margin: 3px;  
 }
-.hoi-thao .chude_item{min-height: 320;}
+.hoi-thao .chude_item{min-height: 230px;}
 
-.khoa-hoc .chude_item{border: none;}
+.khoa-hoc .chude_item{border: none; min-height: 180px;}
 .chude_item .title{
     margin: 0;
     font-size: 22px;   
 }
-.item2{border-bottom: 1px solid #ccc;min-height: 280px;}
+.item2{border-bottom: 1px solid #ccc;min-height: 280px;border: 1px black #000;}
 .item2:last-child{
     border-bottom: none;
 }
@@ -751,6 +751,7 @@ margin-top: 26px
 }
 .khoa-hoc .item2{
     border-bottom: 1px solid #ccc;
+    min-height: 170px;
 }
 .itemeven{
     padding-left: 60px

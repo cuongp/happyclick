@@ -592,12 +592,13 @@ function get_chude($post_type = 'sukien', $posts_per_page = -1, $orderby =
                 'post_type' => 'sukien',
                 'no_found_rows' => true,
                 'tax_query' => array(
-                    array(
-                        'taxonomy' => 'chude',
-                        'field' => 'slug',
-                        'terms' => $taxonomy->slug
-                    )
-                ),
+    array(
+      'taxonomy' => 'chude',
+      'field' => 'slug',
+      'terms' => $taxonomy->slug
+    )
+  ),
+               
                 'order' => 'DESC');
             $query = new WP_Query($args);
             if($query->have_posts()){
@@ -611,7 +612,9 @@ function get_chude($post_type = 'sukien', $posts_per_page = -1, $orderby =
             $class= 'even';
             $hr='';
         }
-            $post_id = get_the_ID();
+            
+       
+                $post_id = get_the_ID();
 			$data = get_post_meta( $post_id, '_'.$post_type, true );
             
             $terms = get_the_terms( $post_id, 'diengia');

@@ -1,4 +1,4 @@
-
+﻿
 <div id="system" class="box2">
 
 	<?php if (have_posts()) : ?>
@@ -37,11 +37,16 @@
 
 			<div class="content clearfix" >
 			<?php the_content(''); ?>
+      <p><h3 style="padding-left:40px;">Bạn đã có thể bắt đầu đăng ký các hội thảo/khóa học tổ chức trong tháng 8/2013</h3></p>
 			
 			<ul class="rg">
+				<?php if($data['hcregister']==1): ?>
 				<li><a href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $post_id; ?>" class="dk1"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></a></li>
 				<!--<li class="dk1"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span>	</li>-->
-						
+				<?php else: ?>
+				<li><a href="#" class="dk1"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></a></li>
+				
+				<?php endif; ?>		
 				<li><a href="/dang-ky-su-kien-cho-khach/"  class="dk2"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien'],0,'.','.');?>đ</span></a></li>
 				<!--<li class="dk2"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien'],0,'.','.');?>đ</span></li>-->
 
@@ -75,7 +80,7 @@
 		</article>
 
 		<?php 
-			}else
+		}else
 			{
 				global $current_user;
 				$db = $GLOBALS['wpdb'];
@@ -146,23 +151,39 @@
 			}
 			echo $flag;
 			?>
-			<p>Thời gian: <?php echo $hour; ?></p>
-			<p>Ngày: <?php echo $date; ?></p>
-			<table border="0" align="left">
-<tbody>
-<tr>
-<!--<td width="250"><a target="" href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $post_id; ?>"><img width="122" height="35" src="/wp-content/uploads/2013/07/dang-ky.png" alt="Đăng ký" class="alignnone size-full wp-image-2481"></a></td>-->
-<?php if($current_user->ID<1 || !$is_subs): ?><td width="280"><a href="/category/thanh-vien/quyen-loi-thanh-vien/"><img src="/wp-content/uploads/2013/07/tro-thanh-thanh-vien.png" alt="Trở thành thành viên" class="alignnone size-full wp-image-2480"></a></td><?php endif; ?>
-<td width="300"><a href="/huong-dan-tham-du/"><img src="/wp-content/uploads/2013/07/huong-dan-tham-du-.png" alt="Hướng dẫn tham dự" class="alignnone size-full wp-image-2482"/></a></td>
-</tr>
-<tr>
-<td width="250">(<em>Chỉ dành cho thành viên</em>)</td>
-<?php if($current_user->ID<1): ?><td width="280"></td><?php endif; ?>
-<td width="300"></td>
-</tr>
-</tbody>
-</table>
-			</div>
+			<!--<p>Thời gian: <?php echo $hour; ?></p>
+			<p>Ngày: <?php echo $date; ?></p>-->
+			<?php if($current_user->ID<1 || !$is_subs): ?>
+      <table border="0" align="left">
+        <tbody>
+        <tr>          
+          <td width="250"><img width="122" height="35" src="/wp-content/uploads/2013/07/dang-ky.png" alt="Đăng ký" class="alignnone size-full wp-image-2481"></td>
+          <td width="280"><a href="/category/thanh-vien/quyen-loi-thanh-vien/" ><img src="/wp-content/uploads/2013/07/tro-thanh-thanh-vien.png" alt="Trở thành thành viên" class="alignnone size-full wp-image-2480"></a></td>
+          <td width="300"><a href="/wp-content/uploads/2013/07/Webinar_Guide.pdf" target="_blank"><img src="/wp-content/uploads/2013/07/huong-dan-tham-du-.png" alt="Hướng dẫn tham dự" class="alignnone size-full wp-image-2482"/></a></td>
+        </tr>
+        <tr>
+        <td width="250">(<em>Chỉ dành cho thành viên</em>)</td>
+        <td width="300"></td>
+        </tr>
+        </tbody>
+      </table>
+
+      <?php else : ?>
+              <table border="0" align="left">        
+                <tbody>
+                <tr>          
+                  <td width="250"><a href="<?php echo $data['articleicon']; ?>" target="_blank"><img width="122" height="35" src="/wp-content/uploads/2013/07/dang-ky.png" alt="Đăng ký" class="alignnone size-full wp-image-2481"></a></td>
+                  <td width="300"><a href="/wp-content/uploads/2013/07/Webinar_Guide.pdf" target="_blank"><img src="/wp-content/uploads/2013/07/huong-dan-tham-du-.png" alt="Hướng dẫn tham dự" class="alignnone size-full wp-image-2482"/></a></td>
+                </tr>
+                </tbody>
+              </table>   
+      
+      <?php endif; ?>
+
+      
+		
+
+    </div>
 	<div style="position:relative;margin:0 auto;width:400px">
 		<div id="modal" style="padding:0 10px;top:-500px;
     -webkit-border-radius:5px;

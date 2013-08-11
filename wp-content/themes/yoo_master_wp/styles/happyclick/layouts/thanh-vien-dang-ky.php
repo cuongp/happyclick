@@ -12,7 +12,7 @@ if($current_user->ID > 0){
 	if($_GET['act']=='dat-cau-hoi'){
 
 		if($current_user->ID>0 && $is_subs){
-			header('Location:' . $_SERVER['HTTP_REFERER']);
+			wp_redirect('/sukien/'.$_GET['post_name']);
 			exit;
 		}
 	}
@@ -21,6 +21,8 @@ if($current_user->ID > 0){
 	
 	}else{
 		$db = $GLOBALS['wpdb'];
+		
+	if($is_member && $is_subs){
 		$query = $db->insert($db->prefix.'user_sukien',
 				array('user_id'=>$current_user->ID 
 					,'sukien_id'=>$_GET['cid']
@@ -29,7 +31,6 @@ if($current_user->ID > 0){
 					,'payment_at' => 0
 					,'payment_status'=>0
 					));
-	if($is_member && $is_subs){
 		$post = get_post($cid);
 		$data = get_post_meta( $post->ID, '_sukien', true );
 		if($data['giatien']=="" || $data['giatien']<1)
