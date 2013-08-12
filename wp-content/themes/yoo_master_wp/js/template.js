@@ -280,22 +280,22 @@ $.extend($.validator, {
 	},
 
 	messages: {
-		required: "This field is required.",
-		remote: "Please fix this field.",
-		email: "Please enter a valid email address.",
-		url: "Please enter a valid URL.",
-		date: "Please enter a valid date.",
-		dateISO: "Please enter a valid date (ISO).",
-		number: "Please enter a valid number.",
-		digits: "Please enter only digits.",
-		creditcard: "Please enter a valid credit card number.",
-		equalTo: "Please enter the same value again.",
-		maxlength: $.validator.format("Please enter no more than {0} characters."),
-		minlength: $.validator.format("Please enter at least {0} characters."),
-		rangelength: $.validator.format("Please enter a value between {0} and {1} characters long."),
-		range: $.validator.format("Please enter a value between {0} and {1}."),
-		max: $.validator.format("Please enter a value less than or equal to {0}."),
-		min: $.validator.format("Please enter a value greater than or equal to {0}.")
+		required: "Không được để trống.",
+		remote: "Xin sửa trường này.",
+		email: "Xin hãy nhập địa chỉ email hợp lệ.",
+		url: "Xin nhập URL hợp lệ.",
+		date: "Xin nhập ngày tháng hợp lệ.",
+		dateISO: "Xin nhập ngày tháng hợp lệ theo chuẩn ISO.",
+		number: "Xin nhập số hợp lệ.",
+		digits: "Xin chỉ nhập các chữ số.",
+		creditcard: "Xin hãy nhập số thẻ tín dụng hợp lệ.",
+		equalTo: "Xin nhập lại đúng giá trị trên một lần nữa.",
+		maxlength: $.validator.format("Xin lưu ý không được quá {0} ký tự."),
+		minlength: $.validator.format("Xin lưu ý tối thiểu phải {0} ký tự."),
+		rangelength: $.validator.format("Xin nhập chuỗi có độ dài từ {0} đến {1} ký tự."),
+		range: $.validator.format("Xin nhập giá trị trong khoản từ  {0} đến {1}."),
+		max: $.validator.format("Xin nhập giá trị nhỏ hơn hoặc bằng {0}."),
+		min: $.validator.format("Xin nhập giá trị lớn hơn hoặc bằng {0}.")
 	},
 
 	autoCreateRanges: false,
@@ -1024,7 +1024,7 @@ $.extend($.validator, {
 
 		// http://docs.jquery.com/Plugins/Validation/Methods/date
 		date: function( value, element ) {
-			return this.optional(element) || !/Invalid|NaN/.test(new Date(value).toString());
+			return this.optional(element) || /^(([0-2]?\d{1})|([3][0,1]{1}))\/[0,1]?\d{1}\/(([1]{1}[9]{1}[9]{1}\d{1})|([2-9]{1}\d{3}))$/.test(value);//!/Invalid|NaN/.test(new Date(value).toString());
 		},
 
 		// http://docs.jquery.com/Plugins/Validation/Methods/dateISO
@@ -2381,15 +2381,35 @@ function log() {
 		$("#captchaimage").load('/wp-content/themes/yoo_master_wp/js/image_req.php');
 		return false;
 	});
-
+	// my custom validation
 	// validate the form when it is submitted
-	var validator = $(".form_profile").validate();
-
-	$('.form_profile2').validate({
-		
+//danh cho form kich hoat
+	var validator = $(".form_profile").validate({
+		rules: {
+			hcbirthday: {required: true,date: true},
+			hcpassword: {required: true, minlength:6,maxlength:12},
+			hcconfirm_pass: {required: true, minlength:6,maxlength:12,equalTo: "#password"},
+			hcmobile: {required: true,number: true,minlength:7,maxlength:12},
+			hccompanyphone: {required: true,number: true,minlength:7,maxlength:12}
+		},
 		messages: {
 			email: {
-				required: 'Enter this!'
+				required: 'Xin nhập địa chỉ email!'
+			}
+		}
+	});
+//danh cho page xem thu
+var validator = $(".form_profile2").validate({
+		rules: {
+			birthday: {required: true,date: true},
+			hcpassword: {required: true, minlength:6,maxlength:12},
+			hcconfirm_pass: {required: true, minlength:6,maxlength:12,equalTo: "#password"},
+			hcmobile: {required: true,number: true,minlength:7,maxlength:12},
+			companyphone: {required: true,number: true,minlength:7,maxlength:12}
+		},
+		messages: {
+			email: {
+				required: 'Xin nhập địa chỉ email!'
 			}
 		}
 	});
