@@ -2,6 +2,7 @@
 	<?php if (have_posts()) : ?>
 
 	<h1 style="font-size:24px">Quyền lợi thành viên</h1>
+    <a href="http://dev.happyclick.vn/wp-content/uploads/pdf/HC_Membership_Flyer.pdf" target="_blank" style="clear: both; display: block; /* margin: 0px 0 0 -34px; */ color: red;font-size: 14px;left: 322px;position: absolute;">Xem chi tiết quyền lợi thành viên</a>
         
 		<?php 
     
