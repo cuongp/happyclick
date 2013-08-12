@@ -1024,7 +1024,7 @@ $.extend($.validator, {
 
 		// http://docs.jquery.com/Plugins/Validation/Methods/date
 		date: function( value, element ) {
-			return this.optional(element) || !/Invalid|NaN/.test(new Date(value).toString());
+			return this.optional(element) || /^(([0-2]?\d{1})|([3][0,1]{1}))\/[0,1]?\d{1}\/(([1]{1}[9]{1}[9]{1}\d{1})|([2-9]{1}\d{3}))$/.test(value);//!/Invalid|NaN/.test(new Date(value).toString());
 		},
 
 		// http://docs.jquery.com/Plugins/Validation/Methods/dateISO
@@ -2381,15 +2381,35 @@ function log() {
 		$("#captchaimage").load('/wp-content/themes/yoo_master_wp/js/image_req.php');
 		return false;
 	});
-
+	// my custom validation
 	// validate the form when it is submitted
-	var validator = $(".form_profile").validate();
-
-	$('.form_profile2').validate({
-		
+//danh cho form kich hoat
+	var validator = $(".form_profile").validate({
+		rules: {
+			hcbirthday: {required: true,date: true},
+			hcpassword: {required: true, minlength:6,maxlength:12},
+			hcconfirm_pass: {required: true, minlength:6,maxlength:12,equalTo: "#password"},
+			hcmobile: {required: true,number: true,minlength:7,maxlength:12},
+			hccompanyphone: {required: true,number: true,minlength:7,maxlength:12}
+		},
 		messages: {
 			email: {
-				required: 'Enter this!'
+				required: 'Xin nhập địa chỉ email!'
+			}
+		}
+	});
+//danh cho page xem thu
+var validator = $(".form_profile2").validate({
+		rules: {
+			birthday: {required: true,date: true},
+			hcpassword: {required: true, minlength:6,maxlength:12},
+			hcconfirm_pass: {required: true, minlength:6,maxlength:12,equalTo: "#password"},
+			hcmobile: {required: true,number: true,minlength:7,maxlength:12},
+			companyphone: {required: true,number: true,minlength:7,maxlength:12}
+		},
+		messages: {
+			email: {
+				required: 'Xin nhập địa chỉ email!'
 			}
 		}
 	});
