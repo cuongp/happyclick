@@ -4,25 +4,25 @@
 global $current_user;
 $flag='';
  $args = array(
-    'orderby'       => 'name', 
+    'orderby'       => 'name',
     'order'         => 'ASC',
-    'hide_empty'    => false, 
-    'exclude'       => array(), 
-    'exclude_tree'  => array(), 
+    'hide_empty'    => false,
+    'exclude'       => array(),
+    'exclude_tree'  => array(),
     'include'       => array(),
-    'number'        => '', 
-    'fields'        => 'all', 
-    'slug'          => '', 
+    'number'        => '',
+    'fields'        => 'all',
+    'slug'          => '',
     'parent'         => '',
-    'hierarchical'  => true, 
-    'child_of'      => 0, 
-    'get'           => '', 
+    'hierarchical'  => true,
+    'child_of'      => 0,
+    'get'           => '',
     'name__like'    => '',
-    'pad_counts'    => false, 
-    'offset'        => '', 
-    'search'        => '', 
+    'pad_counts'    => false,
+    'offset'        => '',
+    'search'        => '',
     'cache_domain'  => 'core'
-); 	
+);
 $cities = get_terms('city',$args);
 $nganhnghe =get_terms('nganhnghe',$args);
 $doituong = get_terms('doituong',$args);
@@ -30,19 +30,19 @@ $doituong = get_terms('doituong',$args);
 if(isset($_POST) && $_POST['action'] == 'submit'){
 $db = $GLOBALS['wpdb'];
 		if(!email_exists($_POST['hcemail'])){
-			$user_id = wp_create_user( $_POST['hcemail'], $_POST['hcpassword'], $_POST['hcemail'] ); 
+			$user_id = wp_create_user( $_POST['hcemail'], $_POST['hcpassword'], $_POST['hcemail'] );
 			if(!is_array($user_id->errors)){
 			if($user_id>0){
 
 			update_usermeta( $user_id, 'first_name', $_POST['hcfirst_name']);
-        	update_usermeta( $user_id, 'last_name', $_POST['hclast_name']);
-        	update_usermeta( $user_id, 'mobile', $_POST['hcmobile']);
-        	update_usermeta( $user_id, 'position', $_POST['hcposition']);
-        	update_usermeta( $user_id, 'gender', $_POST['hcgender']);
-        	update_usermeta( $user_id, 'company', $_POST['hccompany']);
-        	update_usermeta( $user_id, 'objectuser', $_POST['hcobjectuser']);
-        	update_usermeta( $user_id, 'mayjor', $_POST['hcmayjor']);
-        	update_usermeta( $user_id, 'city', $_POST['hccity']);
+            	update_usermeta( $user_id, 'last_name', $_POST['hclast_name']);
+            	update_usermeta( $user_id, 'mobile', $_POST['hcmobile']);
+            	update_usermeta( $user_id, 'position', $_POST['hcposition']);
+            	update_usermeta( $user_id, 'gender', $_POST['hcgender']);
+            	update_usermeta( $user_id, 'company', $_POST['hccompany']);
+            	update_usermeta( $user_id, 'objectuser', $_POST['hcobjectuser']);
+            	update_usermeta( $user_id, 'mayjor', $_POST['hcmayjor']);
+            	update_usermeta( $user_id, 'city', $_POST['hccity']);
 
 				update_usermeta( $user_id, 'first_name', $_POST['hcfirst_name']);
 				$db->insert($db->prefix.'m_membership_relationships',
@@ -108,7 +108,7 @@ $db = $GLOBALS['wpdb'];
 </tr>
 </tbody>
 </table>';
-			//wpMandrill::mail($_POST['email'],'Xác nhận email',$html);	
+			//wpMandrill::mail($_POST['email'],'Xác nhận email',$html);
 			$headers[] = 'From: Happy Click <support@happyclick.vn>';
 			$headers[] ='Content-type: text/html';
 			wp_mail($_POST['hcemail'],'Kích hoạt tài khoản xem thử',$html,$headers);
@@ -116,8 +116,8 @@ $db = $GLOBALS['wpdb'];
 			wp_redirect('/hcaccount/xac-nhan-email/');
 			exit;
 			}
-			
-			
+
+
 	wp_reset_query();
 		}else
 		{
@@ -125,18 +125,18 @@ $db = $GLOBALS['wpdb'];
 		}
 		}else
 		{
-			$flag= '<h3 class="error">Email này đã được sử dụng, vui lòng sử dụng email khác để đăng ký</h3>';	
+			$flag= '<h3 class="error">Email này đã được sử dụng, vui lòng sử dụng email khác để đăng ký</h3>';
 		}
-		
-		
-		
-	
+
+
+
+
 }
 
 $gender = get_usermeta( $current_user->ID, 'gender');
 
 ?>
-<?php 
+<?php
 			if ($this['modules']->count('top-a2')) : ?>
 			<section id="top-a2" class="grid-block"><?php echo $this['modules']->render('top-a2', array('layout'=>$this['config']->get('top-a2'))); ?></section>
             <?php
@@ -155,66 +155,66 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 
 <?php echo $flag; ?>
 		<table width="100%" class="form_doipass">
-			
+
 			<tr>
 				<td colspan="2"><br/>
-				<p><strong>THÔNG TIN CÁ NHÂN</strong></p><br/>	
+				<p><strong>THÔNG TIN CÁ NHÂN</strong></p><br/>
 				</td>
 
 			</tr>			<tr>
 				<td colspan="2">
-					
+
 					<p>(<span>*</span>) Thông tin bắt buộc</p><br/>
 				</td>
 			</tr>
 
 			<tr>
         <td class="box3" width="45%"  align="right">Họ</td>
-        <td  class="box4"><input required type="text" id="first_name" name="hcfirst_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo get_usermeta( $current_user->ID, 'first_name'); ?>" /><span>*</span></td>       
+        <td  class="box4"><input required type="text" id="first_name" name="hcfirst_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo get_usermeta( $current_user->ID, 'first_name'); ?>" /><span>*</span></td>
       </tr>
       <tr>
         <td class="box3" width="45%"  align="right">Tên</td>
-        <td  class="box4"><input required type="text" id="last_name" name="hclast_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo get_usermeta( $current_user->ID, 'last_name'); ?>" /><span>*</span></td>        
+        <td  class="box4"><input required type="text" id="last_name" name="hclast_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo get_usermeta( $current_user->ID, 'last_name'); ?>" /><span>*</span></td>
       </tr>
 			<tr>
 				<td width="45%"  class="box3"  align="right">Giới tính</td>
-				<td  class="box4"><input type="radio" name="hcgender" value="0" <?php if($gender==0) echo 'checked=checked'; else echo ''; ?> /> Nam <input type="radio" name="hcgender" value="1" <?php if($gender==1) echo 'checked=checked'; else echo ''; ?> /> Nữ</td>				
+				<td  class="box4"><input type="radio" name="hcgender" value="0" <?php if($gender==0) echo 'checked=checked'; else echo ''; ?> /> Nam <input type="radio" name="hcgender" value="1" <?php if($gender==1) echo 'checked=checked'; else echo ''; ?> /> Nữ</td>
 			</tr>
 			<!--<tr>
 				<td width="45%"  class="box3" align="right">Ngày sinh</td>
-				<td  class="box4"><input type="text" id="birthday" name="birthday" value="<?php echo get_usermeta( $current_user->ID, 'birthday'); ?>" placeholder="Ngày/tháng/năm" /><span>*</span></td>				
+				<td  class="box4"><input type="text" id="birthday" name="birthday" value="<?php echo get_usermeta( $current_user->ID, 'birthday'); ?>" placeholder="Ngày/tháng/năm" /><span>*</span></td>
 			</tr>-->
 			<tr>
 				<td width="45%"  class="box3" align="right">Email <br/> <em style="font-weight:normal">Email cá nhân hoặc email thường sử dụng</td>
-				<td  class="box4"><input type="email" class="email" name="hcemail" id="email" value="<?php echo $current_user->user_email ?>" data-msg-email="Email không hợp lệ" data-msg-required="Bạn chưa nhập email" /><span>*</span></td>				
+				<td  class="box4"><input type="email" class="email" name="hcemail" id="email" value="<?php echo $current_user->user_email ?>" data-msg-email="Email không hợp lệ" data-msg-required="Bạn chưa nhập email" /><span>*</span></td>
 			</tr>
 			<!--<tr>
 				<td width="45%"  class="box3" align="right">Email<br/><em>Email cá nhân hoặc email thường sử dụng</em></td>
-				<td  class="box4"><input id="subemail" type="text" name="subemail"  value="<?php echo get_usermeta( $current_user->ID, 'subemail'); ?>" /><span>*</span></td>				
+				<td  class="box4"><input id="subemail" type="text" name="subemail"  value="<?php echo get_usermeta( $current_user->ID, 'subemail'); ?>" /><span>*</span></td>
 			</tr>-->
 			<tr>
 				<td width="45%"  class="box3" align="right">Mật khẩu</td>
-				<td  class="box4"><input type="password" name="hcpassword" required id="password" /><span>*</span></td>				
+				<td  class="box4"><input type="password" name="hcpassword" required id="password" /><span>*</span></td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Xác nhận mật khẩu</td>
-				<td  class="box4"><input type="password" id="confirm_password" name="hcconfirm_pass" required /><span>*</span></td>				
+				<td  class="box4"><input type="password" id="confirm_password" name="hcconfirm_pass" required /><span>*</span></td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Điện thoại di động</td>
-				<td  class="box4"><input type="text" name="hcmobile" id="mobile" value="<?php echo get_usermeta( $current_user->ID, 'mobile'); ?>"  required /><span>*</span></td>				
+				<td  class="box4"><input type="text" name="hcmobile" id="mobile" value="<?php echo get_usermeta( $current_user->ID, 'mobile'); ?>"  required /><span>*</span></td>
 			</tr>
 			<!--<tr>
 				<td width="45%"  class="box3" align="right">Điện thoại công ty</td>
-				<td  class="box4"><input type="text" name="companyphone" value="<?php echo get_usermeta( $current_user->ID, 'companyphone'); ?>" /></td>				
+				<td  class="box4"><input type="text" name="companyphone" value="<?php echo get_usermeta( $current_user->ID, 'companyphone'); ?>" /></td>
 			</tr>-->
 			<tr>
 				<td width="45%"  class="box3" align="right">Chức vụ</td>
-				<td  class="box4"><input type="text" name="hcposition" value="<?php echo get_usermeta( $current_user->ID, 'position'); ?>" /></td>				
+				<td  class="box4"><input type="text" name="hcposition" value="<?php echo get_usermeta( $current_user->ID, 'position'); ?>" /></td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Công ty</td>
-				<td  class="box4"><input type="text" name="hccompany" value="<?php echo get_usermeta( $current_user->ID, 'company'); ?>" /></td>				
+				<td  class="box4"><input type="text" name="hccompany" value="<?php echo get_usermeta( $current_user->ID, 'company'); ?>" /></td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Đối tượng</td>
@@ -235,7 +235,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 						?>
 					</select><span>*</span>
 
-</td>				
+</td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Ngành nghề</td>
@@ -259,7 +259,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 </td>	</tr>
 			<!--<tr>
 				<td width="45%"  class="box3" align="right">Địa chỉ<br/><em style="font-weight:normal">Nhận thẻ và hóa đơn</em></td>
-				<td  class="box4"><input type="text" name="address" id="address" value="<?php echo get_usermeta( $current_user->ID, 'address'); ?>"  /><span>*</span></td>				
+				<td  class="box4"><input type="text" name="address" id="address" value="<?php echo get_usermeta( $current_user->ID, 'address'); ?>"  /><span>*</span></td>
 			</tr>-->
 			<tr>
 				<td width="45%"  class="box3" align="right">Tỉnh/Thành phố</td>
@@ -280,9 +280,9 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 						?>
 					</select>
 
-<span>*</span></td>	
+<span>*</span></td>
 				</tr>
-			
+
 			<tr>
 				<td><input type="hidden" name="action" value="submit"></td>
 				<td align="center" class="update"><input type="submit" value=""  /></td>

@@ -11,25 +11,25 @@ if($is_subs){
 }
 $flag='';
  $args = array(
-    'orderby'       => 'name', 
+    'orderby'       => 'name',
     'order'         => 'ASC',
-    'hide_empty'    => false, 
-    'exclude'       => array(), 
-    'exclude_tree'  => array(), 
+    'hide_empty'    => false,
+    'exclude'       => array(),
+    'exclude_tree'  => array(),
     'include'       => array(),
-    'number'        => '', 
-    'fields'        => 'all', 
-    'slug'          => '', 
+    'number'        => '',
+    'fields'        => 'all',
+    'slug'          => '',
     'parent'         => '',
-    'hierarchical'  => true, 
-    'child_of'      => 0, 
-    'get'           => '', 
+    'hierarchical'  => true,
+    'child_of'      => 0,
+    'get'           => '',
     'name__like'    => '',
-    'pad_counts'    => false, 
-    'offset'        => '', 
-    'search'        => '', 
+    'pad_counts'    => false,
+    'offset'        => '',
+    'search'        => '',
     'cache_domain'  => 'core'
-); 	
+);
 $cities = get_terms('city',$args);
 $nganhnghe =get_terms('nganhnghe',$args);
 $doituong = get_terms('doituong',$args);
@@ -49,32 +49,31 @@ function insert_user_data($data){
 function get_card_info($card_id){
 	$db = $GLOBALS['wpdb'];
 	$cardTable = $db->prefix.'cards';
-	
+
 	$card = $db->get_row('select id,sub_id from '.$cardTable.' where id = '.$card_id);
-	
+
 	return !empty($card)?$card :null;
 }
 function get_sub_info($sub_id){
 	$db = $GLOBALS['wpdb'];
 	$subTable = $db->prefix.'m_subscriptions_levels';
-	$sub = $db->get_row('select * from '.$subTable.' where sub_id = "'.$sub_id.'"');	
-	return !empty($sub)?$sub :null;	
+	$sub = $db->get_row('select * from '.$subTable.' where sub_id = "'.$sub_id.'"');
+	return !empty($sub)?$sub :null;
 }
 
 if(isset($_POST) && $_POST['action'] == 'submit'){
 	$db = $GLOBALS['wpdb'];
-	$card_id = check_card($_POST['hccode'],$_POST['hcserial']); 
+	$card_id = check_card($_POST['hccode'],$_POST['hcserial']);
 	if($card_id>0){
 		if($current_user->ID > 0){
 			$user_id = $current_user->ID;
 		}
 		else{
-			
-			$user_id = wp_create_user( $_POST['hcemail'], $_POST['hcpassword'], $_POST['hcemail']); 	
+			$user_id = wp_create_user( $_POST['hcemail'], $_POST['hcpassword'], $_POST['hcemail']);
 		}
-		
+
 		if(!is_array($user_id->errors) && $user_id>0){
-			
+
 				update_usermeta( $user_id, 'first_name', $_POST['hcfirst_name']);
 				update_usermeta( $user_id, 'last_name', $_POST['hclast_name']);
 				update_usermeta( $user_id, 'mobile', $_POST['hcmobile']);
@@ -88,10 +87,10 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 				update_usermeta( $user_id, 'city', $_POST['hccity']);
 				update_usermeta( $user_id, 'address', $_POST['hcaddress']);
 
-			
-			$card_info = get_card_info($card_id->id);		
+
+			$card_info = get_card_info($card_id->id);
 			$sub_info = get_sub_info($card_info->sub_id);
-			$startdate = date("Y-m-d H:i:s");		
+			$startdate = date("Y-m-d H:i:s");
 			update_card($card_id->id);
 			$level_period_unit = $sub_info->level_period_unit;
 			switch ($level_period_unit) {
@@ -135,13 +134,19 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					,'order_instance'=>1
 					,'usinggateway'=>'card'
 					));
-			
+
 			update_usermeta($user_id,'wp_membership_active','no');
-			insert_user_data(array('user_id'=>$user_id,'card_id'=>$card_id->id,'created_at'=>time()));
+			insert_user_data(array('user_id'			=>		$user_id,
+									'card_id'			=>		$card_id->id,
+									'created_at'		=>		time(),
+									'company_name'	=>		$_POST['cty'],
+									'company_address'=>		$_POST['dccty'],
+									'tax_code'			=>		$_POST['tax']
+									));
 			$key = md5($user_id. $_POST['hcpassword'] . time());
 			$db->update($db->prefix.'users',array('user_activation_key'=>$key),array('ID'=>$user->ID));
 			update_user_meta($user->ID, '_membership_key', $key);
-			
+
 			if($current_user->ID > 0){
 				update_usermeta($user_id,'wp_membership_active','yes');
 				$hcemail = $current_user->user_email;
@@ -150,7 +155,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 				$hcemail = $_POST['hcemail'];
 
 			if($current_user->ID > 0){
-			
+
 				$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 					<tbody>
 					<tr>
@@ -176,8 +181,8 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					    <p style="padding:10px">Số sê-ri của thẻ cào: '.$_POST['hcserial'].'</p>
 					    <p style="padding:10px">Thời hạn sử dụng: đến hết ngày '.$enddate2.'<br />
 					      <br />
-					      
-					      
+
+
 					      Đây là email tự động gửi, vui lòng không trả lời vào email này.<br />
 					      <br />
 					      Thân mến,<br />
@@ -262,9 +267,9 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 			//wpMandrill::mail($_POST['email'],'Kích hoạt thành viên',$html);
 			$headers[] = 'From: Happy Click <support@happyclick.vn>';
 			$headers[] ='Content-type: text/html';
-			
+
 			wp_mail($hcemail,'Chào mừng thành viên mới của Happy Click!',$html,$headers);
-			
+
 			if($current_user->ID > 0){
 				wp_redirect('/index.php?mod=kich-hoat');
 				exit;
@@ -274,7 +279,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 				wp_redirect('/hcaccount/xac-nhan-email/');
 				exit;
 			}
-						
+
 		}
 		else
 		{
@@ -307,7 +312,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 		<table width="100%" class="form_profile">
 			<tr>
 				<td colspan="2">
-					
+
 					<p>(<span>*</span>) Thông tin bắt buộc</p><br/>
 				</td>
 			</tr>
@@ -319,37 +324,37 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>
 <tr>
 				<td class="box3" width="45%"  align="right">Mã thẻ cào</td>
-				<td  class="box4"><input type="text" id="code" name="hccode" required /><span>*</span></td>				
+				<td  class="box4"><input type="text" id="code" name="hccode" required /><span>*</span></td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3"  align="right">Số sê-ri</td>
-				<td  class="box4"><input type="text" id="serial" name="hcserial" required /><span>*</span></td>				
+				<td  class="box4"><input type="text" id="serial" name="hcserial" required /><span>*</span></td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Mã kiểm tra</td>
-				<td  class="box4"><a href="<?php echo $_SERVER['PHP_SELF']; ?>" id="refreshimg" title="Click to refresh image"><img src="/wp-content/themes/<?php echo get_template() ?>/js/images/image.php?<?php echo time(); ?>" width="132" height="46" alt="Captcha image" /></a><input type="text" maxlength="6" name="hccaptcha" id="captcha" /><span>*</span></td>				
+				<td  class="box4"><a href="<?php echo $_SERVER['PHP_SELF']; ?>" id="refreshimg" title="Click to refresh image"><img src="/wp-content/themes/<?php echo get_template() ?>/js/images/image.php?<?php echo time(); ?>" width="132" height="46" alt="Captcha image" /></a><input type="text" maxlength="6" name="hccaptcha" id="captcha" /><span>*</span></td>
 			</tr>
 			<tr>
 				<td colspan="2"><br/>
-				<p><strong>THÔNG TIN CÁ NHÂN</strong></p><br/>	
+				<p><strong>THÔNG TIN CÁ NHÂN</strong></p><br/>
 				</td>
 
 			</tr>
 			<tr>
 				<td class="box3" width="45%"  align="right">Họ</td>
-				<td  class="box4"><input required type="text" id="first_name" name="hcfirst_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo $current_user->first_name; ?>" /><span>*</span></td>				
+				<td  class="box4"><input required type="text" id="first_name" name="hcfirst_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo $current_user->first_name; ?>" /><span>*</span></td>
 			</tr>
 			<tr>
 				<td class="box3" width="45%"  align="right">Tên</td>
-				<td  class="box4"><input required type="text" id="last_name" name="hclast_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo $current_user->last_name; ?>" /><span>*</span></td>				
+				<td  class="box4"><input required type="text" id="last_name" name="hclast_name" placeholder="Vui lòng gõ tiếng Việt có dấu" value="<?php echo $current_user->last_name; ?>" /><span>*</span></td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3"  align="right">Giới tính</td>
-				<td  class="box4"><input type="radio" name="hcgender" value="0" <?php if($gender==0) echo 'checked=checked'; else echo ''; ?> /> Nam <input type="radio" name="hcgender" value="1" <?php if($gender==1) echo 'checked=checked'; else echo ''; ?> /> Nữ</td>				
+				<td  class="box4"><input type="radio" name="hcgender" value="0" <?php if($gender==0) echo 'checked=checked'; else echo ''; ?> /> Nam <input type="radio" name="hcgender" value="1" <?php if($gender==1) echo 'checked=checked'; else echo ''; ?> /> Nữ</td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Ngày sinh</td>
-				<td  class="box4"><input type="text" id="birthday" name="hcbirthday" value="<?php echo get_usermeta( $current_user->ID, 'birthday'); ?>" placeholder="Ngày/tháng/năm" required/><span>*</span></td>				
+				<td  class="box4"><input type="text" id="birthday" name="hcbirthday" value="<?php echo get_usermeta( $current_user->ID, 'birthday'); ?>" placeholder="Ngày/tháng/năm" required/><span>*</span></td>
 			</tr>
 			<tr>
 			<?php
@@ -365,41 +370,41 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 				<p style="font-size:12px">Email này bạn đã dùng để đăng nhập,<br/> Nếu cần thay đổi vui lòng liên hệ với Happy Click.<br/>
 				<strong><em>
 				Hỗ trợ 24/7: (08) 7302 0168 - (08) 7303 0168</em></strong></p></td>
-			<?php endif; ?>	
-			<td  class="box4"><input required class="email" <?php echo $disable ?> type="email" name="hcemail" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>				
+			<?php endif; ?>
+			<td  class="box4"><input required class="email" <?php echo $disable ?> type="email" name="hcemail" id="email" value="<?php echo $current_user->user_email ?>" /><span>*</span></td>
 			</tr>
 			<?php if($current_user->ID < 1): ?>
 			<tr>
 				<td width="45%"  class="box3" align="right">Mật khẩu</td>
-				<td  class="box4"><input type="password" id="password" name="hcpassword" required /><span>*</span></td>				
+				<td  class="box4"><input type="password" id="password" name="hcpassword" required /><span>*</span></td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Xác nhận mật khẩu</td>
-				<td  class="box4"><input type="password" name="hcconfirm_pass" required /><span>*</span></td>				
+				<td  class="box4"><input type="password" name="hcconfirm_pass" required /><span>*</span></td>
 			</tr>
 		<?php endif;?>
 			<tr>
 				<td width="45%"  class="box3" align="right">Điện thoại di động</td>
-				<td  class="box4"><input type="text" name="hcmobile" id="mobile" required value="<?php echo get_usermeta( $current_user->ID, 'mobile'); ?>"  /><span>*</span></td>				
+				<td  class="box4"><input type="text" name="hcmobile" id="mobile" required value="<?php echo get_usermeta( $current_user->ID, 'mobile'); ?>"  /><span>*</span></td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Điện thoại công ty</td>
-				<td  class="box4"><input type="text" name="hccompanyphone" value="<?php echo get_usermeta( $current_user->ID, 'companyphone'); ?>" /></td>				
+				<td  class="box4"><input type="text" name="hccompanyphone" value="<?php echo get_usermeta( $current_user->ID, 'companyphone'); ?>" /></td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Chức vụ</td>
-				<td  class="box4"><input type="text" name="hcposition" value="<?php echo get_usermeta( $current_user->ID, 'position'); ?>" /></td>				
+				<td  class="box4"><input type="text" name="hcposition" value="<?php echo get_usermeta( $current_user->ID, 'position'); ?>" /></td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Công ty</td>
-				<td  class="box4"><input type="text" name="hccompany" value="<?php echo get_usermeta( $current_user->ID, 'company'); ?>" /></td>				
+				<td  class="box4"><input type="text" name="hccompany" value="<?php echo get_usermeta( $current_user->ID, 'company'); ?>" /></td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Đối tượng</td>
 				<td  class="box4">
 					<select id="objectuser" name="hcobjectuser"   required="">
 						<option value="">Chưa chọn</option>
-					
+
 						<?php
 							if(!empty($doituong)){
 								foreach ($doituong as $dt) {
@@ -415,7 +420,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 						?>
 					</select>
 
-<span>*</span></td>				
+<span>*</span></td>
 			</tr>
 
 			<tr>
@@ -436,11 +441,11 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 							}
 						?>
 					</select>
-				</td>	
+				</td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Địa chỉ<br/><em style="font-weight:normal">Nhận thẻ và hóa đơn</em></td>
-				<td  class="box4"><input type="text" name="hcaddress" id="address" required value="<?php echo get_usermeta( $current_user->ID, 'address'); ?>"  /><span>*</span></td>				
+				<td  class="box4"><input type="text" name="hcaddress" id="address" required value="<?php echo get_usermeta( $current_user->ID, 'address'); ?>"  /><span>*</span></td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Tỉnh/Thành phố</td>
@@ -462,13 +467,31 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 						?>
 					</select>
 
-<span>*</span></td>	
+<span>*</span></td>
 				</tr>
+			<tr>
+				<td colspan="2">
+					<h3>THÔNG TIN XUẤT HÓA ĐƠN</h3>
+					<p>Nếu bạn muốn xuất hóa đơn cho công ty, vui lòng điền thông tin dưới đây. Trong trường hợp bạn không cung cấp những thông tin này, Happy Click sẽ xuất hơn đơn theo thông tin cá nhân mà bạn đã đăng ký</p>
+				</td>
+			</tr>
+			<tr>
+				<td width="45%" class="box3" align="right">Tên công ty</td>
+				<td class="box4"><input type="text" name="cty" value="" /></td>
+			</tr>
+			<tr>
+				<td width="45%" class="box3" align="right">Địa chỉ công ty</td>
+				<td class="box4"><input type="text" name="dccty" value="" /></td>
+			</tr>
+			<tr>
+				<td width="45%" class="box3" align="right">Mã số thuế</td>
+				<td class="box4"><input type="text" name="tax" value="" /></td>
+			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right"></td>
 				<td  class="box4">
 				<input type="checkbox" name="hcdk" value="1" id="agree" required/> Tôi đã đọc và đồng ý với <a href="/dieu-khoan-su-dung/">điều khoản sử dụng</a> trên đây
-				</td>				
+				</td>
 			</tr>
 			<tr>
 				<td><input type="hidden" name="action" value="submit"></td>
