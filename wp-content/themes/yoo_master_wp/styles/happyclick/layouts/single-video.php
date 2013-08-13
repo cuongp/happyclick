@@ -39,7 +39,7 @@
                             endif; ?>
                         </div>
                         <h4 class="video_title"><?php the_title(); ?></h4>
-                        <br />
+                        <p style="width: 100%;text-align: center;font-size: 13px;font-weight: normal;color: red;">Trang web được hỗ trợ tốt nhất trên trình duyệt Google Chrome</p>
                         <br />
                         <?php
                             $categories = get_the_category();
