@@ -1,7 +1,7 @@
 <div id="system">
 	<?php if (have_posts()) : ?>
 
-	<h1 style="font-size:24px">Quyền lợi thành viên</h1>
+	<h1 style="font-size: 24px;">Quyền lợi thành viên <a href="/wp-content/uploads/pdf/HC_Membership_Flyer.pdf" target="_blank" style="color: red;font-size: 16px;font-weight: bold;">   (Xem chi tiết quyền lợi thành viên - tải tài liệu PDF)</a></h1>
         
 		<?php 
     

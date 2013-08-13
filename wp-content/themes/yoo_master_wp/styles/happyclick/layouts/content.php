@@ -129,6 +129,10 @@ elseif (is_archive()) {
         case 'hoc-truc-tuyen':
             $content = 'archive-hoc-truc-tuyen';
             break;
+        case 'khoa-hoc-truc-tuyen-sap-dien-ra':
+        case 'khoa-hoc-truc-tuyen-da-to-chuc':
+            wp_redirect(get_site_url().'/hoc-truc-tuyen');
+            break;
         case 'khoi-dong-tuan-moi':
             $content = 'archive-new-week';
             break;
