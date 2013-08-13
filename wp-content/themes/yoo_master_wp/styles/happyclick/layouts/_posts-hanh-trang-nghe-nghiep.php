@@ -1,11 +1,11 @@
-<?php 
+<?php
 /**
 * @package   Warp Theme Framework
 * @author    YOOtheme http://www.yootheme.com
 * @copyright Copyright (C) YOOtheme GmbH
 * @license   http://www.gnu.org/licenses/gpl.html GNU/GPL
 */
-
+global $current_user;
 $category_per_page  = 6; //So category hien thi tren 1 page
 $current_page       = 1; //Set trang dang xem
 if(isset($_GET['page']) && $_GET['page']!='' )
@@ -32,6 +32,12 @@ $number_of_pages    = ceil($total_records/$category_per_page);
 
 $i=0;
 //Hien thi danh sach cac category
+$is_subs = current_user_has_subscription();
+if($current_user->ID > 0 && !$is_subs){
+?>
+<p style="color:red">Bạn được xem thử video đầu tiên của mỗi chủ đề</p>
+<?php
+}
 foreach ($categories as $key=>$category){
     $i++;
     if($key<($current_page * $category_per_page - $category_per_page) )
@@ -45,6 +51,9 @@ foreach ($categories as $key=>$category){
         'show_count' => 1
     );
     //Category chua co du lieu => bo qua
+
+    ?>
+    <?php
     if($category->count == 0 ) continue;
     ?>
     <div class="video-category">
@@ -83,9 +92,9 @@ foreach ($categories as $key=>$category){
         break;
 } // end foreach
 ?>
-<div class="video-pagination">    
+<div class="video-pagination">
     <span>Trang</span>
-    <?php        
+    <?php
         while($number_of_pages>0){
             if($number_of_pages != $current_page){
                 echo '<a href="?page='.$number_of_pages.'">'.$number_of_pages--.'</a>';
@@ -97,7 +106,7 @@ foreach ($categories as $key=>$category){
 </div>
 
 <div class="video-upcomming">
-    <?php 
+    <?php
         $post_id = 3543;
         $video_upcomming = get_post($post_id);
     ?>
