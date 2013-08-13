@@ -1,8 +1,94 @@
 <?php
+
 $cards = HCcard::getHistory();
+function outputCSV($data) {
+    $outstream = fopen("php://output", "w");
+    function __outputCSV(&$vals, $key, $filehandler) {
+        fputcsv($filehandler, $vals); // add parameters if you want
+    }
+    array_walk($data, "__outputCSV", $outstream);
+    fclose($outstream);
+}
+if($_POST['action'] == 'export'){
+	$date =date('Y-m-d',time());
+	$start = 0;
+	$end  = 0;
 
+	if($_POST['ctype'] == 1)
+	{
+		$start = strtotime($date.' 00:00:00');
+		$end = strtotime($date.' 23:59:59');
+	}
+	elseif($_POST['ctype'] == 2)
+	{
+		$start = strtotime($_POST['from'].' 00:00:00');
+		$end = strtotime($_POST['to'].' 23:59:59');
+	}
+	$lists = HCcard::export_card($start,$end);
+	$arrs = array(
+			array('ID Card','Serial','Date import','Date expired','ID User',
+					'Email User','Date Register','Date Use','Date expired',
+					'First name','Last name','Address','Mobile')
+		);
+	if(!empty($lists)){
+		foreach ($lists as $l) {
+			$user = get_user_by('id',$l->user_id);
+			$card = HCcard::get($l->card_id);
+			$user_info = get_userdata($l->user_id);
+			$arr = array(
+				$l->card_id,$card->serial,$card->created_at,
+				$card->expired,$l->user_id,$user->user_email,$user_info->user_registered,$l->created_at,
+				'',$user->first_name,$user->last_name,$user_info->address,$user_info->mobile
+				);
+			array_push($arrs, $arr);
+		}
+	}
+	$str = '<div id=""><table width=100% border=1>';
+	foreach ($arrs as $arr) {
+		$str.='<tr>';
+		$str.='<td >'.$arr[0].'</td>';
+		$str.='<td >'.$arr[1].'</td>';
+		$str.='<td >'.$arr[2].'</td>';
+		$str.='<td >'.$arr[3].'</td>';
+		$str.='<td >'.$arr[4].'</td>';
+		$str.='<td >'.$arr[5].'</td>';
+		$str.='<td >'.$arr[6].'</td>';
+		$str.='<td >'.$arr[7].'</td>';
+		$str.='<td >'.$arr[8].'</td>';
+		$str.='<td >'.$arr[9].'</td>';
+		$str.='<td >'.$arr[10].'</td>';
+		$str.='<td >'.$arr[11].'</td>';
+		$str.='<td >'.$arr[12].'</td>';
+		$str.='</tr>';
+	}
+	$str.='</table></div>';
+	echo $str;
+}
 ?>
-
+<h1 class="title">Xuất File</h1>
+<form method="post">
+	<table width="100%">
+		<tr>
+			<td width="10%">Loại:</td>
+			<td>
+				<select name="ctype" id="ctype">
+					<option value="all">Tất cả</option>
+					<option value="1">Hôm nay</option>
+					<option value="2">Tùy chọn</option>
+				</select>
+			</td>
+		</tr>
+		<tr id="customdate" style="display:none">
+			<td colspan="2">Từ ngày : <input type="text" placeholder="YYYY-MM-DD" value="" name="from"> đến ngày : <input type="text" value="" name="to"  placeholder="YYYY-MM-DD"></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="hidden" name="action" value="export">
+				<input type="submit" value="Export">
+			</td>
+		</tr>
+	</table>
+</form>
 <h1 class="title">Lịch sử giao dịch</h1>
 <form method="post" id="search">
 <h4>Tìm kiếm</h4>
@@ -33,9 +119,9 @@ $cards = HCcard::getHistory();
 			</thead>
 			<tbody>
 			<?php
-				if(!empty($cards)){	
+				if(!empty($cards)){
 					foreach ($cards as $card) {
-					$datetime = new DateTime(); 
+					$datetime = new DateTime();
 			?>
 			<tr id="item-<?php echo $card->id; ?>">
 				<td class="shortcode"><input type="checkbox" name="id[]" value="<?php echo $card->user_id; ?>" /><?php echo $card->user_id; ?></td>
@@ -48,17 +134,17 @@ $cards = HCcard::getHistory();
 				<td class="modified"><?php echo $card->valid=='0'?'Đang trong kho':'Đã xuất kho'; ?></td>
 				<td class="actions">
 					<a class="action edit" href="?page=hccard&options=viewuser&userid=<?php echo $card->user_id;?>">View</a>
-					<a class="action delete2" href="#"  data-id="<?php echo $card->id;?>">Delete</a> 
+					<a class="action delete2" href="#"  data-id="<?php echo $card->id;?>">Delete</a>
 				</td>
 			</tr>
 			<?php
-					}	
+					}
 				}
 			?>
 			</tbody>
 		</table>
 		<div id="page">Trang:
-			<?php 
+			<?php
 				if($pages>0){
 					for ($i=1; $i<= $pages ;$i++){
 
