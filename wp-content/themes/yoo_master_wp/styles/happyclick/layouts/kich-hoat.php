@@ -371,7 +371,7 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			<?php if($current_user->ID < 1): ?>
 			<tr>
 				<td width="45%"  class="box3" align="right">Mật khẩu</td>
-				<td  class="box4"><input type="password" name="hcpassword" required /><span>*</span></td>				
+				<td  class="box4"><input type="password" id="password" name="hcpassword" required /><span>*</span></td>				
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Xác nhận mật khẩu</td>

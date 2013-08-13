@@ -22,8 +22,16 @@ if(is_admin()){
     function _init_menu_sukien(){
             add_menu_page('Đăng ký sự kiện', 'Đăng ký sự kiện', 10, 'hcsukien', '_adminViewSukien',plugins_url('card/images/icon.png'));
     }
-
-    function _adminViewSukien(){
+add_action( 'admin_init','my_css_and_js');
+function my_css_and_js() {
+wp_register_style('myjqueryuicss', 'http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css',array(),null);
+wp_enqueue_style('myjqueryuicss');
+wp_register_script( 'myjqGrid', plugins_url('js/jquery.jqGrid.min.js',__FILE__ ),array(),null);
+wp_register_script( 'mygridlocale', plugins_url('js/grid.locale-vi.js',__FILE__ ),array(),null);
+wp_enqueue_script('myjqGrid');
+wp_enqueue_script('mygridlocale');
+}
+function _adminViewSukien(){
     ?>
     <h1 class="title">Danh sách thành viên đăng ký</h1>
     <table class="list" width="100%" border="1">
