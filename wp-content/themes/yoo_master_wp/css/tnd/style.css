@@ -267,12 +267,17 @@ div.wpcf7{
     float: left;
     width: 160px;
 }
-.wpcf7 input{
+.wpcf7 input,
+.wpcf7 select{
     float: left;
     margin: 3px 10px 3px 0;
     width: 365px;
     height: 15px;
     padding: 3px;
+}
+.wpcf7 select{
+    height: auto;
+    width: 373px;
 }
 .wpcf7 .autowidth input{
     width: auto;
@@ -832,13 +837,20 @@ table.quiz td{
 .page-id-1783 #content,
 .page-id-1865 #content,
 .page-id-2656 #content,
-.page-id-1994 #content{
+.page-id-1994 #content,
+.page-id-4036 #content,
+.page-id-4048 #content,
+.page-id-4058 #content{
     border: none;
     box-shadow: none;
     padding: 0;
     margin-top: 0;
 }
-.page-id-834 #content h1.title{ display:none; }
+.page-id-834 #content h1.title,
+.page-id-4036 #content h1.title,
+.page-id-4048 #content h1.title,
+.page-id-4058 #content h1.title
+{ display:none; }
 #module-new-week{ padding: 0 15px 10px; }
 #module-new-week h3{
     text-align: center;
@@ -897,4 +909,7 @@ table.quiz td{
     box-shadow: 0 0 3px #FF4700;
     border-radius: 5px;
 }
+#sidebar-b { width: 24%; }
+#sidebar-trial { width: 24%; }
+#maininner { width: 76%; }
 /* END Tamnd's code */
