@@ -28,6 +28,7 @@ if($current_user->ID >0 && $_POST['action']!='submit')
 else
 {
 	$user_info['email']				= ($current_user->ID >0) ? $current_user->user_email:$_POST['hcemail'];
+
 	$user_info['first_name']		= $_POST['hcfirst_name'];
 	$user_info['last_name']		= $_POST['hclast_name'];
 	$user_info['mobile']			= $_POST['hcmobile'];
@@ -559,15 +560,15 @@ $gender = get_usermeta( $current_user->ID, 'gender');
 			</tr>
 			<tr>
 				<td width="45%" class="box3" align="right">Tên công ty</td>
-				<td class="box4"><input type="text" name="cty" value="<?php echo $_POST['cty']; ?>" /></td>
+				<td class="box4"><input type="text" name="cty" value="" /></td>
 			</tr>
 			<tr>
 				<td width="45%" class="box3" align="right">Địa chỉ công ty</td>
-				<td class="box4"><input type="text" name="dccty"  value="<?php echo $_POST['dccty']; ?>" /></td>
+				<td class="box4"><input type="text" name="dccty" value="" /></td>
 			</tr>
 			<tr>
 				<td width="45%" class="box3" align="right">Mã số thuế</td>
-				<td class="box4"><input type="text" name="tax" value="<?php echo $_POST['tax']; ?>" /></td>
+				<td class="box4"><input type="text" name="tax" value="" /></td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right"></td>

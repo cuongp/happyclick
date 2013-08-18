@@ -1,13 +1,13 @@
-<?php 
+<?php
 /*
- * This is the page users will see logged out. 
+ * This is the page users will see logged out.
  * You can edit this, but for upgrade safety you should copy and modify this file into your template folder.
  * The location from within your template folder is plugins/login-with-ajax/ (create these directories if they don't exist)
 */
 ?>
 	<div class="lwa lwa-template-modal"><?php //class must be here, and if this is a template, class name should be that of template directory ?>
-		<a style="float:right" href="<?php echo esc_attr(LoginWithAjax::$url_login); ?>" class="lwa-links-modal"><?php esc_html_e('','login-with-ajax') ?></a>
-		<?php 
+		<a style="float:right" href="<?php echo esc_attr(); ?>" class="lwa-links-modal"><?php esc_html_e('','login-with-ajax') ?></a>
+		<?php
 		//FOOTER - once the page loads, this will be moved automatically to the bottom of the document.
 		?>
 		<div class="lwa-modal" style="display:none;">
@@ -34,21 +34,21 @@
                 	<tr><td colspan="2"><?php do_action('login_form'); ?></td></tr>
 	                <tr class="lwa-submit">
 	                    <td class="lwa-submit-button">
-	                        
+
 	                    </td>
 	                    <td class="lwa-links" align="center">
 	                    	<?php if( !empty($lwa_data['remember']) ): ?>
 							<a style="color:#000;
 text-decoration: underline;" href="/hcaccount/quen-mat-khau/" title="<?php esc_attr_e('Quên mật khẩu','login-with-ajax') ?>"><?php esc_attr_e('Quên mật khẩu','login-with-ajax') ?></a>
 							<?php endif; ?>
-							
+
 	                    	<input type="submit" name="wp-submit" class="lwa-wp-submit" value="<?php esc_attr_e('','login-with-ajax'); ?>" tabindex="100" />
 	                        <input type="hidden" name="lwa_profile_link" value="<?php echo !empty($lwa_data['profile_link']) ? 1:0 ?>" />
                         	<input type="hidden" name="login-with-ajax" value="login" />
 	                        <!--<input name="rememberme" type="checkbox" id="lwa_rememberme" value="forever" /> <label><?php esc_html_e( 'Lưu thông tin đăng nhập','login-with-ajax' ) ?></label>
 	                        <br />-->
 				        	<?php if ( get_option('users_can_register') && !empty($lwa_data['registration']) ) : ?>
-							<br />  
+							<br />
 							<a href="<?php echo esc_attr(LoginWithAjax::$url_register); ?>" class="lwa-links-register-inline"><?php esc_html_e('Đăng ký','login-with-ajax'); ?></a>
 							<?php endif; ?>
 	                    </td>
@@ -61,11 +61,11 @@ text-decoration: underline;" href="/hcaccount/quen-mat-khau/" title="<?php esc_a
 	            <table>
 	                <tr>
 	                    <td>
-	                        <strong><?php esc_html_e("Forgotten Password", 'login-with-ajax'); ?></strong>         
+	                        <strong><?php esc_html_e("Forgotten Password", 'login-with-ajax'); ?></strong>
 	                    </td>
 	                </tr>
-	                <tr class="lwa-remember-email">	                    
-	                	<td>  
+	                <tr class="lwa-remember-email">
+	                	<td>
 	                        <?php $msg = __("Enter username or email", 'login-with-ajax'); ?>
 	                        <input type="text" name="user_login" id="lwa_user_remember" value="<?php echo esc_attr($msg); ?>" onfocus="if(this.value == '<?php echo esc_attr($msg); ?>'){this.value = '';}" onblur="if(this.value == ''){this.value = '<?php echo esc_attr($msg); ?>'}" />
 							<?php do_action('lostpassword_form'); ?>
@@ -76,7 +76,7 @@ text-decoration: underline;" href="/hcaccount/quen-mat-khau/" title="<?php esc_a
 	                        <input type="submit" value="<?php esc_attr_e("Get New Password", 'login-with-ajax'); ?>" />
 	                          <a href="#" class="lwa-links-remember-cancel"><?php esc_html_e("Cancel",'login-with-ajax'); ?></a>
 	                        <input type="hidden" name="login-with-ajax" value="remember" />
-	                    </td>	                
+	                    </td>
 	                </tr>
 	            </table>
 	        </form>
@@ -88,26 +88,26 @@ text-decoration: underline;" href="/hcaccount/quen-mat-khau/" title="<?php esc_a
 					<table>
 		                <tr>
 		                    <td>
-		                        <strong><?php esc_html_e('Register For This Site','login-with-ajax') ?></strong>         
+		                        <strong><?php esc_html_e('Register For This Site','login-with-ajax') ?></strong>
 		                    </td>
 		                </tr>
 		                <tr class="lwa-username">
-		                    <td>  
+		                    <td>
 		                        <?php $msg = __('Username','login-with-ajax') ?>
-		                        <input type="text" name="user_login" id="user_login"  value="<?php echo esc_attr($msg); ?>" onfocus="if(this.value == '<?php echo esc_attr($msg); ?>'){this.value = '';}" onblur="if(this.value == ''){this.value = '<?php echo esc_attr($msg); ?>'}" /></label>   
+		                        <input type="text" name="user_login" id="user_login"  value="<?php echo esc_attr($msg); ?>" onfocus="if(this.value == '<?php echo esc_attr($msg); ?>'){this.value = '';}" onblur="if(this.value == ''){this.value = '<?php echo esc_attr($msg); ?>'}" /></label>
 		                    </td>
 		                </tr>
 		                <tr class="lwa-email">
-		                    <td>  
+		                    <td>
 		                        <?php $msg = __('E-mail','login-with-ajax') ?>
-		                        <input type="text" name="user_email" id="user_email"  value="<?php echo esc_attr($msg); ?>" onfocus="if(this.value == '<?php echo esc_attr($msg); ?>'){this.value = '';}" onblur="if(this.value == ''){this.value = '<?php echo esc_attr($msg); ?>'}"/></label>   
+		                        <input type="text" name="user_email" id="user_email"  value="<?php echo esc_attr($msg); ?>" onfocus="if(this.value == '<?php echo esc_attr($msg); ?>'){this.value = '';}" onblur="if(this.value == ''){this.value = '<?php echo esc_attr($msg); ?>'}"/></label>
 		                    </td>
 		                </tr>
 		                <tr>
 		                    <td>
 								<?php
-								//If you want other plugins to play nice, you need this: 
-								do_action('register_form'); 
+								//If you want other plugins to play nice, you need this:
+								do_action('register_form');
 							?>
 		                    </td>
 		                </tr>

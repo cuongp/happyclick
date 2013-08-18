@@ -42,7 +42,7 @@
 		<field name="multicolumns_order" type="radio" default="1" label="Multi Columns Order" description="Set the items order to across or down.">
 			<option value="1">Across</option>
 			<option value="0">Down</option>
-		</field>	
+		</field>
 		<field name="wpautop" type="radio" default="1" label="Post Formatting" description="Enable/Disable the content filter wpautop.">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
@@ -189,9 +189,9 @@
 		<field name="membership" type="layout" default="equal" label="Membership Layout" description="Select a grid layout for this module position." />
 		<field name="innertop" type="layout" default="equal" label="Inner Top Layout" description="Select a grid layout for this module position." />
 		<field name="innerbottom" type="layout" default="equal" label="Inner Bottom Layout" description="Select a grid layout for this module position." />
-		<field name="innertop-trial" type="layout" default="equal" label="Inner Top Layout" description="Select a grid layout for this module position." />
+		<field name="innertop-trial" type="layout" default="equal" label="Inner Top Trial Layout" description="Select a grid layout for this module position." />
 		<field name="innerbottom-trial" type="layout" default="equal" label="Inner Bottom Layout" description="Select a grid layout for this module position." />
-		<field name="innertop-membership" type="layout" default="equal" label="Inner Top Layout" description="Select a grid layout for this module position." />
+		<field name="innertop-membership" type="layout" default="equal" label="Inner Top Membership Layout" description="Select a grid layout for this module position." />
 		<field name="innerbottom-membership" type="layout" default="equal" label="Inner Bottom Layout" description="Select a grid layout for this module position." />
 
 		<field name="bottom-a" type="layout" default="equal" label="Bottom A Layout" description="Select a grid layout for this module position." />

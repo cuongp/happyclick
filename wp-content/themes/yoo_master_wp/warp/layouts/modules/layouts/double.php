@@ -36,7 +36,7 @@ switch (count($modules)) {
 		printf('<div class="grid-box width20 grid-h">%s</div>', $modules[3]);
 		printf('<div class="grid-box width20 grid-h">%s</div>', $modules[4]);
 		break;
-		
+
 	case 6:
 		printf('<div class="grid-box width16 grid-h">%s</div>', $modules[0]);
 		printf('<div class="grid-box width16 grid-h">%s</div>', $modules[1]);
@@ -46,15 +46,15 @@ switch (count($modules)) {
 		printf('<div class="grid-box width16 grid-h">%s</div>', $modules[5]);
 		break;
 	case 7:
-    printf('<div class="grid-box width14 grid-h">%s</div>', $modules[0]);
-    printf('<div class="grid-box width14 grid-h">%s</div>', $modules[1]);
-    printf('<div class="grid-box width14 grid-h">%s</div>', $modules[2]);
-    printf('<div class="grid-box width14 grid-h">%s</div>', $modules[3]);
-    printf('<div class="grid-box width14 grid-h">%s</div>', $modules[4]);
-    printf('<div class="grid-box width14 grid-h">%s</div>', $modules[5]);
-    printf('<div class="grid-box width14 grid-h">%s</div>', $modules[6]);
-    break;
-		
+		printf('<div class="grid-box width14 grid-h">%s</div>', $modules[0]);
+		printf('<div class="grid-box width14 grid-h">%s</div>', $modules[1]);
+		printf('<div class="grid-box width14 grid-h">%s</div>', $modules[2]);
+		printf('<div class="grid-box width14 grid-h">%s</div>', $modules[3]);
+		printf('<div class="grid-box width14 grid-h">%s</div>', $modules[4]);
+		printf('<div class="grid-box width14 grid-h">%s</div>', $modules[5]);
+		printf('<div class="grid-box width14 grid-h">%s</div>', $modules[6]);
+		break;
+
 	default:
 		echo '';
 

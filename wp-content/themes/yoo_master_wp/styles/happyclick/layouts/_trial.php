@@ -9,7 +9,9 @@
 // get template configuration
 include($this['path']->path('layouts:template.config.php'));
 	global $current_user;
-
+	session_start();
+	if($current_user->ID > 0 && $_SESSION['pre_user_id']=="")
+		$_SESSION['pre_user_id'] = $current_user->ID;
 ?>
 <!DOCTYPE HTML>
 <html lang="<?php echo $this['config']->get('language'); ?>" dir="<?php echo $this['config']->get('direction'); ?>">
@@ -31,31 +33,31 @@ include($this['path']->path('layouts:template.config.php'));
 		<?php echo $this['modules']->render('absolute'); ?>
 	</div>
 	<?php endif; ?>
-	
+
 	<div class="wrapper clearfix">
 
 		<header id="header">
-         
-		
+
+
 			<?php if ($this['modules']->count('toolbar-l + toolbar-r') || $this['config']->get('date')) : ?>
 			<div id="toolbar" class="clearfix">
 
 				<?php if ($this['modules']->count('toolbar-l') || $this['config']->get('date')) : ?>
 				<div class="float-left">
-				
+
 					<?php if ($this['config']->get('date')) : ?>
 					<time datetime="<?php echo $this['config']->get('datetime'); ?>"><?php echo $this['config']->get('actual_date'); ?></time>
 					<?php endif; ?>
-				
+
 					<?php echo $this['modules']->render('toolbar-l'); ?>
-					
+
 				</div>
 				<?php endif; ?>
-					
+
 				<?php if ($this['modules']->count('toolbar-r')) : ?>
 				<div class="float-right"><?php echo $this['modules']->render('toolbar-r'); ?></div>
 				<?php endif; ?>
-				
+
 			</div>
 			<?php endif; ?>
 			<?php if ($this['modules']->count('menu + search')) : ?>
@@ -69,18 +71,18 @@ include($this['path']->path('layouts:template.config.php'));
 				<?php if ($this['modules']->count('search')) : ?>
 				<div id="search"><?php echo $this['modules']->render('search'); ?></div>
 				<?php endif; ?>
-				
+
 			</div>
-			<?php endif; ?>		
-			<?php 
-           
-            if ($this['modules']->count('logo + headerbar-trial')) : ?>	
+			<?php endif; ?>
+			<?php
+
+            if ($this['modules']->count('logo + headerbar-trial')) : ?>
 			<div id="headerbar" class="clearfix">
-			
-				<?php if ($this['modules']->count('logo')) : ?>	
+
+				<?php if ($this['modules']->count('logo')) : ?>
 				<a id="logo" href="<?php echo get_site_url();?>"><?php echo $this['modules']->render('logo'); ?></a>
 				<?php endif; ?>
-				
+
 				<?php echo $this['modules']->render('headerbar-trial'); ?>
 				<div class='user_info'>
 				<h3 class="username">Chào <?php echo $current_user->last_name; ?> !</h3>
@@ -89,18 +91,18 @@ dành cho thành viên Happy Click</p>
 				</div>
 
 			</div>
-			<?php 
+			<?php
 				if ($this['modules']->count('top-a2')) : ?>
 			<section id="top-a2" class="grid-block"><?php echo $this['modules']->render('top-a2', array('layout'=>$this['config']->get('top-a2'))); ?></section>
            <br/>
             <?php
             endif;
 				?>
-			<?php 
+			<?php
             endif;
            ?>
 		<?php if ($this['modules']->count('slider')) : ?>
-		
+
 		<section id="homeslider">
 				<?php echo $this['modules']->render('slider', array('layout'=>'stack')); ?>
 		</section>
@@ -110,16 +112,16 @@ dành cho thành viên Happy Click</p>
 		<?php if ($this['modules']->count('breadcrumbs')) : ?>
 				<section id="breadcrumbs"><?php echo $this['modules']->render('breadcrumbs'); ?></section>
 				<?php endif; ?>
-			<?php 
-			
+			<?php
+
 			if ($this['modules']->count('sidebar-trial')) : ?>
 			<aside id="sidebar-trial" class="grid-box"><?php echo $this['modules']->render('sidebar-trial', array('layout'=>'stack')); ?></aside>
 			<?php endif; ?>
 
-		
+
 		<div id="main" class="grid-block">
-		
-			 
+
+
 			<div id="maininner" class="grid-box">
 			 <?php if ($this['modules']->count('innertop-trial')) : ?>
 				<section id="innertop" class="grid-block"><?php echo $this['modules']->render('innertop-trial', array('layout'=>$this['config']->get('innertop-trial'))); ?></section>
@@ -127,7 +129,7 @@ dành cho thành viên Happy Click</p>
 			<section id="top-a3">
 				<?php echo $this['modules']->render('top-a3', array('layout'=>'stack')); ?>
 			</section>
-			
+
 
 			<div style="clear:both"></div>
 			<?php if ($this['config']->get('system_output')) : ?>
@@ -143,12 +145,12 @@ dành cho thành viên Happy Click</p>
 
 		<?php if ($this['modules']->count('footer + debug') || $this['config']->get('warp_branding') || $this['config']->get('totop_scroller')) : ?>
 		<?php if ($this['modules']->count('bottom-b')) : ?>
-		
+
         <section id="bottom-b" class="grid-block"><?php echo $this['modules']->render('bottom-b', array('layout'=>$this['config']->get('bottom-b'))); ?></section>
 		<?php endif; ?>
 		<footer id="footer">
 
-			
+
 			<?php
 				echo $this['modules']->render('footer');
 				$this->output('warp_branding');
@@ -159,8 +161,8 @@ dành cho thành viên Happy Click</p>
 		<?php endif; ?>
 
 	</div>
-	
+
 	<?php echo $this->render('footer'); ?>
-	
+
 </body>
 </html>

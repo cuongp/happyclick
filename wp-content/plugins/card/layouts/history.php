@@ -1,3 +1,29 @@
+<h1 class="title">Xuất File</h1>
+<form method="post">
+	<table width="100%">
+		<tr>
+			<td width="10%">Loại:</td>
+			<td>
+				<select name="ctype" id="ctype">
+					<option value="all">Tất cả</option>
+					<option value="1">Hôm nay</option>
+					<option value="2">Tùy chọn</option>
+				</select>
+			</td>
+		</tr>
+		<tr id="customdate" style="display:none">
+			<td colspan="2">Từ ngày : <input type="text" placeholder="YYYY-MM-DD" value="" name="from"> đến ngày : <input type="text" value="" name="to"  placeholder="YYYY-MM-DD"></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="hidden" name="action" value="export">
+				<input type="submit" value="Xem">
+			</td>
+		</tr>
+	</table>
+
+</form>
+
 <?php
 
 $cards = HCcard::getHistory();
@@ -9,6 +35,10 @@ function outputCSV($data) {
     array_walk($data, "__outputCSV", $outstream);
     fclose($outstream);
 }
+function encodeCSV($value, $key){
+    $value = iconv('UTF-8', 'UTF-8', $value);
+}
+array_walk($values, 'encodeCSV');
 if($_POST['action'] == 'export'){
 	$date =date('Y-m-d',time());
 	$start = 0;
@@ -36,59 +66,47 @@ if($_POST['action'] == 'export'){
 			$card = HCcard::get($l->card_id);
 			$user_info = get_userdata($l->user_id);
 			$arr = array(
-				$l->card_id,$card->serial,$card->created_at,
-				$card->expired,$l->user_id,$user->user_email,$user_info->user_registered,$l->created_at,
+				$l->card_id,$card->serial,date('d-m-Y',$card->created_at),
+				date('d-m-Y',$card->expired),$l->user_id,$user->user_email,date('d-m-Y',$user_info->user_registered),date('d-m-Y',$l->created_at),
 				'',$user->first_name,$user->last_name,$user_info->address,$user_info->mobile
 				);
 			array_push($arrs, $arr);
 		}
 	}
-	$str = '<div id=""><table width=100% border=1>';
-	foreach ($arrs as $arr) {
-		$str.='<tr>';
-		$str.='<td >'.$arr[0].'</td>';
-		$str.='<td >'.$arr[1].'</td>';
-		$str.='<td >'.$arr[2].'</td>';
-		$str.='<td >'.$arr[3].'</td>';
-		$str.='<td >'.$arr[4].'</td>';
-		$str.='<td >'.$arr[5].'</td>';
-		$str.='<td >'.$arr[6].'</td>';
-		$str.='<td >'.$arr[7].'</td>';
-		$str.='<td >'.$arr[8].'</td>';
-		$str.='<td >'.$arr[9].'</td>';
-		$str.='<td >'.$arr[10].'</td>';
-		$str.='<td >'.$arr[11].'</td>';
-		$str.='<td >'.$arr[12].'</td>';
-		$str.='</tr>';
+	$url_path = "/wp-content/uploads/exportcsv/export_".date('d_m_Y_H_i_s',time()).".csv";
+	$fp = fopen(realpath($_SERVER["DOCUMENT_ROOT"]).$url_path, 'w') or die('Không thể tạo file vui lòng thử lại sau');
+	foreach ($arrs as $arr2) {
+		fputcsv($fp,$arr2);
 	}
-	$str.='</table></div>';
+	fclose($fp);
+	if(count($arrs)>1){
+	$str = '<div id=""><table class=list width=100%>';
+		foreach ($arrs as $arr) {
+			$str.='<tr>';
+			$str.='<td >'.$arr[0].'</td>';
+			$str.='<td >'.$arr[1].'</td>';
+			$str.='<td >'.$arr[2].'</td>';
+			$str.='<td >'.$arr[3].'</td>';
+			$str.='<td >'.$arr[4].'</td>';
+			$str.='<td >'.$arr[5].'</td>';
+			$str.='<td >'.$arr[6].'</td>';
+			$str.='<td >'.$arr[7].'</td>';
+			$str.='<td >'.$arr[8].'</td>';
+			$str.='<td >'.$arr[9].'</td>';
+			$str.='<td >'.$arr[10].'</td>';
+			$str.='<td >'.$arr[11].'</td>';
+			$str.='<td >'.$arr[12].'</td>';
+			$str.='</tr>';
+	}
+	$str.='</table><p style="text-align:right"><a href="'.$url_path.'" title="Click phải chuột chọn save as" class="btn"><b>Download File CSV</b></a></p></div>';
+	}else
+	{
+		$str = '<h2 style="text-align:center">Không tìm thấy dữ liệu</h2>';
+	}
 	echo $str;
 }
 ?>
-<h1 class="title">Xuất File</h1>
-<form method="post">
-	<table width="100%">
-		<tr>
-			<td width="10%">Loại:</td>
-			<td>
-				<select name="ctype" id="ctype">
-					<option value="all">Tất cả</option>
-					<option value="1">Hôm nay</option>
-					<option value="2">Tùy chọn</option>
-				</select>
-			</td>
-		</tr>
-		<tr id="customdate" style="display:none">
-			<td colspan="2">Từ ngày : <input type="text" placeholder="YYYY-MM-DD" value="" name="from"> đến ngày : <input type="text" value="" name="to"  placeholder="YYYY-MM-DD"></td>
-		</tr>
-		<tr>
-			<td colspan="2">
-				<input type="hidden" name="action" value="export">
-				<input type="submit" value="Export">
-			</td>
-		</tr>
-	</table>
-</form>
+
 <h1 class="title">Lịch sử giao dịch</h1>
 <form method="post" id="search">
 <h4>Tìm kiếm</h4>

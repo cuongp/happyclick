@@ -1,6 +1,7 @@
 .htaccess
 /nbproject/private/
 /nbproject/
+/wp-content/plugins/happyclick/include/DataTables-1.9.4/
 /wp-content/uploads/wpcf7_captcha/
 /wowslider/
 wp-config.php

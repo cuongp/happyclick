@@ -2395,7 +2395,7 @@ function log() {
 			//for form change pass:
 			current_pass:{required: true, minlength:6,maxlength:15},
 			new_pass:{required: true, minlength:6,maxlength:15},
-			confirm_pass: {required: true, minlength:6,maxlength:15,equalTo: "#password"},
+			confirm_pass: {required: true, minlength:6,maxlength:12,equalTo: "#password"},
 		},
 		messages: {
 			email: {
