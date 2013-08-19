@@ -23,9 +23,12 @@ $args = array(
     'orderby' => 'date',
     'order' => 'DESC'
 );
-
+$i = 1;
 $the_query = new WP_Query( $args );
 while ( $the_query->have_posts() ) {
 	$the_query->the_post();
     echo $this->render('_post-hinh-anh');
+    if($i++ % 3 == 0){
+        echo '<hr style="width:100%; border:none; margin:5px 0; padding: 0;" />';
+    }
 }
