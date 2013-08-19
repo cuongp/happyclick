@@ -76,10 +76,10 @@ function wp_authenticate_username_password($user, $username, $password) {
 		$error = new WP_Error();
 
 		if ( empty($username) )
-			$error->add('empty_username', __('<strong>Lỗi</strong>: Tên đăng nhập không được để trống.'));
+			$error->add('empty_username', __('<strong>ERROR</strong>: The username field is empty.'));
 
 		if ( empty($password) )
-			$error->add('empty_password', __('<strong>Lỗi</strong>: Mật khẩu không được để trống.'));
+			$error->add('empty_password', __('<strong>ERROR</strong>: The password field is empty.'));
 
 		return $error;
 	}
@@ -87,12 +87,12 @@ function wp_authenticate_username_password($user, $username, $password) {
 	$user = get_user_by('login', $username);
 
 	if ( !$user )
-		return new WP_Error('invalid_username', sprintf(__('<strong>Lỗi</strong>: Tên đăng nhập không dungd.')));
+		return new WP_Error('invalid_username', sprintf(__('<strong>ERROR</strong>: Invalid username. <a href="%s" title="Password Lost and Found">Lost your password</a>?'), wp_lostpassword_url()));
 
 	if ( is_multisite() ) {
 		// Is user marked as spam?
 		if ( 1 == $user->spam)
-			return new WP_Error('invalid_username', __('<strong>Lỗi</strong>: Your account has been marked as a spammer.'));
+			return new WP_Error('invalid_username', __('<strong>ERROR</strong>: Your account has been marked as a spammer.'));
 
 		// Is a user's blog marked as spam?
 		if ( !is_super_admin( $user->ID ) && isset($user->primary_blog) ) {
@@ -107,8 +107,8 @@ function wp_authenticate_username_password($user, $username, $password) {
 		return $user;
 
 	if ( !wp_check_password($password, $user->user_pass, $user->ID) )
-		return new WP_Error( 'incorrect_password', sprintf( __( '<strong>Lỗi</strong>: Mật khẩu đăng nhập cho người dùng <strong>%1$s</strong> không đúng. ' ),
-		$username ) );
+		return new WP_Error( 'incorrect_password', sprintf( __( '<strong>ERROR</strong>: The password you entered for the username <strong>%1$s</strong> is incorrect. <a href="%2$s" title="Password Lost and Found">Lost your password</a>?' ),
+		$username, wp_lostpassword_url() ) );
 
 	return $user;
 }

@@ -27,32 +27,26 @@ if($_GET['task'] == 'edit_carttype'){
                     $complaint = 'active';
                 if($_GET['options']=='statistics')
                     $statistics = 'active';
-                if($_GET['options']=='subscription')
-                    $subscription = 'active';
                 ?>
-                <li class="<?php echo $homepage.' '.$service ?>"><a href="?page=hccard&options=service">Our Services</a> </li>
-                <li class="<?php echo $error ?>" ><a href="?page=hccard&options=error">Errors</a> </li>
-                <li class="<?php echo $complaint ?>"><a href="?page=hccard&options=complaint">Complaints</a> </li>
-                <li class="<?php echo $statistics ?>" ><a href="?page=hccard&options=statistics">Statistics</a> </li>
-                <li class="<?php echo $subscription ?>" ><a href="?page=hccard&options=subscription">Subscription</a> </li>
+                <li class="<?php echo $homepage.' '.$service ?>"><a href="?page=tickets&options=service">Our Services</a> </li>
+                <li class="<?php echo $error ?>" ><a href="?page=tickets&options=error">Errors</a> </li>
+                <li class="<?php echo $complaint ?>"><a href="?page=tickets&options=complaint">Complaints</a> </li>
+                <li class="<?php echo $statistics ?>" ><a href="?page=tickets&options=statistics">Statistics</a> </li>
             </ul>
             <ul id="tabs" class="content"><li>
                 <?php
-                    if($_GET['options']=='list')
-                        CardSystem::render('list');
-                    if($_GET['options']=='create')
-                        CardSystem::render('create');
-                    if($_GET['options']=='history')
-                        CardSystem::render('history');
-                    if($_GET['options']=='statistics')
-                        CardSystem::render('statistics');
-                    if($_GET['options']=='subscription')
-                        CardSystem::render('sub');
-                    if($_GET['options']=='cardtype')
-                        CardSystem::render('cardtype/list');
-                    if($_GET['options']=='viewuser')
-                        CardSystem::render('viewuser');
-
+                    if($_GET['task'] == 'edit_service'){
+                        CiaTicketSystem::render('service/form');
+                    }
+                    if($_GET['task'] == 'edit_error'){
+                        CiaTicketSystem::render('error/form');
+                    }
+                    if($_GET['task'] == 'edit_complaint'){
+                        CiaTicketSystem::render('complaint/form');
+                    }
+                    if($_GET['task'] == 'answer_complaint'){
+                        CiaTicketSystem::render('complaint/form_answer');
+                    }
 
                 ?></li>
             </ul>

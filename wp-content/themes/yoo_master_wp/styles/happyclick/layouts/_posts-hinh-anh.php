@@ -16,8 +16,11 @@
 //$i        = 0;
 
 //Khoa hoc sap dien ra
+
+$cat_id = get_query_var('cat');
+
 $args = array(
-    'category_name' => 'hinh-anh',
+    'cat' => $cat_id,
     'post_status' => array( 'publish' ),
     'posts_per_page' => 21,
     'orderby' => 'date',

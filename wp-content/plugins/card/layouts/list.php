@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 if(isset($_POST['action']) && $_POST['action']=='editcard'){
 	$a = strptime($_POST['expired'], '%d/%m/%Y');
 	
@@ -6,6 +7,14 @@ if(isset($_POST['action']) && $_POST['action']=='editcard'){
 	$timestamp = strtotime($d);
 
 	//mktime(0, 0, 0, $a['tm_mday'],$a['tm_mon']+1, $a['tm_year']+1900);
+=======
+error_reporting(-1);
+
+if(isset($_POST['action']) && $_POST['action']=='editcard'){
+	$a = strptime($_POST['expired'], '%d/%m/%Y');
+	
+	$timestamp = mktime(0, 0, 0, $a['tm_mon']+1, $a['tm_mday'], $a['tm_year']+1900);
+>>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 	$update = HCcard::update(array('serial'	=>	$_POST['serial'],
 						'code'		=>	$_POST['code'],
 						'expired'	=>	$timestamp,
@@ -58,10 +67,16 @@ $cards = HCcard::getAll("","",$params);
 </form>
 <table class="list">
 			<thead>
+<<<<<<< HEAD
 				<th class="shortcode"><input type="checkbox" name="id[]" value="checkall" />ID</th>
 				<th class="shortcode">Serial</th>
 				<th class="modified">Code</th>
 				<th class="modified">Plan</th>
+=======
+				<th class="shortcode">ID</th>
+				<th class="shortcode">Serial</th>
+				<th class="modified">Code</th>
+>>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 				<th class="modified">Ngày tạo</th>
 				<th class="modified">Ngày hết hạn</th>
 				<th class="modified">Trạng thái</th>
@@ -75,10 +90,16 @@ $cards = HCcard::getAll("","",$params);
 					$datetime = new DateTime(); 
 			?>
 			<tr id="item-<?php echo $card->id; ?>">
+<<<<<<< HEAD
 				<td class="shortcode"><input type="checkbox" name="id[]" value="<?php echo $card->id; ?>" /><?php echo $card->id; ?></td>
 				<td class="shortcode"><?php echo $card->serial; ?></td>
 				<td class="modified"><?php echo $card->code; ?></td>
 				<td class="modified"><?php echo $card->sub_id; ?></td>
+=======
+				<td class="shortcode"><?php echo $card->id; ?></td>
+				<td class="shortcode"><?php echo $card->serial; ?></td>
+				<td class="modified"><?php echo $card->code; ?></td>
+>>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 				<td class="modified"><?php echo date('d/m/Y',$card->created_at); ?></td>
 				<td class="modified"><?php echo date('d/m/Y',$card->expired); ?></td>
 				<td class="modified"><?php echo $card->status=='0'?'Chưa sử dụng':'Đã sử dụng'; ?></td>
@@ -98,12 +119,18 @@ $cards = HCcard::getAll("","",$params);
 			<?php 
 				if($pages>0){
 					for ($i=1; $i<= $pages ;$i++){
+<<<<<<< HEAD
 
+=======
+>>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 						if(isset($_GET['status']) || isset($_GET['valid']))
 							echo '<a style="padding:5px" href=?page=hccard&options=list&valid='.$_GET['valid'].'&status='.$_GET['status'].'&p='.$i.'>'.$i.'</a>';
 						else
 							echo '<a style="padding:5px" href=?page=hccard&options=list&p='.$i.'>'.$i.'</a>';
+<<<<<<< HEAD
 						if($i%45==0) echo '<br/>';
+=======
+>>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 					}
 				}
 			?>

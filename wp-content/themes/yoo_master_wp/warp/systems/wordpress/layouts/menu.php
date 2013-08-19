@@ -23,6 +23,5 @@ $wp_registered_widgets['nav_menu-0'] = array(
 $this['system']->widget_options['nav_menu-0'] = $default_options;
 
 echo '<!--widget-nav_menu-0-->';
-$is_subs = current_user_has_subscription();
 wp_nav_menu(array('theme_location' => 'main_menu', 'fallback_cb' => create_function('', 'wp_nav_menu(array("fallback_cb" => false));')));
 echo '<!--widget-end-->';

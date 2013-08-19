@@ -5,6 +5,7 @@
 * @copyright Copyright (C) YOOtheme GmbH
 * @license   http://www.gnu.org/licenses/gpl.html GNU/GPL
 */
+
 switch (count($modules)) {
 
 	case 1:
@@ -45,16 +46,8 @@ switch (count($modules)) {
 		printf('<div class="grid-box width16 grid-h">%s</div>', $modules[4]);
 		printf('<div class="grid-box width16 grid-h">%s</div>', $modules[5]);
 		break;
-	case 7:
-    printf('<div class="grid-box width14 grid-h">%s</div>', $modules[0]);
-    printf('<div class="grid-box width14 grid-h">%s</div>', $modules[1]);
-    printf('<div class="grid-box width14 grid-h">%s</div>', $modules[2]);
-    printf('<div class="grid-box width14 grid-h">%s</div>', $modules[3]);
-    printf('<div class="grid-box width14 grid-h">%s</div>', $modules[4]);
-    printf('<div class="grid-box width14 grid-h">%s</div>', $modules[5]);
-    printf('<div class="grid-box width14 grid-h">%s</div>', $modules[6]);
-    break;
+		
 	default:
-		echo '';
+		echo '<div class="grid-box width100 grid-h">Error: Only up to 6 modules are supported in this layout. If you need more add your own layout.</div>';
 
 }

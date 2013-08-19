@@ -6,7 +6,7 @@ global $query_string;
 query_posts($query_string . '&post_type=hoithao&posts_per_page=-10&paged=' . $paged);  
 var_dump(query_posts($query_string . '&post_type=hoithao&posts_per_page=-10&paged=' . $paged));  
 if (have_posts()) : ?>
-
+123456
 <?php
 endif;
 ?>

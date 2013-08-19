@@ -25,8 +25,13 @@ if ( $movefile ) {
  		foreach ($lines as $line) {
  			$array = array();
  			$csv = explode(',', $line);
+<<<<<<< HEAD
  			$csv[0] = isset($csv[0]) ? str_replace('\n','',$csv[0]) : '';
  			$csv[1] = isset($csv[1]) ? md5($csv[1]) : '';
+=======
+ 			$csv[0] = isset($csv[0]) ? $csv[0] : '';
+ 			$csv[1] = isset($csv[1]) ? $csv[1] : '';
+>>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
  			if(!in_array($csv[0], $serialsData)){
  				$array = array('serial'=>$csv[0],'code'=>$csv[1],'created_at'=>time());
  				$db->insert($db->prefix.'cards',$array);	
@@ -34,8 +39,19 @@ if ( $movefile ) {
  			{
  				echo "<div class='error' style='padding:5px'>Thẻ cào có serial {$csv[0]} đã có trong hệ thống</div>";
  			}
+<<<<<<< HEAD
   		}
  	} 	 
+=======
+ 			
+        
+ 			
+
+  		}
+ 	} 	
+ 	
+    
+>>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
     
 } else {
     echo "Possible file upload attack!\n";

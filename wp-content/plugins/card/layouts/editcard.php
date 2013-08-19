@@ -1,7 +1,11 @@
 <?php
 $card = HCcard::get($_GET['cardid']);
+<<<<<<< HEAD
 echo $card->expired;
 echo date('Y-m-d H:i:s', $card->expired); 
+=======
+
+>>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 ?>
 <h1 class="title">Cập nhật</h1>
 <form id="form" method="post" action="?page=hccard&options=list">

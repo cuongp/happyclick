@@ -1,126 +1,132 @@
-<div id="">
-<?php 
+<div id="system">
+
+<?php
+
+
+
+$paged = 1;
+if ( get_query_var('paged') ) $paged = get_query_var('paged') ;    
+if ( get_query_var('page') ) $paged = get_query_var('page');  
+
+$taxonomies = get_terms('chude');
+if (!empty($taxonomies)) {
+    echo '<ul class="chude_taxonomy">';
+    foreach ($taxonomies as $taxonomy) {
+        if (get_query_var('chude') == $taxonomy->slug)
+            $active = 'active';
+        else
+            $active = '';
+?>
+
+    <li class="<?php echo $active; ?>"><a href="/chude/<?php echo $taxonomy->
+slug ?>"><?php echo
+$taxonomy->name ?></a></li>
+
+<?php
+    }
+    echo '</ul>';
+}
+?>
+<div class="chude_taxonomies">
+<?php
 $args = array(
-	'posts_per_page'  => -1,
-	'offset'          => 0,
-	'category'        => '',
-	'orderby'         => 'meta_value',
-	'meta_query'	  => array('key' => 'thoigian'),
-	'order'           => 'ASC',
-	'include'         => '',
-	'exclude'         => '',
-	'meta_key'        => '',
-	'meta_value'      => '',
-	'post_type'       => 'sukien',
-	'post_mime_type'  => '',
-	'post_parent'     => '',
-	'post_status'     => 'publish',
-	'suppress_filters' => true ); 
-$is_subs = current_user_has_subscription();
+    'posts_per_page' => 2,
+    'post_type' => 'sukien',
+    'no_found_rows' => true,
+    'areas' => get_query_var('chude'),
+    'order' => 'DESC');
+    global $query_string;  
+    $offset      = get_option('page_chude') * ( $paged - 1) ;
+    query_posts($query_string . '&areas='.get_query_var('chude').'&post_type=sukien&showposts='.get_option('page_chude').'&paged=' . $paged.'&offset='.$offset);  
+//$query = new WP_Query($args);
 
-function catch_that_url($content){
+if (have_posts()) {
+    $count = 0;
+    while (have_posts()):
+    $count++;
+        the_post();
+        $post_id = get_the_ID();
+        $data = get_post_meta($post_id, '_sukien', true);
+        $terms = get_the_terms($post_id, 'diengia');
+                
+        $diengia = '';
+        if (!empty($terms)) {
+            $out = array();
+            foreach ($terms as $c)
+                $out[] = esc_html(sanitize_term_field('name', $c->name, $c->term_id, 'category',
+                    'display'));
+            $diengia = join(', ', $out);
+        }
+        $thumbnail = get_the_post_thumbnail($post_id);
+?>
+<article id="item-<?php the_ID(); ?>" class="item" data-permalink="<?php the_permalink(); ?>">
 
-$first_img = '';
-ob_start();
-ob_end_clean();
-$output = preg_match_all('/<a.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
-$first_img = $matches [1] [0];
+	<header>
 
-// no image found display default image instead
-if(empty($first_img)){
-$first_img = "";
-}
-return $first_img;
-}
-function catch_that_image($content){
-
-$first_img = '';
-ob_start();
-ob_end_clean();
-$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
-$first_img = $matches [1] [0];
-
-// no image found display default image instead
-if(empty($first_img)){
-$first_img = "/images/default.jpg";
-}
-return $first_img;
-}
-	$posts_array = get_posts( $args );
-	$i=1;
-	if(!empty($posts_array)){
-		if($i==1){
-			setup_postdata($posts_array[0]);
-			 $post_id = get_the_ID();
-			$data = get_post_meta( $posts_array[0]->ID, '_sukien', true );
-			
-		}
-            
-	?>
-	<div class="box2">
-	<div class="banner"><a href="<?php echo catch_that_url($posts_array[0]->post_content); ?>"><img src="<?php echo catch_that_image($posts_array[0]->post_content); ?>"/></a></div>
-	<div class="bodycontent">
-		<?php echo the_excerpt();?>
-		<p style="text-align:right;float:right;"><a href="<?php echo $posts_array[0]->guid; ?>" class='viewmore'><span>Xem chi tiết</span></a></p>
+		<h1 class="title"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 		
-		<div style="clear:both"></div>
+		<p class="meta">
+			<?php 
+			echo $data['thoigian'];
+			?>
+		</p>
+		
+	</header>
+
+	<div class="content clearfix">
+	   <p class="ct_img clearfix"><?php echo $thumbnail; ?>
+        <b>Nội dung</b> <br />
+        	<?php 
+			echo strip_tags(get_the_excerpt());
+			?>
+		
+       </p>
+       <table width=100%>
+        <tr>
+            <td><a href="#" class="registed">Đăng ký (Thành viên)<br /><?php echo $data['giatien'] ?>đ</a></td>
+            <td><a href="#" class="registed">Đăng ký (Không thành viên)<br /><?php echo $data['giatien'] ?>đ</a></td>
+            <td><a  href="<?php the_permalink() ?>"  class="registed" title="<?php the_title_attribute(); ?>">Xem chi tiết<br /></a></td>
+        </tr>
+       </table>
+       <p style="text-align: right;"><a href="/register">Trở thành thành viên</a></p>
 	</div>
-	<div style="clear:both">
-			<ul class="rg">
-				<li><a href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $posts_array[0]->ID; ?>" class="dk1"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></a></li>
-				<!--<li class="dk1"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></li>-->
-				<li><a href="/dang-ky-su-kien-cho-khach/"  class="dk2"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien'],0,'.','.');?>đ</span></a></li>
-				
-				
-				<!--<li class="dk2"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien'],0,'.','.');?>đ</span></li>-->
-				<?php if(!$is_subs): ?><li><a href="/category/thanh-vien/quyen-loi-thanh-vien/"  class="dk3"><span>Trở thành thành viên</span></a></li><?php endif; ?>
-			</ul>
-		</div>
-		<div style="clear:both"></div>
+
+	<p class="links">
+		<?php if(comments_open()) comments_popup_link(__('No Comments', 'warp'), __('1 Comment', 'warp'), __('% Comments', 'warp'), "", ""); ?>
+	</p>
+
+	<?php edit_post_link(__('Edit this post.', 'warp'), '<p class="edit">','</p>'); ?>
+
+</article>
+<hr />
+<?php
+    endwhile;
+?>
+<?php
+wp_reset_query();
+echo $this->render("_pagination", array("type"=>"posts"));
+}
+
+ else {
+?>
+    		<?php if (is_category()): ?>
+			<h1 class="page-title"><?php printf(__("Sorry, but there aren't any posts in the %s category yet.",
+"warp"), single_cat_title('', false)); ?></h1>
+		<?php elseif (is_date()): ?>
+			<h1 class="page-title"><?php _e("Sorry, but there aren't any posts with this date.",
+"warp"); ?></h1>
+		<?php elseif (is_author()): ?>
+			<?php $userdata = get_userdatabylogin(get_query_var('author_name')); ?>
+			<h1 class="page-title"><?php printf(__("Sorry, but there aren't any posts by %s yet.",
+"warp"), $userdata->display_name); ?></h1>
+		<?php else: ?>
+			<h1 class="page-title"><?php _e("No posts found.", "warp"); ?></h1>
+		<?php endif; ?>
+		
+		<?php get_search_form(); ?>
+    <?php
+    }
+?>
 	</div>
-	<div class="box2" style="clear:both;margin-top:15px;padding:10px;padding-top:0px;">
-	<h3 style="margin-top:10px;"><em>Các hội thảo vào khóa học tiếp theo</em></h3>
-	<?php
 
-		foreach($posts_array as $p){
-			setup_postdata($p);
-			// $post_id = get_the_ID();
-			$data = get_post_meta( $p->ID, '_sukien', true );
-			
-			if($i>1){
-				
-				$terms = wp_get_post_terms( $p->ID, 'chude');
-				if($terms[0]->slug=='hoi-thao' || $terms[0]->slug =='khoa-hoc'):
-
-				if($i%2==0)
-					$class='sub1';
-				else
-					$class = 'sub2';
-
-								?>
-				<div class="<?php echo $class; ?>">
-					<div class="left" style="float:left;padding:10px;padding-bottom:0px;width:500px;">
-								<p class="subject" style="font-size:14px;"><em><?php echo $terms[0]->name ?></em><span><?php echo $data['thoigian'] ?></span></p>
-								<h2 class="sukien-title"><?php echo $p->post_title; ?></h2>
-								<p style="text-align:right"><a style="font-size:12px" href="<?php echo $p->guid; ?>" class="returnhome">Xem chi tiết</a></p>
-							</div>
-
-							<div class="right" style="float:right;width:300px;padding-bottom:0px">
-								<a href="<?php echo $p->guid; ?>"><img src="<?php echo $data['articleicon']; ?>" width="300" height="135" /></a>
-							<div style="clear:both"></div>
-						
-							</div>
-							<div style="clear:both"></div>
-						
-					
-				</div>
-		<?php
-			endif;
-		}
-			$i++;
-			}
-		}
-	
-	?>
-</div>
 </div>

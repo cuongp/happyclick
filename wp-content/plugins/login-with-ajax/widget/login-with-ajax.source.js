@@ -40,9 +40,7 @@ jQuery(document).ready( function($) {
  	
  	//Catch login actions
  	$(document).on('lwa_login', function(event, data, form){
- 		
 		if(data.result === true){
-
 			//Login Successful - Extra stuff to do
 			if( data.widget != null ){
 				$.get( data.widget, function(widget_result) {
@@ -53,7 +51,6 @@ jQuery(document).ready( function($) {
 					lwaOrg.replaceWith(lwaSub);
 				});
 			}else{
-
 				if(data.redirect == null){
 					window.location.reload();
 				}else{

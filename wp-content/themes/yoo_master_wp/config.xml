@@ -42,7 +42,7 @@
 		<field name="multicolumns_order" type="radio" default="1" label="Multi Columns Order" description="Set the items order to across or down.">
 			<option value="1">Across</option>
 			<option value="0">Down</option>
-		</field>
+		</field>	
 		<field name="wpautop" type="radio" default="1" label="Post Formatting" description="Enable/Disable the content filter wpautop.">
 			<option value="0">No</option>
 			<option value="1">Yes</option>
@@ -107,16 +107,6 @@
 			<option value="opensans">Open Sans</option>
 			<option value="yanonekaffeesatz">Yanone Kaffeesatz</option>
 			<option value="mavenpro">Maven Pro</option>
-			<option value="myriad1">myriad1</option>
-			<option value="myriad2">myriad2</option>
-			<option value="myriad3">myriad3</option>
-			<option value="myriad4">myriad4</option>
-			<option value="myriad5">myriad5</option>
-			<option value="myriad6">myriad6</option>
-			<option value="myriad7">myriad7</option>
-			<option value="myriad8">myriad8</option>
-			<option value="myriad9">myriad9</option>
-			<option value="myriad10">myriad10</option>
 			<option value="kreon">Kreon</option>
 		</field>
 		<field name="Content" type="separator" />
@@ -153,47 +143,15 @@
 			<option value="right">Right</option>
 			<option value="left">Left</option>
 		</field>
-		<field name="sidebar-membership-b_width" type="text" size="10" default="25" label="Sidebar Membership Width" description="Set the Sidebar A width in percent." class="short" />
-		<field name="sidebar-membership-b" type="list" default="right" label="Sidebar Membership Position" description="Align the sidebar to the left or right.">
-			<option value="right">Right</option>
-			<option value="left">Left</option>
-		</field>
-		<field name="sidebar-trial_width" type="text" size="10" default="25" label="Sidebar Trial Width" description="Set the Sidebar A width in percent." class="short" />
-		<field name="sidebar-trial" type="list" default="right" label="Sidebar Trial Position" description="Align the sidebar to the left or right.">
-			<option value="right">Right</option>
-			<option value="left">Left</option>
-		</field>
-		<field name="sidebar-trial-b_width" type="text" size="10" default="25" label="Sidebar Trial Width" description="Set the Sidebar A width in percent." class="short" />
-		<field name="sidebar-trial-b" type="list" default="right" label="Sidebar Trial Position" description="Align the sidebar to the left or right.">
-			<option value="right">Right</option>
-			<option value="left">Left</option>
-		</field>
 		<field name="sidebar-b" type="list" default="right" label="Sidebar B Position" description="Align the sidebar to the left or right.">
 			<option value="right">Right</option>
 			<option value="left">Left</option>
 		</field>
 		<field name="top-a" type="layout" default="equal" label="Top A Layout" description="Select a grid layout for this module position." />
-
-		<field name="slider" type="layout" default="equal" label="Slider Layout" description="Select a grid layout for this module position." />
-		<field name="login-modal" type="layout" default="equal" label="Top A Layout" description="Select a grid layout for this module position." />
-		<field name="top-a3" type="layout" default="equal" label="Top A3 Layout" description="Select a grid layout for this module position." />
-		<field name="membership-1" type="layout" default="equal" label="Membership 1 Layout" description="Select a grid layout for this module position." />
-		<field name="membership-2" type="layout" default="equal" label="Membership 2 Layout" description="Select a grid layout for this module position." />
-		<field name="membership-3" type="layout" default="equal" label="Membership 3 Layout" description="Select a grid layout for this module position." />
-
-		<field name="membership-trial-1" type="layout" default="equal" label="Membership Trial 1 Layout" description="Select a grid layout for this module position." />
-		<field name="membership-trial-2" type="layout" default="equal" label="Membership  Trial 2 Layout" description="Select a grid layout for this module position." />
-		<field name="membership-trial-3" type="layout" default="equal" label="Membership  Trial 3 Layout" description="Select a grid layout for this module position." />
-		<field name="top-a2" type="layout" default="equal" label="Top A2 Layout" description="Select a grid layout for this module position." />
 		<field name="top-b" type="layout" default="equal" label="Top B Layout" description="Select a grid layout for this module position." />
 		<field name="membership" type="layout" default="equal" label="Membership Layout" description="Select a grid layout for this module position." />
 		<field name="innertop" type="layout" default="equal" label="Inner Top Layout" description="Select a grid layout for this module position." />
 		<field name="innerbottom" type="layout" default="equal" label="Inner Bottom Layout" description="Select a grid layout for this module position." />
-		<field name="innertop-trial" type="layout" default="equal" label="Inner Top Trial Layout" description="Select a grid layout for this module position." />
-		<field name="innerbottom-trial" type="layout" default="equal" label="Inner Bottom Layout" description="Select a grid layout for this module position." />
-		<field name="innertop-membership" type="layout" default="equal" label="Inner Top Membership Layout" description="Select a grid layout for this module position." />
-		<field name="innerbottom-membership" type="layout" default="equal" label="Inner Bottom Layout" description="Select a grid layout for this module position." />
-
 		<field name="bottom-a" type="layout" default="equal" label="Bottom A Layout" description="Select a grid layout for this module position." />
 		<field name="bottom-b" type="layout" default="equal" label="Bottom B Layout" description="Select a grid layout for this module position." />
 		<field name="menu_width" type="text" size="10" default="250" label="Drop Down Column Width" description="Set the column width of the drop down menu in pixel." class="short" />

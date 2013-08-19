@@ -152,7 +152,7 @@
 	.alignleft,
 	.align-right,
 	.alignright {
-		margin: 20px auto 40px auto;
+		margin: 0 auto 15px auto;
 		float: none;
 	}
 

@@ -2,6 +2,7 @@
 
 @import url(../../../warp/css/menus.css);
 
+
 /* Mega Drop-Down Menu
 ----------------------------------------------------------------------------------------------------*/
 
@@ -11,37 +12,25 @@
  }
 
 .menu-dropdown li.level1 {
-	padding: 0 35px;
+	padding: 0 22px;
     background: url(../images/sep.gif) right no-repeat;
 	height: 44px;
     
 }
 .menu-dropdown li.level1:last-child{
-
+    background: none;
 }
 .menu-dropdown a.level1,
 .menu-dropdown span.level1 {
 	color: #fff;
- 	font-family: 'MyriadProRegular';
- 	font-size: 18px;
+    font-weight: bold;
+    font-family: 'tahoma';
     margin-top: 6px;text-shadow: -1px -1px 0px rgba(0, 0, 0, 1);
 }
 
 /* Set Active */
-
-
-.menu-dropdown li.active {
-	background: url(../images/active-menu.png) center;
-}
 .menu-dropdown li.active .level1 { color: #fff; }
-.menu-dropdown li:first-child.active {	
-	background-position: left;
-}
 
-.menu-dropdown li:last-child.active {	
-	
-	background-position: right;
-}
 /* Set Hover */
 .menu-dropdown li.level1:hover .level1,
 .menu-dropdown li.remain .level1 { color: #d50; }

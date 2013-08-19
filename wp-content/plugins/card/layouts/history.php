@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1 class="title">Xuất File</h1>
 <form method="post">
 	<table width="100%">
@@ -176,3 +177,6 @@ if($_POST['action'] == 'export'){
 			?>
 
 		</div>
+=======
+History
+>>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd

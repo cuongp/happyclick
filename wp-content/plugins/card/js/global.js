@@ -1,5 +1,6 @@
 jQuery(document).ready(function(){
 	jQuery("#search").submit(function(){
+<<<<<<< HEAD
 
 		var url ='admin.php?page=hccard&options=list';
 
@@ -12,6 +13,14 @@ jQuery(document).ready(function(){
 			else
 				jQuery("#customdate").fadeOut();
 		}).change();
+=======
+		
+		var url ='admin.php?page=hccard&options=list';
+
+		window.location.href=url+'&valid='+jQuery("#valid").val()+'&status='+jQuery("#status").val();
+		return false; 
+	});
+>>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 	jQuery('.delete').click(function(){
 		var id = jQuery(this).attr('data-id');
 		var c = confirm('Bạn có muốn xóa thẻ cào này ?');
@@ -27,6 +36,10 @@ jQuery(document).ready(function(){
 		})
 		}else
 			return false;
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 	})
 })

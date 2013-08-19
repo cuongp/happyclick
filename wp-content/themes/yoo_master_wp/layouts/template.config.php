@@ -7,7 +7,7 @@
 */
 
 // generate css for layout
-$css[] = sprintf('.wrapper { width: %dpx; }', $this['config']->get('template_width'));
+$css[] = sprintf('.wrapper { max-width: %dpx; }', $this['config']->get('template_width'));
 
 // generate css for 3-column-layout
 $sidebar_a       = '';
@@ -15,8 +15,6 @@ $sidebar_b       = '';
 $maininner_width = 100;
 $sidebar_a_width = intval($this['config']->get('sidebar-a_width'));
 $sidebar_b_width = intval($this['config']->get('sidebar-b_width'));
-$sidebar_trial_width = intval($this['config']->get('sidebar-trial_width'));
-
 $sidebar_classes = "";
 $rtl             = $this['config']->get('direction') == 'rtl';
 $body_config	 = array();
@@ -25,21 +23,15 @@ $body_config	 = array();
 if ($this['modules']->count('sidebar-a')) {
 	$sidebar_a = $this['config']->get('sidebar-a'); 
 	$maininner_width -= $sidebar_a_width;
-	
 	$css[] = sprintf('#sidebar-a { width: %d%%; }', $sidebar_a_width);
 }
+
 if ($this['modules']->count('sidebar-b')) {
 	$sidebar_b = $this['config']->get('sidebar-b'); 
 	$maininner_width -= $sidebar_b_width;
 	$css[] = sprintf('#sidebar-b { width: %d%%; }', $sidebar_b_width);
 }
 
-if ($this['modules']->count('sidebar-trial')) {
-	$sidebar_trial = $this['config']->get('sidebar-trial'); 
-	$maininner_width =100 - $sidebar_trial_width;
-	
-	$css[] = sprintf('#sidebar-trial { width: %d%%; }', $sidebar_trial_width);
-}
 $css[] = sprintf('#maininner { width: %d%%; }', $maininner_width);
 
 // all sidebars right
@@ -97,16 +89,8 @@ if (($font = $this['config']->get('font2')) && $this['path']->path("css:/font2/$
 if (($font = $this['config']->get('font3')) && $this['path']->path("css:/font3/$font.css")) { $this['asset']->addFile('css', "css:/font3/$font.css"); }
 $this['asset']->addFile('css', 'css:style.css');
 if ($this['config']->get('direction') == 'rtl') $this['asset']->addFile('css', 'css:rtl.css');
-//$this['asset']->addFile('css', 'css:responsive.css');
+$this['asset']->addFile('css', 'css:responsive.css');
 $this['asset']->addFile('css', 'css:print.css');
-$this['asset']->addFile('css', 'template:fonts/8/8.css');
-$this['asset']->addFile('css', 'template:fonts/11/11.css');
-$this['asset']->addFile('css', 'template:fonts/12/12.css');
-$this['asset']->addFile('css', 'template:fonts/13/13.css');
-//include tamnd js scripts
-$this['asset']->addFile('css', 'css:fancy/jquery.fancybox.css');
-//$this['asset']->addFile('css', 'css:wowslider/style.css');
-$this['asset']->addFile('css', 'css:tnd/style.css');
 
 // load fonts
 $http  = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
@@ -115,20 +99,7 @@ $fonts = array(
 	'opensans' => 'template:fonts/opensans.css',
 	'yanonekaffeesatz' => 'template:fonts/yanonekaffeesatz.css',
 	'mavenpro' => 'template:fonts/mavenpro.css',
-	'myriad1' => 'template:fonts/1/1.css',
-	'myriad2' => 'template:fonts/2/2.css',
-	'myriad3' => 'template:fonts/3/3.css',
-	'myriad4' => 'template:fonts/4/4.css',
-	'myriad5' => 'template:fonts/5/5.css',
-	'myriad6' => 'template:fonts/6/6.css',
-	'myriad7' => 'template:fonts/7/7.css',
-	'myriad8' => 'template:fonts/8/8.css',
-	'myriad9' => 'template:fonts/9/9.css',
-'myriad10' => 'template:fonts/10/10.css',
-'myriad13' => 'template:fonts/13/13.css',
-
-	'kreon' => 'template:fonts/kreon.css'
-	);
+	'kreon' => 'template:fonts/kreon.css');
 
 foreach (array_unique(array($this['config']->get('font1'), $this['config']->get('font2'), $this['config']->get('font3'))) as $font) {
 	if (isset($fonts[$font])) {
@@ -156,14 +127,6 @@ $this['asset']->addFile('js', 'js:responsive.js');
 $this['asset']->addFile('js', 'js:accordionmenu.js');
 $this['asset']->addFile('js', 'js:dropdownmenu.js');
 $this['asset']->addFile('js', 'js:template.js');
-//include tamnd js scripts
-$this['asset']->addFile('js', 'js:fancy/jquery.fancybox.pack.js');
-//$this['asset']->addFile('js', 'js:wowslider/jquery.js');
-//$this['asset']->addFile('js', 'js:wowslider/wowslider.js');
-//$this['asset']->addFile('js', 'js:wowslider/script.js');
-$this['asset']->addFile('js', 'js:tnd/scripts.js');
-$this['asset']->addFile('js', 'js:tnd/scripts_vu.js');
-$this['asset']->addFile('js', 'js:tnd/jquery.jcarousel.min.js');
 
 // internet explorer
 if ($this['useragent']->browser() == 'msie') {
@@ -177,12 +140,4 @@ if ($this['useragent']->browser() == 'msie') {
 // add $head
 if (isset($head)) {
 	$this['template']->set('head', implode("\n", $head));
-}
-
-function string_limit_words($string, $word_limit)
-{
-  $words = explode(' ', $string, ($word_limit + 1));
-  if(count($words) > $word_limit)
-  array_pop($words);
-  return implode(' ', $words);
 }
