@@ -4,7 +4,7 @@
  * Custom Style Sheet - Use this file to style your content
 
  */
- 
+
 /*  Vu Css*/
 
 #system {
@@ -166,14 +166,14 @@ line-height: 17px;
 word-break: break-word;
 text-align: justify;
   }
- 
+
 .category-happy-click-radio .posts_sub,
 .posts_sub_radio {
 	width: 100p%;
 	height: 1000px;
 margin-left: 45px;
  }
- 
+
 .category-happy-click-radio .posts_sub .post_sub,
 .posts_sub_radio .post_sub_radio {
 width: 178px;
@@ -229,7 +229,7 @@ font-style: italic;
 .category-goc-kien-thuc #system .posts-wrapper, .category-goc-chia-se #system .posts-wrapper {
 	margin-left:1px;
 }
- 
+
 .category-goc-kien-thuc .posts-wrapper #download_here {
 margin: 10px auto 30px;
 width: 375px;
@@ -311,7 +311,7 @@ margin: 10px 20px 20px;
 font-style: italic;
 font-size:14px;
 }
-	
+
 .single-post .posts-wrapper #sticky-download a h3,
 .category-download-tai-lieu .posts-wrapper #sticky-download a h3 {
 padding: 0;
@@ -321,7 +321,7 @@ font-size: 14px;
 font-weight: bold;
 text-decoration: underline;
 }
-.category-goc-chia-se .posts-wrapper .first-post, 
+.category-goc-chia-se .posts-wrapper .first-post,
 .single-post  .posts-wrapper .first-post {
 	width:100%;
 	float:left;
@@ -447,7 +447,7 @@ float:right;
 }
 .single-hoc-truc-tuyen-old .content-box-inside p {
 text-align: justify;
-word-break: break-word;	
+word-break: break-word;
 }
 .single-post #system .posts-wrapper {
 	box-shadow: 0 0 9px #999;
@@ -474,7 +474,7 @@ margin-left:1px;
 .single .author_info {
 	font-weight:normal !important;
 }
- 
+
  .item-download-tai-lieu {
 	margin: 0 70px 20px 60px;
 	padding-bottom: 10px;
@@ -484,15 +484,15 @@ margin-left:1px;
 	 font-size: 24px;
     margin: 20px 70px 10px 60px;
   }
- 
+
  .download-notify {
 	margin: 20px 60px;
 line-height: 21px;
  }
   .download-notify a img {
-	margin-top:0px;	
+	margin-top:0px;
   }
- 
+
 .ban-lanh-dao { margin: 0 30px 0 60px; float: left; width: 755px;}
 .ban-lanh-dao h3 { margin: 20px 0 0;; width: 100%; float: left; }
 .ban-lanh-dao .wapper-content { float: left; width: 100%; }
@@ -501,5 +501,21 @@ line-height: 21px;
 .ban-lanh-dao .wapper-content .content { float: left; margin: 0; width: 100%;  border: 1px solid #d2d2d2; padding: 20px 0 10px; }
 .ban-lanh-dao .wapper-content .content img { float: left; margin-left: 20px; box-shadow: 0 0 8px #2; width: 124px; border:1px solid #fff; box-shadow: 0 0 12px #aaa; }
 .ban-lanh-dao .wapper-content .content .text  { float: left; margin: 0px 20px; text-align: justify; word-break: break-word; width: 569px; }
-
-
+.mystyle {
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 65px;
+    text-indent: -75px;
+    font-size: 13px;
+}
+.category-hanh-trang-nghe-nghiep #tab-cs .mystyle {
+    font-weight: bold;
+    margin-top: 30px;
+    margin-left: 35px;
+    text-indent: -75px;
+    font-size: 15px;
+}
+.category-hanh-trang-nghe-nghiep #tab-radio .mystyle {
+margin-left: 68px;
+text-indent: -76px;
+}

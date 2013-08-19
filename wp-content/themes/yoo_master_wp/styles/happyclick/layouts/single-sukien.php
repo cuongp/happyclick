@@ -3,7 +3,7 @@
 
 	<?php if (have_posts()) : ?>
 		<?php while (have_posts()) : the_post();
-		$post_id = get_the_ID(); 
+		$post_id = get_the_ID();
 		$data = get_post_meta( $post_id, '_sukien', true );
 		$term = get_the_terms($post_id, 'chude');
 		$is_subs = current_user_has_subscription();
@@ -12,9 +12,9 @@
 		}
 		if($id < 35){
 		?>
-		
+
 		<article class="item" data-permalink="<?php the_permalink(); ?>">
-		
+
 			<?php if (has_post_thumbnail()) : ?>
 				<?php
 				$width = get_option('thumbnail_size_w'); //get the width of the thumbnail setting
@@ -23,9 +23,9 @@
 			<?php endif; ?>
 
 			<!--<header>
-		
+
 				<h1 class="title"><?php the_title(); ?></h1>
-	
+
 				<p class="meta">
 					<?php
 						$date = '<time datetime="'.get_the_date('Y-m-d').'" pubdate>'.get_the_date().'</time>';
@@ -38,15 +38,15 @@
 			<div class="content clearfix" >
 			<?php the_content(''); ?>
       <p><h3 style="padding-left:40px;">Bạn đã có thể bắt đầu đăng ký các hội thảo/khóa học tổ chức trong tháng 8/2013</h3></p>
-			
+
 			<ul class="rg">
 				<?php if($data['hcregister']==1): ?>
 				<li><a href="/hcaccount/thanh-vien-dang-ky/?cid=<?php echo $post_id; ?>" class="dk1"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></a></li>
 				<!--<li class="dk1"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span>	</li>-->
 				<?php else: ?>
 				<li><a href="#" class="dk1"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien']-$data['giatien']*get_option('hpbasicmembership')/100,0,'.','.') ?>đ</span></a></li>
-				
-				<?php endif; ?>		
+
+				<?php endif; ?>
 				<li><a href="/dang-ky-su-kien-cho-khach/"  class="dk2"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien'],0,'.','.');?>đ</span></a></li>
 				<!--<li class="dk2"><span><?php if(isset($data['giatien'])) echo number_format($data['giatien'],0,'.','.');?>đ</span></li>-->
 
@@ -58,28 +58,28 @@
 			<?php the_tags('<p class="taxonomy">'.__('Tags: ', 'warp'), ', ', '</p>'); ?>
 
 			<?php edit_post_link(__('Edit this post.', 'warp'), '<p class="edit">','</p>'); ?>
-			
+
 			<?php if (pings_open()) : ?>
 			<p class="trackback"><?php printf(__('<a href="%s">Trackback</a> from your site.', 'warp'), get_trackback_url()); ?></p>
 			<?php endif; ?>
 
 			<?php if (get_the_author_meta('description')) : ?>
 			<section class="author-box clearfix">
-		
+
 				<?php echo get_avatar(get_the_author_meta('user_email')); ?>
-				
+
 				<h3 class="name"><?php the_author(); ?></h3>
-				
+
 				<div class="description"><?php the_author_meta('description'); ?></div>
 
 			</section>
 			<?php endif; ?>
-			
+
 			<?php comments_template(); ?>
 
 		</article>
 
-		<?php 
+		<?php
 		}else
 			{
 				global $current_user;
@@ -124,7 +124,7 @@
             </tr>
             </tbody>
             </table>';
-            
+
             $headers[] = 'From: Happy Click <support@happyclick.vn>';
 			$headers[] = 'Content-type: text/html';
 			wp_mail($email,'Bạn có câu hỏi từ '.$current_user->last_name,$html,$headers);
@@ -133,13 +133,13 @@
 				}
 		?>
 			<article class="item" style="padding:20px 10px;position:relative" data-permalink="<?php the_permalink(); ?>">
-			
+
 			<header>
-		
+
 				<h1 class="title"><?php the_title(); ?></h1>
 			</header>
 			<div class="clearfix" >
-			<?php the_content(''); 
+			<?php the_content('');
 			$time = explode('|', $data['thoigian']);
 			if(count($time)>1){
 				$date = $time[1];
@@ -156,7 +156,7 @@
 			<?php if($current_user->ID<1 || !$is_subs): ?>
       <table border="0" align="left">
         <tbody>
-        <tr>          
+        <tr>
           <td width="250"><img width="122" height="35" src="/wp-content/uploads/2013/07/dang-ky.png" alt="Đăng ký" class="alignnone size-full wp-image-2481"></td>
           <td width="280"><a href="/category/thanh-vien/quyen-loi-thanh-vien/" ><img src="/wp-content/uploads/2013/07/tro-thanh-thanh-vien.png" alt="Trở thành thành viên" class="alignnone size-full wp-image-2480"></a></td>
           <td width="300"><a href="/wp-content/uploads/2013/07/Webinar_Guide.pdf" target="_blank"><img src="/wp-content/uploads/2013/07/huong-dan-tham-du-.png" alt="Hướng dẫn tham dự" class="alignnone size-full wp-image-2482"/></a></td>
@@ -169,19 +169,19 @@
       </table>
 
       <?php else : ?>
-              <table border="0" align="left">        
+              <table border="0" align="left">
                 <tbody>
-                <tr>          
+                <tr>
                   <td width="250"><a href="<?php echo $data['articleicon']; ?>" target="_blank"><img width="122" height="35" src="/wp-content/uploads/2013/07/dang-ky.png" alt="Đăng ký" class="alignnone size-full wp-image-2481"></a></td>
                   <td width="300"><a href="/wp-content/uploads/2013/07/Webinar_Guide.pdf" target="_blank"><img src="/wp-content/uploads/2013/07/huong-dan-tham-du-.png" alt="Hướng dẫn tham dự" class="alignnone size-full wp-image-2482"/></a></td>
                 </tr>
                 </tbody>
-              </table>   
-      
+              </table>
+
       <?php endif; ?>
 
-      
-		
+
+
 
     </div>
 	<div style="position:relative;margin:0 auto;width:400px">
@@ -189,14 +189,14 @@
     -webkit-border-radius:5px;
     -moz-border-radius:5px;
     border-radius:5px;
-    border: 1px solid #eaeaea;    
+    border: 1px solid #eaeaea;
     -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.75);
     -moz-box-shadow:    0px 0px 5px rgba(0, 0, 0, 0.75);
     box-shadow:         0px 0px 5px rgba(0, 0, 0, 0.75);padding:10px;text-align:center;position: absolute;width:400px;background:#FFF;display:none;border:1px solid #ccc;">
 				Cám ơn bạn đã đặt câu hỏi.
 			</div>
-	</div>	
-<?php echo do_shortcode("[FAQ_LIST pageid='".$post_id."']");?>	
+	</div>
+<?php echo do_shortcode("[FAQ_LIST pageid='".$post_id."']");?>
 		</article>
 		<?php
 			}
