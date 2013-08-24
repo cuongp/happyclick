@@ -1,5 +1,6 @@
 <div class="box" style="width:500px;">
-<?php 
+<?php
+global $current_user;
 if(isset($_GET['act'])){
 	switch ($_GET['act']) {
 		case 'khach-dang-ky':
@@ -8,9 +9,16 @@ if(isset($_GET['act'])){
 			break;
 		case 'quen-mat-khau':
 			echo '<p>Happy Click đã gửi email cho bạn vào email mà bạn đã đăng ký. Vui lòng làm theo hướng dẫn trong email để lấy lại mật khẩu.</p>';
+			break;
+		case 'kich-hoat':
+			echo'<p>Happy Click đã gửi email cho bạn, vui lòng kiểm tra email và làm theo hướng dẫn trước khi bắt đầu sử dụng dịch vụ của Happy Click.</p>';
+			break;
 	}
 }else{
-echo'<p>Happy Click đã gửi email cho bạn, vui lòng kiểm tra email và làm theo hướng dẫn trước khi bắt đầu dùng thử dịch vụ của Happy Click.</p>';
+	if($current_user->ID>0)
+		echo'<p>Happy Click đã gửi email cho bạn, vui lòng kiểm tra email và làm theo hướng dẫn trước khi bắt đầu sử dụng dịch vụ của Happy Click.</p>';
+	else
+		echo'<p>Happy Click đã gửi email cho bạn, vui lòng kiểm tra email và làm theo hướng dẫn trước khi bắt đầu dùng thử dịch vụ của Happy Click.</p>';
 }
 ?>
 <h3 style="color: #e58a35;">Lưu ý:</h3>

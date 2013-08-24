@@ -18,18 +18,39 @@
 		<position settings="display">toolbar-l</position>
 		<position settings="display">toolbar-r</position>
 		<position settings="display">headerbar</position>
+		<position settings="display">headerbar-trial</position>
 		<position settings="display">breadcrumbs</position>
 		<position>top-a</position>
+		<position>top-a2</position>
+		<position>top-a3</position>
+		<position>login-modal</position>
 		<position>top-b</position>
 		<position>bottom-a</position>
 		<position>bottom-b</position>
 		<position>innertop</position>
+		<position>khotienich</position>
+		<position>khotienich2</position>
 		<position>innerbottom</position>
+		<position>innertop-trial</position>
+		<position>innerbottom-trial</position>
+		<position>innertop-membership</position>
+		<position>innerbottom-membership</position>
 		<position>sidebar-a</position>
 		<position>sidebar-b</position>
 		<position>sidebar-membership</position>
+		<position>sidebar-trial</position>
+		<position>sidebar-membership-b</position>
+		<position>sidebar-trial-b</position>
 
+		<position>slider</position>
 		<position>membership</position>
+		<position>membership 1</position>
+		<position>membership 2</position>
+		<position>membership 3</position>
+
+		<position>membership trial 1</position>
+		<position>membership trial 2</position>
+		<position>membership trial 3</position>
 		<position settings="display">footer</position>
 	</positions>
 	<modulesettings>

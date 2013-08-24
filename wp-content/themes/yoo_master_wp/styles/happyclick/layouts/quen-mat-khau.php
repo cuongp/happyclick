@@ -5,7 +5,7 @@ $flag = '';
 if(isset($_POST) && $_POST['action'] == 'submit')
 {
 	global $current_user;
-	
+
 	if(!email_exists($_POST['email'])){
 		$flag = '<h3 class="error">Email không tồn tại trong hệ thống.</h3>';
 	}else
@@ -38,7 +38,7 @@ if(isset($_POST) && $_POST['action'] == 'submit')
       <br />
       Nếu bạn không phải là người gửi yêu cầu thiết lập mật khẩu mới, vui lòng bỏ qua email này.<br />
       <br />
-      Đây là email tự động gửi, vui lòng không trả lời vào email này.<br />
+      <p style="background:red;padding:5px">Đây là email tự động gửi, vui lòng không trả lời vào email này.</p><br />
       <br />
       Thân mến,<br />
       <br />
@@ -62,7 +62,7 @@ if(isset($_POST) && $_POST['action'] == 'submit')
 </table>';
 		$headers[] = 'From: Happy Click <support@happyclick.vn>';
 		$headers[] ='Content-type: text/html';
-		
+
 		wp_mail($_POST['email'],'Thiết lập mật khẩu mới',$html,$headers);
 		wp_redirect('/hcaccount/xac-nhan-email/?act=quen-mat-khau');
 		exit;
@@ -73,13 +73,13 @@ if(isset($_POST) && $_POST['action'] == 'submit')
 		<?php echo $flag; ?>
 		<p>Vui lòng nhập email mà bạn dùng để đăng nhập vào ô bên dưới</p><br/>
 		<table width="100%" class="form_doipass">
-						
+
 			<tr>
 				<td  width="20%" style="padding-right:30px"  align="right">Email</td>
-				<td width="50%" ><input class="email" name="email"  type="email"required/><span>*</span></td>				
+				<td width="50%" ><input class="email" name="email"  type="email"required/><span>*</span></td>
 			</tr>
 			<tr>
-				
+
 				<td colspan="2" align="center"><input type="hidden" name="action" value="submit"><input type="submit" value="" class="submit_final" /></td>
 			</tr>
 			<tr>

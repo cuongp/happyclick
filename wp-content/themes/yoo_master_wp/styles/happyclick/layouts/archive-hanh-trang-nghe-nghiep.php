@@ -23,7 +23,7 @@
 		<div id="tabs">
 			<ul>
 				<li id="tab-radio" style="text-indent:-95px !important" >
-                    <div class="mystyle" ><a href="/phat-trien-nghe-nghiep/">Hỏi đáp với chuyên viên tư vấn phát triển nghề nghiệp</a></div>
+                    <div class="mystyle" ><a href="/chude/phat-trien-nghe-nghiep/">Hỏi đáp với chuyên viên tư vấn phát triển nghề nghiệp</a></div>
                     </li>
 				<li id="tab-cs"  class="ui-tabs-active">
 				<div class="mystyle"><a href="/category/hanh-trang-nghe-nghiep/">Hành trang nghề nghiệp</a></div>

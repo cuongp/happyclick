@@ -2,11 +2,7 @@
 
 
 class CardType{
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
     public static function insert($data){
         $db = $GLOBALS['wpdb'];
         return $db->insert($db->prefix.'card_type',$data);
@@ -15,30 +11,18 @@ class CardType{
         $db = $GLOBALS['wpdb'];
         return $db->update($db->prefix.'card_type',$data,$where);
     }
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
     public static function delete($id){
         $db = $GLOBALS['wpdb'];
         $db->query('delete from '.$db->prefix.'card_type where id='.$id);
     }
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
     public static function get($id){
         $db = $GLOBALS['wpdb'];
         $post = $db->get_row('select * from '.$db->prefix.'card_type where id="'.$id.'"');
         return !empty($post)? $post :null;
     }
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
     public static function getAll($params){
         $db = $GLOBALS['wpdb'];
         if($params['valid']==null)
@@ -53,6 +37,12 @@ class CardType{
 
 
 class HCcard{
+   public function get_sub_info($sub_id){
+    $db = $GLOBALS['wpdb'];
+    $subTable = $db->prefix.'m_subscriptions';
+    $sub = $db->get_row('select * from '.$subTable.' where id = "'.$sub_id.'"');
+    return !empty($sub)?$sub :null;
+}
     public static function insert($data){
         $db = $GLOBALS['wpdb'];
         return $db->insert($db->prefix.'cards',$data);
@@ -71,7 +61,6 @@ class HCcard{
         return !empty($post)? $post :null;
     }
 
-<<<<<<< HEAD
     public static function getHistory(){
         $db = $GLOBALS['wpdb'];
         $posts = $db->get_results('select * from '.$db->prefix.'user_card,'.$db->prefix.'cards where '.$db->prefix.'user_card.card_id='.$db->prefix.'cards.id');
@@ -91,8 +80,6 @@ class HCcard{
         $post = $db->get_row('select * from '.$db->prefix.'m_subscriptions where id="'.$id.'"');
         return !empty($post)?$post->sub_name:null;
     }
-=======
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
     public static function getAll($status = "",$valid = "",$params=array()){
         $db = $GLOBALS['wpdb'];
         $where = '';
@@ -103,14 +90,10 @@ class HCcard{
         }elseif($valid=="0" || $valid!=""){
             $where.="where valid={$valid}";
         }
-<<<<<<< HEAD
         if(!empty($params))
             $posts = $db->get_results('select * from '.$db->prefix.'cards '.$where.' order by id desc limit '.$params['start'].','.$params['show']);
         else
             $posts = $db->get_results('select * from '.$db->prefix.'cards '.$where);
-=======
-        $posts = $db->get_results('select * from '.$db->prefix.'cards '.$where.' order by id desc limit '.$params['start'].','.$params['show']);
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
         return !empty($posts)?$posts:null;
     }
     public static function countAllResult($status = "",$valid = ""){
@@ -123,11 +106,7 @@ class HCcard{
         }elseif($valid!="" || $valid=='0'){
             $where.="where valid='{$valid}'";
         }
-<<<<<<< HEAD
 
-=======
-       
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
         $posts = $db->get_results('select id from '.$db->prefix.'cards '.$where.' order by id desc');
         return !empty($posts)?count($posts):0;
     }

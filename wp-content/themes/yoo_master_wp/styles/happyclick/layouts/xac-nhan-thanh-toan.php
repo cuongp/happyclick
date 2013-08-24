@@ -19,18 +19,16 @@ if(count($time)>1){
 <div class="box" style="width:730px">
 	<div class="bodycontent">
 	<h3>Xác nhận đăng ký</h3>
-		<p>Bạn đã đăng ký khóa học/hôi thảo <b><?php echo $post->post_title; ?></b></p>
-		<?php if($_GET['type']==2): ?>
-			<p>Thời gian :<?php echo $hour; ?></p>
-			<p>Ngày :<?php echo $date; ?></p>
-			
-		<?php else:?>
-		<p>Thời gian :<?php echo $data['thoigian']; ?></p>
-	<?php endif;?>
-		<p>Địa điểm :<?php echo $data['diadiem']; ?></p>
-		<p>Phí tham dự : <?php if($data['giatien']=='' || $data['giatien']==0) echo 'Miễn Phí'; else echo number_format($data['giatien'],0,'.','.'); ?>đ</p>
+		<p>Bạn đã đăng ký chương trình <b><?php echo $post->post_title; ?></b></p>
+		<p>Thời gian: <?php echo $hour; ?></p>
+		<p>Ngày: <?php echo $date; ?></p>
+		<p>Địa điểm: <?php echo $data['diadiem']; ?></p>
+		<p>Phí tham dự: 
+			<?php if($data['giatien']=='' || $data['giatien']==0) echo 'Miễn Phí'; 
+						else echo number_format($data['giatien']/2,0,'.','.'); echo "đ" ?>
+		</p>
 		<?php if($_GET['type']<4): ?>
-		<p>Hình thức thanh toán : <b><?php echo $_GET['type']=='1' ? 'Thanh toán chuyển khoản' : 'Thanh toán trực tiếp tại văn phòng Happy Click</b><br/>Địa chỉ: Văn phòng Happy Click, Tầng 6, Tòa nhà 116-118 Nguyễn Thị Minh Khai, Q.3, TpHCM<br/>
+		<p>Hình thức thanh toán: <b><?php echo $_GET['type']=='1' ? 'Thanh toán chuyển khoản' : 'Thanh toán trực tiếp tại văn phòng Happy Click</b><br/>Địa chỉ: Văn phòng Happy Click, Tầng 6, Tòa nhà 116-118 Nguyễn Thị Minh Khai, Q.3, TpHCM<br/>
 Số điện thoại: (08) 7302 0168 – (08) 7303 0168<br/>
 Thời gian làm việc: 8:00 – 12:00, 13:30 – 17:30 từ thứ Hai đến thứ Bảy
 ' ;?></p>

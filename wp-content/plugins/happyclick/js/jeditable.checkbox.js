@@ -23,7 +23,7 @@
  * Peter Bücker (spam.naag@gmx.net)
  * http://www.pastie.org/893364
  */
-
+var $j = jQuery;
 $.editable.addInputType('checkbox', {
   element: function(settings, original) {
     $(this).append('<input type="checkbox"/>');

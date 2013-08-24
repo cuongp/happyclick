@@ -1,9 +1,10 @@
 <div id="system" class="onecolumn single">
 	<?php if (have_posts()) : ?>
-		<?php while (have_posts()) : the_post(); 
+		<?php while (have_posts()) : the_post();
             $categories = get_the_category();
             $current_category = $categories[0];
-            
+            $parent_id = $current_category->category_parent;
+            $parent_cat = get_category($parent_id);
         ?>
             <div class="content-box1">
             <?php if($current_category->cat_ID>=189):
@@ -22,10 +23,10 @@
                             $is_membership  = current_user_on_level($member_id);
                             $is_trial       = current_user_on_level($trial_id);
                             $is_trialview   = is_sticky() && $is_trial;
-                            
+
                             if($is_membership || $is_trialview):
-                            
-                            $youtubeVideo = get_post_custom_values('youtube-video'); 
+
+                            $youtubeVideo = get_post_custom_values('youtube-video');
                             $youtubeVideo_link = $youtubeVideo[0];
                             ?>
                                 <iframe width="760" height="427" src="<?php echo $youtubeVideo_link; ?>?autoplay=1&amp;version=3&amp;rel=0&amp;ps=docs&amp;color=white&amp;theme=light&amp;showinfo=0&amp;hl=en_US" frameborder="0" allowfullscreen style="border: 1px solid #ddd; box-shadow: 0px 2px 25px #aaa;" ></iframe>
@@ -34,7 +35,7 @@
                                     <?php
                                     echo apply_filters('the_content','[level-member][/level-member]');
                                     ?>
-                                </div>    
+                                </div>
                                 <?php
                             endif; ?>
                         </div>
@@ -44,7 +45,7 @@
                         <?php
                             $categories = get_the_category();
                             $current_category = $categories[0];
-                            
+
                             $args = array(
                                 'cat' => $current_category->cat_ID,
                                 'post_status' => array( 'publish' ),
@@ -53,7 +54,6 @@
                                 'order' => 'ASC',
                                 'show_count' => 1
                             );
-                            
                         ?>
                         <div class="video-category" style="border:none;">
                             <?php
@@ -84,7 +84,16 @@
                                 })(jQuery);
                             </script>
                         </div>
-                        <div class="back-videos"><a href="<?php echo get_bloginfo('url') ?>/category/hoc-qua-video">Các chương trình Học qua Video khác</a></div>
+                        <div class="back-videos">
+                        <?php if(empty($parent_cat)): ?>
+                            <a href="<?php echo get_bloginfo('url') ?>/category/<?php echo $current_category->slug; ?>">Các chương trình <?php echo $current_category->name ?> khác</a>
+                        <?php
+                        else:
+                        ?>
+                            <a href="<?php echo get_bloginfo('url') ?>/category/<?php echo $parent_cat->slug; ?>">Các chương trình <?php echo $parent_cat->name ?> khác</a>
+                        <?php
+                        endif; ?>
+                        </div>
                     </article>
                 </div>
             </div>

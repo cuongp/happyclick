@@ -35,7 +35,7 @@ $i=0;
 $is_subs = current_user_has_subscription();
 if($current_user->ID > 0 && !$is_subs){
 ?>
-<p style="color:red">Bạn được xem thử video đầu tiên của mỗi chủ đề</p>
+<p style="color:red;text-align:center">Bạn được xem thử video đầu tiên của mỗi chủ đề</p>
 <?php
 }
 foreach ($categories as $key=>$category){

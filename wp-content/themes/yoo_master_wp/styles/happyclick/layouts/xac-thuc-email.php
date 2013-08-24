@@ -19,9 +19,9 @@ if(isset($_GET['level_id']))
 	$level_id = $_GET['level_id'];
 else
 	$level_id = 0;
-if($current_time > 24*3600*1000):
+//if($current_time > 24*3600*1000):
 ?>
-<div class="box" style="width:500px;">
+<!--<div class="box" style="width:500px;">
 	<p>Quá thời gian kích hoạt tài khoản</p>
 	
 <table width="100%">
@@ -30,9 +30,9 @@ if($current_time > 24*3600*1000):
 
 			</tr>
 		</table>
-</div>
+</div>-->
 <?php	
-else:
+//else:
 
 
 		update_usermeta($user_id,'wp_membership_active','yes');		
@@ -77,5 +77,5 @@ sử dụng dịch vụ của Happy Click</p>
 </div>
 <?php
 	}
-endif;
+//endif;
 ?>

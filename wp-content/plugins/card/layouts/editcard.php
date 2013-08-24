@@ -1,11 +1,6 @@
 <?php
 $card = HCcard::get($_GET['cardid']);
-<<<<<<< HEAD
-echo $card->expired;
-echo date('Y-m-d H:i:s', $card->expired); 
-=======
-
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
+echo date('Y-m-d H:i:s', $card->expired);
 ?>
 <h1 class="title">Cập nhật</h1>
 <form id="form" method="post" action="?page=hccard&options=list">
@@ -13,7 +8,7 @@ echo date('Y-m-d H:i:s', $card->expired);
 
 			<input type="hidden" value="<?php echo $card->id; ?>" name="id" id="widget_id" />
 			<input type="hidden" value="editcard" name="action" />
-			
+
             <div id="items">
             	<label>Serial</label><br/><input type="text" name="serial" value="<?php echo $card->serial; ?>">
             </div>
@@ -40,10 +35,10 @@ echo date('Y-m-d H:i:s', $card->expired);
 
 			<p class="actions">
 				<input type="submit" value="Cập nhật" class="button-primary action save"/>
-	            
+
 				<span></span>
 			</p>
 
         </div>
-        
+
 	</form>

@@ -30,7 +30,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 	update_usermeta( $user_id, 'last_name', $_POST['hclast_name']);
 	update_usermeta( $user_id, 'mobile', $_POST['hcmobile']);
 	update_usermeta( $user_id, 'position', $_POST['hcposition']);
-	update_usermeta( $user_id, 'companyphone', $_POST['hcompanyphone']);
+	update_usermeta( $user_id, 'companyphone', $_POST['hccompanyphone']);
 	update_usermeta( $user_id, 'gender', $_POST['hcgender']);
 	update_usermeta( $user_id, 'company', $_POST['hccompany']);
 	update_usermeta( $user_id, 'birthday', $_POST['hcbirthday']);

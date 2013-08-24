@@ -13,10 +13,11 @@
                 <strong><?php echo get_the_date('d/m/Y') ?></strong>
             </p>
             <p>
-                Giảng viên: <strong>Trần Đình Dũng</strong>
+                <?php $giang_vien = get_post_custom_values('giang_vien'); ?>
+                Giảng viên: <strong><?php echo $giang_vien[0] ?></strong>
             </p> 
             <p class="delayed_msg">
-                Bạn đã có thể bắt đầu đăng ký khóa học trực tuyến trong tháng 8/2013
+                Bạn đã có thể bắt đầu đăng ký khóa học trực tuyến trong tháng 9/2013
             </p>
             <p class="register-links">
                 

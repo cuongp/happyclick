@@ -26,7 +26,11 @@
                                 $link = $links[0];
                                 ?>
                                 <iframe width="510" height="321" src="<?php echo $youtubeVideo_link; ?>?autoplay=0&amp;version=3&amp;rel=0&amp;ps=docs&amp;color=white&amp;theme=light&amp;showinfo=0&amp;hl=en_US" type="application/x-shockwave-flash" frameborder="0" allowfullscreen style="float:right;" ></iframe>
-                            <?php /* <p><a href="<?php echo $link; ?>"><?php _e('Download tài liệu','warp'); ?></a></p> */?>
+                            <?php
+                            if($link != ''): ?>
+                                <p><a href="<?php echo $link; ?>" target="_blank"><?php _e('Download tài liệu','warp'); ?></a></p>
+                            <?php     
+                            endif; ?>
                             <p style="width: 94%;text-align: center;font-size: 13px;font-weight: normal;color: red;">Trang web được hỗ trợ tốt nhất trên trình duyệt Google Chrome</p>
                         </div>
                      <?php endif; ?>

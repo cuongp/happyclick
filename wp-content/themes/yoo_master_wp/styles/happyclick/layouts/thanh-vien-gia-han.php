@@ -21,30 +21,30 @@ function insert_user_data($data){
 function get_card_info($card_id){
 	$db = $GLOBALS['wpdb'];
 	$cardTable = $db->prefix.'cards';
-	
+
 	$card = $db->get_row('select id,sub_id from '.$cardTable.' where id = '.$card_id);
-	
+
 	return !empty($card)?$card :null;
 }
 function get_sub_info($sub_id){
 	$db = $GLOBALS['wpdb'];
 	$subTable = $db->prefix.'m_subscriptions_levels';
-	$sub = $db->get_row('select * from '.$subTable.' where sub_id = "'.$sub_id.'"');	
-	return !empty($sub)?$sub :null;	
+	$sub = $db->get_row('select * from '.$subTable.' where sub_id = "'.$sub_id.'"');
+	return !empty($sub)?$sub :null;
 }
 if(isset($_POST) && $_POST['action'] == 'submit'){
 	$db = $GLOBALS['wpdb'];
-	$card_id = check_card($_POST['hccode'],$_POST['hcserial']); 
+	$card_id = check_card($_POST['hccode'],$_POST['hcserial']);
 	if($card_id>0){
 		$p = $db->get_row('select expirydate from '.$db->prefix.'m_membership_relationships where user_id='.$current_user->ID);
-		$card_info = get_card_info($card_id->id);		
+		$card_info = get_card_info($card_id->id);
 		$sub_info = get_sub_info($card_info->sub_id);
 		update_card($card_id->id);
 		$level_period_unit = $sub_info->level_period_unit;
 		$startdate = date("Y-m-d H:i:s");
 		$ed = $p->expirydate;
-		
-		switch ($level_period_unit) 
+
+		switch ($level_period_unit)
 		{
 				case 'y':
 					$enddate = date("Y-m-d H:i:s",strtotime($ed.'+'.$sub_info->level_period.' year'));
@@ -59,7 +59,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					$enddate = $startdate;
 					break;
 		}
-		switch ($level_period_unit) 
+		switch ($level_period_unit)
 		{
 				case 'y':
 					$enddate2 = date("d-m-Y",strtotime($ed.'+'.$sub_info->level_period.' year'));
@@ -75,7 +75,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					break;
 		}
 		$query = $db->update($db->prefix.'m_membership_relationships',array('expirydate'=>$enddate),array('user_id'=>$current_user->ID));
-		
+
 		if($query){
 			$html = '<table width="600" cellpadding="0" cellspacing="0" bgcolor="#799d1f" style="width: 100%; font-family: Arial, Helvetica, sans-serif; font-size: 14px;">
 					<tbody>
@@ -97,9 +97,9 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					      <p style="padding:10px">Số sê-ri của thẻ cào: '.$_POST['hcserial'].'</p>
 					    <p style="padding:10px">Thời hạn sử dụng: đến hết ngày '.$enddate2.'<br />
 					      <br />
-					      
-					      
-					      Đây là email tự động gửi, vui lòng không trả lời vào email này.<br />
+
+
+					      <p style="background:red;padding:5px">Đây là email tự động gửi, vui lòng không trả lời vào email này.</p><br />
 					      <br />
 					      Thân mến,<br />
 					      <br />
@@ -124,7 +124,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					</table>';
 			$headers[] = 'From: Happy Click <support@happyclick.vn>';
 			$headers[] ='Content-type: text/html';
-			
+
 			wp_mail($hcemail,'Gia hạn thành viên Happy Click!',$html,$headers);
 			}else{
 				$flag='<h3 class="error">Gia hạn không thành công. Vui lòng liên hệ bộ phận hỗ trợ khách hàng để biết thêm thông tin</h3>';
@@ -144,7 +144,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 		<table width="100%" class="form_profile">
 			<tr>
 				<td colspan="2">
-					
+
 					<p>(<span>*</span>) Thông tin bắt buộc</p><br/>
 				</td>
 			</tr>
@@ -156,15 +156,15 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 			</tr>
 <tr>
 				<td class="box3" width="45%"  align="right">Mã thẻ cào</td>
-				<td  class="box4"><input type="text" id="code" name="hccode" required /><span>*</span></td>				
+				<td  class="box4"><input type="text" id="code" name="hccode" required /><span>*</span></td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3"  align="right">Số sê-ri</td>
-				<td  class="box4"><input type="text" id="serial" name="hcserial" required /><span>*</span></td>				
+				<td  class="box4"><input type="text" id="serial" name="hcserial" required /><span>*</span></td>
 			</tr>
 			<tr>
 				<td width="45%"  class="box3" align="right">Mã kiểm tra</td>
-				<td  class="box4"><a href="<?php echo $_SERVER['PHP_SELF']; ?>" id="refreshimg" title="Click to refresh image"><img src="/wp-content/themes/<?php echo get_template() ?>/js/images/image.php?<?php echo time(); ?>" width="132" height="46" alt="Captcha image" /></a><input type="text" maxlength="6" name="hccaptcha" id="captcha" /><span>*</span></td>				
+				<td  class="box4"><a href="<?php echo $_SERVER['PHP_SELF']; ?>" id="refreshimg" title="Click to refresh image"><img src="/wp-content/themes/<?php echo get_template() ?>/js/images/image.php?<?php echo time(); ?>" width="132" height="46" alt="Captcha image" /></a><input type="text" maxlength="6" name="hccaptcha" id="captcha" /><span>*</span></td>
 			</tr>
 			<tr>
 				<td><input type="hidden" name="action" value="submit"></td>

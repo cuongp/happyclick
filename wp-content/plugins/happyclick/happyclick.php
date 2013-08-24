@@ -3,20 +3,14 @@
 /*
 Plugin Name: Happy Click
 Plugin URI: http://tgmtech.vn
-<<<<<<< HEAD
 Description:
-=======
-Description: 
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 Author: TGMTECH
 Version: 1.0.0
 Author URI: http://tgmtech.vn
 License: GPLv2
 */
 
-
 include (dirname(__file__) . '/widgets/widget-sukien.php');
-<<<<<<< HEAD
 
 //include (dirname(__file__) . '/widgets/widget-sukien.php');
 
@@ -24,13 +18,11 @@ add_action('admin_menu','add_membership_custom_options');
 
 if(is_admin()){
     add_action('admin_menu','_init_menu_sukien');
-    function _init_menu_sukien(){
-		add_menu_page('Đăng ký sự kiện', 'Đăng ký sự kiện', 10, 'hcsukien', '_adminViewSukien',plugins_url('card/images/icon.png'));
+    function _init_menu_sukien(){		add_menu_page('Đăng ký sự kiện', 'Đăng ký sự kiện', 10, 'hcsukien', '_adminViewSukien',plugins_url('card/images/icon.png'));
 		//hai phan dev here, still in phase 1
 		$my_JSONpage = add_submenu_page( 'hcsukien', 'Quản lý đăng ký sự kiện','Quản lý đăng ký sự kiện (AJAX)', 'manage_options', 'hcsukien_jsonview', '_adminViewSukienJSON' );
 		add_action( 'load-' . $my_JSONpage, 'load_JSON_cssjs' );
     }
-
 function _adminViewSukien(){
     ?>
     <h1 class="title">Danh sách thành viên đăng ký</h1>
@@ -80,16 +72,11 @@ function _adminViewSukien(){
     }
 }
 
-=======
-add_action('admin_menu','add_membership_custom_options');
-
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 function add_membership_custom_options(){
     add_options_page('HappyClick Membership Options', 'HappyClick Membership Options', 'manage_options', 'functions','membershiphp_custom_options');
 }
     function membershiphp_custom_options(){
     ?>
-<<<<<<< HEAD
 
 <div class="wrap">
         <h2>Discount for HappyClick Membership</h2>
@@ -109,27 +96,6 @@ function add_membership_custom_options(){
     <?php
     }
 add_action('init', 'sukien_post_type');
-=======
-    
-<div class="wrap">  
-        <h2>Discount for HappyClick Membership</h2>  
-        <form method="post" action="options.php">  
-            <?php wp_nonce_field('update-options') ?> 
-            <p><strong>Discount Membership:</strong><br />  
-                <input type="text" name="hpbasicmembership" size="15" value="<?php echo get_option('hpbasicmembership'); ?>" />%  
-            </p>
-            <p><strong>Post Per Page:</strong><br />  
-                <input type="text" name="page_chude" size="15" value="<?php echo get_option('page_chude'); ?>" />%  
-            </p>
-            <p><input type="submit" name="Submit" value="Submit" /></p>  
-            <input type="hidden" name="action" value="update" />  
-            <input type="hidden" name="page_options" value="hpbasicmembership,page_chude" />
-               
-    <?php
-    }  
-add_action('init', 'sukien_post_type');
-
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 function sukien_post_type()
 {
     $labels = array(
@@ -167,7 +133,6 @@ function sukien_post_type()
 
 flush_rewrite_rules();
 }
-<<<<<<< HEAD
 add_action('init', 'hcfaq_post_type');
 function hcfaq_post_type()
 {
@@ -205,8 +170,6 @@ function hcfaq_post_type()
 
 flush_rewrite_rules();
 }
-=======
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 
 add_action('init', 'chude_taxonomy_type');
 function chude_taxonomy_type()
@@ -221,11 +184,7 @@ function chude_taxonomy_type()
         'add_new_item' => __('Add New Chủ đề'),
         'new_item_name' => __('New Chủ đề'),
         'choose_from_most_used' => __('Choose from the most used diễn giả'));
-<<<<<<< HEAD
         register_taxonomy('chude', array('sukien'), array(
-=======
-    register_taxonomy('chude', array('sukien'), array(
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
         'hierarchical' => true,
         'labels' => $labels,
         'query_var' => 'chude',
@@ -235,7 +194,6 @@ function chude_taxonomy_type()
         flush_rewrite_rules();
 }
 add_action('init', 'diengia_taxonomy_type');
-<<<<<<< HEAD
 add_action('init', 'doituong_taxonomy_type');
 add_action('init', 'nganhnghe_taxonomy_type');
 add_action('init', 'city_taxonomy_type');
@@ -261,8 +219,6 @@ function hcaccount_taxonomy_type()
     flush_rewrite_rules();
 }
 
-=======
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 
 function diengia_taxonomy_type()
 {
@@ -284,7 +240,6 @@ function diengia_taxonomy_type()
         'show_in_nav_menus' => true));
         flush_rewrite_rules();
 }
-<<<<<<< HEAD
 function doituong_taxonomy_type()
 {
     $labels = array(
@@ -385,14 +340,11 @@ flush_rewrite_rules();
 }
 
 
-=======
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 
 function sukien_meta_boxes()
 {
     add_meta_box('sukien_form', 'Details', 'sukien_form', 'sukien', 'normal', 'high');
 }
-<<<<<<< HEAD
 function hcfaq_meta_boxes()
 {
     add_meta_box('hcfaq_form', 'Details', 'hcfaq_form', 'hcfaq', 'normal', 'high');
@@ -411,8 +363,6 @@ function hcfaq_form(){
 </p>
 <?php
 }
-=======
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 function sukien_form()
 {
     $post_id = get_the_ID();
@@ -421,7 +371,6 @@ function sukien_form()
     $giatien = (empty($sukien_data['giatien'])) ? '' : $sukien_data['giatien'];
     $thoigian = (empty($sukien_data['thoigian'])) ? '' : $sukien_data['thoigian'];
     $diadiem = (empty($sukien_data['diadiem'])) ? '' : $sukien_data['diadiem'];
-<<<<<<< HEAD
     $articleicon = (empty($sukien_data['articleicon'])) ? '' : $sukien_data['articleicon'];
     $slidericon = (empty($sukien_data['slidericon'])) ? '' : $sukien_data['slidericon'];
     $isslider = (empty($sukien_data['isslider'])) ? '' : $sukien_data['isslider'];
@@ -455,15 +404,6 @@ function sukien_form()
         <label>Article Icon</label><br />
         <input type="text" value="<?php echo $articleicon; ?>" name="sukien[articleicon]" size="80" />
 </p>
-=======
-    wp_nonce_field('sukien', 'sukien');
-?>
-<p>
-        <label>Video (optional)</label><br />
-        <input type="text" value="<?php echo $video; ?>" name="sukien[video]" size="80" />
-</p>
-
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 <p>
 		<label>Giá tiền (optional)</label><br />
 		<input type="text" value="<?php echo $giatien; ?>" name="sukien[giatien]" size="40" />
@@ -476,7 +416,6 @@ function sukien_form()
 		<label>Địa điểm (optional)</label><br />
 		<input type="text" value="<?php echo $diadiem; ?>" name="sukien[diadiem]" size="40" />
 </p>
-<<<<<<< HEAD
 
 <?php
 }
@@ -495,17 +434,12 @@ function hcfaq_save_post($post_id)
     }
 }
 
-=======
-<?php
-}
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 add_action('save_post', 'sukien_save_post');
 
 function sukien_save_post($post_id)
 {
 
     if (!empty($_POST['sukien'])) {
-<<<<<<< HEAD
         var_dump($_POST['sukien']);
         $sukien_data['hcregister'] = (empty($_POST['sukien']['hcregister'])) ? '' :
             $_POST['sukien']['hcregister'];
@@ -519,23 +453,11 @@ function sukien_save_post($post_id)
             $_POST['sukien']['slidericon'];
         $sukien_data['isslider'] = (empty($_POST['sukien']['isslider'])) ? '' :
             $_POST['sukien']['isslider'];
-=======
-        $sukien_data['giatien'] = (empty($_POST['sukien']['giatien'])) ? '' :
-            sanitize_text_field($_POST['sukien']['giatien']);
-        
-        $sukien_data['video'] = (empty($_POST['sukien']['video'])) ? '' :
-            sanitize_text_field($_POST['sukien']['video']);
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
         $sukien_data['thoigian'] = (empty($_POST['sukien']['thoigian'])) ? '' :
             sanitize_text_field($_POST['sukien']['thoigian']);
         $sukien_data['diadiem'] = (empty($_POST['sukien']['diadiem'])) ? '' :
             sanitize_text_field($_POST['sukien']['diadiem']);
         update_post_meta($post_id, '_sukien', $sukien_data);
-<<<<<<< HEAD
-=======
-    } else {
-        delete_post_meta($post_id, '_sukien');
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
     }
 }
 
@@ -550,17 +472,13 @@ function sukien_edit_columns($columns)
         'sukien-giatien' => 'Giá tiền',
         'sukien-thoigian' => 'Thời gian',
         'sukien-diadiem' => 'Địa điểm',
-<<<<<<< HEAD
         'sukien-articleicon'=>'Article Icon',
         'sukien-slidericon'=>'Slide Icon',
-=======
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
         'author' => 'Posted by',
         'date' => 'Date');
 
     return $columns;
 }
-<<<<<<< HEAD
 add_filter('manage_edit-hcfaq_columns', 'hcfaq_edit_columns');
 function hcfaq_edit_columns($columns)
 {
@@ -586,8 +504,6 @@ function hcfaq_columns($column, $post_id)
             break;
     }
 }
-=======
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 add_action('manage_posts_custom_column', 'sukien_columns', 10, 2);
 
 function sukien_columns($column, $post_id)
@@ -635,7 +551,6 @@ function sukien_columns($column, $post_id)
             if (!empty($sukien_data['diadiem']))
                 echo $sukien_data['diadiem'];
             break;
-<<<<<<< HEAD
         case 'sukien-slidericon':
             if (!empty($sukien_data['slidericon']))
                 echo '<img src="'.$sukien_data['slidericon'].'" width=50 height=50 />';
@@ -653,17 +568,11 @@ function get_feautre_cat($cat_id){
     $result =$db->get_row($sql);
     return $result;
 }
-=======
-    }
-}
-
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 function get_chude($post_type = 'sukien', $posts_per_page = -1, $orderby =
     'none', $subject_id = null)
 {
     $count =4;
     echo '<div class="items items-col-'.$count.' grid-block">';
-<<<<<<< HEAD
     //$taxonomies = get_terms('chude');
     $taxonomies = get_categories('taxonomy=chude');
 
@@ -689,24 +598,10 @@ function get_chude($post_type = 'sukien', $posts_per_page = -1, $orderby =
                         'terms' => $taxonomy->slug
                     )
                 ),
-=======
-    $taxonomies = get_terms('chude');
-    if (!empty($taxonomies)) {
-        foreach ($taxonomies as $taxonomy) {
-            echo '<div class="clearfix"><h3 class="module-title"><a href="/chude/' . $taxonomy->slug . '">' . $taxonomy->
-                name . '</a></h3>';
-
-            $args = array(
-                'posts_per_page' => 8,
-                'post_type' => 'sukien',
-                'no_found_rows' => true,
-                'areas' => $taxonomy->slug,
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
                 'order' => 'DESC');
             $query = new WP_Query($args);
             if($query->have_posts()){
                 while ( $query->have_posts() ) : $query->the_post();
-<<<<<<< HEAD
                 if($i%2==0){
             $class='old';
             if($i>1)
@@ -727,23 +622,10 @@ function get_chude($post_type = 'sukien', $posts_per_page = -1, $orderby =
                 $out[] = esc_html(sanitize_term_field('name', $c->name, $c->term_id, 'category', 'display'));
             $diengia = join( ', ', $out );
 
-=======
-                $post_id = get_the_ID();
-			$data = get_post_meta( $post_id, '_'.$post_type, true );
-            
-            $terms = get_the_terms( $post_id, 'diengia');
-            $diengia='';
-             if(!empty($terms)){
-                 $out = array();
-            foreach ( $terms as $c )
-                $out[] = esc_html(sanitize_term_field('name', $c->name, $c->term_id, 'category', 'display'));
-            $diengia = join( ', ', $out );    
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
             }
             $thumbnail = get_the_post_thumbnail($post_id);
             if(empty($thumbnail))
                 $thumbnail = '<img src="/wp-content/uploads/no-image.jpg" alt='.get_the_title().' />';
-<<<<<<< HEAD
             $giatien = ( empty( $data['giatien'] ) ) ? 'Vui lòng liên hệ' : number_format($data['giatien'] , 0, '.', '.').' đ';
             $giatienthanhvien = ( empty( $data['giatien'] ) ) ? 'Vui lòng liên hệ' : number_format($data['giatien'] - $data['giatien']*(get_option('hpbasicmembership')/100),0,'.','.').' đ';
             $thoigian =( empty( $data['thoigian'] ) ) ? '' : $data['thoigian'];
@@ -860,51 +742,10 @@ function get_chude($post_type = 'sukien', $posts_per_page = -1, $orderby =
 </div>
 <?php
 $i++;
-=======
-            $giatien = ( empty( $data['giatien'] ) ) ? 'Vui lòng liên hệ' : number_format($data['giatien'],0,'.','').' đồng';
-            $giatienthanhvien = ( empty( $data['giatien'] ) ) ? 'Vui lòng liên hệ' : number_format($data['giatien'] - $data['giatien']*(get_option('hpbasicmembership')/100),0,'.','').' đồng';
-            $thoigian =( empty( $data['thoigian'] ) ) ? '' : $data['thoigian'];
-            $diadiem = ( empty( $data['diadiem'] ) ) ? '' : $data['diadiem'];
-            
-?>
-<div class="grid-box width<?php echo intval(100 / $count);?>">                
-
-<article id="item-<?php the_ID(); ?>" class="chude_item item" data-permalink="<?php the_permalink(); ?>">
-
-	
-
-	
-	<div class="content clearfix">
-    <span class="vdarrow"></span>
-    <p style="min-height: 132px; position:relative;">
-        <span class="cd_datetime"></span>
-        <span class="cd_datetime2"><?php echo $thoigian; ?></span>
-	   <span class="title"><a href="<?php the_permalink() ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></span>
-    
-    <?php 
-        echo $thumbnail;
-    ?></p>
-    <p class='diengia'><span><?php echo $diengia; ?></span></p>
-    <table width=100% class="cus">
-        <tr><td>Khách:</td><td><?php echo $giatien; ?></td></tr>
-        <tr><td>Thành viên:</td><td><?php echo $giatienthanhvien; ?></td></tr>
-    </table>
-    <p class="cat-post-title2"><a href="<?php echo get_permalink(); ?>">Xem chi tiết</a></p>
-    <p class="cat-post-title2"><a href="<?php echo get_permalink(); ?>">Trở thành thành viên</a></p>
-    </div>
-    
-
-	<?php edit_post_link(__('Edit this post.', 'warp'), '<p class="edit">','</p>'); ?>
-
-</article>
-</div>
-<?php
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 endwhile;
             }
             echo '</div><br/>';
         }
-<<<<<<< HEAD
         }
     }
    echo '</div>';
@@ -954,6 +795,71 @@ function get_qna($atts){
     return $str;
 }
 add_shortcode('FAQ_LIST','get_qna');
+
+function get_posts_byid($atts){
+    extract(shortcode_atts(array(
+        'slug'    =>  ''
+        ),$atts));
+    $args = array(
+                'posts_per_page' => -1,
+                'post_type' => 'sukien',
+                'no_found_rows' => true,
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'chude',
+                        'field' => 'slug',
+                        'terms' => $slug
+                    )
+                ),
+                'order' => 'ASC');
+    $query = new WP_Query($args);
+    if($query->post_count >1){
+        $i=1;
+        $str =  '<h3><b>Xem lại các chuyên đề đã tổ chức</b></h3>';
+        $str.=  '<em>(Chỉ dành cho thành viên)</em>';
+        $str.=  '<div id="lsukien">';
+        $str .= '<div id="l_sukien" class="image_carousel">';
+        if($query->have_posts()){
+            while ( $query->have_posts() ) : $query->the_post();
+                if($i<$query->post_count):
+                $post_id = get_the_ID();
+                $thumbnail = get_the_post_thumbnail($post_id);
+                $str.=  '<p style="width:180px"><a href="'.get_permalink().'?act=su-kien-da-dien-ra">'.$thumbnail.'<br/>Tháng 8/2013 '.get_the_title().'</a></p>';
+                endif;
+                $i++;
+            endwhile;
+        }
+        $str.='</div></div>';
+        $str.='<div class="clear"></div>';
+    }else
+        $str='';
+    // $str.='<a class="prev" id="foo1_prev" href="#" style="display: block;"><span>prev</span></a>';
+    // $str.='<a class="next" id="foo1_next" href="#" style="display: block;"><span>prev</span></a>';
+
+    return $str;
+}
+
+add_shortcode('LIST_CHUDE','get_posts_byid');
+function old_sukien($atts,$content = null){
+    if(isset($_GET['act']))
+        $s = $_GET['act'];
+    else
+        $s = '';
+       extract(shortcode_atts(array(
+      'slug' => $s), $atts));
+        if($slug!='')
+            return $content;
+        return "";
+}
+add_shortcode('OLD_SUKIEN', 'old_sukien');
+function new_sukien($atts,$content = null){
+       extract(shortcode_atts(array(
+      'slug' => ''), $atts));
+        if(!isset($_GET['act']))
+            return $content;
+        return "";
+}
+add_shortcode('NEW_SUKIEN', 'new_sukien');
 function redirect_hcpage($atts){
        extract(shortcode_atts(array(
       'link' => ''), $atts));
@@ -976,8 +882,14 @@ add_shortcode('bannergiangvien', 'giangvien_banner');
 function viewsukienJSON_css_and_js() {
 	wp_register_style('mygridcss', plugins_url('css/demo_table.css',__FILE__ ),array(),null);
 	wp_enqueue_style('mygridcss');
+	wp_register_style('TableToolscss', plugins_url('css/TableTools.css',__FILE__ ),array(),null);
+	wp_enqueue_style('TableToolscss');
 	wp_register_style('jqueryuicss', "http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css",array(), null);
 	wp_enqueue_style('jqueryuicss');
+	wp_register_style('mybaseuicss', plugins_url("css/themes/base/jquery-ui.css",__FILE__ ),array(), null);
+	wp_enqueue_style('mybaseuicss');
+	wp_register_style('mybaseuicss2', plugins_url("css/themes/smoothness/jquery-ui-1.7.2.custom.css",__FILE__ ),array(), null);
+	wp_enqueue_style('mybaseuicss2');
 	wp_enqueue_script('jquery-ui', 'http://code.jquery.com/ui/1.10.3/jquery-ui.js', array('jquery'), null);
 	wp_register_script( 'DataTable_fixheader', plugins_url('js/FixedHeader.min.js',__FILE__ ),array('jquery'),null);
 	wp_enqueue_script('DataTable_fixheader');
@@ -987,24 +899,61 @@ function viewsukienJSON_css_and_js() {
 	wp_enqueue_script('DataTable');
 	wp_register_script( 'jeditable', plugins_url('js/jquery.jeditable.js',__FILE__ ),array( 'jquery' ),null);
 	wp_enqueue_script('jeditable');
-	wp_register_script( 'DataTables-editable', plugins_url('js/jquery.DataTables.editable.js',__FILE__ ),array( 'jquery' ),null);
+	wp_register_script( 'DataTables-editable', plugins_url('js/jquery.dataTables.editable.js',__FILE__ ),array( 'jquery' ),null);
 	wp_enqueue_script('DataTables-editable');
+	wp_register_script( 'jeditable-datepicker', plugins_url('js/jquery.jeditable.datepicker.js',__FILE__ ),array( 'jquery' ),null);
+	wp_enqueue_script('jeditable-datepicker');
+	wp_register_script( 'DataTables-TableTools', plugins_url('js/TableTools.min.js',__FILE__ ),array( 'jquery' ),null);
+	wp_enqueue_script('DataTables-TableTools');
+	wp_register_script( 'DataTables-TableToolsZeroClipboard', plugins_url('js/ZeroClipboard.js',__FILE__ ),array( 'jquery' ),null);
+	wp_enqueue_script('DataTables-TableToolsZeroClipboard');
+	wp_register_script( 'DataTables-columnFilter', plugins_url('js/jquery.dataTables.columnFilter.js',__FILE__ ),array( 'jquery' ),null);
+	wp_enqueue_script('DataTables-columnFilter');
 }
+
 function load_JSON_cssjs(){
 	// Unfortunately we can't just enqueue our scripts here - it's too early. So register against the proper action hook to do it
 	add_action( 'admin_enqueue_scripts','viewsukienJSON_css_and_js');/*admin_init*/
 }
-function _adminViewSukienJSON(){
+//include_once($_SERVER['DOCUMENT_ROOT'].'/wp-load.php' );
+
+
+function _adminViewSukienJSON() {
+global $wpdb;
 ?>
-    <h1 class="title">Danh sách thành viên đăng ký</h1>
-    <script type="text/javascript" charset="utf-8">
+	<h1 class="title">Danh sách thành viên đăng ký</h1>
+	<script type="text/javascript" charset="utf-8">
 	jQuery(document).ready(function ($) {
+	 	$.datepicker.regional[""].dateFormat = 'dd-mm-yy';
+          $.datepicker.setDefaults($.datepicker.regional['']);
 		var oTable = $('#example').dataTable( {
 			"bProcessing": true,
 			"bFilter": true,
 			"bServerSide": true,
 			"iDisplayLength":50,
 			"sAjaxSource": "<?php echo plugins_url('include/model_json.php',__FILE__ );?>",
+			"sDom": 'T<"clear">lfrtip',
+			"oTableTools": {
+				"sSwfPath": "<?php echo plugins_url('/swf/copy_csv_xls_pdf.swf',__FILE__ )?>",
+				"aButtons": [
+					{
+	                    	"sExtends":     "copy","bFooter": false,
+	     	               "sButtonText": "Sao chép",
+	     	               "sToolTip": "Sao chép vào bộ nhớ tạm (clip-board)"
+     		          },
+					{
+	                    	"sExtends":     "xls","bFooter": false,
+	     	               "sButtonText": "Excel",
+	     	               "sToolTip": "Lưu thành file Excel"
+     		          },
+     		          {
+	                    	"sExtends":     "print","bFooter": false,
+	                    	"sInfo": "<center><h1>Chế độ xem trước khi in.</h1></center><br><h3>Xin dùng chức năng In của trình duyệt để bấm in bảng này. Bấm phím Esc để trở lại chế độ xem ban đầu.</h3>",
+	     	               "sButtonText": "In ra",
+	     	               "sToolTip": "In ra giấy"
+     		          }
+     		     ]
+     		},
 			"oLanguage": {
 				"sProcessing":   "Đang xử lý...",
 				"sLengthMenu":   "Xem _MENU_ mục",
@@ -1022,45 +971,156 @@ function _adminViewSukienJSON(){
 					"sLast":     "Cuối"
 				}
 			}
-	    } );
-	    new FixedHeader( oTable ,{"offsetTop": 28});
-	} );</script>
-	<table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">
+		}).columnFilter({
+			sRangeFormat:"Từ {from} đến {to}",
+			sPlaceHolder: "thead:after",
+			aoColumns: [
+				{ type: "number-range" , sSelector: "#IDFilter"},
+				{ type: "text" , sSelector: "#UserFilter"},
+				{ type: "text" , sSelector: "#FNameFilter"},
+				{ type: "text" , sSelector: "#LNameFilter"},
+				{ type: "number" , sSelector: "#MobileFilter"},
+				//{ type: "text" , sSelector: "#EventNameFilter"},
+				{ type: "select" , sSelector: "#EventNameFilter", values: [ '<?php //fetch list of sukien from SQL
+					$sQuery = "SELECT post_title FROM $wpdb->posts WHERE post_type='sukien'";
+					$rResult = $wpdb->get_results( $wpdb->prepare($sQuery));
+					$printout="";
+					foreach ($rResult as $aRow)
+						$printout.= $aRow->post_title."', '";
+					$printout = substr_replace( $printout, "", -4 );
+					echo $printout;
+				?>' ] },
+				{ type: "date-range" , sSelector: "#RegDateFilter"},
+				{ type: "date-range" , sSelector: "#PayDateFilter"},
+				{ type: "select", values: [ 'Thanh toán chuyển khoản', 'Thanh toán trực tiếp tại văn phòng']  , sSelector: "#PayTypeFilter"},
+				{ type: "select", values: [ 'Chưa thanh toán', 'Đã thanh toán']  , sSelector: "#PayStatFilter"}
+		]}).makeEditable({
+			sUpdateURL:function(value, settings){
+                    return(value); //Simulation of server-side response using a callback function
+                    },//"UpdateData.php",
+			oEditableSettings: { ajaxoptions:{ type: 'POST'} },
+			aoColumns: [
+				null,//block edit
+				null,
+				null,
+				null,
+				null,
+				null,
+				null,
+				{
+					indicator : "<img src='img/indicator.gif'>",
+					type      : 'datepicker',
+					tooltip   : "Nhấp vào để sửa..."
+				},
+				{
+					indicator: 'Đang lưu...',
+					tooltip: 'Nhấp để đổi',
+					loadtext: 'đang tải...',
+					type: 'select',
+					onblur: 'cancel',
+					submit    : 'Đổi',
+					data: "{'Trực tiếp':'Trực tiếp','Chuyển khoản':'Chuyển khoản'}"
+				},
+				{//read reference for more installation http://jquery-datatables-editable.googlecode.com/svn/trunk/index.html
+					indicator: 'Đang lưu...',
+					tooltip: 'Nhấp để đổi',
+					loadtext: 'đang tải...',
+					type: 'select',
+					onblur: 'cancel',
+					submit    : 'Đổi',
+					data: "{'Đã thanh toán':'Đã thanh toán','Chưa thanh toán':'Chưa thanh toán'}"
+				}
+			]
+		});
+		new FixedHeader( oTable ,{"offsetTop": 28});
+	} );
+	</script>
+<!--Filter-->
+<table cellspacing="0" cellpadding="0" border="0" class="display" ID="Table1">
 	<thead>
 		<tr>
-			<th width="10%">ID</th>
-			<th width="20%">Thành viên</th>
-			<th width="20%">Sự kiện</th>
-			<th>Ngày đăng ký</th>
-			<th>Ngày thanh toán</th>
-			<th>Loại hình thanh toán</th>
-			<th>Tình trạng thanh toán</th>
+			<th>Cột</th>
+			<th>Bộ lọc</th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-			<td colspan="7" class="dataTables_empty">Đang tải dữ liệu</td>
+		<tr id="filter_global">
+			<td align="center">ID</td>
+			<td align="center" id="IDFilter"></td>
+		</tr>
+		<tr id="filter_col1">
+			<td align="center">Thành viên</td>
+			<td align="center" id="UserFilter"></td>
+		</tr>
+		<tr id="filter_col2">
+			<td align="center">Họ</td>
+			<td align="center" id="FNameFilter"></td>
+		</tr>
+		<tr id="filter_col3">
+			<td align="center">Tên</td>
+			<td align="center" id="LNameFilter"></td>
+		</tr>
+		<tr id="filter_col4">
+			<td align="center">ĐTDĐ</td>
+			<td align="center" id="MobileFilter"></td>
+		</tr>
+		<tr id="filter_col4">
+			<td align="center">Sự kiện</td>
+			<td align="center" id="EventNameFilter"></td>
+		</tr>
+		<tr id="filter_col4">
+			<td align="center">Ngày đăng ký</td>
+			<td align="center" id="RegDateFilter"></td>
+		</tr>
+		<tr id="filter_col4">
+			<td align="center">Ngày thanh toán</td>
+			<td align="center" id="PayDateFilter"></td>
+		</tr>
+		<tr id="filter_col4">
+			<td align="center">Loại hình thanh toán</td>
+			<td align="center" id="PayTypeFilter"></td>
+		</tr>
+		<tr id="filter_col4">
+			<td align="center">Tình trạng thanh toán</td>
+			<td align="center" id="PayStatFilter"></td>
 		</tr>
 	</tbody>
-	<tfoot>
-		<tr>
-			<th>ID</th>
-			<th>Thành viên</th>
-			<th>Sự kiện</th>
-			<th>Ngày đăng ký</th>
-			<th>Ngày thanh toán</th>
-			<th>Loại hình thanh toán</th>
-			<th>Tình trạng thanh toán</th>
-		</tr>
-	</tfoot>
+</table>
+<!-- end of filter-->
+	<table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">
+		<thead>
+			<tr>
+				<th width="5%">ID</th>
+				<th>Thành viên</th>
+				<th>Họ</th>
+				<th>Tên</th>
+				<th>ĐTDĐ</th>
+				<th width="25%">Sự kiện</th>
+				<th>Ngày đăng ký</th>
+				<th>Ngày thanh toán</th>
+				<th>Loại hình thanh toán</th>
+				<th>Tình trạng thanh toán</th>
+			</tr>
+		</thead>
+
+		<tfoot>
+			<tr>
+				<th>ID</th>
+				<th>Thành viên</th>
+				<th>Họ</th>
+				<th>Tên</th>
+				<th>ĐTDĐ</th>
+				<th>Sự kiện</th>
+				<th>Ngày đăng ký</th>
+				<th>Ngày thanh toán</th>
+				<th>Loại hình thanh toán</th>
+				<th>Tình trạng thanh toán</th>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td colspan="7" class="dataTables_empty">Đang tải dữ liệu</td>
+			</tr>
+		</tbody>
 	</table>
-    <?php
-}
-?>
-=======
-    }
-   echo '</div>';
-}
-    
-?>
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
+<?php } ?>

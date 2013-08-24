@@ -238,7 +238,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					      <br />
 
 
-					      Đây là email tự động gửi, vui lòng không trả lời vào email này.<br />
+					      <p style="background:red;padding:5px">Đây là email tự động gửi, vui lòng không trả lời vào email này.</p><br />
 					      <br />
 					      Thân mến,<br />
 					      <br />
@@ -295,7 +295,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 					      <br />
 					      Ngay sau khi kích hoạt tài khoản, bạn đã có thể bắt đầu hành trình <span style="font-weight: bold; font-style: italic;">&ldquo;thăng tiến mỗi ngày&rdquo;</span> với Happy Click.<br />
 					      <br />
-					      Đây là email tự động gửi, vui lòng không trả lời vào email này.<br />
+					      <p style="background:red;padding:5px">Đây là email tự động gửi, vui lòng không trả lời vào email này.</p><br />
 					      <br />
 					      Thân mến,<br />
 					      <br />
@@ -331,7 +331,7 @@ if(isset($_POST) && $_POST['action'] == 'submit'){
 			}
 			else
 			{
-				wp_redirect('/hcaccount/xac-nhan-email/');
+				wp_redirect('/hcaccount/xac-nhan-email/?act=kich-hoat');
 				exit;
 			}
 

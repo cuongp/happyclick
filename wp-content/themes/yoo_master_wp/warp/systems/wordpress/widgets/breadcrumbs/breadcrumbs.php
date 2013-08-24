@@ -18,12 +18,18 @@ class Warp_Breadcrumbs extends WP_Widget {
 		global $wp_query;
 		
 		extract($args);
-
+		$is_member = current_user_is_member();
+		$is_subs = current_user_has_subscription();
 		$title = $instance['title'];
 		$home_title = trim($instance['home_title']);
 		
 		if (empty($home_title)) {
-			$home_title = 'Home';
+			if($is_member && !$is_subs)
+				$home_title = 'Trang chủ dành cho xem thử';
+			elseif($is_member && $is_subs)
+				$home_title = 'Trang chủ dành cho thành viên';
+			else
+				$home_title = 'Trang chủ';
 		}
 		
 		echo $before_widget;
@@ -36,7 +42,7 @@ class Warp_Breadcrumbs extends WP_Widget {
 			
 			$output = '<div class="breadcrumbs">';
 			
-			$output .= '<a href="'.get_option('home').'">';
+			$output .= 'Bạn đang ở đây: <a href="'.get_option('home').'">';
 			$output .= $home_title;
 			$output .= '</a>';
 
@@ -76,8 +82,11 @@ class Warp_Breadcrumbs extends WP_Widget {
 				$output .= '<strong>'.stripslashes(strip_tags(get_search_query())).'</strong>';
 			} else if (is_tax()) {
 				$taxonomy = get_taxonomy (get_query_var('taxonomy'));
+
 				$term = get_query_var('term');
-				$output .= '<strong>'.$taxonomy->label .': '.$term.'</strong>';
+				$destname = get_term_by('slug',$term,$taxonomy->name);
+				
+				$output .= '<strong>'.$destname->name.'</strong>';
 			} else {
 				$output .= '<strong>'.get_the_title().'</strong>';
 			}
@@ -86,7 +95,7 @@ class Warp_Breadcrumbs extends WP_Widget {
 			
 		} else {
 			
-			$output = '<div class="breadcrumbs">';
+			$output = '<div class="breadcrumbs"><strong>'._e('Bạn đang ở đây: ','warp').'</strong>';
 			
 			$output .= '<strong>'.$home_title.'</strong>';
 			

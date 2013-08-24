@@ -12,12 +12,11 @@
  *   http://github.com/qertoip/jeditable-datepicker
  *
  */
-
+(function($) {
 // add :focus selector
 jQuery.expr[':'].focus = function( elem ) {
   return elem === document.activeElement && ( elem.type || elem.href );
 };
-
 $.editable.addInputType( 'datepicker', {
 
     /* create input element */
@@ -73,3 +72,4 @@ $.editable.addInputType( 'datepicker', {
     }
 } );
 
+})(jQuery);

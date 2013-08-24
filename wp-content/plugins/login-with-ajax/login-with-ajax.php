@@ -1,4 +1,6 @@
 <?php
+
+
 /*
 Plugin Name: Login With Ajax
 Plugin URI: http://wordpress.org/extend/plugins/login-with-ajax/
@@ -68,6 +70,7 @@ class LoginWithAjax {
 
 	// Actions to take upon initial action hook
 	public static function init(){
+
 		//Load LWA options
 		self::$data = get_option('lwa_data');
 		//Remember the current user, in case there is a logout
@@ -113,7 +116,7 @@ class LoginWithAjax {
 			add_shortcode('lwa', 'LoginWithAjax::shortcode');
 		}
 	}
-	
+
 	public static function widgets_init(){
 		//Include and register widget
 		include_once('login-with-ajax-widget.php');
@@ -145,6 +148,7 @@ class LoginWithAjax {
 
 	// Reads ajax login creds via POSt, calls the login script and interprets the result
 	public static function login(){
+
 		$return = array(); //What we send back
 		if( !empty($_REQUEST['log']) && !empty($_REQUEST['pwd']) && trim($_REQUEST['log']) != '' && trim($_REQUEST['pwd'] != '') ){
 			$loginResult = wp_signon();
@@ -156,9 +160,7 @@ class LoginWithAjax {
 				$return['result'] = true;
 				$return['message'] = __("Login Successful, redirecting...",'login-with-ajax');
 				//Do a redirect if necessary
-
-
-					$redirect = self::getLoginRedirect(self::$current_user);
+				$redirect = self::getLoginRedirect(self::$current_user);
 				if( $redirect != '' ){
 					$return['redirect'] = $redirect;
 				}
@@ -169,6 +171,7 @@ class LoginWithAjax {
 					$query_vars .= ( !empty($_REQUEST['lwa_profile_link']) ) ? "&lwa_profile_link=1" : '';
 					$return['widget'] = get_bloginfo('wpurl')."?login-with-ajax-widget=1$query_vars";
 					$return['message'] = __("Login successful, updating...",'login-with-ajax');
+
 				}
 			} elseif ( strtolower(get_class($loginResult)) == 'wp_error' ) {
 				//User login failed
@@ -180,10 +183,24 @@ class LoginWithAjax {
 				$return['result'] = false;
 				$return['error'] = __('An undefined error has ocurred', 'login-with-ajax');
 			}
-		}else{
+			update_usermeta( $loginResult->ID,'isLogged',$_COOKIE['PHPSESSID']);
+			// if($isLogged==1)
+			// {
+			// 	wp_logout();
+			// 	$return['result'] = false;
+			// 	$return['error']	 = __('Tài khoản đang được sử dụng ở máy khác.', 'login-with-ajax');
+			// }
+			// else
+			// {
+			// 	update_usermeta( $loginResult->ID,'isLogged',1);
+			// }
+		}
+		else{
 			$return['result'] = false;
 			$return['error'] = __('Please supply your username and password.', 'login-with-ajax');
 		}
+		//$return['current_cat'] = get_var_query('cat');
+		//$return['cat'] = get_query_var('hcaccount');
 		$return['action'] = 'login';
 		//Return the result array with errors etc.
 		return $return;
@@ -223,7 +240,8 @@ class LoginWithAjax {
 		if ( $result === true ) {
 			//Password correctly remembered
 			$return['result'] = true;
-			$return['message'] = __("We have sent you an email", 'login-with-ajax');
+			$return['message'] = __("Happy Click đã gửi email cho bạn vào email mà bạn đã đăng ký. Vui lòng làm theo hướng dẫn trong email để lấy lại mật khẩu.<h3 style='color:#f79300'>Chú ý</h3><ul><li> Nếu không tìm thấy email của Happy Click trong hộp thư đến, bạn có thể kiểm tra lại trong hộp thư rác.</li><li>
+Nếu vẫn không tìm thấy email, vui lòng thực hiện lại sau.</li></ul>", 'login-with-ajax');
 		} elseif ( strtolower(get_class($result)) == 'wp_error' ) {
 			//Something went wrong
 			/* @var $result WP_Error */
@@ -248,7 +266,7 @@ class LoginWithAjax {
 		}
 		return $logout_url;
 	}
-	
+
 	public static function getRegisterLink(){
 	    $register_link = false;
 	    if ( function_exists('bp_get_signup_page') ) { //Buddypress
@@ -328,7 +346,7 @@ class LoginWithAjax {
 		$data = self::$data;
 		//Global redirect
 		$redirect = false;
-		
+
 		if( !empty($data['login_redirect']) ){
 			$redirect = $data["login_redirect"];
 		}
@@ -352,7 +370,7 @@ class LoginWithAjax {
 				}
 			}
 		}
-				
+
 		//Do string replacements
 		$redirect = str_replace('%USERNAME%', $user->user_login, $redirect);
 		$redirect = str_replace("%LASTURL%", $_SERVER['HTTP_REFERER'], $redirect);
@@ -421,17 +439,17 @@ class LoginWithAjax {
 	/*
 	 * Auxillary Functions
 	 */
-	
+
 	/**
 	 * Returns the URL for a relative filepath which would be located in either a child, parent or plugin folder in order of priority.
-	 * 
+	 *
 	 * This would search for $template_path within:
 	 * /wp-content/themes/your-child-theme/plugins/login-with-ajax/...
 	 * /wp-content/themes/your-parent-theme/plugins/login-with-ajax/...
 	 * /wp-content/plugins/login-with-ajax/widget/...
-	 * 
+	 *
 	 * It is assumed that the file always exists within the core plugin folder if the others aren't found.
-	 * 
+	 *
 	 * @param string $template_path
 	 * @return string
 	 */
@@ -459,7 +477,7 @@ class LoginWithAjax {
 		    }
 		}
 	}
-	
+
 	/**
 	 * Add template link and JSON callback var to the URL
 	 * @param string $content
@@ -468,7 +486,7 @@ class LoginWithAjax {
 	public static function template_link( $content ){
 		return add_query_arg(array('template'=>self::$template), $content);
 	}
-	
+
 	/**
 	 * Returns a sanitized JSONP response from an array
 	 * @param array $array
@@ -480,7 +498,7 @@ class LoginWithAjax {
 			$return = $_REQUEST['callback']."($return)";
 		}
 		return $return;
-	}	
+	}
 }
 //Set when to init this class
 add_action( 'init', 'LoginWithAjax::init' );

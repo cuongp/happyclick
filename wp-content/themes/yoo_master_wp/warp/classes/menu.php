@@ -20,6 +20,7 @@ class WarpMenu {
 			Object
 	*/
 	public function process($module, $element) {
+		
 		return $element;
 	}
 

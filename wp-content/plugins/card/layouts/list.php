@@ -1,20 +1,11 @@
 <?php
-<<<<<<< HEAD
 if(isset($_POST['action']) && $_POST['action']=='editcard'){
 	$a = strptime($_POST['expired'], '%d/%m/%Y');
-	
+
 	$d = ($a['tm_year']+1900).'-'.($a['tm_mon']+1).'-'.$a['tm_mday'];
 	$timestamp = strtotime($d);
 
 	//mktime(0, 0, 0, $a['tm_mday'],$a['tm_mon']+1, $a['tm_year']+1900);
-=======
-error_reporting(-1);
-
-if(isset($_POST['action']) && $_POST['action']=='editcard'){
-	$a = strptime($_POST['expired'], '%d/%m/%Y');
-	
-	$timestamp = mktime(0, 0, 0, $a['tm_mon']+1, $a['tm_mday'], $a['tm_year']+1900);
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 	$update = HCcard::update(array('serial'	=>	$_POST['serial'],
 						'code'		=>	$_POST['code'],
 						'expired'	=>	$timestamp,
@@ -61,22 +52,17 @@ $cards = HCcard::getAll("","",$params);
 <option value="all">Tất cả</option>
 	<option value="0" <?php if(isset($_GET['valid']) && $_GET['valid'] == '0') echo 'selected="selected"'; else echo '';?>>Đang trong kho</option>
 	<option value="1"  <?php if(isset($_GET['valid']) && $_GET['valid'] == '1') echo 'selected="selected"'; else echo '';?>>Đã xuất kho</option>
-</select>
+</select>Ngày hết hạn
+<input type="text" value="" id="date" name="date">
 <input type="hidden" value="search" name="action">
 <input value="Tìm kiếm" type="submit" id="submit">
 </form>
 <table class="list">
 			<thead>
-<<<<<<< HEAD
 				<th class="shortcode"><input type="checkbox" name="id[]" value="checkall" />ID</th>
 				<th class="shortcode">Serial</th>
 				<th class="modified">Code</th>
 				<th class="modified">Plan</th>
-=======
-				<th class="shortcode">ID</th>
-				<th class="shortcode">Serial</th>
-				<th class="modified">Code</th>
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 				<th class="modified">Ngày tạo</th>
 				<th class="modified">Ngày hết hạn</th>
 				<th class="modified">Trạng thái</th>
@@ -85,52 +71,40 @@ $cards = HCcard::getAll("","",$params);
 			</thead>
 			<tbody>
 			<?php
-				if(!empty($cards)){	
+				if(!empty($cards)){
 					foreach ($cards as $card) {
-					$datetime = new DateTime(); 
+					$datetime = new DateTime();
 			?>
 			<tr id="item-<?php echo $card->id; ?>">
-<<<<<<< HEAD
 				<td class="shortcode"><input type="checkbox" name="id[]" value="<?php echo $card->id; ?>" /><?php echo $card->id; ?></td>
 				<td class="shortcode"><?php echo $card->serial; ?></td>
 				<td class="modified"><?php echo $card->code; ?></td>
-				<td class="modified"><?php echo $card->sub_id; ?></td>
-=======
-				<td class="shortcode"><?php echo $card->id; ?></td>
-				<td class="shortcode"><?php echo $card->serial; ?></td>
-				<td class="modified"><?php echo $card->code; ?></td>
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
+				<td class="modified"><?php echo HCcard::get_sub_info($card->sub_id)->sub_name; ?></td>
 				<td class="modified"><?php echo date('d/m/Y',$card->created_at); ?></td>
 				<td class="modified"><?php echo date('d/m/Y',$card->expired); ?></td>
 				<td class="modified"><?php echo $card->status=='0'?'Chưa sử dụng':'Đã sử dụng'; ?></td>
 				<td class="modified"><?php echo $card->valid=='0'?'Đang trong kho':'Đã xuất kho'; ?></td>
 				<td class="actions">
 					<a class="action edit" href="?page=hccard&options=list&cardid=<?php echo $card->id;?>">Edit</a>
-					<a class="action delete" href="#"  data-id="<?php echo $card->id;?>">Delete</a> 
+					<a class="action delete" href="#"  data-id="<?php echo $card->id;?>">Delete</a>
 				</td>
 			</tr>
 			<?php
-					}	
+					}
 				}
 			?>
 			</tbody>
 		</table>
 		<div id="page">Trang:
-			<?php 
+			<?php
 				if($pages>0){
 					for ($i=1; $i<= $pages ;$i++){
-<<<<<<< HEAD
 
-=======
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 						if(isset($_GET['status']) || isset($_GET['valid']))
 							echo '<a style="padding:5px" href=?page=hccard&options=list&valid='.$_GET['valid'].'&status='.$_GET['status'].'&p='.$i.'>'.$i.'</a>';
 						else
 							echo '<a style="padding:5px" href=?page=hccard&options=list&p='.$i.'>'.$i.'</a>';
-<<<<<<< HEAD
 						if($i%45==0) echo '<br/>';
-=======
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 					}
 				}
 			?>

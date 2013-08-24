@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
 * @package   Warp Theme Framework
 * @author    YOOtheme http://www.yootheme.com
@@ -48,7 +48,7 @@ foreach ($categories as $key=>$category){
     );
     //Category chua co du lieu => bo qua
     if($category->count == 0 ) continue;
-    
+
     $trial_id       = 1; //Trial level
     $is_trial       = current_user_on_level($trial_id);
     ?>
@@ -100,7 +100,7 @@ if(!count($categories)){
         'orderby' => 'date',
         'order' => 'ASC',
         'show_count' => 1
-    );   
+    );
     ?>
     <div class="video-category">
         <?php
@@ -132,9 +132,9 @@ if(!count($categories)){
         </script>
     </div>
 <?php }else{ ?>
-    <div class="video-pagination">    
+    <div class="video-pagination">
         <span>Trang</span>
-        <?php        
+        <?php
             while($number_of_pages>0){
                 if($number_of_pages != $current_page){
                     echo '<a href="?page='.$number_of_pages.'">'.$number_of_pages--.'</a>';
@@ -147,16 +147,17 @@ if(!count($categories)){
 <?php } ?>
 
 <div class="video-upcomming" style="padding-top: 2em; text-align: center;">
+<a  name="video-upcomming"></a>
     <?php /*
         $post_id = 2075;
         $video_upcomming = get_post($post_id);
-    
+
     <h3 class="text-orange"><?php echo $video_upcomming->post_title; ?></h3>
     <div>
         <?php echo $video_upcomming->post_content; ?>
     </div>
     */?>
-    
+
     <img src="<?php echo get_bloginfo('url').'/wp-content/uploads/2013/07/lich_video_tiep_theo.jpg' ?>" />
 </div>
 <?php

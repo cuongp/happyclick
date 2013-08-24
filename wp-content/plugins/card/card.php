@@ -12,12 +12,6 @@ License: GPLv2
 
 require_once(dirname(__FILE__).'/classes/data.php');
 require_once(dirname(__FILE__).'/helpers/system.php');
-<<<<<<< HEAD
-=======
-
-require_once (dirname(__FILE__).'/classes/PHPExcel/IOFactory.php');
-
->>>>>>> 95889b79e1cdf833ccf2065d9f00a5997c3d26cd
 if(is_admin()){
     
     add_action('admin_init', 'editor_admin_init');

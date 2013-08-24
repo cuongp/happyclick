@@ -8,13 +8,13 @@
 
 body {
 	font: normal 14px/20px Arial, Helvetica, sans-serif;
-	color: #444;
+	color: #000;
 }
 
 a { color: #48b; }
 
 a:hover,
-em, code { color: #d50; }
+ code { color: #d50; }
 
 ins, mark { background-color: #ffa; }
 mark { color: #444; }

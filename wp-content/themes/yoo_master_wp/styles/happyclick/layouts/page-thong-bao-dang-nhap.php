@@ -1,14 +1,20 @@
 <div id="system">
-    <?php if (have_posts()) : ?>
+    <?php if (have_posts()) :
+    global $current_user;
+    ?>
         <?php while (have_posts()) : the_post(); ?>
 
             <article class="item" data-permalink="<?php the_permalink(); ?>">
-                <div class="content clearfix">  
+                <div class="content clearfix">
                     <div style="text-align:center; padding: 5em 0;">
-                        <?php 
+                        <?php
                         $user_ID = get_user_id();
                         $level_id = 2; //Membership level "HappyClick"
                         $is_membership = current_user_on_level($level_id);
+                        $is_subs = current_user_has_subscription();
+                        if($current_user->ID >0 && isset($_GET['redirect'])){
+                            wp_redirect($_GET['redirect']);
+                        }
                         if(!$user_ID):
                         ?>
                             <div class="border-blue">
@@ -24,8 +30,8 @@
                         </div>
                         <div class="back-home"><a href="<?php echo get_bloginfo('url'); ?>">Trở về trang chủ</a></div>
                     </div>
-                </div> 
-                
+                </div>
+
             </article>
 
         <?php endwhile; ?>

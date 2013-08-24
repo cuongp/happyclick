@@ -912,4 +912,7 @@ table.quiz td{
 #sidebar-b { width: 24%; }
 #sidebar-trial { width: 24%; }
 #maininner { width: 76%; }
+.single-hoc-truc-tuyen-old .content-box-inside p{
+    padding-bottom: 1em;
+}
 /* END Tamnd's code */

@@ -12,19 +12,19 @@ if($current_user->ID > 0){
 	if($_GET['act']=='dat-cau-hoi'){
 
 		if($current_user->ID>0 && $is_subs){
-			wp_redirect('/sukien/'.$_GET['post_name']);
+			wp_redirect('/chude/'.$_GET['post_name']);
 			exit;
 		}
 	}
 	elseif(check_register($current_user->ID,$cid)){
 				wp_redirect('/hcaccount/thong-bao-dang-ky/?cid='.$cid);
-	
+
 	}else{
 		$db = $GLOBALS['wpdb'];
-		
+
 	if($is_member && $is_subs){
 		$query = $db->insert($db->prefix.'user_sukien',
-				array('user_id'=>$current_user->ID 
+				array('user_id'=>$current_user->ID
 					,'sukien_id'=>$_GET['cid']
 					,'created_at'=>time()
 					,'payment_type'=> 0
@@ -40,7 +40,7 @@ if($current_user->ID > 0){
 		}
 		wp_redirect('/hcaccount/thanh-toan/?act=thanh-vien-dang-ky&user_id='.$current_user->ID.'&cid='.$cid.'&code='.time());
 		exit;
-	}	
+	}
 	}
 }
 ?>

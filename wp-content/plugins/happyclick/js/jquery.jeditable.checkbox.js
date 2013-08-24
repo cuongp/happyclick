@@ -23,7 +23,7 @@
  * Peter BÃ¼cker (spam.naag@gmx.net)
  * http://www.pastie.org/893364
  */
-
+(function($) {
 $.editable.addInputType('checkbox', {
   element: function(settings, original) {
     $(this).append('<input type="checkbox"/>');
@@ -58,4 +58,4 @@ $.editable.addInputType('checkbox', {
     }
   }
 });
-
+})(jQuery);
